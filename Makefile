@@ -1,4 +1,4 @@
-.PHONY: help install test clean collect-data train scan
+.PHONY: help install test clean collect-data train train-split evaluate scan
 
 help:
 	@echo "SCBF - Supply Chain Behavioral Fingerprinting"
@@ -6,14 +6,17 @@ help:
 	@echo "Usage:"
 	@echo "  make install        Install package in development mode"
 	@echo "  make collect-data   Collect clean + malicious training data"
-	@echo "  make train          Train TGN model and build envelope"
+	@echo "  make train          Train TGN model (original - no split)"
+	@echo "  make train-split    Train TGN model with train/val/test split"
+	@echo "  make evaluate       Evaluate trained model on test set"
 	@echo "  make scan           Run example scan (requires package name)"
 	@echo "  make test           Run test suite"
 	@echo "  make clean          Remove generated files"
 	@echo ""
 	@echo "Examples:"
 	@echo "  sudo make collect-data"
-	@echo "  sudo make train"
+	@echo "  sudo make train-split     # Recommended"
+	@echo "  sudo make evaluate"
 	@echo "  sudo make scan PKG=requests"
 
 install:
@@ -29,7 +32,7 @@ collect-data:
 	@echo "Done. Check data/clean/ and data/malicious/"
 
 train:
-	@echo "Training TGN model..."
+	@echo "Training TGN model (original - no split)..."
 	sudo python -m scbf.training.train
 	@echo ""
 	@echo "Building behavioral envelope..."
@@ -37,6 +40,19 @@ train:
 	@echo ""
 	@echo "Checking separation..."
 	sudo python scripts/check_distances.py
+
+train-split:
+	@echo "Training TGN model with train/val/test split..."
+	sudo python -m scbf.training.train_with_split
+	@echo ""
+	@echo "Building behavioral envelope..."
+	sudo python -m scbf.training.build_envelope
+	@echo ""
+	@echo "Training complete! Run 'make evaluate' to see test results."
+
+evaluate:
+	@echo "Evaluating model on test set..."
+	sudo python -m scbf.training.evaluate
 
 scan:
 	@if [ -z "$(PKG)" ]; then \

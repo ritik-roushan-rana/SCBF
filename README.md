@@ -38,26 +38,44 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-### 1. Scan a package
+### Using Makefile (Recommended)
 ```bash
-sudo python -m scbf.detection.cli --package requests
+# 1. Collect training data (~30 min)
+sudo make collect-data
+
+# 2. Train with train/val/test split (~10 min)
+sudo make train-split
+
+# 3. Evaluate on test set
+sudo make evaluate
+
+# 4. Scan a package
+sudo make scan PKG=requests
 ```
 
-### 2. Collect training data
+### Manual Commands
 ```bash
-sudo python scripts/collect_clean_data.py
-sudo python scripts/collect_malicious_data.py
+# 1. Collect training data
+sudo python3 scripts/collect_clean_data.py
+sudo python3 scripts/collect_malicious_data.py
+
+# 2. Train with proper train/test split
+sudo python3 -m scbf.training.train_with_split
+
+# 3. Build behavioral envelope
+sudo python3 -m scbf.training.build_envelope
+
+# 4. Evaluate model
+sudo python3 -m scbf.training.evaluate
+
+# 5. Scan a package
+sudo python3 -m scbf.detection.cli --package requests
 ```
 
-### 3. Train the model
-```bash
-sudo python -m scbf.training.train
-```
-
-### 4. Build behavioral envelope
-```bash
-sudo python -m scbf.training.build_envelope
-```
+### Training Documentation
+- [TRAINING_GUIDE.md](TRAINING_GUIDE.md) - Comprehensive training guide
+- [TRAIN_COMMANDS.md](TRAIN_COMMANDS.md) - Quick command reference
+- [TRAIN_TEST_SPLIT_SUMMARY.md](TRAIN_TEST_SPLIT_SUMMARY.md) - What's new
 
 ## Project Structure
 
