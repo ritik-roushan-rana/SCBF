@@ -15,7 +15,7 @@ model = TGNEncoder(num_nodes=50000)
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
 MARGIN = 0.8
-EPOCHS = 50               # upper bound — early stopping will likely cut this short
+EPOCHS = 25               # upper bound — early stopping will likely cut this short
 PATIENCE = 5              # stop if no improvement for this many epochs
 CHECKPOINT_DIR = "checkpoints"
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
