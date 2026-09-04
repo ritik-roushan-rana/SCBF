@@ -62,12 +62,13 @@ def parse_opensnoop_line(line):
 
 
 def read_pid_file(pid_file_path):
-    """Read the single PID from PIDs file."""
+    """Read the first PID from PIDs file (may contain multiple PIDs)."""
     try:
         with open(pid_file_path, 'r') as f:
-            pid_str = f.read().strip()
-            if pid_str.isdigit():
-                return int(pid_str)
+            # Read first line (first PID)
+            first_line = f.readline().strip()
+            if first_line.isdigit():
+                return int(first_line)
     except Exception as e:
         print(f"  WARNING: Could not read PID from {pid_file_path}: {e}")
     
