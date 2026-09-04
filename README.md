@@ -115,9 +115,31 @@ scbf/
 
 ## Training Data
 
-- **Clean packages**: 60+ top PyPI packages
+- **Clean packages**: 67 top PyPI packages (original SCBF)
 - **Malicious samples**: 99 confirmed malicious packages (Datadog dataset)
+- **QUT-DV25 dataset**: ~200 additional samples (100 benign + 100 malicious) 🆕
+- **Total training data**: ~366 packages after QUT-DV25 integration
 - **Event streams**: ~2000+ events/package average
+
+### QUT-DV25 Integration 🆕
+
+The project now supports the QUT-DV25 dataset for enhanced training:
+
+```bash
+# Inspect QUT-DV25 dataset
+python3 scripts/inspect_qutdv25.py
+
+# Convert to SCBF format
+python3 scripts/convert_qutdv25.py
+
+# Validate conversion
+python3 scripts/validate_qutdv25.py
+
+# Train with merged dataset (original + QUT-DV25)
+sudo make train-split
+```
+
+See [QUT-DV25_USAGE_GUIDE.md](QUT-DV25_USAGE_GUIDE.md) for details.
 
 ## Performance
 

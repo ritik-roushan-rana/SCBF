@@ -26,12 +26,17 @@ wheels/
 # Data and models
 data/clean/*.jsonl
 data/malicious/*.jsonl
+data/qut_clean/
+data/qut_malicious/
 models/*.pt
 models/*.pth
 models/checkpoints/*.pt
 *.npy
 *.pkl
 last_capture.jsonl
+
+# QUT-DV25 raw dataset (2.1 GB - do not commit to git)
+QUT-DV25_Datasets/
 
 # IDE
 .vscode/
