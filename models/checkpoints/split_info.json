@@ -1,0 +1,5388 @@
+{
+  "train": [
+    {
+      "path": "data/zenodo_13746167/benign/traces/NNetwork-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypiler-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/plyawright-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pdtransform-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/npasync-2022.7.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyresponse-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ethereumm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyreposync-0.0.12.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/asgiproxify-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Ftocelsius-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/amzsear-2.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pygrambank-2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fletch-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/datetimerangepicker-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/holteandtalley-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/drclient-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jrnr-0.2.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ecom-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Simplejsoj-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/galliardsz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/twquant-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/invade-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/magicparams-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/osrs-hiscore-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/indent-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyTordh-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/webscaff-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/awsclii-1.27.67.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/johnhammondfanpackage124-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nester123456-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/beautifullogger-4.8.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/botoo3-1.26.67.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/icepickle-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/secondPackage-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lithon-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/easyCodes-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ironeagle-0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pytwitterapi-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmosterclouclient-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mvr-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wboxkit-0.4.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PubRec-v1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/calorimeter-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cellartracker-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/svggen-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lissues-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mrglog-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/twitauth-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ignore-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/outcome-1.3.0.post0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pytrans-2.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/selenuimm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tabCompletion-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hazedumper-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/geospots-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pywz-0.1.4.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/altoshift-1.0.79.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jme-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/popyquests-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyexchange-0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cfapi-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/fantastic-ascii-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/brainfk-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/WiktionaryPy-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/colorstylecycler-0.1.22.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/beautiflulsoop-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/matplutlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/restcodetest-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ctfpipshell-0.0.4.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bip-utjls-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/thematik-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lmao-1.18.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/SpiffIntegrator-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fabvenv-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MultiImport-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheerium-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/subdichotomouslyz-2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/FeishuBitableAPI-3.3.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/djsourceview-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pythkn-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/atherpy-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/iiris-new-2.0.16.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PythonPackageTest-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pydriveways-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ccreload-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pip_security-0.0.14.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/floatedu-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/QGraphViz-0.0.55.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/hameni-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hexicapi-1.0.733.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/predikto-1.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/dependency-conf-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gammaALPs-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/terminalcolor-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/latexfixer-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/opensae-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wicc-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/worldcatidentities-0.5.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/glandaceousz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pystructure-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bcmaccount-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nimporter-2.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bip-utilos-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vizdxp-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dbmpy-1.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_ent-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/krautmarkt-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/acronym-2.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/BatchParse-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/discord.pt-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmostercloudclieent-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requirementtsxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/prufer-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytjon-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/RayTux-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/rosbackup-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/LabJackPython-2.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/webpilot-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/seleeniumm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/CNExpir-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/plugin2cube-2.2.12.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dnsmock-21.2b2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/polysdk-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pandarequests-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramqa-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/opensar-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/eautifulsoup4-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/rdquests-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheriem-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MathLab-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/p123api-1.4.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ReverseShell-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lgpdXml-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/felpesviadinho-0.4.5.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/digcnv-0.4.13.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pyfilget-1.0.5.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pymilka-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sslinfo-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/rubygemsrecipe-0.4.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yeqingprint-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/heysamipkg-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/carbonferret-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gettup-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/spyme-0.0.3.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/siamttviews-5.1.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/koronascript-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/EvaMap-2.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/getMysqlConnPara-2.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/BeaotifulSoup-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/matshapes-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/apitopy-0.4.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyCLI-2.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pretools-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkintrr-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/itrm-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/giraphics-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyCondor-0.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/flexistack-0.1.15.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requstsssq-2.28.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gview-0.0.10.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/IORedprint-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pkgfileutils-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/awspublicranges-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pydiablo-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/md2tex-0.0.17.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pySEP-1.0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lcmd-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/loot-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/playwirght-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cable-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/neotest-0.0.1.dev2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pysmartweatherudp-0.1.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pywhool-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cart2polar-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/litecache-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/clientlib-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtinter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/universion-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytypier-1.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yapyseq-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/orthauth-0.0.18.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dirio-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sftplib-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/deepmountains_lrce-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonstercloudcluodclient-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wsgirpc-2.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/snmpreceiver-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkniterr-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ulstools-0.10.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/hnUHfYZUmKMO-0.3.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/private-library-dont-install-3.3.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hovercraft-2.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etherum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/astroblast-2.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyserializer-0.9.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyluno-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mfpkage-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/quakeio-0.1.19.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/salvage-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/OscarHtesting-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyTorcb-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonstercloudclinent-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mriutils-1.2.18.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/value2-2.1.4.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cdhelm-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pennystonez-2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/denizenz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pylgorithm-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/centroid-1.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyreactive-0.3.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/goldratio33423324-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/phue-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fistminio-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/adia-4.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Proba-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Djinja-0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/solgate-3.5.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ethereium-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkinger-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pihdf-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/affilipy-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/datawindow-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_rms-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/socli-7.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/model2api-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bpdiag-0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cpntools4py-1.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hypapantez-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/libressl-1.5.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pyghoster-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wdgameoflife-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/emoji-country-flags-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lakecli-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dailylog-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/greenai-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/djmongoengine-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Mlask-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requirementxstxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/k2plr-0.2.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/brukeropus-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/fequests-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/netto-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/selemnim-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/midas2-2.0.0rc3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/fuzzzywuzzy-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/glta-2019.12.31.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/descformats-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/w3eb-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/certefi-2022.9.24.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pya2l-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kmediaofficer-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fullstack-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/asynciooo-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ItsuBot-4.5.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/seqconverter-3.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ethreeum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/insanepackageongong11192-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/exutil-0.3.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramxa-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/preconizedz-2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kafkaloghandler-0.9.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nestbackup-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/povertylevel-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/algopy-0.6.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/misbehave-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/playwrght-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonstercloudcliendt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/asyyncio-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/maxdev-1.4.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wy-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqwestss-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyTorchy-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mathsss-1.01.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/SomaticSiMu-3.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/mordving-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/threatkb-1.0.0a2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyabf-2.3.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/linkedin-scrape-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aeskeyschedule-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vansulich-2021.8.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyarkbench-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/slapstack-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gridingz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/harpies-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dogclient-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kudanil-2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/SolAster-1.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MissionData-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ctkentrymsg-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/simplog-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/scratch2py-0.7.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyLg-1.3.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/screenlogicpy-0.10.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/flake7-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requstsss-2.28.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dviplot-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremenstx-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensxoflow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bigQueryExporter-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fslock-2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/mle-py-connector-5.9.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/beautiflulsoup-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremetstx-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dotmgr-0.5.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/l0n0lnat-2.3.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheraem-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/randomthings-1.2.1.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_dog-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/archaeostomaz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/openwsaa-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/indict-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pyurllib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pygaime-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/readycharz-0.2.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytorcm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mrsprint-1.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/quartodoc-0.7.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hexbytes-1.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramzs-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pranavarya-0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/EnergyID-0.0.17.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fideparser-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/TracHtGroupEditorPlugin-2.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wcltestlib-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pypiele-1.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/alegriadb-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/radixlib-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/uncovr-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/HeapDict-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/TXTanalyzer-1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yeastarAPI-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramws-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lutar-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/cryptographyy-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ttconv-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/rrquests-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/clise-0.2.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mkglib-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ivneuro-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/curco-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyGaome-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fastemc-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ffselect-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/chenyabaibaoxiang-3.6.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/telma-1.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tstscript-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gitleak-0.9.2.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bellow-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/downrun-1.1.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bulrush-0.6.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/boxx-0.10.14.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sevseg-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/curl2pyreqs-0.4.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pjllow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/deleter-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dtsp-0.3.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Folders-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/1337z-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/amar-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/orchestra-1.0.56.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dictfunc-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/urlstore-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/RIML-3.3.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/BioCircos-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypremium-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Discohook-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/johnhammondontop183-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/marigold-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/historic-crypt-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/wbe3-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-cird-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Riolu-0.12.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/thesis_uniud_package-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/selenniumm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bips-utils-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/roughviz-4.7.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kraconvert-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MarloAPI-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/optmanage-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fpstool-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/i2cpy-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/drivtime-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/seleenimu-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dblog-0.3.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyairtable-3.0.0a2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xarm-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/maze-3.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gptc-4.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/DataExpansion-0.1.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pill9w-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/coco2customvision-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/torroute-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/taggercli-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pylogger-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/excaliburx-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PrimeAPIClient-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/superpaste-1.0.0rc2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/homologumenaz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wtfpython-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/docserve-0.9.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/formulatoolkit-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aisa-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyprogressbars-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xsh-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/AlphabetPy-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/eepl-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kunci-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fonttools-4.53.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pygameextra-2.0.0rc1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/qrun-0.5.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-c0red-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tinify-1.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/insanepackageongong192-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/anisoms-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/crefi-2.0.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/graylogging-2.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/z2pack-2.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremetns-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/opemsea-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/huanzinester-1.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mapdict-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/yandex-map-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mobspy-2.4.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/GoogleBard-2.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyduckgo-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sqterritory-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/leapfrogmshreader-0.24.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/generatorepiva-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/easygae-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloroama-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requirementstx-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tracing-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/evidence-2.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyTorbch-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyzgoubi-0.8.0a2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/RsCmwGsmMeas-3.7.30.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/rdchiral-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/TetraModelling-1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cryptorama-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pydprotect-3.5.6.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/SeisCM-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/teamlab-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/webclip-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyxml2dict-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xcolumns-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/scalelite-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/common_as-1.3.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/xgoogle_cloud_storage-1.33.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/scriptq-1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/yocolor-0.4.6.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/robloxapiaccess-0.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/stackUI-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jobaggregator-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/website-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/walkerlayout-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/norsu-0.4.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/watchng-1.4.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xyzclean-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zenbu-1.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqoests-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requetsts-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/otr_utils-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/threadin-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ModbusSharedMemory-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pythonperlin-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lilcache-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/instantpy-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypon-0.0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheirum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ds9norm-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colouorama-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/graphcanvas-4.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/moonstream-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensoflouw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gzipi-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/crimjustsimpy-1.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gitdep-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sinever-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/schubismomv3-1.10.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zzhprob-0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ach-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requests_darwin_lite-2.28.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pychd-0.2.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pythondemomessaging1-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/statesxt-0.5.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/numcertainties-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/LinearFold-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtknter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyprofibus-1.13.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/luoluo-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/saphira-0.0.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/promptlogs-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ManejadorMySQL-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/SapGuiExtended-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pyptext-0.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kidronekit-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mliv-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/setl-0.10.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/spaint-1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/baldpatedz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sql2sql-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bolos-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyGamse-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cScell-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkintrer-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-coqrd-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pathsummary-0.1.0a6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requuests-2.27.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_cas-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customkinter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requesuts-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ionmf-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vectorflow-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nodeman-0.5.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/antaresfabricframeworkbase-1.1.38.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/AerospikeClientMock-1.0.3.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jsdoc2json-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/seffaflik2-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/poslocalbll-0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyGmme-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/autoscrum-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/opensear-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/openresa-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/validatorpkg-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/dasdsajdjsaasddsad-4.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/request-1.0.117.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requessts-2.27.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/seliniumm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dascore-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pillox-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/allneo-17.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fobs-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Tensorplex-0.9.post1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/clusterdock-2.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Lenpy-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/TFInterpy-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/microcosm-4.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyemoncms-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requierement-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requirmentss-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ImageContour-0.2.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bullmq-2.7.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pdbio-0.4.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheerim-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ropwr-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ikku-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/eventIsotropy-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/IMALogger-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/QuinnStruct-0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/WkquBsXEkbXn-0.3.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/beautifuklsoup-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensobflow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gobigger-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pachypy-0.1.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Impyccable-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pansy-2.0.31.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyrqp-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/plt2latex-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/orangelib-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/osbm-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/user-agents-parser-2.2.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matplrtlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/foremon-1.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ServiceCreator-1.12.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/shedv-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/amptrac-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mytftpy-0.8.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pytexttool-0.3.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/itermae-0.6.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etherim-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/linkvertise-1.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/deisa-0.2.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Certis-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/temsorflow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/angler-0.0.15.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fedn-0.10.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyttm-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonstercloudcliet-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MangDL-3.1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/notsogood-0.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/codecov-2.1.13.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/holamundoplayerversionkeilor-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/telegen-1.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/p8llow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matploltlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pathing-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sorm-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pymoon-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tyype-0.0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/thatway-0.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/py3make-1.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Torrelque-0.7.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonsterclouddclient-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lume-0.9.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mysecondvenv-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/geodummy-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ASRepCatcher-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nester365-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vlermv-2.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ouija-1.3.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etherun-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yerbamate-0.9.239.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hdfqs-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aspmc-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/statsmodel-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sermonaudio-6.15.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheeruim-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/makemake-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/djongo-1.3.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/matplrtib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ownotp-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/luisatorquato-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fservice-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/unp-0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sih-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xcompare-2.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/BeautifulSoop-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jsTUX-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pulpitum-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gpstime-0.8.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/quixstreaming-1.5.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/AutoPostTelegram-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/basiccalculatorSh-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matplftlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lazytable-0.5.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bip-util-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kaling-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqiremnets-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gmaneLegacy-0.1.dev27.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/custrmtkinter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/junitmgr-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/shalchemy-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/scuttlebutt-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kasten-3.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/peyote-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Youtube2Images-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/awsarchive-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/deeprefactorCLI-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/openytapi-2.4.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aguirre-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/manicrypt-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytoileur-1.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/glutton-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/asteroid_filterbank-0.4.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tornroutes-0.5.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Simpkejson-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/brokescolors-0.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/virusai-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PytopiaAPI-1.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/additionpkg-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/gequests-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytttsx3-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/serviceinstaller-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/web3.pu-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pypttt-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/deep-translate-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/plauwright-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheriuum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/toolbox-1.11.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypipackageexample-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/snscrape-0.7.0.20230622.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bugzscout-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/WICPy-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/torchbrain-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/persianSyllableCounter-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyhOn-0.17.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/go-requests-2.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sbc-1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vagalume-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyChatVerse-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/openfaker-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pycloc-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/trexcolors-0.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyWldap-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/r4quests-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mycommons-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiirementstxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/speechToTextPy-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wagtailapi-1.0c3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/readycher-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Fudget-0.1dev.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/decodanda-0.6.13.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/githyperlink-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/McCalc-0.0.10.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matplootib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pygfame-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkimter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/conqur-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/boogishell3-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lubar-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyekonlib-0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/web3q-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/botoa-1.26.67.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pywin31-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/spatialist-0.13.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nightHua-1.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/euclidean-1.0.0b5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/alantests-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/palavreado-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/timecop-0.5.0dev.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dservercore-0.20.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/beeline-0.0.9-alpha.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/geoca-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/calculator_2c397c49ab20c445-1000.0.6.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vedicastro-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/CDynamics-2.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyGacme-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqirements-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/datesearch-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramah-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/htmap-0.6.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensoflaow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mergeconf-0.5.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/acgv1signer-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/humanqueen-0.0.5.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/k2eg-0.2.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/singleurlcrud-0.21.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dfrnt-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypbf-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/radioactivedecay-0.5.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/oepensea-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/egrid-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/overdazedz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/BeautifulSoul-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/keyoscacquire-4.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/camels-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ledmx-0.2a0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tucan-x-0.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requesta-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lookaheadtools-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/exhentai-0.1.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tessfpe-6.1.12.dev9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tempocalculation-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nub-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/myshellcode2-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dialypetalousz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyFriday-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/slurmtoppy-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colormma-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensoflonw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/shanbay-0.3.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sfox-ecdsa-129.6.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/distributiongaussian-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/excels2vensim-0.14.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pyhints-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/rdfchangesets-1.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/jmdrs-1.0.6.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pydobc-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/autom8it-1.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/klaus-3.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/var2pharm-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bcrypto-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/las-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/agentlib-0.8.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/testpipxyz4-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/libsock4-0.1.3.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Exode-1.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqiurementstxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ks98distributions-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/muniverse-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Warcat-2.2.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dateinfer-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/WhoColor-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pythun-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jcevents-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramxs-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ezrpg-2022.9.26.13826.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/minrest-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/txthoonk-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/2029-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqiremnts-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/wev3-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/schemify-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/jeilyfish-0.7.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/yaudio-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/forcebalance-1.9.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hlmm-1.3.0a1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lingkar33423309-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/lyft-service-9.99.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pySystem-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/merkletreepy-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MariamHelloTest-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kpc-0.3.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/soql-1.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-c0dd-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requewsts-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/symfeat-0.4.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/postikodi-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/hkg-sol-utils-1.4.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/routeml-0.24.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mediasolutions-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/GeCO-1.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/digLshClustering-0.1.18.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ctypesprocstuff-0.10.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/badx12-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-cwrd-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vcspack300-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/testy-0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/junpdf-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensoflpw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gflex-1.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/adsml-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pltRDF-0.1.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pyg-utils-2.1.8.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/codexpy-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/NewBusinessProjectsLib-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/couchbasekit-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/vibrant-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/liuzhenyuisagoodsman-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/eupionz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cavalier-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/quotespy-1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ethherium-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/crypto-os-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aiowiserheatapi-1.5.14.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ecquote-1.6.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aiCode-23.6.22.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/forcediphttpsadapter-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/fatnoob-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bip32utilz-0.3.post3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dsplib-0.9.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_zjlm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bashparse-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/web2-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lowvision-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/blindspin-2.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/posterum-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gradual-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/GmailChecker-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colorsama-0.4.5.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/endereco-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tiny43-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nonsubstitutionallyz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zqygis-1.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matplorlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/querypp-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xmars-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tantipy-0.14.0.dev0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/foremast-5.15.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requset-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/uitestcore-10.5.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pymplschapters-1.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/confdoggo-0.1.0a1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/mxnet-cuXXX-1.12.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/alipay-0.7.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ocmpy-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/flawlessz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requssts-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/duplication-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/AlertLogicAPI-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mcescher-1.7.0b17.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/orderbookmdp-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/DoubleML-0.8.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/chika-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requirementt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gsignals-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytgon-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremnets-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pydacefit-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/postdoc-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/redditreport-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gabid-0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/VantiveCommerceSDK-12.33.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Tienc-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/JAQK-0.0.3.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyminizip-0.2.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cucu-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqiuremnets-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqquest-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zebepy-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sen-0.7.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gla11y-0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/stuweparser-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sigmaOP-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkintet-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matplttlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypanopto-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/seestar-1.2.7rc0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mkvimdb-0.2.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xml2js-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyChef-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Simepljson-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fleximod-0.1.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cerebrate-0.0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/djchart-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bushelsz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/edenred-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ycrypto-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/HelpyFuncs-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Test153RV-1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aljson-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/asyncioo-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonstercloudclinet-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/asyncioi-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/world2vec-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/datasize-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/packagetestrr-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/slackmojify-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/rahulnikamalpha-0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/exofop-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/k2flix-2.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/RigolWFM-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Calculatorrrrrrrrrr-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/firebrowse-0.1.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pymsl-1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cherrytree-2.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/crickit-0.0.126.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/csmpy-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/spclustering-0.8.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/teampulls-0.2.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/noober-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremnetstxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nbsetuptools-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/cstmotkinter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/digg2-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/redgettext-3.4.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vec2graph-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gitignore-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/compactify-2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/eHyena-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mybasicCalculator-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytorchj-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MongoFrames-1.3.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/routinemaker-0.5.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jiale-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cdifflib-1.2.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/jango-web3-auth-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ftlengine-0.1.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PySelenium-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dratio-0.0.16.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pandasrequest-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pysciiart-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/moyu123-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyswarm-0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/wb3.py-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/cosmostroposphere-3.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colorram-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gitcicd-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyperf-2.7.0.tar.gz.jsonl",
+      "label": 0
+    }
+  ],
+  "val": [
+    {
+      "path": "data/zenodo_13746167/benign/traces/gaiaxpy-2.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/reflective-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/apigwsgi-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/superdate-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ScrapyDot-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/paybox-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ubitlogger-0.5.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ProbPy-1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/benderlib-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/atmdb-0.2.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/QueryVin-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/customtkwnter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/idlespork-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytiob-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/xnxbot-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ymongo-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/psycogp2-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/EZLogs-1.03.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/insanepackage2179824234242342433-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/matplotpib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/strconstruct-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/prominence-0.20.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyjdbc-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pffabric-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/neval-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/web4.py-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sctokenizer-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pggui-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jumandic-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ModisDownload-2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/certifie-2022.9.24.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/emen2-2.2b7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tiny423-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/JovyTesting-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Simolejson-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yeeee-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/plantmeter-1.7.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/selenyum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sckit-learn-0.24.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pything-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/openseae-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/l3wrapper-0.7.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Mako-1.3.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/dbcounter-1.0.4.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ftoimage-1.1.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dsin100days603v37-6.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/boddle-0.2.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensoflsw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/keepasshttplib-0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonstercloudclienet-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/photofind-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/yinstaller-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zny-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requierments-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/binogaus-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/scavenger-py-1.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requirmeents-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/akitchensyncio-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hspectral-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hhlpy-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yqxx-0.8.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/proxyrape-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tgs-0.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/catmouse-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/instabots-4.4.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/brickbreaker-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/VatoTsitskishvili-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/xpip-20.2.4.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-cordw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/WeedyCoder-1.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bitcodin-1.6.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fiercenessz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-vord-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mohawk-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ciscosparksdk-99.24.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/raphidez-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bahc-1.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/yubundle-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cowtool-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ffdb-2.5.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/interferopy-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/basictest-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/jinsi-0.19.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ptrepl-0.9.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sin-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/biondi-0.1.6.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sellenim-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/abatools-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cvpackage-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/exabgp-4.2.22.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cd4py-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/new-requests-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyworksnaps-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/keybaord-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/faq-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pdbme-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mailbox-0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lobot-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aiworkflow-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/keywrapper-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ndic-1.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-c0ard-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/BeautifullSooup-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/statmodel-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/speedyapi-1.0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cloak-0.0.1a4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mapwjt-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ngpep-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/strictdict-0.4.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/currecyconverterapi-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/davaleba-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/as3935-0.1.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/TemplatingBWC-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/steembase-1.5.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PHJF-0.0.6.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sockers-0.4.69.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/igtoolz-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/eztemplate-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MultiRelay-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/stallmanGPT-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/nnabla-dataset-uploader-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/redist-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mapsyncer-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/basicCals-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyfortianalyzer-2.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/suspenders-0.2.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pling-0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mlpc-0.0.27.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/injected-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dmsapi-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/oenwsea-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tgadmin-0.20.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/shortestpaths-1.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/onevox-0.3.0rc3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gemeinsprache-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/odapdbxbundle-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/koskas-0.2.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/advpruebitaa-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/HiveNetGRPC-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/algorthm-0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramqs-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/PyProfane-1.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wjnester-1.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bamboo-0.2.10.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fprettify-0.3.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/scrambled-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/threeding-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyspeckit-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/selinum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matpltotlib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_acs_iot-2.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/VafabApi-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/coloramal-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/j1nuclei-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_iam-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensofliw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/NinjaTools-0.74.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/PyTarch-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colopym2-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/py3dsa-0.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/important_package-0.1.21.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cframe-0.1.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/feza-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/khassz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/docshtest-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/opensa-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tifftools-1.5.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pysetupalgorithms-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/munidata-2.3.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/stringhandling-0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/percy-2.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nonpenetrablez-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tiny433-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/subsetsumdfs-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ScoreModel-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/svllib-0.1.dev0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/json2netcdf-1.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/eisenradio-2.4.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Distiller-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mhddq-0.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/py4etrics-0.1.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pythonbidon123456789-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nnpp-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/selemni-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aping-0.1.0.dev0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mysqltsv-0.0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/audplot-1.4.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/openwse-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bcpyaz-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyRealEstate-0.1.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/emercoin-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/compassheadinglib-2021.1.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/botoa3-1.26.67.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MyFirstModuleskwdfewfsd-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/distributionsYAKS-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tradingtools-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ByakuganVisualizer-0.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sellinium-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/astromech-0.5.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/optastic-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/certsrv-2.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/dependency_confusion123456-9.9.9.tar.gz.jsonl",
+      "label": 1
+    }
+  ],
+  "test": [
+    {
+      "path": "data/zenodo_13746167/malware/traces/new-requests-module-2.28.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/woo-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/myshellcode3-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hkdm-1.9.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/wfstructlog-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/newrelic-9.11.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/crypto-data-fetch-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cobrascraper-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/doddle-1.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/apgp-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/fuzzywuzy-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MohamedSataryThirdTest-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyhaproxy-0.3.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/clickforward-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/playwrgith-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Matplotkib-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyunio-0.1.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/custmtokinter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/automock-1.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/h5imagegenerator-1.2.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/optimiser-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/x01replace-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ocdsmerge-0.7.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/testwithnewimplemenation-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/django-web2-auth-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/g8core-1.1.0a2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremntstxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tketris-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bookkeeping-0.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/trapcards-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/sqlsy-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/annoyance-0.0.18.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ti83chainsaw-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/trinitrotoluolz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyTMCL-1.0.10.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gargparse-0.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/daeman-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/parserlexing-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bpi-utils-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fsdicts-0.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/vecflowApi-0.3.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ternausnet-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/testbenchexecutor-0.1.12.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mebuex-1.3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensogflow-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requiremetstxt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/statcomp-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kubeinit-2.2.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Transsa3-1.6.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/moreloops-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zio-2.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/prota-0.0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/janos-0.0.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyflexebs-0.0.88.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_shuziwuliu-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ffenmass-0.2.9.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/randssl-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/holamundoplayerGabriel-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/conform-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/threadcascade-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ThreadDownloader1604-1.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cfdilib-0.7.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colprama-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/climax-0.5.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/Web-requests-autmoation-3.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/importchecker-3.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/espressocup-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pydoda-1.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/py2gc-1.0.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/google-requests-99.3.9.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/taxfinder-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ld_impl_linux-64-2.35.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etheeruimm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/openseax-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requesxts-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyckstart-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/exigencesz-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pysweep-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/django-metamask-aut-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-corx-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmonsstercloudcliennt-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/numberpy-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/BinaryTreeSearcher-1.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/igenerate-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ycryptodome-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/boogipoper-0.1.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ikuchnia-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/flurs-0.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/syns-knox-xss-allwhere-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/AreaFinding-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pypxl-0.2.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/zwhrce-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ms3-2.5.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/reescritor-0.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sln1550hello-0.0.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mypy-1.10.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pySCOrchestrator-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Py3TextMagicSMS-0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/GmailTwoStepVerificationBug-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bauhattan-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/Pypicor-1.0.4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gsspread10-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/requeests-2.27.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/baizhou-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/tensoflqw-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/antchain_sdk_stlr-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ufh-1.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/FixTrade-0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bottender-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/py-cordv-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/facebookrequests-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/testepypi-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/py416-0.62.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/reqeustx-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nommy-0.3.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/opentraveldata-0.0.9.post3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/assyncio-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/entrytest-0.31.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tripcode-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/myfuncs-1.6.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/lingkar33423308-1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/hpICsp-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/example12121-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/himpy-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/tmcsh-0.1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/dasty-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/webrequests-1.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/openfalcon-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/swanson-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/goroutine-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zhue-0.9.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/seleinuim-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/faketrumpgen-0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/huehush-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/HapooDB-1.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/shakhs-0.1.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sudo2-2.7.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/colorm-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/capmostercloudclinet-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/py8-0.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/StarClusterPlot-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/nitsa-0.0.0a0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/magicembed-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/spiking-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/etherem-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/simpejso-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ezcolor-0.7.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/mixshift-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/MLme-0.0.102.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/smoothassert-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/gcli-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/paybybot2-0.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/playwrigh-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/bcraapi-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/geometrydashapi-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/apidag-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pyfplapi-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/ethereuum-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/hreading-4.5.2.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/aiochat-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/kmodpy-0.1.13.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/loglib-modules-1.0.8.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/dependency_confusion123-1.0.4.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/cristipdf-1.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ekm-4.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fizzbotz-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/SShapes-1.0.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/new-request-2022-4.5.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pylsd2-0.0.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pytasler-1.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ainlp-0.1.6.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bip-utiles-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/manduka-0.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/custvomtkinter-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/pwnchain-0.2.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/djira-0.2.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/HypixelIO-1.4.0.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/zulu-2.0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/stirrups-0.1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/climodule-1.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/UniqueBotsKR-1.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/emoki-4.4.7.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/bip-utisl-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/awaits-0.0.11.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/sutiltype-0.0.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/correcthorsebatterystaple-0.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/pycjrd-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/VaspCZ-1.0.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ltsa-0.2.1.dev1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/libsovereign-1.0.0alpha1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/brod-0.4.3.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/json2csvrede-1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/biup-utils-1.0.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/siamrahman-1.1.1.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/fmake-0.1.19.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/fakessh-0.7.8.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/miRMag-1.0.5.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/malware/traces/nexusproto-0.8.0.tar.gz.jsonl",
+      "label": 1
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/ChenUtils-0.1.1.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/anora-0.1.2.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/redisweb-1.0.8.tar.gz.jsonl",
+      "label": 0
+    },
+    {
+      "path": "data/zenodo_13746167/benign/traces/setoki-0.1.0.tar.gz.jsonl",
+      "label": 0
+    }
+  ],
+  "train_size": 940,
+  "val_size": 202,
+  "test_size": 202,
+  "timestamp": "2026-09-05T18:52:52.171723"
+}

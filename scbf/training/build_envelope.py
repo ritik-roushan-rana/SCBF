@@ -8,7 +8,7 @@ model.eval()
 
 vectors = []
 with torch.no_grad():
-    for path in glob.glob("data/clean/*.jsonl"):
+    for path in glob.glob("data/zenodo_13746167/benign/traces/*.jsonl"):
         model.memory_bank.reset_memory()
         constructor = ITBGConstructor(model)
         events = [json.loads(l) for l in open(path)]
@@ -19,4 +19,4 @@ with torch.no_grad():
 vectors = np.array(vectors)
 centroid = vectors.mean(axis=0)
 np.save("envelope_v2.npy", centroid)
-print(f"Envelope v2 built from {len(vectors)} clean sessions")
+print(f"Envelope v2 built from {len(vectors)} benign packages")

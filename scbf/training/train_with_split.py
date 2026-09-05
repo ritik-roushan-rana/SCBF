@@ -298,8 +298,8 @@ def main():
     TEST_RATIO = 0.15
     MARGIN = 0.8
     LEARNING_RATE = 1e-3
-    EPOCHS = 50
-    PATIENCE = 5
+    EPOCHS = 40  # Maximum epochs
+    PATIENCE = 5  # Early stopping patience
     NUM_NODES = 50000
     CHECKPOINT_DIR = "models/checkpoints"
     
@@ -311,16 +311,19 @@ def main():
     
     # Load data paths
     print("Loading data paths...")
-    clean_paths = glob.glob("data/clean/*.jsonl")
-    mal_paths = glob.glob("data/malicious/*.jsonl")
+    clean_paths = glob.glob("data/zenodo_13746167/benign/traces/*.jsonl")
+    mal_paths = glob.glob("data/zenodo_13746167/malware/traces/*.jsonl")
     
-    print(f"Found {len(clean_paths)} clean packages")
-    print(f"Found {len(mal_paths)} malicious packages")
+    print(f"Found {len(clean_paths)} benign packages")
+    print(f"Found {len(mal_paths)} malware packages")
     
     if len(clean_paths) == 0 or len(mal_paths) == 0:
-        print("\nERROR: No data found! Please run data collection scripts first:")
-        print("  sudo python scripts/collect_clean_data.py")
-        print("  sudo python scripts/collect_malicious_data.py")
+        print("\nERROR: No data found!")
+        print("Expected location: data/zenodo_13746167/*/traces/*.jsonl")
+        print("\nPlace your individual trace files in:")
+        print("  data/zenodo_13746167/benign/traces/")
+        print("  data/zenodo_13746167/malware/traces/")
+        print("\nSee docs/restructuring/SIMPLE_SETUP.md for details")
         return
     
     # Split data

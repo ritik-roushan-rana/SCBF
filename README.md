@@ -17,8 +17,13 @@ SCBF intercepts package installation at the kernel level (via eBPF), captures sy
 ## Architecture
 
 ```
-eBPF Capture → Event Normalization → ITBG Construction → TGN Encoding → Envelope Comparison → Verdict
+eBPF Capture (monitor.sh) → Event Normalization → ITBG Construction → TGN Encoding → Envelope Comparison → Verdict
 ```
+
+**New Monitoring System:**
+- `monitor.sh` - Improved eBPF monitor with better process tracking
+- `scripts/collect_zenodo.py` - Automated data collection
+- Individual trace files for each package
 
 ## Installation
 
@@ -38,44 +43,44 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-### Using Makefile (Recommended)
-```bash
-# 1. Collect training data (~30 min)
-sudo make collect-data
+### Adding Your Dataset
 
-# 2. Train with train/val/test split (~10 min)
+```bash
+# 1. Create structure
+make prepare-structure
+
+# 2. Place your dataset files
+cp /path/to/malware.jsonl data/zenodo_13746167/malware/data/
+cp /path/to/benign.jsonl data/zenodo_13746167/benign/data/
+
+# 3. Validate
+make validate-data
+
+# 4. Train
 sudo make train-split
 
-# 3. Evaluate on test set
-sudo make evaluate
-
-# 4. Scan a package
+# 5. Scan packages
 sudo make scan PKG=requests
 ```
 
-### Manual Commands
+See [SIMPLE_SETUP.md](docs/restructuring/SIMPLE_SETUP.md) for detailed instructions.
+
+### Alternative: Collect Your Own Data (Advanced)
+
+If you want to collect behavioral traces yourself:
+
 ```bash
-# 1. Collect training data
-sudo python3 scripts/collect_clean_data.py
-sudo python3 scripts/collect_malicious_data.py
-
-# 2. Train with proper train/test split
-sudo python3 -m scbf.training.train_with_split
-
-# 3. Build behavioral envelope
-sudo python3 -m scbf.training.build_envelope
-
-# 4. Evaluate model
-sudo python3 -m scbf.training.evaluate
-
-# 5. Scan a package
-sudo python3 -m scbf.detection.cli --package requests
+# Requires: Linux with eBPF/BCC, root access
+sudo make collect-data
+make aggregate-data
+make validate-data
+sudo make train-split
 ```
 
-### Training Documentation
-- [TRAINING_GUIDE.md](TRAINING_GUIDE.md) - Comprehensive training guide
-- [TRAIN_COMMANDS.md](TRAIN_COMMANDS.md) - Quick command reference
-- [TRAIN_TEST_SPLIT_SUMMARY.md](TRAIN_TEST_SPLIT_SUMMARY.md) - What's new
+### Documentation
+- [Architecture](docs/architecture.md) - System architecture deep-dive
+- [Dataset Guide](docs/restructuring/SIMPLE_SETUP.md) - How to add your dataset
+- [Data Format](data/README.md) - Event format and structure
 
 ## Project Structure
 
@@ -94,52 +99,44 @@ scbf/
 
 ## Current Status
 
-**Phase 1 (Complete):**
+**Ready for dataset placement:**
 - ✅ eBPF capture pipeline
 - ✅ TGN encoder implementation
 - ✅ Behavioral envelope construction
 - ✅ CLI detector with calibrated thresholds
+- ✅ Clean directory structure for final dataset
 
-**Phase 2 (In Progress):**
-- 🔄 Malicious dataset integration (Datadog)
-- 🔄 Contrastive loss training (clean vs. malicious)
-- ⏳ Stage-aware envelope profiling
-- ⏳ CI/CD integration (GitHub Actions)
-- ⏳ Mid-install kill-switch
+**Place your dataset:**
+- See [docs/restructuring/SIMPLE_SETUP.md](docs/restructuring/SIMPLE_SETUP.md)
+- Required: `malware.jsonl` and `benign.jsonl`
+- Location: `data/zenodo_13746167/`
 
 ## Known Limitations
 
 - Linux-only (eBPF dependency)
-- Residual correlation (0.79) between event count and distance score
-- Small clean dataset (21-60 packages) — Phase 2 scaling in progress
+- Requires root privileges for monitoring
+- Dataset provided separately (see [docs/restructuring/SIMPLE_SETUP.md](docs/restructuring/SIMPLE_SETUP.md))
 
 ## Training Data
 
-- **Clean packages**: 67 top PyPI packages (original SCBF)
-- **Malicious samples**: 99 confirmed malicious packages (Datadog dataset)
-- **QUT-DV25 dataset**: ~200 additional samples (100 benign + 100 malicious) 🆕
-- **Total training data**: ~366 packages after QUT-DV25 integration
-- **Event streams**: ~2000+ events/package average
+The SCBF dataset uses behavioral traces (JSONL event logs) from:
+- **Malware samples**: Confirmed malicious packages
+- **Benign packages**: Top PyPI packages
 
-### QUT-DV25 Integration 🆕
+**Dataset format:**
+- Event-level JSONL (one event per line)
+- Event types: `exec`, `open`, `connect`
+- ~2000-3000 events per package on average
 
-The project now supports the QUT-DV25 dataset for enhanced training:
-
+**To add your dataset:**
 ```bash
-# Inspect QUT-DV25 dataset
-python3 scripts/inspect_qutdv25.py
-
-# Convert to SCBF format
-python3 scripts/convert_qutdv25.py
-
-# Validate conversion
-python3 scripts/validate_qutdv25.py
-
-# Train with merged dataset (original + QUT-DV25)
+make prepare-structure
+# Place malware.jsonl and benign.jsonl in data/zenodo_13746167/
+make validate-data
 sudo make train-split
 ```
 
-See [QUT-DV25_USAGE_GUIDE.md](QUT-DV25_USAGE_GUIDE.md) for details.
+See [data/README.md](data/README.md) for detailed format specifications.
 
 ## Performance
 

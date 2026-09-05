@@ -24,16 +24,16 @@ wheels/
 *.egg
 
 # Data and models
-data/clean/*.jsonl
-data/malicious/*.jsonl
-data/qut_clean/
-data/qut_malicious/
 models/*.pt
 models/*.pth
 models/checkpoints/*.pt
 *.npy
 *.pkl
 last_capture.jsonl
+
+# Zenodo dataset (do not commit raw data - too large)
+data/zenodo_13746167/*/traces/*.jsonl
+data/zenodo_13746167/*/data/*.jsonl
 
 # QUT-DV25 raw dataset (2.1 GB - do not commit to git)
 QUT-DV25_Datasets/
