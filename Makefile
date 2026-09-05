@@ -94,11 +94,30 @@ train-split:
 		echo "Using system Python"; \
 		python3 -m scbf.training.train_with_split; \
 	fi
+
+train-classifier:
+	@echo "Training BINARY CLASSIFIER (better approach)..."
+	@if [ -f .venv/bin/python ]; then \
+		echo "Using virtual environment: .venv/bin/python"; \
+		.venv/bin/python -m scbf.training.train_classifier; \
+	else \
+		echo "Using system Python"; \
+		python3 -m scbf.training.train_classifier; \
+	fi
 	@echo ""
-	@echo "Building behavioral envelope..."
-	sudo python -m scbf.training.build_envelope
+	@echo "Training complete!"
+
+train-hybrid:
+	@echo "Training HYBRID MODEL (TGN + Statistical Features - BEST!)..."
+	@if [ -f .venv/bin/python ]; then \
+		echo "Using virtual environment: .venv/bin/python"; \
+		.venv/bin/python -m scbf.training.train_hybrid; \
+	else \
+		echo "Using system Python"; \
+		python3 -m scbf.training.train_hybrid; \
+	fi
 	@echo ""
-	@echo "Training complete! Run 'make evaluate' to see test results."
+	@echo "Training complete!"
 
 evaluate:
 	@echo "Evaluating model on test set..."
