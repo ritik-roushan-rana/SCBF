@@ -138,9 +138,14 @@ def compute_embeddings(model, data_paths):
 
 def compute_contrastive_loss(embeddings, labels, margin=0.8):
     """
-    Compute contrastive loss with margin.
+    Compute improved contrastive loss with stronger separation.
     
-    Loss = compactness(clean) + max(0, margin - distance(malicious, clean_centroid))
+    Uses three components:
+    1. Compactness: Pull clean samples toward centroid
+    2. Separation: Push malicious samples away from centroid  
+    3. Inter-class margin: Ensure minimum distance between classes
+    
+    Loss = compactness + 3.0 * max(0, margin - sqrt(mal_dist)) + 2.0 * max(0, margin - gap)
     
     Args:
         embeddings: Tensor of shape (N, embedding_dim)
@@ -159,21 +164,42 @@ def compute_contrastive_loss(embeddings, labels, margin=0.8):
     
     # Compactness loss for clean samples
     if clean_mask.sum() > 1:
-        clean_centroid = embeddings[clean_mask].mean(dim=0, keepdim=True)
-        compactness = ((embeddings[clean_mask] - clean_centroid) ** 2).sum(dim=-1).mean()
+        clean_embeddings = embeddings[clean_mask]
+        clean_centroid = clean_embeddings.mean(dim=0, keepdim=True)
+        
+        # Component 1: Compactness (L2 distance, not squared)
+        compactness = torch.sqrt(((clean_embeddings - clean_centroid) ** 2).sum(dim=-1) + 1e-8).mean()
         loss = loss + compactness
         metrics['compactness'] = compactness.item()
         
-        # Separation loss for malicious samples
+        # Component 2: Push malicious away (much stronger weight)
         if mal_mask.sum() > 0:
-            mal_dist = ((embeddings[mal_mask] - clean_centroid) ** 2).sum(dim=-1)
+            mal_embeddings = embeddings[mal_mask]
+            mal_dist = torch.sqrt(((mal_embeddings - clean_centroid) ** 2).sum(dim=-1) + 1e-8)
+            
+            # Strong penalty for being too close (3x weight)
             margin_loss = torch.clamp(margin - mal_dist, min=0).mean()
-            loss = loss + margin_loss
+            loss = loss + 3.0 * margin_loss
+            
             metrics['margin_loss'] = margin_loss.item()
             metrics['avg_mal_dist'] = mal_dist.mean().item()
+            
+            # Component 3: Maximize gap between closest malicious and farthest clean
+            max_clean_dist = torch.sqrt(((clean_embeddings - clean_centroid) ** 2).sum(dim=-1) + 1e-8).max()
+            min_mal_dist = mal_dist.min()
+            gap = min_mal_dist - max_clean_dist
+            
+            # Penalty if gap is too small (2x weight)
+            gap_loss = torch.clamp(margin - gap, min=0)
+            loss = loss + 2.0 * gap_loss
+            
+            metrics['gap'] = gap.item()
+            metrics['gap_loss'] = gap_loss.item()
     else:
         metrics['compactness'] = 0.0
         metrics['margin_loss'] = 0.0
+        metrics['gap'] = 0.0
+        metrics['gap_loss'] = 0.0
     
     metrics['total_loss'] = loss.item()
     return loss, metrics
@@ -296,10 +322,10 @@ def main():
     TRAIN_RATIO = 0.7
     VAL_RATIO = 0.15
     TEST_RATIO = 0.15
-    MARGIN = 0.8
-    LEARNING_RATE = 1e-3
-    EPOCHS = 40  # Maximum epochs
-    PATIENCE = 5  # Early stopping patience
+    MARGIN = 3.0  # Increased from 2.0 - need even larger separation
+    LEARNING_RATE = 5e-4  # Reduced from 1e-3 for more stable training
+    EPOCHS = 60  # Increased from 40 - may need more time
+    PATIENCE = 10  # Increased from 5 - be more patient
     NUM_NODES = 50000
     CHECKPOINT_DIR = "models/checkpoints"
     

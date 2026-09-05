@@ -48,7 +48,8 @@ QUT-DV25_Datasets/
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
+# Keep notebooks/ folder but ignore checkpoints
+notebooks/.ipynb_checkpoints/
 
 # Testing
 .pytest_cache/
