@@ -187,6 +187,12 @@ second opinion.
 
 Full training run: ~30-60 min on Mac CPU, ~10 min on a T4 GPU.
 
+**Evaluation** — `scbf/training/evaluate.py` (run via `make evaluate`) reloads
+the trained model + `split_info.json` and re-scores all three splits
+(train / val / test) with the tuned threshold. Output is both a printed report
+and `models/evaluation_results.json`. This is the same code path used for the
+metrics table in `README.md` / `docs/PHASE1_ACHIEVEMENTS.md`.
+
 ## Envelope Construction
 
 **File:** `scbf/training/build_envelope.py`

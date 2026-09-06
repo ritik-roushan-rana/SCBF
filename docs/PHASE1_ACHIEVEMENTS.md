@@ -26,25 +26,28 @@ not truncated failures. This was checked with
 
 ## Training Results (offline, portable)
 
-Trained on the 70% train split, threshold tuned on val, reported on the
-held-out test set (`scbf_hybrid_v2.pt`, threshold 0.35):
+Trained on the 70% train split, threshold tuned on val, evaluated on all
+three splits (`models/scbf_hybrid_v2.pt`, threshold 0.35):
 
-| Metric | Test |
-|--------|-----:|
-| Accuracy | 95.54% |
-| Precision | 91.53% |
-| Recall | 93.10% |
-| F1 Score | 92.31% |
-| ROC-AUC | 0.9952 |
+| Split | Samples | Accuracy | Precision | Recall | Specificity | F1 | ROC-AUC |
+|-------|--------:|---------:|----------:|-------:|------------:|---:|--------:|
+| Train | 940 | 95.53% | 91.88% | 92.57% | 96.72% | 92.22% | 0.9680 |
+| Val   | 202 | 94.55% | 89.83% | 91.38% | 95.83% | 90.60% | 0.9647 |
+| Test  | 202 | **95.54%** | **91.53%** | **93.10%** | **96.53%** | **92.31%** | **0.9788** |
 
-Confusion matrix (test set):
+Confusion matrices:
 
 ```
-                Predicted
-              Clean   Malicious
-Actual Clean   139        5      (96.5% correct)
-Actual Mal       4       54      (93.1% caught)
+TRAIN                     VAL                       TEST
+                                                            
+              Clean  Mal              Clean  Mal              Clean  Mal
+Actual Clean   649   22   Actual Clean 138    6   Actual Clean 139    5
+Actual Mal      20  249   Actual Mal    5   53   Actual Mal    4   54
 ```
+
+Generalisation gap (train F1 − test F1) = **−0.09%** — the model does not
+overfit; test performance is on par with training. Raw metrics are in
+`models/evaluation_results.json` and reproducible with `make evaluate`.
 
 ## Confound Diagnostics
 
@@ -92,13 +95,22 @@ Not in this phase (Phase 2 scope):
 ```bash
 make install
 make validate-data
-make train             # produces models/scbf_hybrid_v2.pt
-make diagnose          # runs the confound scripts against the current split
+make train             # produces models/scbf_hybrid_v2.pt (~30-60 min)
+make evaluate          # produces models/evaluation_results.json
+make diagnose          # runs confound scripts against the same split
 ```
 
-The confound-diagnostic scripts share the same `models/checkpoints/split_info.json`
-that the training script writes, so their numbers correspond to the same held-out
-test set as the reported classifier metrics.
+Or, if you cloned the repo and just want to verify the committed model:
+
+```bash
+make install
+make evaluate          # scores the committed scbf_hybrid_v2.pt
+                       # against the committed split_info.json
+```
+
+All three commands share `models/checkpoints/split_info.json` — the same
+holdout used during training — so every number in the table above is
+reproducible without retraining.
 
 ## Files That Back This Up
 

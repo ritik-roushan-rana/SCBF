@@ -13,16 +13,18 @@ Innovation 6 of 7 · Patent Pending · Phase 1 prototype.
 
 The hybrid TGN + statistical-features model was trained on the Zenodo 13746167
 dataset (1,344 packages: 959 benign + 385 malicious) with a 70/15/15 split.
+Metrics on all three splits, at the tuned classifier threshold of 0.35:
 
-| Metric | Test Set |
-|--------|---------:|
-| Accuracy | 95.54% |
-| Precision | 91.53% |
-| Recall | 93.10% |
-| F1 Score | 92.31% |
-| ROC-AUC | 0.9952 |
+| Split | Samples | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|-------|--------:|---------:|----------:|-------:|---:|--------:|
+| Train | 940 | 95.53% | 91.88% | 92.57% | 92.22% | 0.9680 |
+| Val   | 202 | 94.55% | 89.83% | 91.38% | 90.60% | 0.9647 |
+| Test  | 202 | **95.54%** | **91.53%** | **93.10%** | **92.31%** | **0.9788** |
 
-Best model: `models/scbf_hybrid_v2.pt` · Classifier threshold: 0.35.
+Generalisation gap (train F1 − test F1) = **−0.09%** → no overfitting.
+
+Best model: `models/scbf_hybrid_v2.pt` · Classifier threshold: 0.35. Raw
+numbers in `models/evaluation_results.json`, reproducible with `make evaluate`.
 
 > Full-pipeline detection metrics (envelope-based scoring on live installations)
 > require the complete Linux + eBPF setup with `monitor.sh` running as root, and

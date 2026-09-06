@@ -10,6 +10,7 @@ help:
 	@echo "Training & Envelope:"
 	@echo "  make train              Train the hybrid TGN model (~30-60 min)"
 	@echo "  make build-envelope     Build behavioral envelope from clean packages"
+	@echo "  make evaluate           Evaluate trained model on train/val/test splits"
 	@echo ""
 	@echo "Detection (Scanning):"
 	@echo "  make scan-trace TRACE=path/to/trace.jsonl    Scan existing trace file"
@@ -61,6 +62,12 @@ build-envelope:
 	@echo ""
 	@echo "✓ Envelope built! Files saved in models/"
 	@echo "  Next: make scan-trace TRACE=<file>"
+
+evaluate:
+	@echo "Evaluating model on train / val / test splits..."
+	$(PY) -m scbf.training.evaluate
+	@echo ""
+	@echo "✓ Results saved to models/evaluation_results.json"
 
 scan-trace:
 	@if [ -z "$(TRACE)" ]; then \
