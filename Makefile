@@ -119,6 +119,18 @@ train-hybrid:
 	@echo ""
 	@echo "Training complete!"
 
+train-hybrid-v2:
+	@echo "Training HYBRID V2 (45 features + deeper model - TARGET 80-90%!)..."
+	@if [ -f .venv/bin/python ]; then \
+		echo "Using virtual environment: .venv/bin/python"; \
+		.venv/bin/python -m scbf.training.train_hybrid_v2; \
+	else \
+		echo "Using system Python"; \
+		python3 -m scbf.training.train_hybrid_v2; \
+	fi
+	@echo ""
+	@echo "Training complete!"
+
 evaluate:
 	@echo "Evaluating model on test set..."
 	sudo python -m scbf.training.evaluate
