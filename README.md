@@ -117,12 +117,23 @@ scbf/
 
 ## Quick Start
 
+Offline analysis (training, envelopes, `scan-trace`, `scan-batch`) runs on
+macOS, Linux, or Windows. Live capture (`make scan PKG=...`) needs Linux +
+eBPF — see [`docs/LINUX_SETUP.md`](docs/LINUX_SETUP.md) for a step-by-step
+Ubuntu VM setup.
+
 ### 1. Install
 
 ```bash
 git clone https://github.com/ritik-roushan-rana/SCBF.git
 cd SCBF
 make install         # creates .venv, installs requirements.txt
+```
+
+On Linux, additionally install BCC via apt for live capture:
+
+```bash
+sudo apt install -y python3-bpfcc bpfcc-tools linux-headers-$(uname -r)
 ```
 
 ### 2. Get the Dataset

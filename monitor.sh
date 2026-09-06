@@ -400,19 +400,26 @@ cmd = [
 
 try:
 
-    # The monitor must remain root for eBPF/BCC,
-    # but pip/package installation must run as ubuntu.
+    # The monitor itself must run as root (eBPF/BCC requires it),
+    # but pip / package installation should NOT run as root, otherwise
+    # root-owned files end up inside the target virtualenv.
     #
-    # This prevents root-owned files from being created
-    # inside the temporary virtual environment.
+    # By default we drop to the user in SUDO_USER (the user who invoked
+    # `sudo`). This can be overridden with the SCBF_USER env variable.
+    drop_user = os.environ.get("SCBF_USER") or os.environ.get("SUDO_USER") or ""
+
+    if drop_user and drop_user != "root":
+        install_cmd = ["sudo", "-u", drop_user, "-H", *cmd]
+        print(f"[+] Running pip as user: {drop_user}")
+    else:
+        # No unprivileged user available — run as root.
+        # Not ideal (root-owned venv), but functional.
+        install_cmd = cmd
+        print("[!] Running pip as root (no SUDO_USER / SCBF_USER set).")
+        print("[!] Consider running with:  sudo -E ./monitor.sh  ...  so SUDO_USER is preserved.")
+
     proc = subprocess.Popen(
-        [
-            "sudo",
-            "-u",
-            "ubuntu",
-            "-H",
-            *cmd,
-        ],
+        install_cmd,
         stdout=sys.stdout,
         stderr=sys.stderr,
     )

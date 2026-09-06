@@ -1,18 +1,23 @@
-# Core dependencies
+# Python dependencies for SCBF (training + offline analysis)
+#
+# NOTE: eBPF live capture (monitor.sh) additionally requires the following
+# SYSTEM packages on Ubuntu/Debian (installed via apt, not pip):
+#
+#   sudo apt install -y python3-bpfcc bpfcc-tools linux-headers-$(uname -r)
+#
+# BCC is a system-level package (kernel bindings) and is NOT installable
+# via pip on Linux. On macOS, live capture is not supported at all.
+
+# Core ML
 torch>=2.0.0
 numpy>=1.24.0
-
-# eBPF and system monitoring
-
 
 # Data handling
 jsonlines>=3.1.0
 
-# Optional: visualization and analysis
-matplotlib>=3.7.0
+# Evaluation / diagnostics
 scikit-learn>=1.3.0
+matplotlib>=3.7.0
 
-# Development
+# Development (optional)
 pytest>=7.4.0
-black>=23.0.0
-flake8>=6.0.0

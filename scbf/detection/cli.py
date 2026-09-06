@@ -229,50 +229,73 @@ def batch_scan(directory, model=None, envelope_data=None):
     return results
 
 
-def scan_package_live(pkg_name, target_dir="/tmp/scbf_sandbox"):
+def scan_package_live(pkg_name, artifact=None, python_bin=None):
     """
-    Live scan by running pip install and capturing events.
-    Requires Linux with eBPF support (monitor.sh).
+    Live scan by running pip install under eBPF and analyzing the trace.
+
+    monitor.sh signature (see monitor.sh):
+        sudo ./monitor.sh PACKAGE PYTHON_BIN ARTIFACT OUTPUT
+
+    Requires Linux with eBPF support (BCC + python3-bpfcc + kernel headers).
     """
     if platform.system() != "Linux":
-        print("❌ Live scanning requires Linux (eBPF)")
-        print("On macOS, you can only scan existing trace files:")
-        print(f"  python -m scbf.detection.cli --trace path/to/trace.jsonl")
+        print("❌ Live scanning requires Linux (eBPF).")
+        print("   On macOS, scan an already-captured trace instead:")
+        print("     python -m scbf.detection.cli --trace path/to/trace.jsonl")
         sys.exit(1)
-    
+
+    if os.geteuid() != 0:
+        print("❌ Live scanning must run as root (eBPF requires it).")
+        print("   Try: sudo -E python -m scbf.detection.cli --package <name>")
+        sys.exit(1)
+
     if not os.path.exists("monitor.sh"):
-        print("❌ monitor.sh not found - required for live capture")
+        print("❌ monitor.sh not found in current directory.")
+        print("   Run this from the SCBF repository root.")
         sys.exit(1)
-    
-    # Setup sandbox
-    shutil.rmtree(target_dir, ignore_errors=True)
-    os.makedirs(target_dir, exist_ok=True)
-    
+
+    # Where the target package will live during install.
     trace_output = f"/tmp/scbf_scan_{pkg_name}.jsonl"
-    
-    print(f"📦 Installing {pkg_name} with behavioral monitoring...")
-    print(f"   Target: {target_dir}")
-    print(f"   Trace:  {trace_output}")
-    
+
+    # If no explicit artifact was given, install by package name — pip will
+    # resolve and download it.
+    if artifact is None:
+        artifact = pkg_name
+
+    # If no Python was specified, use the one running the CLI.
+    if python_bin is None:
+        python_bin = sys.executable
+
+    print(f"📦 Installing '{pkg_name}' with behavioral monitoring")
+    print(f"   Python   : {python_bin}")
+    print(f"   Artifact : {artifact}")
+    print(f"   Trace    : {trace_output}")
+    print()
+
     try:
         subprocess.run(
-            ["sudo", "./monitor.sh", pkg_name, trace_output],
-            check=True,
-            timeout=60,
+            [
+                "./monitor.sh",
+                pkg_name,
+                python_bin,
+                artifact,
+                trace_output,
+            ],
+            check=False,        # pip returncode is informational, not fatal
+            timeout=120,
         )
     except subprocess.TimeoutExpired:
-        print("⚠️  Installation timed out")
-    except subprocess.CalledProcessError as e:
-        print(f"⚠️  Install returned {e.returncode} - analyzing partial trace")
+        print("⚠️  Installation timed out (partial trace may still be usable).")
     except FileNotFoundError:
-        print("❌ Failed to run monitor.sh")
+        print("❌ Could not execute monitor.sh. Is it +x? (chmod +x monitor.sh)")
         return None
-    
+
     if not os.path.exists(trace_output):
-        print(f"❌ No trace file created")
+        print(f"❌ No trace file was created at {trace_output}.")
+        print("   Check that BCC / python3-bpfcc is installed and the kernel supports eBPF.")
         return None
-    
-    # Scan the captured trace
+
+    # Analyse the captured trace with the offline pipeline.
     return scan_trace_file(trace_output)
 
 
@@ -296,29 +319,36 @@ Examples:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--trace", help="Path to existing trace file (.jsonl)")
     group.add_argument("--batch", help="Directory containing trace files to scan")
-    group.add_argument("--package", help="Package name to install and scan (Linux only)")
-    
+    group.add_argument("--package", help="Package name to install and scan (Linux only, needs sudo + eBPF)")
+
+    parser.add_argument("--artifact",
+                       help="For --package: pip artifact to install (path/URL/spec). "
+                            "Defaults to the package name.")
+    parser.add_argument("--python", dest="python_bin",
+                       help="For --package: python binary to run pip with. "
+                            "Defaults to the interpreter running this script.")
+
     parser.add_argument("--model", default="models/scbf_hybrid_v2.pt",
                        help="Path to trained model")
     parser.add_argument("--envelope", default="models/envelope_v2.npy",
                        help="Path to behavioral envelope")
-    
+
     args = parser.parse_args()
-    
+
     if args.trace:
         if not os.path.exists(args.trace):
             print(f"❌ Trace file not found: {args.trace}")
             sys.exit(1)
         scan_trace_file(args.trace)
-    
+
     elif args.batch:
         if not os.path.isdir(args.batch):
             print(f"❌ Directory not found: {args.batch}")
             sys.exit(1)
         batch_scan(args.batch)
-    
+
     elif args.package:
-        scan_package_live(args.package)
+        scan_package_live(args.package, artifact=args.artifact, python_bin=args.python_bin)
 
 
 if __name__ == "__main__":

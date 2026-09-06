@@ -78,12 +78,18 @@ scan:
 		echo "Error: Package name required."; \
 		echo "Usage: make scan PKG=requests"; \
 		echo ""; \
-		echo "Note: Live scanning requires Linux with eBPF support (bcc-tools)."; \
+		echo "Optional:"; \
+		echo "  ARTIFACT=<path/URL/spec>   Pip artifact to install (defaults to PKG)"; \
+		echo "  PYTHON=<path>              Python binary to install with (defaults to .venv)"; \
+		echo ""; \
+		echo "Note: Live scanning requires Linux + eBPF (python3-bpfcc, bpfcc-tools)."; \
 		echo "On macOS, use 'make scan-trace' or 'make scan-batch' instead."; \
 		exit 1; \
 	fi
 	@echo "Live scanning $(PKG) (requires Linux + eBPF)..."
-	sudo $(PY) -m scbf.detection.cli --package $(PKG)
+	sudo -E $(PY) -m scbf.detection.cli --package $(PKG) \
+		$(if $(ARTIFACT),--artifact $(ARTIFACT),) \
+		$(if $(PYTHON),--python $(PYTHON),)
 
 diagnose:
 	@echo "Running diagnostic scripts..."
