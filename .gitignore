@@ -6,6 +6,7 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 ENV/
 build/
 develop-eggs/
@@ -13,8 +14,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -23,20 +22,22 @@ wheels/
 .installed.cfg
 *.egg
 
-# Data and models
+# Trained models and artifacts (rebuilt via make train / make build-envelope)
 models/*.pt
 models/*.pth
-models/checkpoints/*.pt
-*.npy
-*.pkl
-last_capture.jsonl
+models/checkpoints/
+models/*.npy
+models/*.json
 
-# Zenodo dataset (do not commit raw data - too large)
+# Dataset (too large to commit - place manually or via scripts/collect_zenodo.py)
 data/zenodo_13746167/*/traces/*.jsonl
 data/zenodo_13746167/*/data/*.jsonl
+data/zenodo_13746167/**/.tmp_traces/
 
-# QUT-DV25 raw dataset (2.1 GB - do not commit to git)
-QUT-DV25_Datasets/
+# Any temporary trace file
+last_capture.jsonl
+scbf_data.zip
+SCBF.zip
 
 # IDE
 .vscode/
@@ -48,8 +49,6 @@ QUT-DV25_Datasets/
 
 # Jupyter
 .ipynb_checkpoints/
-# Keep notebooks/ folder but ignore checkpoints
-notebooks/.ipynb_checkpoints/
 
 # Testing
 .pytest_cache/
@@ -58,7 +57,7 @@ htmlcov/
 
 # Logs
 *.log
+training.pid
 
 # Temporary
-/tmp/
 *.tmp

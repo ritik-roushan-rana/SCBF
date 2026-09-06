@@ -1,150 +1,101 @@
-.PHONY: help install test clean collect-data prepare-structure aggregate-data validate-data train train-split evaluate scan
+.PHONY: help install train build-envelope scan-trace scan-batch scan validate-data clean
 
 help:
 	@echo "SCBF - Supply Chain Behavioral Fingerprinting"
 	@echo ""
-	@echo "Dataset Preparation:"
-	@echo "  make prepare-structure  Create Zenodo dataset directory structure"
-	@echo "  make collect-data       Collect clean + malicious training data"
-	@echo "  make aggregate-data     Merge per-package files into Zenodo structure"
+	@echo "Setup:"
+	@echo "  make install            Install dependencies (creates .venv)"
 	@echo "  make validate-data      Validate dataset integrity"
 	@echo ""
-	@echo "Training & Evaluation:"
-	@echo "  make train              Train TGN model (original - no split)"
-	@echo "  make train-split        Train TGN model with train/val/test split"
-	@echo "  make evaluate           Evaluate trained model on test set"
+	@echo "Training & Envelope:"
+	@echo "  make train              Train the hybrid TGN model (~30-60 min)"
+	@echo "  make build-envelope     Build behavioral envelope from clean packages"
 	@echo ""
-	@echo "Other Commands:"
-	@echo "  make install            Install package in development mode"
-	@echo "  make scan               Run example scan (requires package name)"
-	@echo "  make test               Run test suite"
-	@echo "  make clean              Remove generated files"
+	@echo "Detection (Scanning):"
+	@echo "  make scan-trace TRACE=path/to/trace.jsonl    Scan existing trace file"
+	@echo "  make scan-batch DIR=path/to/traces/          Batch scan a directory"
+	@echo "  make scan PKG=requests                        Live scan (Linux + eBPF)"
 	@echo ""
-	@echo "Complete Workflow:"
-	@echo "  1. sudo make prepare-structure"
-	@echo "  2. sudo make collect-data"
-	@echo "  3. make aggregate-data"
-	@echo "  4. make validate-data"
-	@echo "  5. sudo make train-split"
-	@echo "  6. make evaluate"
-	@echo "  7. sudo make scan PKG=requests"
+	@echo "Diagnostics:"
+	@echo "  make diagnose           Run all diagnostic scripts on the dataset"
+	@echo ""
+	@echo "Other:"
+	@echo "  make clean              Remove cache files"
+	@echo ""
+	@echo "Complete workflow:"
+	@echo "  1. make install"
+	@echo "  2. make validate-data"
+	@echo "  3. make train"
+	@echo "  4. make build-envelope"
+	@echo "  5. make scan-trace TRACE=<file>"
+
+PY := $(shell if [ -f .venv/bin/python ]; then echo .venv/bin/python; else echo python3; fi)
 
 install:
-	pip install -e .
-
-prepare-structure:
-	@echo "Creating Zenodo dataset directory structure..."
-	mkdir -p data/zenodo_13746167/{malware,benign}/{data,traces}
-	@echo "✓ Directory structure created"
+	python3 -m venv .venv
+	.venv/bin/pip install --upgrade pip
+	.venv/bin/pip install -r requirements.txt
 	@echo ""
-	@echo "Structure:"
-	@echo "  data/zenodo_13746167/malware/{data,traces}"
-	@echo "  data/zenodo_13746167/benign/{data,traces}"
-	@echo ""
-	@echo "Place your dataset files here:"
-	@echo "  - data/zenodo_13746167/malware/traces/*.jsonl"
-	@echo "  - data/zenodo_13746167/benign/traces/*.jsonl"
-	@echo ""
-	@echo "Or use collection script:"
-	@echo "  python3 scripts/collect_zenodo.py"
-
-collect-data:
-	@echo "Collecting behavioral data from packages..."
-	@echo ""
-	@echo "Use the collection script:"
-	@echo "  python3 scripts/collect_zenodo.py [OPTIONS]"
-	@echo ""
-	@echo "Options:"
-	@echo "  --max-artifacts N    Limit to N packages (default: 1500)"
-	@echo "  --skip-malware       Skip malware collection"
-	@echo "  --skip-benign        Skip benign collection"
-	@echo ""
-	@echo "Example:"
-	@echo "  python3 scripts/collect_zenodo.py --max-artifacts 1000"
-	@echo ""
-	@echo "Or if you already have dataset files:"
-	@echo "  ./copy_dataset.sh"
-
-aggregate-data:
-	@echo "Aggregating per-package files into Zenodo structure..."
-	python scripts/aggregate_jsonl.py
-	@echo ""
-	@echo "Next: make validate-data"
+	@echo "✓ Installed to .venv/"
+	@echo "  Activate with: source .venv/bin/activate"
 
 validate-data:
 	@echo "Validating dataset integrity..."
-	python scripts/validate_dataset.py
+	$(PY) scripts/validate_dataset.py
 
 train:
-	@echo "Training TGN model (original - no split)..."
-	sudo python -m scbf.training.train
+	@echo "Training HYBRID V2 model (TGN + statistical features)..."
+	$(PY) -m scbf.training.train_hybrid_v2
 	@echo ""
-	@echo "Building behavioral envelope..."
-	sudo python -m scbf.training.build_envelope
-	@echo ""
-	@echo "Checking separation..."
-	sudo python scripts/check_distances.py
+	@echo "✓ Training complete! Model saved to models/scbf_hybrid_v2.pt"
+	@echo "  Next: make build-envelope"
 
-train-split:
-	@echo "Training TGN model with train/val/test split..."
-	@if [ -f .venv/bin/python ]; then \
-		echo "Using virtual environment: .venv/bin/python"; \
-		.venv/bin/python -m scbf.training.train_with_split; \
-	else \
-		echo "Using system Python"; \
-		python3 -m scbf.training.train_with_split; \
+build-envelope:
+	@echo "Building Behavioral Envelope from clean packages..."
+	$(PY) -m scbf.training.build_envelope
+	@echo ""
+	@echo "✓ Envelope built! Files saved in models/"
+	@echo "  Next: make scan-trace TRACE=<file>"
+
+scan-trace:
+	@if [ -z "$(TRACE)" ]; then \
+		echo "Error: Trace path required."; \
+		echo "Usage: make scan-trace TRACE=path/to/trace.jsonl"; \
+		exit 1; \
 	fi
+	$(PY) -m scbf.detection.cli --trace $(TRACE)
 
-train-classifier:
-	@echo "Training BINARY CLASSIFIER (better approach)..."
-	@if [ -f .venv/bin/python ]; then \
-		echo "Using virtual environment: .venv/bin/python"; \
-		.venv/bin/python -m scbf.training.train_classifier; \
-	else \
-		echo "Using system Python"; \
-		python3 -m scbf.training.train_classifier; \
+scan-batch:
+	@if [ -z "$(DIR)" ]; then \
+		echo "Error: Directory required."; \
+		echo "Usage: make scan-batch DIR=path/to/traces/"; \
+		exit 1; \
 	fi
-	@echo ""
-	@echo "Training complete!"
-
-train-hybrid:
-	@echo "Training HYBRID MODEL (TGN + Statistical Features - BEST!)..."
-	@if [ -f .venv/bin/python ]; then \
-		echo "Using virtual environment: .venv/bin/python"; \
-		.venv/bin/python -m scbf.training.train_hybrid; \
-	else \
-		echo "Using system Python"; \
-		python3 -m scbf.training.train_hybrid; \
-	fi
-	@echo ""
-	@echo "Training complete!"
-
-train-hybrid-v2:
-	@echo "Training HYBRID V2 (45 features + deeper model - TARGET 80-90%!)..."
-	@if [ -f .venv/bin/python ]; then \
-		echo "Using virtual environment: .venv/bin/python"; \
-		.venv/bin/python -m scbf.training.train_hybrid_v2; \
-	else \
-		echo "Using system Python"; \
-		python3 -m scbf.training.train_hybrid_v2; \
-	fi
-	@echo ""
-	@echo "Training complete!"
-
-evaluate:
-	@echo "Evaluating model on test set..."
-	sudo python -m scbf.training.evaluate
+	$(PY) -m scbf.detection.cli --batch $(DIR)
 
 scan:
 	@if [ -z "$(PKG)" ]; then \
-		echo "Error: Package name required. Usage: make scan PKG=requests"; \
+		echo "Error: Package name required."; \
+		echo "Usage: make scan PKG=requests"; \
+		echo ""; \
+		echo "Note: Live scanning requires Linux with eBPF support (bcc-tools)."; \
+		echo "On macOS, use 'make scan-trace' or 'make scan-batch' instead."; \
 		exit 1; \
 	fi
-	@echo "Scanning package: $(PKG)"
-	sudo python -m scbf.detection.cli --package $(PKG)
+	@echo "Live scanning $(PKG) (requires Linux + eBPF)..."
+	sudo $(PY) -m scbf.detection.cli --package $(PKG)
 
-test:
-	pytest tests/ -v
+diagnose:
+	@echo "Running diagnostic scripts..."
+	@echo ""
+	@echo "─── Trace length analysis ───"
+	$(PY) scripts/diagnostics/check_length_confound.py
+	@echo ""
+	@echo "─── Rate feature ablation ───"
+	$(PY) scripts/diagnostics/ablation_rate_normalized.py
+	@echo ""
+	@echo "─── Install success verification ───"
+	$(PY) scripts/diagnostics/verify_install_success.py
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
@@ -153,3 +104,4 @@ clean:
 	find . -type d -name "*.egg-info" -exec rm -rf {} + 2>/dev/null || true
 	rm -f last_capture.jsonl
 	rm -rf build/ dist/
+	@echo "✓ Cleaned"
