@@ -22,12 +22,17 @@ help:
 	@echo "Other:"
 	@echo "  make clean              Remove cache files"
 	@echo ""
-	@echo "Complete workflow:"
+	@echo "Workflow — first time (need to produce a model):"
 	@echo "  1. make install"
 	@echo "  2. make validate-data"
 	@echo "  3. make train"
 	@echo "  4. make build-envelope"
-	@echo "  5. make scan-trace TRACE=<file>"
+	@echo "  5. make scan-trace TRACE=<file>     (or  make scan PKG=<name>  on Linux)"
+	@echo ""
+	@echo "Workflow — already have a trained model (copied from elsewhere):"
+	@echo "  1. make install"
+	@echo "  2. place models/*.pt and models/envelope_v2*.* in models/"
+	@echo "  3. make scan-trace / scan-batch / scan"
 
 PY := $(shell if [ -f .venv/bin/python ]; then echo .venv/bin/python; else echo python3; fi)
 

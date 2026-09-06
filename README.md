@@ -157,31 +157,32 @@ Then verify:
 make validate-data
 ```
 
-### 3. Train the Model
+### 3. Get a Trained Model
+
+You need `models/scbf_hybrid_v2.pt` and an envelope file (`models/envelope_v2.npy`).
+The `models/` directory is gitignored, so you either:
+
+**(a) Copy pre-trained artifacts from another machine** (fastest — if you already
+trained elsewhere):
 
 ```bash
-make train           # ~30-60 min on CPU, ~10 min on GPU
+# On the machine that has the model (macOS example)
+scp models/scbf_hybrid_v2.pt   user@vm-host:~/SCBF/models/
+scp models/envelope_v2*.npy    user@vm-host:~/SCBF/models/
+scp models/envelope_v2*.json   user@vm-host:~/SCBF/models/
 ```
 
-Trains the hybrid TGN + statistical-feature model with 70/15/15 train/val/test
-split and early stopping. Saves `models/scbf_hybrid_v2.pt`.
-
-### 4. Build the Envelope (Linux, full pipeline)
+**(b) Or train from scratch** (~30-60 min CPU, ~10 min GPU):
 
 ```bash
+make train
 make build-envelope
 ```
 
-Passes every clean package through the trained TGN, computes the centroid of the
-resulting DNA vectors, and stores the envelope + threshold. Also builds a pure-TGN
-envelope and a hybrid envelope side by side for comparison.
+Either path produces the same interface — the scanner does not care where the
+model came from.
 
-Envelope-based detection is designed to run as part of the full live pipeline
-(monitor.sh → ITBG → TGN → envelope → verdict) on Linux. Evaluating detection
-performance on live installations requires eBPF capture and belongs in a Linux
-deployment run, not the offline benchmark.
-
-### 5. Scan Packages
+### 4. Scan Packages
 
 Three modes:
 
@@ -193,7 +194,7 @@ make scan-trace TRACE=data/zenodo_13746167/malware/traces/some-pkg.jsonl
 make scan-batch DIR=data/zenodo_13746167/malware/traces/
 
 # Live install + capture + analyze (Linux only, needs eBPF + sudo)
-sudo make scan PKG=requests
+sudo -E make scan PKG=requests
 ```
 
 Each scan prints a verdict (`ALLOW` / `WARN` / `BLOCK`), a threat score (0-100),

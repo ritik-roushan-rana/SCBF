@@ -1,4 +1,4 @@
-# Ubuntu VM Setup for Full SCBF Pipeline
+ # Ubuntu VM Setup for Full SCBF Pipeline
 
 For **offline analysis** (training, envelope, `scan-trace`, `scan-batch`) any
 platform with Python 3.9+ works, including macOS.
@@ -66,45 +66,73 @@ launches its own Python subprocess as root, so this is fine: the model /
 analysis side uses `.venv`, but the eBPF loader in `monitor.sh` uses the
 system python where `bcc` is available.
 
-## 5. Get the Dataset
+## 5. Get the Trained Model
 
-Either:
+The `models/` directory is gitignored. You have two options:
 
-- Download from Zenodo (record `13746167`), unzip into
-  `data/zenodo_13746167/{benign,malware}/traces/`, or
-- Collect traces yourself using the collector:
+### Option A — Copy the model from another machine (recommended)
 
-  ```bash
-  sudo -E python3 scripts/collect_zenodo.py
-  ```
+If you have already trained on your workstation, just move the artifacts across:
 
-  **Warning:** the collector calls `pip install` on each package under eBPF.
-  Malicious packages will execute their install scripts. Only run this in a
-  disposable VM with no credentials mounted.
+```bash
+# From the machine that has the trained model, e.g. macOS:
+scp models/scbf_hybrid_v2.pt        <user>@<vm>:~/SCBF/models/
+scp models/envelope_v2*.npy         <user>@<vm>:~/SCBF/models/
+scp models/envelope_v2*.json        <user>@<vm>:~/SCBF/models/
+scp models/checkpoints/split_info.json <user>@<vm>:~/SCBF/models/checkpoints/
+```
 
-Then verify:
+That's it — the scanner reads these files directly and does not care where
+they were produced.
+
+### Option B — Retrain on the VM
+
+Only needed if you don't have a trained model yet, or you want to retrain on
+newly-collected data.
+
+Place traces at `data/zenodo_13746167/{benign,malware}/traces/*.jsonl`
+(download the Zenodo record `13746167`, or run the collector — see below),
+then:
 
 ```bash
 make validate-data
-```
-
-## 6. Train and Build the Envelope
-
-Same as everywhere:
-
-```bash
-make train
+make train              # ~30-60 min on CPU
 make build-envelope
 ```
 
-## 7. Live Scan a Package
+### Optional — Collect fresh traces yourself
+
+⚠️ **Warning:** the collector calls `pip install` on each package under
+eBPF. Malicious packages will execute their install scripts inside the VM.
+Only run this on a **disposable VM** with no credentials mounted and take a
+snapshot beforehand.
+
+```bash
+sudo -E python3 scripts/collect_zenodo.py
+```
+
+## 6. Live Scan a Package
 
 ```bash
 sudo -E make scan PKG=requests
 ```
 
-The `-E` preserves your user in `SUDO_USER` so `monitor.sh` can drop pip back
-to your account (instead of installing the package into a root-owned venv).
+That single command runs the entire live pipeline on Ubuntu:
+
+```
+   monitor.sh (eBPF)  →  captures syscalls during `pip install requests`
+        ↓
+   ITBG Constructor    →  streams events into a temporal graph
+        ↓
+   TGN Encoder         →  emits the 128-dim behavioral DNA vector
+        ↓
+   Envelope compare    →  distance to clean centroid vs threshold
+        ↓
+   Verdict engine      →  ALLOW / WARN / BLOCK  +  threat score 0-100
+```
+
+The `-E` flag preserves your user in `SUDO_USER` so `monitor.sh` can drop pip
+back to your account (instead of installing the package into a root-owned venv).
 
 Optional overrides:
 
@@ -115,7 +143,7 @@ sudo -E make scan PKG=some-suspicious \
   PYTHON=/home/$USER/.pyenv/versions/3.12.10/bin/python
 ```
 
-## 8. Common Problems
+## 7. Common Problems
 
 **`bcc` import error inside `.venv`**  
 BCC is a system package. `monitor.sh` uses the system `python3`, not
