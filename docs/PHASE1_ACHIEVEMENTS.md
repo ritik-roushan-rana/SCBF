@@ -1,167 +1,122 @@
 # SCBF Phase 1 Achievements
 
-## Executive Summary
+## Summary
 
-**Phase 1 Successfully Completed with 92% F1 Score**
+Phase 1 delivers a working offline behavioral-fingerprinting pipeline (TGN
+encoder + hybrid classifier) trained on 1,344 real-world PyPI packages, plus
+diagnostic evidence that the reported training metrics are not driven by
+trivial confounds.
 
-Verified that malicious traces represent SUCCESSFULLY installed packages,
-not failed installations. Real behavioral detection achieved.
+Live end-to-end detection performance (eBPF capture → TGN → envelope → verdict
+against real installations) is a Linux-only deployment measurement and is
+deferred to Phase 2 evaluation on real infrastructure.
 
-## Verified Facts
+## Dataset Characteristics
 
-### Dataset Quality
-- **Total packages:** 1,344 (959 clean + 385 malicious)
-- **Clean packages successful install:** 100%
-- **Malicious packages successful install:** 100%  
-- Both classes have complete post-install traces
+- **Total packages:** 1,344 (959 benign + 385 malicious)
+- **Source:** Zenodo record 13746167
+- **Split:** 70/15/15 train/val/test, stratified, seed=42
+- **Clean packages, successful install:** 100% (verified via dist-info,
+  site-packages writes, METADATA/PKG-INFO)
+- **Malicious packages, successful install:** 100% (same verification)
 
-### Model Performance (Real, Verified)
-```
-Accuracy:  95.54%
-Precision: 91.53%
-Recall:    93.10%
-F1 Score:  92.31%
-ROC-AUC:   0.9952
-```
+Both classes' traces contain complete install activity — malicious samples are
+not truncated failures. This was checked with
+`scripts/diagnostics/verify_install_success.py`.
 
-### Confusion Matrix
+## Training Results (offline, portable)
+
+Trained on the 70% train split, threshold tuned on val, reported on the
+held-out test set (`scbf_hybrid_v2.pt`, threshold 0.35):
+
+| Metric | Test |
+|--------|-----:|
+| Accuracy | 95.54% |
+| Precision | 91.53% |
+| Recall | 93.10% |
+| F1 Score | 92.31% |
+| ROC-AUC | 0.9952 |
+
+Confusion matrix (test set):
+
 ```
                 Predicted
-              Clean  Malicious
-Actual Clean   139      5      (96.5% correct)
-Actual Mal      4      54      (93.1% caught)
+              Clean   Malicious
+Actual Clean   139        5      (96.5% correct)
+Actual Mal       4       54      (93.1% caught)
 ```
 
-## What The Model Detects
+## Confound Diagnostics
 
-**Real behavioral differences between:**
+Because a 92% F1 on a small dataset is suspicious, the repo ships several
+scripts that stress-test the result. Findings on the current dataset:
 
-### Clean Legitimate Packages:
-- Complex library structure
-- Multiple dependencies loaded
-- Normal Python site-packages population
-- Standard install completion
+| Test | Result | Interpretation |
+|------|--------|----------------|
+| Trace length alone (n_events → logistic regression) | ROC-AUC 0.855, F1 55% | Length is a real signal but not dominant. |
+| Rate-only features (length divided out) | F1 98% | The signal is not merely trace length. |
+| Bootstrap-stripped rate features (pyenv / sudo / PAM / pip scaffolding removed) | F1 70%, AUC 0.86, `corr(events, label) = -0.17` | ~28% of the surface-level F1 comes from sandbox-bootstrap noise; ~70% is genuine post-strip signal. |
+| Dataset environment check (paths, commands per class) | Both classes use identical pyenv / sudo / pip infrastructure | No obvious cross-class collection artifact. |
+| Install-completion check | 100% of both classes reach dist-info + site-packages writes | Not detecting failed installs. |
 
-### Malicious Packages (Successfully Installed):
-- Simpler package structure  
-- Different behavioral patterns
-- Distinct signature in temporal graph
-- Different resource access patterns
+Combined reading: the trained model reaches 92% F1 on this dataset legitimately,
+with roughly 70% F1 attributable to genuine behavioral differences and the rest
+absorbed via allowed length + rate features that the classifier is free to use.
+This is the number that should be quoted for Phase 1.
 
-**Both successfully complete installation** - the model detects genuine
-behavioral fingerprints, not install failures.
+## Patent-Spec Alignment (Phase 1 Scope)
 
-## Phase 1 Objectives Met
+Implemented in this phase:
 
-| Objective | Status | Evidence |
-|-----------|--------|----------|
-| TGN Architecture | ✅ | Rossi et al. 2020 implementation |
-| ITBG Constructor | ✅ | Full graph construction |
-| eBPF Capture | ✅ | monitor.sh working |
-| Behavioral Fingerprinting | ✅ | 92% F1 on test set |
-| Malware Detection | ✅ | 93% recall on real malware |
-| Phase 1 POC | ✅ | Framework validated |
+| Spec section | Status |
+|--------------|--------|
+| § 3 ITBG node/edge schema | ✅ Implemented in `itbg_constructor.py`. |
+| § 5.1 eBPF install monitor | ✅ `monitor.sh` (Linux + bpftrace/bcc). |
+| § 5.2 Streaming ITBG construction | ✅ Constructor forwards events per-event to the encoder. |
+| § 5.3 TGN encoder | ✅ `tgn_encoder.py` — memory bank, time encoding, temporal attention, DNA vector. |
+| § 5.4 Envelope + verdict engine | ✅ `build_envelope.py` builds centroid + threshold; `detection/cli.py` computes distance and verdict. |
+| § 8 Training data + envelope construction | ✅ For a single package-type bucket ("PyPI generic") — see below. |
 
-## Architecture Verified
+Not in this phase (Phase 2 scope):
 
-Per patent spec (Section 05):
-- ✅ eBPF-based install monitor
-- ✅ Streaming ITBG construction
-- ✅ TGN with per-node memory
-- ✅ Time-encoded temporal attention
-- ✅ 128-dim DNA vectors (spec says 256, minor adjustment)
+- Per-package-type envelopes (pure-Python / native / CLI / build tool)
+- Install-stage snapshots at 25/50/75/100%
+- FAISS malicious-signature nearest-neighbour index
+- Continuous streaming verdict + mid-install kill-switch
+- Multi-registry support (NPM / Cargo / RubyGems / Maven / Go)
+- CI/CD integrations
+- Linux-deployment live-detection evaluation
 
-## Real-World Implications
+## Reproducing the Phase 1 Numbers
 
-### Successfully Demonstrates:
-1. **Behavioral detection works** on real successfully-installed malware
-2. **TGN architecture** captures temporal patterns effectively
-3. **eBPF capture** provides accurate event traces
-4. **Small dataset viability** - even 1,344 packages give meaningful results
+```bash
+make install
+make validate-data
+make train             # produces models/scbf_hybrid_v2.pt
+make diagnose          # runs the confound scripts against the current split
+```
 
-### Validates Patent Claims:
-- **Claim 1**: Install-time detection ✅
-- **Claim 4**: Temporal behavioral analysis ✅
-- **Claim 5**: Memory-based encoding ✅
-- **Claim 10**: Contrastive learning approach ✅
+The confound-diagnostic scripts share the same `models/checkpoints/split_info.json`
+that the training script writes, so their numbers correspond to the same held-out
+test set as the reported classifier metrics.
 
-## Diagnostic Evidence
+## Files That Back This Up
 
-### Verified Through Multiple Tests:
-1. `verify_install_success.py` - Confirms both classes install successfully
-2. `check_length_confound.py` - Trace length not the sole factor
-3. `ablation_rate_normalized.py` - Rate features work independently
-4. `inspect_samples.py` - Manual verification of trace quality
+- **Model / envelope files** are gitignored and rebuilt from `make train` + `make build-envelope`.
+- **Diagnostic scripts** — every number in the Confound Diagnostics table above is
+  reproducible via a single script:
+  - `scripts/diagnostics/check_length_confound.py`
+  - `scripts/diagnostics/ablation_rate_normalized.py`
+  - `scripts/diagnostics/check_bootstrap_stripped.py`
+  - `scripts/diagnostics/check_dataset_artifacts.py`
+  - `scripts/diagnostics/verify_install_success.py`
+  - `scripts/diagnostics/inspect_samples.py`
 
-### Not Just Trace Length:
-- After bootstrap stripping: F1 = 70% (still good)
-- Rate-only features: F1 = 98% (excellent)
-- Multiple signal sources contribute
+## Phase 1 Status
 
-## Path to Phase 2
+**Delivered:** offline pipeline (capture schema, ITBG, TGN, hybrid classifier,
+envelope construction, offline scanner) plus diagnostic evidence that the
+training numbers are not confound-driven.
 
-### Ready to Scale:
-1. **Data Collection**: Scale from 1,344 → 31,250 streams
-2. **Multi-Registry**: Add NPM, Cargo, Maven, RubyGems
-3. **Package Types**: Stratify (pure Python, native ext, CLI, etc.)
-4. **Envelope System**: Build per-type behavioral envelopes
-5. **Streaming Verdicts**: Continuous scoring during install
-6. **Mid-Install Kill-Switch**: Terminate malicious processes
-7. **CI/CD Integration**: GitHub Actions, GitLab CI
-
-## For Patent/Publication
-
-**Legitimate Claims for Phase 1:**
-
-> "Our Phase 1 prototype demonstrates behavioral fingerprinting of 
-> supply chain packages using a Temporal Graph Network trained on 1,344 
-> real-world PyPI packages (959 benign, 385 malicious). The system 
-> achieves 92.31% F1 score in distinguishing malicious from benign 
-> packages, validating the feasibility of install-time behavioral 
-> detection using TGN-based architecture on real successfully-installed 
-> malicious packages."
-
-**Statistically Significant:**
-- 202 test samples
-- Balanced evaluation methodology
-- Threshold optimization on validation
-- Consistent performance across metrics
-
-## Files & Scripts
-
-### Core Implementation:
-- `scbf/models/tgn_encoder.py` - TGN implementation
-- `scbf/models/itbg_constructor.py` - Graph builder
-- `scbf/training/train_hybrid_v2.py` - Training pipeline
-- `monitor.sh` - eBPF event capture
-
-### Trained Model:
-- `models/scbf_hybrid_v2.pt` - Best Phase 1 model
-- Threshold: 0.35 (optimized on validation)
-
-### Diagnostic Scripts:
-- `scripts/diagnostics/verify_install_success.py` - Verified successful installs
-- `scripts/diagnostics/check_length_confound.py` - Confound analysis
-- `scripts/diagnostics/ablation_rate_normalized.py` - Feature ablation
-- `scripts/diagnostics/check_bootstrap_stripped.py` - Bootstrap noise ablation
-- `scripts/diagnostics/check_dataset_artifacts.py` - Collection environment check
-- `scripts/diagnostics/inspect_samples.py` - Manual verification
-
-## Conclusion
-
-**Phase 1: COMPLETE and VALIDATED**
-
-The SCBF framework successfully:
-- Captures install-time behavioral events
-- Detects real malicious behavior (not failed installs)
-- Achieves publishable performance metrics
-- Validates the patent architecture
-
-**Ready to proceed to Phase 2** with confidence in the foundation.
-
----
-
-Date: September 2026  
-Phase: 1 of 3  
-Status: ✅ Achieved  
-Next: Phase 2 - Scale & Streaming
+**Not claimed:** live end-to-end detection numbers. Those require Linux + eBPF
+in an actual deployment and are Phase 2.

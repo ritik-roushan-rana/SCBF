@@ -9,19 +9,25 @@ of what legitimate packages of that type normally do.
 
 Innovation 6 of 7 · Patent Pending · Phase 1 prototype.
 
-## Phase 1 Results
+## Phase 1 Training Results
 
-Evaluated on the Zenodo 13746167 dataset (1,344 packages: 959 benign + 385 malicious):
+The hybrid TGN + statistical-features model was trained on the Zenodo 13746167
+dataset (1,344 packages: 959 benign + 385 malicious) with a 70/15/15 split.
 
-| Metric | Classifier | Envelope Detection |
-|--------|-----------:|-------------------:|
-| Accuracy | 95.54% | 93.8% |
-| Precision | 91.53% | — |
-| Recall | 93.10% | 90.1% (malware detection) |
-| F1 Score | 92.31% | — |
-| ROC-AUC | 0.9952 | — |
+| Metric | Test Set |
+|--------|---------:|
+| Accuracy | 95.54% |
+| Precision | 91.53% |
+| Recall | 93.10% |
+| F1 Score | 92.31% |
+| ROC-AUC | 0.9952 |
 
-Best model: `models/scbf_hybrid_v2.pt` · Threshold: 0.35 (classifier), 4.65 (envelope).
+Best model: `models/scbf_hybrid_v2.pt` · Classifier threshold: 0.35.
+
+> Full-pipeline detection metrics (envelope-based scoring on live installations)
+> require the complete Linux + eBPF setup with `monitor.sh` running as root, and
+> are not reported here — they belong to the deployment evaluation, not the
+> offline training benchmark.
 
 ## Architecture
 
@@ -149,7 +155,7 @@ make train           # ~30-60 min on CPU, ~10 min on GPU
 Trains the hybrid TGN + statistical-feature model with 70/15/15 train/val/test
 split and early stopping. Saves `models/scbf_hybrid_v2.pt`.
 
-### 4. Build the Envelope
+### 4. Build the Envelope (Linux, full pipeline)
 
 ```bash
 make build-envelope
@@ -159,12 +165,17 @@ Passes every clean package through the trained TGN, computes the centroid of the
 resulting DNA vectors, and stores the envelope + threshold. Also builds a pure-TGN
 envelope and a hybrid envelope side by side for comparison.
 
+Envelope-based detection is designed to run as part of the full live pipeline
+(monitor.sh → ITBG → TGN → envelope → verdict) on Linux. Evaluating detection
+performance on live installations requires eBPF capture and belongs in a Linux
+deployment run, not the offline benchmark.
+
 ### 5. Scan Packages
 
 Three modes:
 
 ```bash
-# Analyze an already-captured trace (works on macOS + Linux)
+# Analyze an already-captured trace (works anywhere Python runs)
 make scan-trace TRACE=data/zenodo_13746167/malware/traces/some-pkg.jsonl
 
 # Analyze every trace in a directory
@@ -181,11 +192,12 @@ the envelope distance, and the classifier probability.
 
 | Mode | Needs Linux? | Needs eBPF? | What it does |
 |------|:------------:|:-----------:|--------------|
-| `scan-trace` | no | no | Reads a JSONL trace, runs it through the model, prints a verdict. |
-| `scan-batch` | no | no | Same, over every `.jsonl` in a directory, prints an aggregate summary. |
+| `scan-trace` | no | no | Reads an already-captured JSONL trace, runs it through the model, prints a verdict. |
+| `scan-batch` | no | no | Same, over every `.jsonl` in a directory. |
 | `scan` (live) | **yes** | **yes** | Runs `monitor.sh` under sudo to `pip install` the package while eBPF captures syscalls, then analyses the captured trace. |
 
-Capture is the only part that requires Linux; analysis is portable.
+Capture (and therefore any deployment-quality end-to-end evaluation) requires
+Linux; offline analysis of pre-captured traces is portable.
 
 ## Verifying the Results
 
@@ -248,8 +260,12 @@ Phase 1 is a proof of concept. The following are validated:
 - ITBG construction from event stream
 - TGN encoder producing DNA vectors
 - Hybrid classifier reaching ~92% F1 on the test split
-- Envelope-based detection reaching 90% recall on malware
-- End-to-end scanner (trace, batch, and live modes)
+- End-to-end scanner code path (trace, batch, and live modes) working on
+  already-captured JSONL traces
+
+Envelope-based live detection performance (running the full monitor → TGN →
+envelope pipeline against real-time installations) is scoped for Linux
+deployment evaluation and not reported as a Phase 1 offline metric.
 
 The following are **not** yet implemented and are intended for Phase 2:
 

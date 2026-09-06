@@ -116,9 +116,9 @@ weak class separation on the current dataset (see § Stage 5).
 
 **File:** `scbf/training/train_hybrid_v2.py` (`HybridClassifierV2`)
 
-The DNA vector by itself is not enough to reach the reported detection rate on
-this dataset. `HybridClassifierV2` augments it with 45 hand-crafted statistical
-features computed from the same event stream:
+The DNA vector by itself does not carry enough separation, on this dataset, to
+reach the reported classifier F1. `HybridClassifierV2` augments it with 45
+hand-crafted statistical features computed from the same event stream:
 
 - Event-type ratios (exec / open / connect proportion of total).
 - Path-category proportions (`/tmp`, `/.ssh`, `/root`, `/usr`, `site-packages`, ...).
@@ -137,7 +137,7 @@ LayerNorm + GELU + Dropout.
 | Mode | Vector | Purpose |
 |------|--------|---------|
 | Pure TGN | 128-dim DNA only | Matches patent spec § 5.3 verbatim. |
-| Hybrid | 192-dim (DNA + stats) | Higher detection rate. |
+| Hybrid | 192-dim (DNA + stats) | Wider inter-class distance under the L2 metric. |
 
 Both are supported in `build_envelope.py` — set `BUILD_BOTH = True` (default).
 
@@ -203,7 +203,7 @@ Both envelopes are saved:
 
 ```
 models/envelope_v2_tgn.npy        # 128-dim, matches spec verbatim
-models/envelope_v2_hybrid.npy     # 192-dim, better detection
+models/envelope_v2_hybrid.npy     # 192-dim, wider inter-class distance
 models/envelope_v2.npy            # alias → hybrid (default)
 ```
 
