@@ -2,6 +2,10 @@
 
 Detailed technical breakdown of the Supply Chain Behavioral Fingerprinting system.
 
+## Architecture Diagram
+
+![SCBF Architecture Diagram](docs/images/architecture-diagram.jpeg)
+
 ## System Overview
 
 SCBF is a five-stage pipeline that converts install-time syscall events into a

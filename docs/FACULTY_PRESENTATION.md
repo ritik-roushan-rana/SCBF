@@ -295,13 +295,16 @@ noise?" you're already prepared.*
 | **OSCAR (Dynamic)** | **0.99** | 0.85 | **0.91** |
 | **SCBF (this work)** | 0.9153 | **0.9310** | **0.9231** |
 
-> **"On the same dataset source — `pypi_malregistry`, which is the
-> dataset OSCAR itself cites as reference [20] — my SCBF model
-> achieves F1 = 0.923, compared to OSCAR's 0.910. That is within
-> statistical confidence intervals, so honestly, this is a statistical
-> tie. I'm not going to over-claim by saying SCBF beats OSCAR — my
-> test set is smaller (202 vs 2,000 packages), so the confidence
-> interval is wider. What I can say is:"**
+> **"And here's the important part — the dataset I trained on isn't
+> just from the same source as OSCAR's. It IS OSCAR's benchmark
+> dataset. The OSCAR authors published their exact RQ1 experiment
+> package set on Zenodo, record 13746167, alongside the paper. I
+> downloaded that Zenodo record and trained SCBF on it. On the same
+> benchmark, my SCBF model achieves F1 = 0.923, compared to OSCAR's
+> 0.910. That is within statistical confidence intervals, so honestly,
+> this is a statistical tie. I'm not going to over-claim by saying
+> SCBF beats OSCAR — my test split is smaller (202 vs 2,000 packages)
+> so the confidence interval is wider. What I can say is:"**
 
 > **"One: SCBF matches the strongest published baseline on this task.
 > Two: it does it with a fundamentally different mechanism — a

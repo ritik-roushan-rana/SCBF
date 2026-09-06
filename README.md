@@ -11,8 +11,13 @@ Innovation 6 of 7 · Patent Pending · Phase 1 prototype.
 
 ## Phase 1 Training Results
 
-The hybrid TGN + statistical-features model was trained on the Zenodo 13746167
-dataset (1,344 packages: 959 benign + 385 malicious) with a 70/15/15 split.
+The hybrid TGN + statistical-features model was trained on the [OSCAR
+benchmark dataset (Zenodo 13746167)](https://zenodo.org/records/13746167),
+which is the dataset the OSCAR paper (Zheng et al., ASE 2024) itself
+publishes for its RQ1 experiments. Of the 2,000 PyPI packages in that
+benchmark (500 malicious + 1,500 benign), 1,344 installed successfully
+under eBPF capture in our environment (385 malicious + 959 benign) and
+were used with a 70/15/15 split.
 Metrics on all three splits, at the tuned classifier threshold of 0.35:
 
 | Split | Samples | Accuracy | Precision | Recall | F1 | ROC-AUC |
@@ -25,6 +30,21 @@ Generalisation gap (train F1 − test F1) = **−0.09%** → no overfitting.
 
 Best model: `models/scbf_hybrid_v2.pt` · Classifier threshold: 0.35. Raw
 numbers in `models/evaluation_results.json`, reproducible with `make evaluate`.
+
+**Comparison to the OSCAR paper (ASE 2024) on the same benchmark:**
+
+| Tool | Precision | Recall | F1 | Per-pkg time |
+|------|----------:|-------:|---:|-------------:|
+| OSCAR (ASE '24) | 0.99 | 0.85 | 0.91 | ~165 s |
+| Guarddog | 0.89 | 0.94 | 0.91 | static |
+| SAP | 0.73 | 0.86 | 0.79 | static |
+| **SCBF (this work)** | **0.9153** | **0.9310** | **0.9231** | **~3 s** |
+
+SCBF matches OSCAR's F1 within statistical confidence intervals on the
+OSCAR authors' own Zenodo benchmark, with a different precision/recall
+trade-off (higher recall, lower precision) and ~30× lower per-package
+latency. See [`docs/COMPARISON_WITH_OSCAR.md`](docs/COMPARISON_WITH_OSCAR.md)
+for the full head-to-head against six published baselines.
 
 > Full-pipeline detection metrics (envelope-based scoring on live installations)
 > require the complete Linux + eBPF setup with `monitor.sh` running as root, and
@@ -140,20 +160,32 @@ sudo apt install -y python3-bpfcc bpfcc-tools linux-headers-$(uname -r)
 
 ### 2. Get the Dataset
 
-Place trace files under:
+The dataset used for Phase 1 training is the **OSCAR benchmark**
+published by Zheng et al. alongside their ASE 2024 paper: Zenodo record
+[13746167](https://zenodo.org/records/13746167). Download the two PyPI
+RQ1 archives:
+
+- `rq1_pypi_malware.zip` — 500 malicious PyPI packages
+- `rq1_pypi_benign.zip` — 1,500 benign PyPI packages
+
+Feed them through the collector on a Linux host to produce traces:
+
+```bash
+sudo python3 scripts/collect_zenodo.py
+```
+
+The collector runs each package through `monitor.sh` under eBPF and
+writes per-package JSONL traces into:
 
 ```
 data/zenodo_13746167/benign/traces/*.jsonl
 data/zenodo_13746167/malware/traces/*.jsonl
 ```
 
-Either download from Zenodo (record `13746167`) or collect on a Linux host:
-
-```bash
-sudo python3 scripts/collect_zenodo.py
-```
-
-Then verify:
+Not every package will install successfully in every environment;
+packages that fail to install are skipped and the trace count will be
+lower than the input count (in our run: 959 of 1,500 benign and 385 of
+500 malicious captured successfully). Then verify:
 
 ```bash
 make validate-data
@@ -298,5 +330,16 @@ permission. Source is provided for research and evaluation.
 
 ## References
 
-- Rossi et al., *Temporal Graph Networks for Deep Learning on Dynamic Graphs*, 2020.
-- Zenodo dataset: record `13746167`.
+- Rossi, E., Chamberlain, B., Frasca, F., Eynard, D., Monti, F., &
+  Bronstein, M. (2020). *Temporal Graph Networks for Deep Learning on
+  Dynamic Graphs*. ICML Workshop on Graph Representation Learning and
+  Beyond.
+- Zheng, X. et al. (2024). *Towards Robust Detection of Open Source
+  Software Supply Chain Poisoning Attacks in Industry Environments*.
+  **ASE '24**. https://doi.org/10.1145/3691620.3695262
+- Zheng, X. et al. (2024). **OSCAR benchmark dataset**, Zenodo record
+  [13746167](https://zenodo.org/records/13746167) — the exact dataset
+  used to train and evaluate SCBF Phase 1.
+- See [`docs/COMPARISON_WITH_OSCAR.md`](docs/COMPARISON_WITH_OSCAR.md)
+  for a full head-to-head comparison against OSCAR and five other
+  published baselines on this benchmark.
