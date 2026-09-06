@@ -22,12 +22,15 @@ wheels/
 .installed.cfg
 *.egg
 
-# Trained models and artifacts (rebuilt via make train / make build-envelope)
-models/*.pt
+# Trained model artifacts.
+#
+# The Phase 1 hybrid model + envelopes are small (~1.5 MB total) and
+# committed so a fresh clone can run `make scan-trace` immediately. Any
+# LARGER trained artifacts (raw checkpoints, older experimental models,
+# .pth files) are still ignored.
 models/*.pth
-models/checkpoints/
-models/*.npy
-models/*.json
+models/checkpoints/*.pt
+# Keep: scbf_hybrid_v2.pt, envelope_v2*.{npy,json}, checkpoints/split_info.json
 
 # Dataset (too large to commit - place manually or via scripts/collect_zenodo.py)
 data/zenodo_13746167/*/traces/*.jsonl

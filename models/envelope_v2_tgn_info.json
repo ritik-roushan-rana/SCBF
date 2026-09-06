@@ -1,0 +1,8 @@
+{
+  "name": "pure_tgn",
+  "mean_distance": 0.5970390439033508,
+  "std_distance": 0.13922560214996338,
+  "threshold": 0.9451030492782593,
+  "n_samples": 959,
+  "dim": 128
+}

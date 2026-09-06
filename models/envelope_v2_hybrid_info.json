@@ -1,0 +1,8 @@
+{
+  "name": "hybrid",
+  "mean_distance": 2.106118679046631,
+  "std_distance": 1.0176301002502441,
+  "threshold": 4.65019416809082,
+  "n_samples": 959,
+  "dim": 192
+}
