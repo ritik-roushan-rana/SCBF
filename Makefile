@@ -1,4 +1,4 @@
-.PHONY: help install train build-envelope scan-trace scan-batch scan validate-data clean
+.PHONY: help install train build-envelope scan-trace scan-batch scan validate-data clean capture-live-benign recalibrate
 
 help:
 	@echo "SCBF - Supply Chain Behavioral Fingerprinting"
@@ -19,6 +19,10 @@ help:
 	@echo ""
 	@echo "Diagnostics:"
 	@echo "  make diagnose           Run all diagnostic scripts on the dataset"
+	@echo ""
+	@echo "Calibration (fixes live-scan false positives on this host):"
+	@echo "  make capture-live-benign  Capture live traces of known-clean packages"
+	@echo "  make recalibrate          capture-live-benign + rebuild envelope"
 	@echo ""
 	@echo "Other:"
 	@echo "  make clean              Remove cache files"
@@ -114,6 +118,16 @@ diagnose:
 	@echo ""
 	@echo "─── Install success verification ───"
 	$(PY) scripts/diagnostics/verify_install_success.py
+
+capture-live-benign:
+	@echo "Capturing live traces of known-clean packages on this host..."
+	@echo "This calibrates the envelope to the local pip / Python / path layout."
+	sudo -E ./scripts/capture_live_benign.sh
+
+recalibrate: capture-live-benign build-envelope
+	@echo ""
+	@echo "✓ Envelope recalibrated for this host."
+	@echo "  Live scans (make scan PKG=<pkg>) should now return ALLOW for clean packages."
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
