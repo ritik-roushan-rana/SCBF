@@ -72,38 +72,73 @@ def load_envelope(envelope_path="models/envelope_v2.npy",
     return centroid, threshold, mean_dist, std_dist
 
 
-def compute_verdict(distance, threshold, mean_dist, std_dist):
+def compute_verdict(distance, threshold, mean_dist, std_dist, classifier_prob=None):
     """
-    Compute verdict based on distance from clean centroid.
-    
-    Uses graduated scoring:
-    - BLOCK: distance > threshold (mean + 2.5*std)
-    - WARN:  distance > mean + 1.5*std
-    - ALLOW: distance <= mean + 1.5*std
+    Compute verdict using the supervised classifier as the PRIMARY signal
+    and the one-class envelope distance as a corroborating signal.
+
+    Why hybrid:
+      - The classifier was trained end-to-end on both clean AND malicious
+        packages, so it generalizes to unseen packages by learned decision
+        boundary (this is what makes `sudo -E make scan PKG=flask` return
+        ALLOW even though flask was never in training).
+      - The envelope is one-class (clean-only). It is sensitive to
+        capture-environment drift and cannot generalize to new clean
+        patterns it has not seen. It stays useful as a *sanity check*.
+
+    Decision logic:
+      - Classifier says clean (prob < 0.4)                → ALLOW
+      - Classifier says malicious (prob > 0.6)            → BLOCK
+      - Classifier uncertain AND envelope says far        → WARN
+      - Classifier uncertain AND envelope says close      → ALLOW
+      - No classifier available                           → fall back to envelope
+
+    Threat score (0-100) is derived from the classifier probability when
+    available, otherwise from envelope distance.
     """
-    warn_threshold = mean_dist + 1.5 * std_dist if mean_dist and std_dist else threshold * 0.7
-    
-    # Threat score 0-100
-    if distance <= mean_dist:
-        threat_score = 0
-    elif distance >= threshold:
-        threat_score = min(100, 75 + int((distance - threshold) / max(0.1, std_dist) * 10))
-    else:
-        # Linear scale between mean and threshold
-        progress = (distance - mean_dist) / max(0.001, (threshold - mean_dist))
-        threat_score = int(75 * progress)
-    
-    if distance >= threshold:
-        verdict = "BLOCK"
-        emoji = "🚫"
-    elif distance >= warn_threshold:
-        verdict = "WARN"
-        emoji = "⚠️"
-    else:
-        verdict = "ALLOW"
-        emoji = "✅"
-    
-    return verdict, threat_score, emoji
+    # Fallback to pure envelope logic if classifier is not available
+    if classifier_prob is None:
+        warn_threshold = (
+            mean_dist + 1.5 * std_dist
+            if mean_dist and std_dist
+            else threshold * 0.7
+        )
+
+        if distance <= mean_dist:
+            threat_score = 0
+        elif distance >= threshold:
+            threat_score = min(
+                100,
+                75 + int((distance - threshold) / max(0.1, std_dist) * 10),
+            )
+        else:
+            progress = (distance - mean_dist) / max(0.001, (threshold - mean_dist))
+            threat_score = int(75 * progress)
+
+        if distance >= threshold:
+            return "BLOCK", threat_score, "🚫"
+        if distance >= warn_threshold:
+            return "WARN", threat_score, "⚠️"
+        return "ALLOW", threat_score, "✅"
+
+    # Classifier is available — use it as the primary signal.
+    threat_score = int(classifier_prob * 100)
+
+    envelope_far = (
+        distance >= threshold
+        if threshold is not None
+        else False
+    )
+
+    if classifier_prob >= 0.6:
+        return "BLOCK", threat_score, "🚫"
+    if classifier_prob <= 0.4:
+        return "ALLOW", threat_score, "✅"
+
+    # Uncertain zone — let the envelope tie-break.
+    if envelope_far:
+        return "WARN", max(threat_score, 55), "⚠️"
+    return "ALLOW", threat_score, "✅"
 
 
 def scan_trace_file(trace_path, model=None, envelope_data=None, verbose=True):
@@ -139,11 +174,15 @@ def scan_trace_file(trace_path, model=None, envelope_data=None, verbose=True):
     dna_np = combined_vector.cpu().numpy()
     distance = float(np.linalg.norm(dna_np - centroid))
     
-    # Compute classifier probability (bonus info)
+    # Compute classifier probability — this is the PRIMARY detection signal
+    # because the classifier was trained on both clean and malicious packages
+    # and generalizes to unseen packages. The envelope distance is retained
+    # as a corroborating signal for the uncertain zone.
     classifier_prob = float(torch.sigmoid(logits).item()) if logits is not None else None
-    
-    # Compute verdict
-    verdict, threat_score, emoji = compute_verdict(distance, threshold, mean_dist, std_dist)
+
+    verdict, threat_score, emoji = compute_verdict(
+        distance, threshold, mean_dist, std_dist, classifier_prob=classifier_prob
+    )
     
     if verbose:
         package_name = os.path.basename(trace_path).replace('.jsonl', '').replace('.tar.gz', '')
