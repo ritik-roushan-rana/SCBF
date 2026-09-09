@@ -231,23 +231,10 @@ def main():
     print(f"✓ TGN architecture: {'Pure TGN' if USE_TGN_ONLY else 'Hybrid (TGN + statistical features)'}")
     
     # Get clean package paths
-    #
-    # Two sources are combined:
-    #   1. Zenodo dataset traces (offline, dataset-quality reference)
-    #   2. Locally-captured live traces (calibrates the envelope to the
-    #      actual VM's pip / python / path layout so that live scans on
-    #      this host don't drift out of distribution)
-    clean_paths = (
-        glob.glob("data/zenodo_13746167/benign/traces/*.jsonl")
-        + glob.glob("data/traces/live_benign/*.jsonl")
-    )
+    clean_paths = glob.glob("data/zenodo_13746167/benign/traces/*.jsonl")
     mal_paths = glob.glob("data/zenodo_13746167/malware/traces/*.jsonl")
 
-    live_count = len(glob.glob("data/traces/live_benign/*.jsonl"))
-    zenodo_count = len(clean_paths) - live_count
-
-    print(f"\nFound {zenodo_count} Zenodo clean packages")
-    print(f"Found {live_count} live-captured clean packages")
+    print(f"\nFound {len(clean_paths)} clean packages")
     print(f"Found {len(mal_paths)} malicious packages")
     
     if len(clean_paths) == 0:

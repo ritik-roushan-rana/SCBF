@@ -61,37 +61,13 @@ make scan-batch DIR=data/zenodo_13746167/malware/traces/
 make scan-batch DIR=data/zenodo_13746167/benign/traces/
 ```
 
-## 6. Calibrate the Envelope for This Host (one time)
+## 6. Live Scan (eBPF)
 
-The envelope shipped with the model was built on the Zenodo dataset's capture
-environment. Live installs on your VM produce systematically different syscall
-traces (different pip version, Python version, cache state, paths). Without
-calibration, live `make scan PKG=...` will falsely BLOCK even clean packages.
-
-Fix it once, then live scans work correctly:
-
-```bash
-make recalibrate
-```
-
-That runs two steps:
-
-1. `capture-live-benign` — installs ~30 known-clean packages (six, click,
-   flask, requests, pytest, …) under eBPF and stores their traces in
-   `data/traces/live_benign/`.
-2. `build-envelope` — rebuilds the envelope from the combined
-   Zenodo + local clean traces.
-
-Takes ~5–10 minutes total. Only needs to be done once per host.
-
-## 7. Live Scan (eBPF)
-
-Installs a package under eBPF monitoring and emits a verdict in real time:
+Installs any package under eBPF monitoring. The TGN classifier decides
+based on the package's runtime behavior — no per-host calibration needed:
 
 ```bash
 sudo -E make scan PKG=flask       # expect: ALLOW
 sudo -E make scan PKG=six         # expect: ALLOW
 sudo -E make scan PKG=requests    # expect: ALLOW
 ```
-
-If clean packages still show BLOCK, run `make recalibrate` first.
