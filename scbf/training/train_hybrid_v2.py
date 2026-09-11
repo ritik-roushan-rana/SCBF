@@ -19,7 +19,6 @@ import json
 import random
 import os
 import re
-import re
 import numpy as np
 from collections import Counter
 from datetime import datetime
@@ -269,74 +268,9 @@ def set_seed(seed=42):
     torch.manual_seed(seed)
 
 
-# Path canonicalization — critical for cross-environment generalization.
-#
-# Training traces were captured with the venv at /tmp/scbf_zenodo/ and
-# python3.12. Deployment traces are captured with the venv at
-# /home/<user>/<repo>/.venv/ and often a different python3.X.
-#
-# Without normalization, these paths hash to different node IDs in the TGN
-# and pump statistical features like `n_home` and `n_tmp` in opposite
-# directions between training and inference. The classifier then confuses
-# environmental drift with malicious behavior.
-#
-# All rewrites map to a small set of stable placeholders so a trace looks
-# the same regardless of which host captured it.
-_HOME_RE       = re.compile(r"/home/[^/]+")
-_ROOT_RE       = re.compile(r"^/root(?=/|$)")
-_TMP_ZENODO_RE = re.compile(r"/tmp/scbf_zenodo(?=/|$)")
-_TMP_SCAN_RE   = re.compile(r"/tmp/scbf_scan_[^/]*")
-_VENV_RE       = re.compile(r"/[^/\s]*\.venv(?=/|$)")
-_PY_VER_RE     = re.compile(r"python3\.\d+")
-_PROC_PID_RE   = re.compile(r"/proc/\d+")
-
-
-def canonicalize_path(path):
-    """Rewrite volatile parts of a path to environment-invariant placeholders."""
-    if not path:
-        return path
-
-    p = path
-
-    # Strongest normalization: paths inside a Python package installation.
-    # Strip everything before the well-known marker so
-    #   /home/ubuntu/SCBF/.venv/lib/python3.14/site-packages/flask/x
-    #   /tmp/scbf_zenodo/lib/python3.12/site-packages/flask/x
-    # both collapse to  <sitepkg>/flask/x
-    for marker in ("/site-packages/", "/dist-packages/"):
-        idx = p.find(marker)
-        if idx != -1:
-            return "<sitepkg>/" + p[idx + len(marker):]
-
-    # Python binary locations
-    if "/bin/python" in p:
-        return "<pybin>"
-
-    # General volatile-prefix rewrites for everything else.
-    p = _TMP_ZENODO_RE.sub("<venv>", p)
-    p = _TMP_SCAN_RE.sub("<tmp>", p)
-    p = _HOME_RE.sub("<home>", p)
-    p = _ROOT_RE.sub("<home>", p)
-    p = _VENV_RE.sub("/<venv>", p)
-    p = _PY_VER_RE.sub("python3.X", p)
-    p = _PROC_PID_RE.sub("/proc/<pid>", p)
-    return p
-
-
-def normalize_events(events):
-    """Apply canonicalize_path to every event's fname in place-safe manner."""
-    out = []
-    for e in events:
-        if "fname" in e and e["fname"]:
-            e = {**e, "fname": canonicalize_path(e["fname"])}
-        out.append(e)
-    return out
-
-
 def load_events(path):
     with open(path, 'r') as f:
-        events = [json.loads(line) for line in f]
-    return normalize_events(events)
+        return [json.loads(line) for line in f]
 
 
 def split_data(clean_paths, mal_paths, train_ratio=0.7, val_ratio=0.15, test_ratio=0.15, seed=42):
