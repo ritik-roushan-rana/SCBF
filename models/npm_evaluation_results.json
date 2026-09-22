@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-09-22T06:14:29.786023+00:00",
+  "dataset": "RQ1_NPM",
+  "model": "models\\checkpoints_npm\\scbf_npm_hybrid_v1_active_seed42.pt",
+  "feature_dim": 299,
+  "max_tgn_events": 1500,
+  "exclude_inert": true,
+  "best_epoch": 14,
+  "threshold": 0.36000000000000004,
+  "validation": {
+    "accuracy": 0.9851301115241635,
+    "precision": 0.9782608695652174,
+    "recall": 0.9375,
+    "f1": 0.9574468085106383,
+    "fpr": 0.004524886877828055,
+    "auc": 0.9901018099547512,
+    "tp": 45,
+    "tn": 220,
+    "fp": 1,
+    "fn": 3
+  },
+  "test": {
+    "accuracy": 0.9592592592592593,
+    "precision": 0.8936170212765957,
+    "recall": 0.875,
+    "f1": 0.8842105263157894,
+    "fpr": 0.02252252252252252,
+    "auc": 0.9737237237237237,
+    "tp": 42,
+    "tn": 217,
+    "fp": 5,
+    "fn": 6
+  },
+  "test_at_0.5": {
+    "accuracy": 0.9555555555555556,
+    "precision": 0.8913043478260869,
+    "recall": 0.8541666666666666,
+    "f1": 0.8723404255319149,
+    "fpr": 0.02252252252252252,
+    "auc": 0.9737237237237237,
+    "tp": 41,
+    "tn": 217,
+    "fp": 5,
+    "fn": 7
+  },
+  "splits": {
+    "train": 1254,
+    "val": 269,
+    "test": 270
+  },
+  "hyperparameters": {
+    "workers": 14,
+    "epochs": 50,
+    "patience": 12,
+    "batch_size": 32,
+    "lr": 0.0005,
+    "weight_decay": 0.01,
+    "gamma": 2.0,
+    "seed": 42,
+    "split_seed": 42,
+    "tag": "active_seed42",
+    "exclude_inert": true,
+    "num_nodes": 50000
+  }
+}

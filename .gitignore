@@ -30,9 +30,14 @@ wheels/
 # .pth files) are still ignored.
 models/*.pth
 models/checkpoints/*.pt
+# NPM: keep the final per-seed models (needed for the ensemble), drop the
+# intermediate "best" training checkpoints.
+models/checkpoints_npm/*_best*.pt
 # Keep: scbf_hybrid_v2.pt, envelope_v2*.{npy,json}, checkpoints/split_info.json
 
 # Dataset (too large to commit - place manually or via scripts/collect_zenodo.py)
+data/rq1_npm/**/traces/*.jsonl
+data/rq1_npm_rich/**/traces/*.jsonl
 data/zenodo_13746167/*/traces/*.jsonl
 data/zenodo_13746167/*/data/*.jsonl
 data/zenodo_13746167/**/.tmp_traces/
@@ -44,6 +49,7 @@ SCBF.zip
 
 # IDE
 .vscode/
+*.code-workspace
 .idea/
 *.swp
 *.swo
@@ -64,3 +70,6 @@ training.pid
 
 # Temporary
 *.tmp
+
+# NPM preprocessing caches (hundreds of MB, rebuilt automatically by train_npm_hybrid)
+models/checkpoints_npm/npm_preprocessed_cache*.pt
