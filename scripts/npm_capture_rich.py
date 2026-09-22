@@ -43,6 +43,7 @@ from bcc import BPF
 
 ARGV_MAX = 12
 ARG_LEN = 200
+ARGV_BUF = ARGV_MAX * ARG_LEN
 
 BPF_PROGRAM = r"""
 #include <uapi/linux/ptrace.h>
@@ -54,6 +55,7 @@ BPF_PROGRAM = r"""
 
 #define ARGV_MAX %d
 #define ARG_LEN  %d
+#define ARGV_BUF %d
 
 struct event_t {
     u32 pid;
@@ -67,8 +69,9 @@ struct event_t {
     u16 family;
     u16 dport;
     unsigned char daddr[16];
-    /* exec */
-    char argv[ARGV_MAX][ARG_LEN];
+    /* exec: ARGV_MAX fixed-width slots of ARG_LEN bytes, flat (BCC cannot
+       generate a ctypes class for a 2-D char array) */
+    char argv[ARGV_BUF];
 };
 
 BPF_PERF_OUTPUT(events);
@@ -138,7 +141,7 @@ TRACEPOINT_PROBE(syscalls, sys_enter_execve)
         bpf_probe_read_user(&argp, sizeof(argp), &argv[i]);
         if (!argp)
             break;
-        bpf_probe_read_user_str(&e->argv[i], ARG_LEN, argp);
+        bpf_probe_read_user_str(&e->argv[i * ARG_LEN], ARG_LEN, argp);
         e->nargs = i + 1;
     }
     events.perf_submit(args, e, sizeof(*e));
@@ -186,7 +189,7 @@ TRACEPOINT_PROBE(syscalls, sys_enter_connect)
     events.perf_submit(args, e, offsetof(struct event_t, argv));
     return 0;
 }
-""" % (ARGV_MAX, ARG_LEN)
+""" % (ARGV_MAX, ARG_LEN, ARGV_BUF)
 
 EVENT_TYPES = {0: "exec", 1: "open", 2: "connect"}
 AF_INET, AF_INET6, AF_UNIX = 2, 10, 1
@@ -264,7 +267,8 @@ def main():
         }
         if ev.type == 0:
             n = min(int(ev.nargs), ARGV_MAX)
-            rec["argv"] = [cstr(ev.argv[i]) for i in range(n)]
+            buf = bytes(ev.argv)
+            rec["argv"] = [cstr(buf[i * ARG_LEN:(i + 1) * ARG_LEN]) for i in range(n)]
         elif ev.type == 2:
             fam = int(ev.family)
             raw = bytes(ev.daddr)
