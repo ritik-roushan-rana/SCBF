@@ -45,6 +45,17 @@ ARGV_MAX = 12
 ARG_LEN = 200
 ARGV_BUF = ARGV_MAX * ARG_LEN
 
+# One unrolled read per argv slot, so every destination offset is a literal.
+READ_ARGS = "\n".join(
+    f"""    argp = 0;
+    bpf_probe_read_user(&argp, sizeof(argp), &argv[{i}]);
+    if (!argp)
+        goto args_done;
+    bpf_probe_read_user_str(&e->argv[{i} * ARG_LEN], ARG_LEN, argp);
+    e->nargs = {i + 1};"""
+    for i in range(ARGV_MAX)
+)
+
 BPF_PROGRAM = r"""
 #include <uapi/linux/ptrace.h>
 #include <linux/sched.h>
@@ -134,16 +145,17 @@ TRACEPOINT_PROBE(syscalls, sys_enter_execve)
         return 0;
     bpf_probe_read_user_str(&e->fname, sizeof(e->fname), args->filename);
 
+    /* Each slot must be written at a COMPILE-TIME CONSTANT offset. A loop
+       index survives as a runtime offset even with #pragma unroll, and
+       bpf_probe_read_user_str() then writes nothing: argv[0] lands but every
+       later slot comes back empty. The reads below are generated one per
+       slot (READ_ARGS) so every offset is a literal. */
     const char *const *argv = args->argv;
-    #pragma unroll
-    for (int i = 0; i < ARGV_MAX; i++) {
-        const char *argp = 0;
-        bpf_probe_read_user(&argp, sizeof(argp), &argv[i]);
-        if (!argp)
-            break;
-        bpf_probe_read_user_str(&e->argv[i * ARG_LEN], ARG_LEN, argp);
-        e->nargs = i + 1;
-    }
+    const char *argp;
+
+%s
+
+args_done:
     events.perf_submit(args, e, sizeof(*e));
     return 0;
 }
@@ -189,7 +201,7 @@ TRACEPOINT_PROBE(syscalls, sys_enter_connect)
     events.perf_submit(args, e, offsetof(struct event_t, argv));
     return 0;
 }
-""" % (ARGV_MAX, ARG_LEN, ARGV_BUF)
+""" % (ARGV_MAX, ARG_LEN, ARGV_BUF, READ_ARGS)
 
 EVENT_TYPES = {0: "exec", 1: "open", 2: "connect"}
 AF_INET, AF_INET6, AF_UNIX = 2, 10, 1
