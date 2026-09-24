@@ -80,9 +80,13 @@ struct event_t {
     u16 family;
     u16 dport;
     unsigned char daddr[16];
-    /* exec: ARGV_MAX fixed-width slots of ARG_LEN bytes, flat (BCC cannot
-       generate a ctypes class for a 2-D char array) */
-    char argv[ARGV_BUF];
+    /* exec: ARGV_MAX fixed-width slots of ARG_LEN bytes, flat.
+       - 2-D (char[N][M]) has no ctypes mapping in BCC at all.
+       - `char` would map to ctypes c_char, whose array attribute TRUNCATES
+         at the first NUL, so only slot 0 would survive the read in Python.
+       unsigned char maps to c_ubyte and returns the whole buffer (same as
+       daddr below). */
+    unsigned char argv[ARGV_BUF];
 };
 
 BPF_PERF_OUTPUT(events);
@@ -145,11 +149,8 @@ TRACEPOINT_PROBE(syscalls, sys_enter_execve)
         return 0;
     bpf_probe_read_user_str(&e->fname, sizeof(e->fname), args->filename);
 
-    /* Each slot must be written at a COMPILE-TIME CONSTANT offset. A loop
-       index survives as a runtime offset even with #pragma unroll, and
-       bpf_probe_read_user_str() then writes nothing: argv[0] lands but every
-       later slot comes back empty. The reads below are generated one per
-       slot (READ_ARGS) so every offset is a literal. */
+    /* One generated read per slot (READ_ARGS), so every destination offset
+       is a compile-time literal - the pattern bcc's own execsnoop uses. */
     const char *const *argv = args->argv;
     const char *argp;
 
