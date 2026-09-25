@@ -1,66 +1,30 @@
+# Trace dataset — 2.4 GB, far past GitHub limits.
+# manifest.jsonl and environment.json are kept: they document the capture
+# and make the results reproducible without shipping the traces.
+data/traces/benign/
+data/traces/malware/
+data/raw/
+data/*.zip
+
+# Patent disclosure — NOT published. A public commit would be a public
+# disclosure of the invention and can bar patentability before filing.
+patent/
+*.pdf
+
+# Training checkpoints (regenerable)
+models/hybrid_best.pt
+models_v3/hybrid_best.pt
+
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
 .venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-
-# Trained model artifacts.
-#
-# The Phase 1 hybrid model + envelopes are small (~1.5 MB total) and
-# committed so a fresh clone can run `make scan-trace` immediately. Any
-# LARGER trained artifacts (raw checkpoints, older experimental models,
-# .pth files) are still ignored.
-models/*.pth
-models/checkpoints/*.pt
-# Keep: scbf_hybrid_v2.pt, envelope_v2*.{npy,json}, checkpoints/split_info.json
-
-# Dataset (too large to commit - place manually or via scripts/collect_zenodo.py)
-data/zenodo_13746167/*/traces/*.jsonl
-data/zenodo_13746167/*/data/*.jsonl
-data/zenodo_13746167/**/.tmp_traces/
-
-# Any temporary trace file
-last_capture.jsonl
-scbf_data.zip
-SCBF.zip
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
 
 # Logs
 *.log
-training.pid
+nohup.out
 
-# Temporary
-*.tmp
+# OS
+.DS_Store
+._*

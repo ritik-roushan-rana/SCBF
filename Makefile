@@ -1,125 +1,57 @@
-.PHONY: help install train build-envelope scan-trace scan-batch scan validate-data clean
+.PHONY: help install audit capture train evaluate scan clean
 
 help:
-	@echo "SCBF - Supply Chain Behavioral Fingerprinting"
+	@echo "SCBF v2 - Supply Chain Behavioral Fingerprinting"
 	@echo ""
-	@echo "Setup:"
-	@echo "  make install            Install dependencies (creates .venv)"
-	@echo "  make validate-data      Validate dataset integrity"
+	@echo "Pipeline (run in order):"
+	@echo "  make install                      Create .venv and install deps"
+	@echo "  make capture BENIGN=.. MALWARE=.. Collect traces (Linux + eBPF, root)"
+	@echo "  make audit                        Leakage audit  <-- BEFORE TRUSTING ANY METRIC"
+	@echo "  make train                        Train the hybrid TGN model"
+	@echo "  make evaluate                     Metrics on train/val/test"
 	@echo ""
-	@echo "Training & Envelope:"
-	@echo "  make train              Train the hybrid TGN model (~30-60 min)"
-	@echo "  make build-envelope     Build behavioral envelope from clean packages"
-	@echo "  make evaluate           Evaluate trained model on train/val/test splits"
+	@echo "  make scan TRACE=path/to.jsonl     Score a single trace"
+	@echo "  make clean                        Remove caches"
 	@echo ""
-	@echo "Detection (Scanning):"
-	@echo "  make scan-trace TRACE=path/to/trace.jsonl    Scan existing trace file"
-	@echo "  make scan-batch DIR=path/to/traces/          Batch scan a directory"
-	@echo "  make scan PKG=requests                        Live scan (Linux + eBPF)"
-	@echo ""
-	@echo "Diagnostics:"
-	@echo "  make diagnose           Run all diagnostic scripts on the dataset"
-	@echo ""
-	@echo "Other:"
-	@echo "  make clean              Remove cache files"
-	@echo ""
-	@echo "Workflow — first time (need to produce a model):"
-	@echo "  1. make install"
-	@echo "  2. make validate-data"
-	@echo "  3. make train"
-	@echo "  4. make build-envelope"
-	@echo "  5. make scan-trace TRACE=<file>     (or  make scan PKG=<name>  on Linux)"
-	@echo ""
-	@echo "Workflow — already have a trained model (copied from elsewhere):"
-	@echo "  1. make install"
-	@echo "  2. place models/*.pt and models/envelope_v2*.* in models/"
-	@echo "  3. make scan-trace / scan-batch / scan"
+	@echo "The audit step is not optional. The previous dataset had a"
+	@echo "collection artifact (/dev/pts in 97.2% of benign, 0% of malicious)"
+	@echo "that inflated F1 from ~52% to 92.31%. 'make train' refuses to run"
+	@echo "on a dataset that fails the audit unless you pass FORCE=1."
 
 PY := $(shell if [ -f .venv/bin/python ]; then echo .venv/bin/python; else echo python3; fi)
+TRACES ?= data/traces
 
 install:
 	python3 -m venv .venv
 	.venv/bin/pip install --upgrade pip
 	.venv/bin/pip install -r requirements.txt
-	@echo ""
-	@echo "✓ Installed to .venv/"
-	@echo "  Activate with: source .venv/bin/activate"
+	@echo "\n✓ Installed. Activate with: source .venv/bin/activate"
 
-validate-data:
-	@echo "Validating dataset integrity..."
-	$(PY) scripts/validate_dataset.py
+capture:
+	@if [ -z "$(BENIGN)" ] || [ -z "$(MALWARE)" ]; then \
+		echo "Usage: sudo make capture BENIGN=data/raw/benign MALWARE=data/raw/malware"; exit 1; fi
+	sudo $(PY) capture/collect_dataset.py --benign $(BENIGN) --malware $(MALWARE) \
+		--out $(TRACES) --python $$(which python3) $(if $(LIMIT),--limit $(LIMIT),)
+
+audit:
+	$(PY) -m scbf.audit.leakage --traces $(TRACES)
 
 train:
-	@echo "Training HYBRID V2 model (TGN + statistical features)..."
-	$(PY) -m scbf.training.train_hybrid_v2
-	@echo ""
-	@echo "✓ Training complete! Model saved to models/scbf_hybrid_v2.pt"
-	@echo "  Next: make build-envelope"
-
-build-envelope:
-	@echo "Building Behavioral Envelope from clean packages..."
-	$(PY) -m scbf.training.build_envelope
-	@echo ""
-	@echo "✓ Envelope built! Files saved in models/"
-	@echo "  Next: make scan-trace TRACE=<file>"
+	@if [ "$(FORCE)" != "1" ]; then \
+		$(PY) -m scbf.audit.leakage --traces $(TRACES) --strict || \
+		{ echo ""; echo "REFUSING TO TRAIN: dataset failed the leakage audit."; \
+		  echo "Fix the capture, or re-run with FORCE=1 if you know what you are doing."; exit 1; }; \
+	fi
+	$(PY) -m scbf.training.train --traces $(TRACES)
 
 evaluate:
-	@echo "Evaluating model on train / val / test splits..."
-	$(PY) -m scbf.training.evaluate
-	@echo ""
-	@echo "✓ Results saved to models/evaluation_results.json"
-
-scan-trace:
-	@if [ -z "$(TRACE)" ]; then \
-		echo "Error: Trace path required."; \
-		echo "Usage: make scan-trace TRACE=path/to/trace.jsonl"; \
-		exit 1; \
-	fi
-	$(PY) -m scbf.detection.cli --trace $(TRACE)
-
-scan-batch:
-	@if [ -z "$(DIR)" ]; then \
-		echo "Error: Directory required."; \
-		echo "Usage: make scan-batch DIR=path/to/traces/"; \
-		exit 1; \
-	fi
-	$(PY) -m scbf.detection.cli --batch $(DIR)
+	$(PY) -m scbf.training.evaluate --traces $(TRACES)
 
 scan:
-	@if [ -z "$(PKG)" ]; then \
-		echo "Error: Package name required."; \
-		echo "Usage: make scan PKG=requests"; \
-		echo ""; \
-		echo "Optional:"; \
-		echo "  ARTIFACT=<path/URL/spec>   Pip artifact to install (defaults to PKG)"; \
-		echo "  PYTHON=<path>              Python binary to install with (defaults to .venv)"; \
-		echo ""; \
-		echo "Note: Live scanning requires Linux + eBPF (python3-bpfcc, bpfcc-tools)."; \
-		echo "On macOS, use 'make scan-trace' or 'make scan-batch' instead."; \
-		exit 1; \
-	fi
-	@echo "Live scanning $(PKG) (requires Linux + eBPF)..."
-	sudo -E $(PY) -m scbf.detection.cli --package $(PKG) \
-		$(if $(ARTIFACT),--artifact $(ARTIFACT),) \
-		$(if $(PYTHON),--python $(PYTHON),)
-
-diagnose:
-	@echo "Running diagnostic scripts..."
-	@echo ""
-	@echo "─── Trace length analysis ───"
-	$(PY) scripts/diagnostics/check_length_confound.py
-	@echo ""
-	@echo "─── Rate feature ablation ───"
-	$(PY) scripts/diagnostics/ablation_rate_normalized.py
-	@echo ""
-	@echo "─── Install success verification ───"
-	$(PY) scripts/diagnostics/verify_install_success.py
+	@if [ -z "$(TRACE)" ]; then echo "Usage: make scan TRACE=path/to/trace.jsonl"; exit 1; fi
+	$(PY) -m scbf.detection.cli --trace $(TRACE)
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete
-	find . -type f -name "*.pyo" -delete
-	find . -type d -name "*.egg-info" -exec rm -rf {} + 2>/dev/null || true
-	rm -f last_capture.jsonl
-	rm -rf build/ dist/
 	@echo "✓ Cleaned"

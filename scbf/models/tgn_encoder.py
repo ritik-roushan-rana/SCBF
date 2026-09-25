@@ -12,7 +12,7 @@ class TimeEncode(nn.Module):
 
 
 class TGNMemory(nn.Module):
-    def __init__(self, num_nodes, memory_dim=64, edge_feat_dim=32, time_dim=16):
+    def __init__(self, num_nodes, memory_dim=128, edge_feat_dim=32, time_dim=32):
         super().__init__()
         self.memory_dim = memory_dim
         self.time_encoder = TimeEncode(time_dim)
@@ -46,7 +46,7 @@ class TGNMemory(nn.Module):
 
 
 class TGNEncoder(nn.Module):
-    def __init__(self, num_nodes, memory_dim=64, edge_feat_dim=32, time_dim=16, out_dim=128):
+    def __init__(self, num_nodes, memory_dim=128, edge_feat_dim=32, time_dim=32, out_dim=128):
         super().__init__()
         self.memory_bank = TGNMemory(num_nodes, memory_dim, edge_feat_dim, time_dim)
         self.proj = nn.Sequential(

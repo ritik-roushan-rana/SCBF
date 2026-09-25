@@ -1,0 +1,10 @@
+{
+  "hostname": "ubuntu",
+  "kernel": "7.0.0-31-generic",
+  "python": "Python 3.14.4",
+  "pip": "",
+  "stdin_isatty": false,
+  "stdout_isatty": false,
+  "cwd": "/home/ubuntu/scbf2",
+  "user": "root"
+}

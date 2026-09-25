@@ -1,345 +1,121 @@
-# SCBF — Supply Chain Behavioral Fingerprinting
+# SCBF v2 — Supply Chain Behavioral Fingerprinting
 
-**TGN-based malicious package detection at install time.**
-
-SCBF captures the install-time behavior of a package (syscalls, file writes, network
-connections, credential accesses) as a Temporal Graph, encodes it with a Temporal Graph
-Network (TGN), and compares the resulting behavioral fingerprint to a learned envelope
-of what legitimate packages of that type normally do.
-
-Innovation 6 of 7 · Patent Pending · Phase 1 prototype.
-
-## Phase 1 Training Results
-
-The hybrid TGN + statistical-features model was trained on the [OSCAR
-benchmark dataset (Zenodo 13746167)](https://zenodo.org/records/13746167),
-which is the dataset the OSCAR paper (Zheng et al., ASE 2024) itself
-publishes for its RQ1 experiments. Of the 2,000 PyPI packages in that
-benchmark (500 malicious + 1,500 benign), 1,344 installed successfully
-under eBPF capture in our environment (385 malicious + 959 benign) and
-were used with a 70/15/15 split.
-Metrics on all three splits, at the tuned classifier threshold of 0.35:
-
-| Split | Samples | Accuracy | Precision | Recall | F1 | ROC-AUC |
-|-------|--------:|---------:|----------:|-------:|---:|--------:|
-| Train | 940 | 95.53% | 91.88% | 92.57% | 92.22% | 0.9680 |
-| Val   | 202 | 94.55% | 89.83% | 91.38% | 90.60% | 0.9647 |
-| Test  | 202 | **95.54%** | **91.53%** | **93.10%** | **92.31%** | **0.9788** |
-
-Generalisation gap (train F1 − test F1) = **−0.09%** → no overfitting.
-
-Best model: `models/scbf_hybrid_v2.pt` · Classifier threshold: 0.35. Raw
-numbers in `models/evaluation_results.json`, reproducible with `make evaluate`.
-
-**Comparison to the OSCAR paper (ASE 2024) on the same benchmark:**
-
-| Tool | Precision | Recall | F1 | Per-pkg time |
-|------|----------:|-------:|---:|-------------:|
-| OSCAR (ASE '24) | 0.99 | 0.85 | 0.91 | ~165 s |
-| Guarddog | 0.89 | 0.94 | 0.91 | static |
-| SAP | 0.73 | 0.86 | 0.79 | static |
-| **SCBF (this work)** | **0.9153** | **0.9310** | **0.9231** | **~3 s** |
-
-SCBF matches OSCAR's F1 within statistical confidence intervals on the
-OSCAR authors' own Zenodo benchmark, with a different precision/recall
-trade-off (higher recall, lower precision) and ~30× lower per-package
-latency. See [`docs/COMPARISON_WITH_OSCAR.md`](docs/COMPARISON_WITH_OSCAR.md)
-for the full head-to-head against six published baselines.
-
-> Full-pipeline detection metrics (envelope-based scoring on live installations)
-> require the complete Linux + eBPF setup with `monitor.sh` running as root, and
-> are not reported here — they belong to the deployment evaluation, not the
-> offline training benchmark.
-
-## Architecture
+Detects malicious PyPI packages from their **install-time behavior**, captured
+with eBPF and modeled as a temporal graph.
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  eBPF Install Monitor  (Linux)                                  │
-│  Captures exec / open / connect / env-read syscall events       │
-│  Emits per-event JSON with timestamp                            │
-└──────────────────────────────┬──────────────────────────────────┘
-                               ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  ITBG Constructor                                               │
-│  Streams events into a heterogeneous graph:                     │
-│  Process · File · Network · Env · Credential · Script nodes     │
-└──────────────────────────────┬──────────────────────────────────┘
-                               ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  TGN Encoder  (Rossi et al. 2020)                               │
-│  Per-node memory + time-encoded attention                       │
-│  Emits a live 128-dim DNA vector after every event              │
-└──────────────────────────────┬──────────────────────────────────┘
-                               ↓
-                (optional) statistical features (+64 dim)
-                               ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  Behavioral Envelope Comparison                                 │
-│  Distance to package-type centroid vs threshold                 │
-│  ↓                                                              │
-│  Verdict: ALLOW / WARN / BLOCK  (+ threat score 0-100)          │
-└─────────────────────────────────────────────────────────────────┘
+eBPF Install Monitor (Linux)
+  exec / open+write / connect / credential-read events, JSON per event
+        |
+ITBG Constructor
+  heterogeneous temporal graph:
+  Process · File · Network · Env · Credential · Script
+        |
+TGN Encoder (Rossi et al. 2020)
+  per-node memory + time-encoded attention -> 128-dim DNA vector per event
+        |
+  + 51 statistical features
+        |
+Hybrid Classifier / Behavioral Envelope
+  verdict: ALLOW / WARN / BLOCK  + threat score
 ```
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full technical breakdown.
+## Results
 
-## Repository Layout
+Held-out test split (210 traces, 59 malicious), hybrid TGN, threshold tuned on
+validation only, test scored exactly once:
 
-```
-scbf/
-├── README.md                     This file
-├── ARCHITECTURE.md               Full technical architecture
-├── Makefile                      All commands
-├── monitor.sh                    eBPF install-time event capture (Linux)
-├── requirements.txt              Python dependencies
-├── setup.py                      Package setup
-│
-├── data/                         Dataset (gitignored)
-│   └── zenodo_13746167/
-│       ├── benign/traces/*.jsonl     959 files
-│       └── malware/traces/*.jsonl    385 files
-│
-├── scbf/                         Main package
-│   ├── models/
-│   │   ├── tgn_encoder.py            TGN implementation
-│   │   └── itbg_constructor.py       Event stream → graph
-│   ├── training/
-│   │   ├── train_hybrid_v2.py        Main training script
-│   │   ├── build_envelope.py         Build behavioral envelope
-│   │   └── evaluate.py               Evaluation on train/val/test
-│   ├── detection/
-│   │   └── cli.py                    Scanner CLI (trace / batch / live)
-│   └── capture/
-│       └── __init__.py               (monitor.sh handles capture)
-│
-├── models/                       Trained artifacts (gitignored)
-│   ├── scbf_hybrid_v2.pt             Trained model
-│   ├── envelope_v2.npy               Default envelope (hybrid, 192-dim)
-│   ├── envelope_v2_tgn.npy           Pure TGN envelope (128-dim)
-│   ├── envelope_v2_hybrid.npy        Hybrid envelope (192-dim)
-│   └── envelope_v2_*_info.json       Thresholds and stats
-│
-├── scripts/                      Utility scripts
-│   ├── collect_zenodo.py             Data collection (Linux + eBPF)
-│   ├── validate_dataset.py           Dataset validation
-│   └── diagnostics/                  Confound and quality checks
-│       ├── check_length_confound.py
-│       ├── ablation_rate_normalized.py
-│       ├── check_bootstrap_stripped.py
-│       ├── check_dataset_artifacts.py
-│       ├── verify_install_success.py
-│       └── inspect_samples.py
-│
-└── docs/                         Additional documentation
-    ├── PHASE1_ACHIEVEMENTS.md        Phase 1 summary
-    ├── MONITOR_USAGE.md              Using monitor.sh
-    └── TRAINING_DATA_FORMAT.md       Event schema and JSONL format
-```
+| Split | n | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|---|---|---|---|---|---|---|
+| Train | 974 | 96.00% | 97.17% | 88.24% | 92.49% | 0.9866 |
+| Val | 209 | 97.13% | 100.00% | 89.66% | 94.55% | 0.9502 |
+| **Test** | **210** | **95.71%** | **96.30%** | **88.14%** | **92.04%** | **0.9762** |
 
-## Quick Start
+Train-test F1 gap +0.45%. An independently trained variant (different class
+weighting) reached test F1 91.89% / AUC 0.9793 on the same split.
 
-Offline analysis (training, envelopes, `scan-trace`, `scan-batch`) runs on
-macOS, Linux, or Windows. Live capture (`make scan PKG=...`) needs Linux +
-eBPF — see [`docs/LINUX_SETUP.md`](docs/LINUX_SETUP.md) for a step-by-step
-Ubuntu VM setup.
+Against published baselines on the same PyPI benchmark:
 
-### 1. Install
+| Tool | Precision | Recall | F1 |
+|---|---|---|---|
+| **SCBF** | 0.9630 | **0.8814** | **0.9204** |
+| OSCAR (ASE '24) | 0.99 | 0.85 | 0.91 |
+| Guarddog | 0.89 | 0.94 | 0.91 |
+
+Not like-for-like: OSCAR is zero-shot over all 500 malicious packages; SCBF is
+supervised and scored on 59 held-out malicious samples. Bootstrap CI on F1 is
+about +/-4%. The defensible claim is parity-or-better at a different operating
+point, with ~30x lower latency.
+
+Ablation: graph only, no statistical fusion -> val F1 86.79% (vs 94.55%).
+
+## Pipeline
 
 ```bash
-git clone https://github.com/ritik-roushan-rana/SCBF.git
-cd SCBF
-make install         # creates .venv, installs requirements.txt
-```
-
-On Linux, additionally install BCC via apt for live capture:
-
-```bash
-sudo apt install -y python3-bpfcc bpfcc-tools linux-headers-$(uname -r)
-```
-
-### 2. Get the Dataset
-
-The dataset used for Phase 1 training is the **OSCAR benchmark**
-published by Zheng et al. alongside their ASE 2024 paper: Zenodo record
-[13746167](https://zenodo.org/records/13746167). Download the two PyPI
-RQ1 archives:
-
-- `rq1_pypi_malware.zip` — 500 malicious PyPI packages
-- `rq1_pypi_benign.zip` — 1,500 benign PyPI packages
-
-Feed them through the collector on a Linux host to produce traces:
-
-```bash
-sudo python3 scripts/collect_zenodo.py
-```
-
-The collector runs each package through `monitor.sh` under eBPF and
-writes per-package JSONL traces into:
-
-```
-data/zenodo_13746167/benign/traces/*.jsonl
-data/zenodo_13746167/malware/traces/*.jsonl
-```
-
-Not every package will install successfully in every environment;
-packages that fail to install are skipped and the trace count will be
-lower than the input count (in our run: 959 of 1,500 benign and 385 of
-500 malicious captured successfully). Then verify:
-
-```bash
-make validate-data
-```
-
-### 3. Get a Trained Model
-
-You need `models/scbf_hybrid_v2.pt` and an envelope file (`models/envelope_v2.npy`).
-The `models/` directory is gitignored, so you either:
-
-**(a) Copy pre-trained artifacts from another machine** (fastest — if you already
-trained elsewhere):
-
-```bash
-# On the machine that has the model (macOS example)
-scp models/scbf_hybrid_v2.pt   user@vm-host:~/SCBF/models/
-scp models/envelope_v2*.npy    user@vm-host:~/SCBF/models/
-scp models/envelope_v2*.json   user@vm-host:~/SCBF/models/
-```
-
-**(b) Or train from scratch** (~30-60 min CPU, ~10 min GPU):
-
-```bash
+make install
+sudo make capture BENIGN=data/raw/benign MALWARE=data/raw/malware
+make audit          # <- before trusting any metric
 make train
-make build-envelope
+make evaluate
 ```
 
-Either path produces the same interface — the scanner does not care where the
-model came from.
+## Why v2 exists
 
-### 4. Scan Packages
+v1 reported 92.31% test F1. That number was not real.
 
-Three modes:
+The benchmark traces had a **collection artifact**: 97.2% of benign traces
+contained `/dev/pts` (a TTY was attached during capture) and 0% of malicious
+ones did. Consequences measured directly:
 
-```bash
-# Analyze an already-captured trace (works anywhere Python runs)
-make scan-trace TRACE=data/zenodo_13746167/malware/traces/some-pkg.jsonl
+| | F1 |
+|---|---|
+| one-line rule, "malicious if <5 `/dev` accesses" | 96.48% |
+| trained hybrid TGN | 92.31% |
+| same model, artifact removed | 52.53% |
 
-# Analyze every trace in a directory
-make scan-batch DIR=data/zenodo_13746167/malware/traces/
+The model was detecting the capture environment, not malicious behavior.
 
-# Live install + capture + analyze (Linux only, needs eBPF + sudo)
-sudo -E make scan PKG=requests
+The capture was also **blind to the behaviors that define malware**:
+
+| Signal | v1 | v2 |
+|---|---|---|
+| `execve` | captured in 1 of 1344 traces | tracked in-kernel at fork |
+| `connect` destination | literal string `"connect"` | real IP + port |
+| read vs write | indistinguishable | `openat` flags recorded |
+
+So v1 was asked to detect malware from "which paths did `python` open" — and
+when that wasn't enough, it took the artifact instead.
+
+## What v2 changes
+
+1. **Capture records behavior.** A `sched_process_fork` tracepoint inherits
+   the tracked flag in-kernel, closing the race that dropped every
+   short-lived `curl`/`sh`. Connect reads the sockaddr. `openat` keeps flags.
+2. **Collection cannot separate the classes.** `capture/collect_dataset.py`
+   runs both classes through one interleaved queue, one harness, never a TTY,
+   and records an environment fingerprint.
+3. **The audit is a gate, not a suggestion.** `make train` refuses to run on a
+   dataset that fails `scbf.audit.leakage` unless you pass `FORCE=1`.
+4. **Features describe behavior**, not sandbox strings — spawned binaries,
+   external destinations, non-standard ports, writes outside site-packages,
+   persistence writes, credential reads.
+5. **Graph nodes are role-bucketed**, so literal sandbox paths never become
+   node identities.
+
+## Reporting rule
+
+Report metrics only from a dataset where `make audit` passes, and state the
+audit result alongside them. A number from an un-audited dataset is a
+statement about your sandbox.
+
+## Layout
+
 ```
-
-Each scan prints a verdict (`ALLOW` / `WARN` / `BLOCK`), a threat score (0-100),
-the envelope distance, and the classifier probability.
-
-## What Each Mode Actually Does
-
-| Mode | Needs Linux? | Needs eBPF? | What it does |
-|------|:------------:|:-----------:|--------------|
-| `scan-trace` | no | no | Reads an already-captured JSONL trace, runs it through the model, prints a verdict. |
-| `scan-batch` | no | no | Same, over every `.jsonl` in a directory. |
-| `scan` (live) | **yes** | **yes** | Runs `monitor.sh` under sudo to `pip install` the package while eBPF captures syscalls, then analyses the captured trace. |
-
-Capture (and therefore any deployment-quality end-to-end evaluation) requires
-Linux; offline analysis of pre-captured traces is portable.
-
-## Verifying the Results
-
-Because near-perfect metrics on a small dataset are suspicious, the repo ships
-diagnostics that test for common confounds:
-
-```bash
-make diagnose          # runs all diagnostic scripts
+capture/     monitor.sh (eBPF), collect_dataset.py (interleaved collection)
+scbf/graph/  ITBG constructor
+scbf/models/ TGN encoder
+scbf/features/ statistical features
+scbf/audit/  leakage audit
+scbf/training/ train, evaluate
+scbf/detection/ scanning CLI
 ```
-
-Or run them individually:
-
-```bash
-python scripts/diagnostics/check_length_confound.py       # trace length vs label
-python scripts/diagnostics/ablation_rate_normalized.py    # rate-only features
-python scripts/diagnostics/verify_install_success.py      # are installs actually completing?
-python scripts/diagnostics/inspect_samples.py --n 5       # eyeball raw traces
-```
-
-Findings from these scripts (documented in `docs/PHASE1_ACHIEVEMENTS.md`):
-- Both classes install successfully (verified via dist-info, site-packages writes, metadata).
-- Trace length alone gives ROC-AUC 0.85 — a real but not dominant signal.
-- Rate-only features alone give 98% F1, so the model's signal is not merely trace length.
-- After stripping sandbox-bootstrap paths (pyenv, sudo, PAM, pip scaffolding) real
-  behavioral signal remains at ~70% F1 / ROC-AUC 0.86.
-
-The headline 92% F1 combines both — the trained model uses raw and rate features
-together and reaches its numbers legitimately on this dataset.
-
-## Requirements
-
-- Python 3.9+
-- PyTorch 2.0+
-- NumPy, scikit-learn, jsonlines
-- **Linux + bcc-tools** for `monitor.sh` (event capture only, not analysis)
-
-Install everything with `make install`.
-
-## Event Schema
-
-The event schema is fixed and MUST NOT be changed without a paired update in the
-collector, the constructor, and any downstream feature extractors.
-
-```json
-{"type": "exec",    "pid": 123, "ppid": 100, "comm": "python", "ts": 123456789}
-{"type": "open",    "pid": 123, "ppid": 100, "comm": "python", "fname": "/path", "ts": 123456789}
-{"type": "connect", "pid": 123, "ppid": 100, "comm": "python", "fname": "connect", "ts": 123456789}
-```
-
-Optional per-event package metadata: `package`, `version`, `artifact`, `label`.
-
-Do not add IP, port, hostname, or DNS fields unless the full pipeline is updated
-to consume them.
-
-## Status and Limitations
-
-Phase 1 is a proof of concept. The following are validated:
-
-- eBPF event capture (Linux)
-- ITBG construction from event stream
-- TGN encoder producing DNA vectors
-- Hybrid classifier reaching ~92% F1 on the test split
-- End-to-end scanner code path (trace, batch, and live modes) working on
-  already-captured JSONL traces
-
-Envelope-based live detection performance (running the full monitor → TGN →
-envelope pipeline against real-time installations) is scoped for Linux
-deployment evaluation and not reported as a Phase 1 offline metric.
-
-The following are **not** yet implemented and are intended for Phase 2:
-
-- Package-type stratified envelopes (pure-Python / native / CLI / build tool)
-- Install-stage-aware envelopes (25% / 50% / 75% / 100% snapshots)
-- FAISS-based malicious-signature nearest-neighbour index
-- Continuous streaming verdict + mid-install kill switch
-- Multi-registry support (NPM / Cargo / RubyGems / Maven / Go)
-- CI/CD integrations (GitHub Actions, GitLab CI, pre-commit)
-
-## License and IP Notice
-
-This repository is a research prototype for a patent-pending system (Innovation 6
-of 7). Do not redistribute the design, schema, or claim strategy without
-permission. Source is provided for research and evaluation.
-
-## References
-
-- Rossi, E., Chamberlain, B., Frasca, F., Eynard, D., Monti, F., &
-  Bronstein, M. (2020). *Temporal Graph Networks for Deep Learning on
-  Dynamic Graphs*. ICML Workshop on Graph Representation Learning and
-  Beyond.
-- Zheng, X. et al. (2024). *Towards Robust Detection of Open Source
-  Software Supply Chain Poisoning Attacks in Industry Environments*.
-  **ASE '24**. https://doi.org/10.1145/3691620.3695262
-- Zheng, X. et al. (2024). **OSCAR benchmark dataset**, Zenodo record
-  [13746167](https://zenodo.org/records/13746167) — the exact dataset
-  used to train and evaluate SCBF Phase 1.
-- See [`docs/COMPARISON_WITH_OSCAR.md`](docs/COMPARISON_WITH_OSCAR.md)
-  for a full head-to-head comparison against OSCAR and five other
-  published baselines on this benchmark.
