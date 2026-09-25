@@ -46,3 +46,44 @@ a separate preprocessing cache (`npm_preprocessed_cache_rich.pt`). The
 checkpoint records the feature set, and inference (`NPMHybridClassifier.forward`)
 selects base vs. rich features from the checkpoint automatically, so
 `evaluate_npm.py` and the CLI need no flags.
+
+
+## Results after re-capturing with rich telemetry
+
+The dataset was re-captured with `scripts/npm_capture_rich.py` (1500 benign +
+500 malware, 0 failures) so every trace carries exec argv, connect
+destination and an install/require phase tag.
+
+Held-out test split (300 traces, 75 malware). Config and threshold are
+selected on validation only; test is scored once.
+
+| Model | Accuracy | Precision | Recall | F1 | AUC |
+|---|---|---|---|---|---|
+| Gradient boosting (`train_npm_gb.py`) | 95.33% | 91.78% | 89.33% | **90.54%** | 0.983 |
+| TGN hybrid (`train_npm_hybrid.py`) | 94.33% | 93.94% | 82.67% | 87.94% | 0.952 |
+
+5-fold CV over all 2000 samples (a more stable estimate than 300 test
+traces): accuracy **95.85%**, F1 **91.54%**, AUC 0.985.
+
+Feature ablation (5-fold CV, gradient boosting):
+
+| Features | F1 |
+|---|---|
+| base 299 | 91.87% |
+| base + rich 386 | 92.60% |
+| rich 87 only | 88.82% |
+
+The rich features are worth ~0.7 F1 and hold 7.6% of total model
+importance. The clearest single signal they add: `curl`/`wget` appears in
+malware install command lines and never in benign ones (mean 0.423 vs
+0.000). Before the argv fix the same ablation showed +0.12 F1, because only
+`argv[0]` was being decoded.
+
+### What still limits F1
+
+The 8 malware traces missed on the test split score 0.001-0.153 - not
+borderline cases. Even with argv, network destinations and a require()
+phase captured, they show no behaviour distinguishable from a plain install.
+Pushing past ~92% F1 needs either a dataset whose malicious samples all
+actually execute, or telemetry beyond syscalls (file content written,
+payload bytes on the wire).

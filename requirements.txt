@@ -21,3 +21,4 @@ matplotlib>=3.7.0
 
 # Development (optional)
 pytest>=7.4.0
+joblib>=1.3
