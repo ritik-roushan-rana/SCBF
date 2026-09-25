@@ -1,0 +1,30 @@
+# Trace dataset — 2.4 GB, far past GitHub limits.
+# manifest.jsonl and environment.json are kept: they document the capture
+# and make the results reproducible without shipping the traces.
+data/traces/benign/
+data/traces/malware/
+data/raw/
+data/*.zip
+
+# Patent disclosure — NOT published. A public commit would be a public
+# disclosure of the invention and can bar patentability before filing.
+patent/
+*.pdf
+
+# Training checkpoints (regenerable)
+models/hybrid_best.pt
+models_v3/hybrid_best.pt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Logs
+*.log
+nohup.out
+
+# OS
+.DS_Store
+._*

@@ -1,0 +1,6974 @@
+{
+  "train": [
+    {
+      "path": "data/traces/benign/traces/pydriveways-0.1.5.jsonl",
+      "label": 0,
+      "package": "pydriveways-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/AerospikeClientMock-1.0.3.1.jsonl",
+      "label": 0,
+      "package": "AerospikeClientMock-1.0.3.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyfplapi-0.0.1.jsonl",
+      "label": 0,
+      "package": "pyfplapi-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/bip-utiles-1.0.0.jsonl",
+      "label": 1,
+      "package": "bip-utiles-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/packageperry3-0.0.1.jsonl",
+      "label": 0,
+      "package": "packageperry3-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/baldpatedz-1.1.jsonl",
+      "label": 0,
+      "package": "baldpatedz-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/WeedyCoder-1.1.0.jsonl",
+      "label": 1,
+      "package": "WeedyCoder-1.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/libsock4-0.1.3.jsonl",
+      "label": 1,
+      "package": "libsock4-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/itrm-0.2.2.jsonl",
+      "label": 0,
+      "package": "itrm-0.2.2"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonsstercloudcliennt-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonsstercloudcliennt-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_stlr-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_stlr-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nester365-1.0.0.jsonl",
+      "label": 0,
+      "package": "nester365-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/altoshift-1.0.79.jsonl",
+      "label": 0,
+      "package": "altoshift-1.0.79"
+    },
+    {
+      "path": "data/traces/benign/traces/geodummy-0.0.3.jsonl",
+      "label": 0,
+      "package": "geodummy-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/jinsi-0.19.1.jsonl",
+      "label": 0,
+      "package": "jinsi-0.19.1"
+    },
+    {
+      "path": "data/traces/benign/traces/typetool-0.0.1.jsonl",
+      "label": 0,
+      "package": "typetool-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/requuests-2.27.1.jsonl",
+      "label": 1,
+      "package": "requuests-2.27.1"
+    },
+    {
+      "path": "data/traces/benign/traces/datesearch-0.0.1.jsonl",
+      "label": 0,
+      "package": "datesearch-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/optmanage-1.1.1.jsonl",
+      "label": 0,
+      "package": "optmanage-1.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/faq-0.0.1.jsonl",
+      "label": 1,
+      "package": "faq-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/RayTux-0.0.1.jsonl",
+      "label": 0,
+      "package": "RayTux-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/tsdf-0.5.2.jsonl",
+      "label": 0,
+      "package": "tsdf-0.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/temsorflow-1.0.0.jsonl",
+      "label": 1,
+      "package": "temsorflow-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/facebookrequests-0.0.1.jsonl",
+      "label": 0,
+      "package": "facebookrequests-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ezrpg-2022.9.26.13826.jsonl",
+      "label": 0,
+      "package": "ezrpg-2022.9.26.13826"
+    },
+    {
+      "path": "data/traces/benign/traces/pyfortianalyzer-2.0.0.jsonl",
+      "label": 0,
+      "package": "pyfortianalyzer-2.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/itermae-0.6.0.1.jsonl",
+      "label": 0,
+      "package": "itermae-0.6.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/opentraveldata-0.0.9.post3.jsonl",
+      "label": 0,
+      "package": "opentraveldata-0.0.9.post3"
+    },
+    {
+      "path": "data/traces/malware/traces/requests_darwin_lite-2.28.0.jsonl",
+      "label": 1,
+      "package": "requests_darwin_lite-2.28.0"
+    },
+    {
+      "path": "data/traces/benign/traces/reescritor-0.0.4.jsonl",
+      "label": 0,
+      "package": "reescritor-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/requset-2.28.1.jsonl",
+      "label": 1,
+      "package": "requset-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ecom-1.1.1.jsonl",
+      "label": 0,
+      "package": "ecom-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/githyperlink-0.1.jsonl",
+      "label": 0,
+      "package": "githyperlink-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyhOn-0.17.4.jsonl",
+      "label": 0,
+      "package": "pyhOn-0.17.4"
+    },
+    {
+      "path": "data/traces/benign/traces/confdoggo-0.1.0a1.jsonl",
+      "label": 0,
+      "package": "confdoggo-0.1.0a1"
+    },
+    {
+      "path": "data/traces/malware/traces/pythun-1.0.0.jsonl",
+      "label": 1,
+      "package": "pythun-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/holamundoplayerversionkeilor-0.0.1.jsonl",
+      "label": 0,
+      "package": "holamundoplayerversionkeilor-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/basiccalculatorSh-0.0.1.jsonl",
+      "label": 0,
+      "package": "basiccalculatorSh-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/correcthorsebatterystaple-0.1.jsonl",
+      "label": 0,
+      "package": "correcthorsebatterystaple-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/cScell-1.0.2.jsonl",
+      "label": 0,
+      "package": "cScell-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ach-0.2.jsonl",
+      "label": 0,
+      "package": "ach-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/Ftocelsius-1.0.0.jsonl",
+      "label": 0,
+      "package": "Ftocelsius-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cpntools4py-1.2.2.jsonl",
+      "label": 0,
+      "package": "cpntools4py-1.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/amar-0.0.1.jsonl",
+      "label": 0,
+      "package": "amar-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pling-0.0.jsonl",
+      "label": 0,
+      "package": "pling-0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/OscarHtesting-0.0.1.jsonl",
+      "label": 0,
+      "package": "OscarHtesting-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mynah-0.0.0.jsonl",
+      "label": 0,
+      "package": "mynah-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/luoluo-1.0.jsonl",
+      "label": 0,
+      "package": "luoluo-1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/partitionpy-1.0.0.jsonl",
+      "label": 0,
+      "package": "partitionpy-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/tucan-x-0.0.2.jsonl",
+      "label": 1,
+      "package": "tucan-x-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/instabots-4.4.2.jsonl",
+      "label": 1,
+      "package": "instabots-4.4.2"
+    },
+    {
+      "path": "data/traces/malware/traces/colouorama-1.0.0.jsonl",
+      "label": 1,
+      "package": "colouorama-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/testy-0.4.jsonl",
+      "label": 0,
+      "package": "testy-0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/ethereumm-1.0.0.jsonl",
+      "label": 1,
+      "package": "ethereumm-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/etheirum-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheirum-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/dasdsajdjsaasddsad-4.0.0.jsonl",
+      "label": 1,
+      "package": "dasdsajdjsaasddsad-4.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/trexcolors-0.0.0.jsonl",
+      "label": 1,
+      "package": "trexcolors-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/netto-0.1.0.jsonl",
+      "label": 0,
+      "package": "netto-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/boddle-0.2.9.jsonl",
+      "label": 0,
+      "package": "boddle-0.2.9"
+    },
+    {
+      "path": "data/traces/malware/traces/requierement-1.0.0.jsonl",
+      "label": 1,
+      "package": "requierement-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nnpp-0.0.3.jsonl",
+      "label": 0,
+      "package": "nnpp-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/baizhou-1.0.jsonl",
+      "label": 0,
+      "package": "baizhou-1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/povertylevel-0.0.5.jsonl",
+      "label": 0,
+      "package": "povertylevel-0.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/luisatorquato-0.1.jsonl",
+      "label": 0,
+      "package": "luisatorquato-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Calculatorrrrrrrrrr-0.0.1.jsonl",
+      "label": 0,
+      "package": "Calculatorrrrrrrrrr-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/Matplttlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matplttlib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tabCompletion-1.0.0.jsonl",
+      "label": 0,
+      "package": "tabCompletion-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/jneqsim-2.5.27.jsonl",
+      "label": 0,
+      "package": "jneqsim-2.5.27"
+    },
+    {
+      "path": "data/traces/benign/traces/scriptq-1.2.jsonl",
+      "label": 0,
+      "package": "scriptq-1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/exhentai-0.1.7.jsonl",
+      "label": 0,
+      "package": "exhentai-0.1.7"
+    },
+    {
+      "path": "data/traces/benign/traces/atmdb-0.2.3.jsonl",
+      "label": 0,
+      "package": "atmdb-0.2.3"
+    },
+    {
+      "path": "data/traces/benign/traces/yeeee-1.1.jsonl",
+      "label": 0,
+      "package": "yeeee-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pywz-0.1.4.jsonl",
+      "label": 1,
+      "package": "pywz-0.1.4"
+    },
+    {
+      "path": "data/traces/malware/traces/reqeustx-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqeustx-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/gargparse-0.0.6.jsonl",
+      "label": 0,
+      "package": "gargparse-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/giraphics-0.0.6.jsonl",
+      "label": 0,
+      "package": "giraphics-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/Mlask-0.2.jsonl",
+      "label": 0,
+      "package": "Mlask-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/orderbookmdp-0.1.2.jsonl",
+      "label": 0,
+      "package": "orderbookmdp-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/brukeropus-1.1.0.jsonl",
+      "label": 0,
+      "package": "brukeropus-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/anisoms-1.0.0.jsonl",
+      "label": 0,
+      "package": "anisoms-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/Matplftlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matplftlib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/as3935-0.1.4.jsonl",
+      "label": 0,
+      "package": "as3935-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/VafabApi-0.1.0.jsonl",
+      "label": 0,
+      "package": "VafabApi-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/py3dsa-0.4.0.jsonl",
+      "label": 0,
+      "package": "py3dsa-0.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/aiCode-23.6.22.0.jsonl",
+      "label": 0,
+      "package": "aiCode-23.6.22.0"
+    },
+    {
+      "path": "data/traces/malware/traces/playwrgith-1.0.0.jsonl",
+      "label": 1,
+      "package": "playwrgith-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/hameni-4.5.2.jsonl",
+      "label": 1,
+      "package": "hameni-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/tornroutes-0.5.1.jsonl",
+      "label": 0,
+      "package": "tornroutes-0.5.1"
+    },
+    {
+      "path": "data/traces/malware/traces/r4quests-2.28.1.jsonl",
+      "label": 1,
+      "package": "r4quests-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/dateinfer-0.2.0.jsonl",
+      "label": 0,
+      "package": "dateinfer-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/forcediphttpsadapter-1.1.0.jsonl",
+      "label": 0,
+      "package": "forcediphttpsadapter-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ownotp-0.1.1.jsonl",
+      "label": 0,
+      "package": "ownotp-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/jsonserver-0.1.0.jsonl",
+      "label": 0,
+      "package": "jsonserver-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bamboo-0.2.10.jsonl",
+      "label": 0,
+      "package": "bamboo-0.2.10"
+    },
+    {
+      "path": "data/traces/benign/traces/nitsa-0.0.0a0.jsonl",
+      "label": 0,
+      "package": "nitsa-0.0.0a0"
+    },
+    {
+      "path": "data/traces/benign/traces/graylogging-2.1.0.jsonl",
+      "label": 0,
+      "package": "graylogging-2.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pffabric-0.0.5.jsonl",
+      "label": 0,
+      "package": "pffabric-0.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/vansulich-2021.8.0.jsonl",
+      "label": 0,
+      "package": "vansulich-2021.8.0"
+    },
+    {
+      "path": "data/traces/benign/traces/optastic-0.0.1.jsonl",
+      "label": 0,
+      "package": "optastic-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/xsh-0.1.2.jsonl",
+      "label": 0,
+      "package": "xsh-0.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pyg-utils-2.1.8.jsonl",
+      "label": 1,
+      "package": "pyg-utils-2.1.8"
+    },
+    {
+      "path": "data/traces/benign/traces/currecyconverterapi-1.0.1.jsonl",
+      "label": 0,
+      "package": "currecyconverterapi-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/exigencesz-1.1.jsonl",
+      "label": 0,
+      "package": "exigencesz-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonstercloudclinet-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonstercloudclinet-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/firebrowse-0.1.11.jsonl",
+      "label": 0,
+      "package": "firebrowse-0.1.11"
+    },
+    {
+      "path": "data/traces/benign/traces/lume-0.9.8.jsonl",
+      "label": 0,
+      "package": "lume-0.9.8"
+    },
+    {
+      "path": "data/traces/benign/traces/wfstructlog-0.1.0.jsonl",
+      "label": 0,
+      "package": "wfstructlog-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Djinja-0.7.jsonl",
+      "label": 0,
+      "package": "Djinja-0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/lazytable-0.5.0.jsonl",
+      "label": 0,
+      "package": "lazytable-0.5.0"
+    },
+    {
+      "path": "data/traces/benign/traces/waterdog-0.0.0.jsonl",
+      "label": 0,
+      "package": "waterdog-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/g8core-1.1.0a2.jsonl",
+      "label": 0,
+      "package": "g8core-1.1.0a2"
+    },
+    {
+      "path": "data/traces/malware/traces/scavenger-py-1.0.2.jsonl",
+      "label": 1,
+      "package": "scavenger-py-1.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_zjlm-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_zjlm-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/anora-0.1.2.jsonl",
+      "label": 0,
+      "package": "anora-0.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/nnabla-dataset-uploader-1.0.0.jsonl",
+      "label": 1,
+      "package": "nnabla-dataset-uploader-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/vibrant-1.0.0.jsonl",
+      "label": 1,
+      "package": "vibrant-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/WhoColor-1.0.1.jsonl",
+      "label": 0,
+      "package": "WhoColor-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/amptrac-0.1.jsonl",
+      "label": 0,
+      "package": "amptrac-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/npasync-2022.7.2.jsonl",
+      "label": 0,
+      "package": "npasync-2022.7.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyplomb-1.0.0.jsonl",
+      "label": 0,
+      "package": "pyplomb-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/deeprefactorCLI-0.1.1.jsonl",
+      "label": 0,
+      "package": "deeprefactorCLI-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/toolbox-1.11.0.jsonl",
+      "label": 0,
+      "package": "toolbox-1.11.0"
+    },
+    {
+      "path": "data/traces/benign/traces/gview-0.0.10.jsonl",
+      "label": 0,
+      "package": "gview-0.0.10"
+    },
+    {
+      "path": "data/traces/malware/traces/wev3-1.0.0.jsonl",
+      "label": 1,
+      "package": "wev3-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/homologumenaz-1.1.jsonl",
+      "label": 0,
+      "package": "homologumenaz-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pytgon-1.0.0.jsonl",
+      "label": 1,
+      "package": "pytgon-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/DataExpansion-0.1.6.jsonl",
+      "label": 0,
+      "package": "DataExpansion-0.1.6"
+    },
+    {
+      "path": "data/traces/malware/traces/schubismomv3-1.10.0.jsonl",
+      "label": 1,
+      "package": "schubismomv3-1.10.0"
+    },
+    {
+      "path": "data/traces/benign/traces/sigmaOP-0.0.1.jsonl",
+      "label": 0,
+      "package": "sigmaOP-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/reqoests-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqoests-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/GmailTwoStepVerificationBug-1.1.jsonl",
+      "label": 0,
+      "package": "GmailTwoStepVerificationBug-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyjdbc-0.2.2.jsonl",
+      "label": 0,
+      "package": "pyjdbc-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/fobs-0.2.2.jsonl",
+      "label": 0,
+      "package": "fobs-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/nimporter-2.0.0.jsonl",
+      "label": 0,
+      "package": "nimporter-2.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dictfunc-1.1.0.jsonl",
+      "label": 0,
+      "package": "dictfunc-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/emercoin-0.0.4.jsonl",
+      "label": 0,
+      "package": "emercoin-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/openwse-1.0.0.jsonl",
+      "label": 1,
+      "package": "openwse-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/humanqueen-0.0.5.jsonl",
+      "label": 1,
+      "package": "humanqueen-0.0.5"
+    },
+    {
+      "path": "data/traces/malware/traces/deep-translate-4.4.2.jsonl",
+      "label": 1,
+      "package": "deep-translate-4.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pytailer-0.1.0.jsonl",
+      "label": 0,
+      "package": "pytailer-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kunci-0.1.jsonl",
+      "label": 0,
+      "package": "kunci-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pytwitterapi-0.0.0.jsonl",
+      "label": 0,
+      "package": "pytwitterapi-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/paybox-0.1.3.jsonl",
+      "label": 0,
+      "package": "paybox-0.1.3"
+    },
+    {
+      "path": "data/traces/malware/traces/etherim-1.0.0.jsonl",
+      "label": 1,
+      "package": "etherim-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/user-agents-parser-2.2.2.jsonl",
+      "label": 1,
+      "package": "user-agents-parser-2.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/bcraapi-1.0.0.jsonl",
+      "label": 0,
+      "package": "bcraapi-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pydacefit-1.0.1.jsonl",
+      "label": 0,
+      "package": "pydacefit-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/parserlexing-0.0.1.jsonl",
+      "label": 0,
+      "package": "parserlexing-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lookaheadtools-1.0.jsonl",
+      "label": 0,
+      "package": "lookaheadtools-1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pywin31-4.4.2.jsonl",
+      "label": 1,
+      "package": "pywin31-4.4.2"
+    },
+    {
+      "path": "data/traces/malware/traces/fequests-2.28.1.jsonl",
+      "label": 1,
+      "package": "fequests-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/setoki-0.1.0.jsonl",
+      "label": 0,
+      "package": "setoki-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/foremon-1.3.0.jsonl",
+      "label": 0,
+      "package": "foremon-1.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/BehaviorPattern-0.0.8.jsonl",
+      "label": 0,
+      "package": "BehaviorPattern-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/PythonPackageTest-0.1.0.jsonl",
+      "label": 0,
+      "package": "PythonPackageTest-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/slackmojify-0.1.1.jsonl",
+      "label": 0,
+      "package": "slackmojify-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/djira-0.2.1.jsonl",
+      "label": 0,
+      "package": "djira-0.2.1"
+    },
+    {
+      "path": "data/traces/malware/traces/insanepackageongong192-1.0.0.jsonl",
+      "label": 1,
+      "package": "insanepackageongong192-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/HypixelIO-1.4.0.jsonl",
+      "label": 0,
+      "package": "HypixelIO-1.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/greenai-0.0.1.jsonl",
+      "label": 0,
+      "package": "greenai-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/bullmq-2.7.8.jsonl",
+      "label": 0,
+      "package": "bullmq-2.7.8"
+    },
+    {
+      "path": "data/traces/benign/traces/pypon-0.0.0.8.jsonl",
+      "label": 0,
+      "package": "pypon-0.0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/sslinfo-0.0.2.jsonl",
+      "label": 0,
+      "package": "sslinfo-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/nonsubstitutionallyz-1.1.jsonl",
+      "label": 0,
+      "package": "nonsubstitutionallyz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pydiablo-0.0.3.jsonl",
+      "label": 0,
+      "package": "pydiablo-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/xgoogle_cloud_storage-1.33.0.jsonl",
+      "label": 1,
+      "package": "xgoogle_cloud_storage-1.33.0"
+    },
+    {
+      "path": "data/traces/benign/traces/spatialist-0.13.1.jsonl",
+      "label": 0,
+      "package": "spatialist-0.13.1"
+    },
+    {
+      "path": "data/traces/benign/traces/strictify-0.1.1.jsonl",
+      "label": 0,
+      "package": "strictify-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/merkletreepy-0.0.4.jsonl",
+      "label": 0,
+      "package": "merkletreepy-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/ffdb-2.5.5.jsonl",
+      "label": 0,
+      "package": "ffdb-2.5.5"
+    },
+    {
+      "path": "data/traces/malware/traces/custvomtkinter-1.0.0.jsonl",
+      "label": 1,
+      "package": "custvomtkinter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/awsarchive-0.1.0.jsonl",
+      "label": 0,
+      "package": "awsarchive-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dviplot-0.0.3.jsonl",
+      "label": 0,
+      "package": "dviplot-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/noober-0.0.1.jsonl",
+      "label": 0,
+      "package": "noober-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/requewsts-1.0.0.jsonl",
+      "label": 1,
+      "package": "requewsts-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/customkinter-1.0.0.jsonl",
+      "label": 1,
+      "package": "customkinter-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/etheum-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheum-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mserv-0.8.4.jsonl",
+      "label": 0,
+      "package": "mserv-0.8.4"
+    },
+    {
+      "path": "data/traces/benign/traces/JovyTesting-0.3.0.jsonl",
+      "label": 0,
+      "package": "JovyTesting-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mohawk-1.1.0.jsonl",
+      "label": 0,
+      "package": "mohawk-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/gzipi-0.1.3.jsonl",
+      "label": 0,
+      "package": "gzipi-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/tracing-0.1.3.jsonl",
+      "label": 0,
+      "package": "tracing-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/bip32utilz-0.3.post3.jsonl",
+      "label": 0,
+      "package": "bip32utilz-0.3.post3"
+    },
+    {
+      "path": "data/traces/benign/traces/rosbackup-1.1.0.jsonl",
+      "label": 0,
+      "package": "rosbackup-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kaling-0.3.0.jsonl",
+      "label": 0,
+      "package": "kaling-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/twitauth-0.0.1.jsonl",
+      "label": 0,
+      "package": "twitauth-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Lenpy-0.1.1.jsonl",
+      "label": 0,
+      "package": "Lenpy-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/sen-0.7.0.jsonl",
+      "label": 0,
+      "package": "sen-0.7.0"
+    },
+    {
+      "path": "data/traces/benign/traces/AlphabetPy-1.0.1.jsonl",
+      "label": 0,
+      "package": "AlphabetPy-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/goroutine-0.0.1.jsonl",
+      "label": 0,
+      "package": "goroutine-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/sfox-ecdsa-129.6.0.jsonl",
+      "label": 1,
+      "package": "sfox-ecdsa-129.6.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pyurllib-1.0.0.jsonl",
+      "label": 1,
+      "package": "pyurllib-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/myshellcode2-0.1.0.jsonl",
+      "label": 1,
+      "package": "myshellcode2-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pypanopto-0.2.0.jsonl",
+      "label": 0,
+      "package": "pypanopto-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/txthoonk-0.1.jsonl",
+      "label": 0,
+      "package": "txthoonk-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/apidag-0.1.2.jsonl",
+      "label": 0,
+      "package": "apidag-0.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/py-cordw-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-cordw-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/bip-utjls-1.0.0.jsonl",
+      "label": 1,
+      "package": "bip-utjls-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pycloc-0.0.3.jsonl",
+      "label": 0,
+      "package": "pycloc-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/schemify-0.1.jsonl",
+      "label": 0,
+      "package": "schemify-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/HapooDB-1.1.2.jsonl",
+      "label": 0,
+      "package": "HapooDB-1.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_iam-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_iam-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/iiris-new-2.0.16.jsonl",
+      "label": 1,
+      "package": "iiris-new-2.0.16"
+    },
+    {
+      "path": "data/traces/benign/traces/ModisDownload-2.1.jsonl",
+      "label": 0,
+      "package": "ModisDownload-2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/denormalize-0.0.3.jsonl",
+      "label": 0,
+      "package": "denormalize-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/pytiob-1.0.0.jsonl",
+      "label": 1,
+      "package": "pytiob-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ramose-1.0.8.jsonl",
+      "label": 0,
+      "package": "ramose-1.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/lgpdXml-0.0.3.jsonl",
+      "label": 0,
+      "package": "lgpdXml-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/liblapack-dev-0.0.1.jsonl",
+      "label": 1,
+      "package": "liblapack-dev-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/etherun-1.0.0.jsonl",
+      "label": 1,
+      "package": "etherun-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/radixlib-1.1.1.jsonl",
+      "label": 0,
+      "package": "radixlib-1.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/opensa-1.0.0.jsonl",
+      "label": 1,
+      "package": "opensa-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/TracHtGroupEditorPlugin-2.0.1.jsonl",
+      "label": 0,
+      "package": "TracHtGroupEditorPlugin-2.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/HelpyFuncs-0.0.1.jsonl",
+      "label": 0,
+      "package": "HelpyFuncs-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/aospdtgen-1.1.1.jsonl",
+      "label": 0,
+      "package": "aospdtgen-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/BioCircos-0.0.1.jsonl",
+      "label": 0,
+      "package": "BioCircos-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mrglog-0.2.0.jsonl",
+      "label": 0,
+      "package": "mrglog-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Torrelque-0.7.1.jsonl",
+      "label": 0,
+      "package": "Torrelque-0.7.1"
+    },
+    {
+      "path": "data/traces/benign/traces/bugzscout-0.0.1.jsonl",
+      "label": 0,
+      "package": "bugzscout-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/osbm-0.1.0.jsonl",
+      "label": 0,
+      "package": "osbm-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/digg2-0.1.jsonl",
+      "label": 0,
+      "package": "digg2-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Impyccable-1.1.1.jsonl",
+      "label": 0,
+      "package": "Impyccable-1.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/BeautifulSoul-1.0.0.jsonl",
+      "label": 1,
+      "package": "BeautifulSoul-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/jsonclasses-3.3.0.jsonl",
+      "label": 0,
+      "package": "jsonclasses-3.3.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pywhool-1.0.0.jsonl",
+      "label": 1,
+      "package": "pywhool-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/shedv-0.0.0.jsonl",
+      "label": 0,
+      "package": "shedv-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/singleurlcrud-0.21.jsonl",
+      "label": 0,
+      "package": "singleurlcrud-0.21"
+    },
+    {
+      "path": "data/traces/benign/traces/leapfrogmshreader-0.24.jsonl",
+      "label": 0,
+      "package": "leapfrogmshreader-0.24"
+    },
+    {
+      "path": "data/traces/benign/traces/pyluno-0.3.0.jsonl",
+      "label": 0,
+      "package": "pyluno-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kpc-0.3.3.jsonl",
+      "label": 0,
+      "package": "kpc-0.3.3"
+    },
+    {
+      "path": "data/traces/benign/traces/gnida-0.0.19.jsonl",
+      "label": 0,
+      "package": "gnida-0.0.19"
+    },
+    {
+      "path": "data/traces/benign/traces/igenerate-1.0.2.jsonl",
+      "label": 0,
+      "package": "igenerate-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/tmcsh-0.1.0.jsonl",
+      "label": 0,
+      "package": "tmcsh-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/speedyapi-1.0.11.jsonl",
+      "label": 0,
+      "package": "speedyapi-1.0.11"
+    },
+    {
+      "path": "data/traces/benign/traces/dmsapi-0.2.2.jsonl",
+      "label": 0,
+      "package": "dmsapi-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/randomthings-1.2.1.6.jsonl",
+      "label": 0,
+      "package": "randomthings-1.2.1.6"
+    },
+    {
+      "path": "data/traces/benign/traces/virusai-1.0.1.jsonl",
+      "label": 0,
+      "package": "virusai-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/crypto-os-4.5.2.jsonl",
+      "label": 1,
+      "package": "crypto-os-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/CNExpir-0.0.2.jsonl",
+      "label": 0,
+      "package": "CNExpir-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/stonetech-0.0.1.jsonl",
+      "label": 0,
+      "package": "stonetech-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lakecli-0.2.0.jsonl",
+      "label": 0,
+      "package": "lakecli-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/couchbasekit-0.2.2.jsonl",
+      "label": 0,
+      "package": "couchbasekit-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/neval-0.0.5.jsonl",
+      "label": 0,
+      "package": "neval-0.0.5"
+    },
+    {
+      "path": "data/traces/malware/traces/rbxtool-0.0.1.jsonl",
+      "label": 1,
+      "package": "rbxtool-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/yeastarAPI-0.1.5.jsonl",
+      "label": 0,
+      "package": "yeastarAPI-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/pylogger-1.1.jsonl",
+      "label": 0,
+      "package": "pylogger-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/requesuts-1.0.0.jsonl",
+      "label": 1,
+      "package": "requesuts-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/threadin-4.5.2.jsonl",
+      "label": 1,
+      "package": "threadin-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/tagil-0.2.0.jsonl",
+      "label": 0,
+      "package": "tagil-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/openfaker-0.0.1.jsonl",
+      "label": 0,
+      "package": "openfaker-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/symfeat-0.4.5.jsonl",
+      "label": 0,
+      "package": "symfeat-0.4.5"
+    },
+    {
+      "path": "data/traces/benign/traces/climax-0.5.0.jsonl",
+      "label": 0,
+      "package": "climax-0.5.0"
+    },
+    {
+      "path": "data/traces/benign/traces/evidence-2.2.0.jsonl",
+      "label": 0,
+      "package": "evidence-2.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/djmongoengine-1.0.jsonl",
+      "label": 0,
+      "package": "djmongoengine-1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/json2netcdf-1.1.2.jsonl",
+      "label": 0,
+      "package": "json2netcdf-1.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/tempocalculation-0.2.jsonl",
+      "label": 0,
+      "package": "tempocalculation-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/junpdf-0.1.jsonl",
+      "label": 0,
+      "package": "junpdf-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/spyme-0.0.3.jsonl",
+      "label": 1,
+      "package": "spyme-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/capmostercloudclieent-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmostercloudclieent-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cucu-0.0.0.jsonl",
+      "label": 0,
+      "package": "cucu-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mandeintegration-0.1.8.jsonl",
+      "label": 0,
+      "package": "mandeintegration-0.1.8"
+    },
+    {
+      "path": "data/traces/malware/traces/tensoflouw-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensoflouw-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pypremium-1.0.3.jsonl",
+      "label": 0,
+      "package": "pypremium-1.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/plt2latex-0.0.8.jsonl",
+      "label": 0,
+      "package": "plt2latex-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/aping-0.1.0.dev0.jsonl",
+      "label": 0,
+      "package": "aping-0.1.0.dev0"
+    },
+    {
+      "path": "data/traces/benign/traces/pydantic2md-0.1.0.jsonl",
+      "label": 0,
+      "package": "pydantic2md-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/mordving-1.0.0.jsonl",
+      "label": 1,
+      "package": "mordving-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/etheeruimm-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheeruimm-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/MyFirstModuleskwdfewfsd-0.0.2.jsonl",
+      "label": 0,
+      "package": "MyFirstModuleskwdfewfsd-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/snscrape-0.7.0.20230622.jsonl",
+      "label": 0,
+      "package": "snscrape-0.7.0.20230622"
+    },
+    {
+      "path": "data/traces/benign/traces/routinemaker-0.5.3.jsonl",
+      "label": 0,
+      "package": "routinemaker-0.5.3"
+    },
+    {
+      "path": "data/traces/malware/traces/ctfpipshell-0.0.4.jsonl",
+      "label": 1,
+      "package": "ctfpipshell-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremetstxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremetstxt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bib2coa-1.1.jsonl",
+      "label": 0,
+      "package": "bib2coa-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/RsCmwGsmMeas-3.7.30.5.jsonl",
+      "label": 0,
+      "package": "RsCmwGsmMeas-3.7.30.5"
+    },
+    {
+      "path": "data/traces/malware/traces/selenniumm-1.0.0.jsonl",
+      "label": 1,
+      "package": "selenniumm-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/keepasshttplib-0.7.jsonl",
+      "label": 0,
+      "package": "keepasshttplib-0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/conform-0.1.0.jsonl",
+      "label": 0,
+      "package": "conform-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fundom-0.1.0.jsonl",
+      "label": 0,
+      "package": "fundom-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_shuziwuliu-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_shuziwuliu-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/new-requests-2.28.1.jsonl",
+      "label": 1,
+      "package": "new-requests-2.28.1"
+    },
+    {
+      "path": "data/traces/malware/traces/PyGmme-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyGmme-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/jrnr-0.2.4.jsonl",
+      "label": 0,
+      "package": "jrnr-0.2.4"
+    },
+    {
+      "path": "data/traces/benign/traces/wsgirpc-2.1.1.jsonl",
+      "label": 0,
+      "package": "wsgirpc-2.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Riolu-0.12.jsonl",
+      "label": 0,
+      "package": "Riolu-0.12"
+    },
+    {
+      "path": "data/traces/benign/traces/pyCLI-2.0.3.jsonl",
+      "label": 0,
+      "package": "pyCLI-2.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/EvaMap-2.0.6.jsonl",
+      "label": 0,
+      "package": "EvaMap-2.0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/etheerium-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheerium-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/lyft-service-9.99.1.jsonl",
+      "label": 1,
+      "package": "lyft-service-9.99.1"
+    },
+    {
+      "path": "data/traces/benign/traces/taxminiyraqam-0.0.1.jsonl",
+      "label": 0,
+      "package": "taxminiyraqam-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/binogaus-0.1.jsonl",
+      "label": 0,
+      "package": "binogaus-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/hopsml-2.4.1.jsonl",
+      "label": 0,
+      "package": "hopsml-2.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/MangDL-3.1.1.0.jsonl",
+      "label": 0,
+      "package": "MangDL-3.1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dblog-0.3.4.jsonl",
+      "label": 0,
+      "package": "dblog-0.3.4"
+    },
+    {
+      "path": "data/traces/benign/traces/phasors-0.0.1.jsonl",
+      "label": 0,
+      "package": "phasors-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/certifie-2022.9.24.jsonl",
+      "label": 1,
+      "package": "certifie-2022.9.24"
+    },
+    {
+      "path": "data/traces/benign/traces/pandasmore-0.0.6.jsonl",
+      "label": 0,
+      "package": "pandasmore-0.0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/felpesviadinho-0.4.5.jsonl",
+      "label": 1,
+      "package": "felpesviadinho-0.4.5"
+    },
+    {
+      "path": "data/traces/benign/traces/rahulnikamalpha-0.11.jsonl",
+      "label": 0,
+      "package": "rahulnikamalpha-0.11"
+    },
+    {
+      "path": "data/traces/benign/traces/eztemplate-0.3.0.jsonl",
+      "label": 0,
+      "package": "eztemplate-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/getMysqlConnPara-2.0.0.jsonl",
+      "label": 0,
+      "package": "getMysqlConnPara-2.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkwnter-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkwnter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/grammarie-0.1.1.jsonl",
+      "label": 0,
+      "package": "grammarie-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/Matplorlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matplorlib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/maxdev-1.4.2.jsonl",
+      "label": 0,
+      "package": "maxdev-1.4.2"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonstercloudcluodclient-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonstercloudcluodclient-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/quakeio-0.1.19.jsonl",
+      "label": 0,
+      "package": "quakeio-0.1.19"
+    },
+    {
+      "path": "data/traces/benign/traces/AreaFinding-0.1.jsonl",
+      "label": 0,
+      "package": "AreaFinding-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ikku-0.1.3.jsonl",
+      "label": 0,
+      "package": "ikku-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/sermonaudio-6.15.2.jsonl",
+      "label": 0,
+      "package": "sermonaudio-6.15.2"
+    },
+    {
+      "path": "data/traces/benign/traces/MissionData-1.0.jsonl",
+      "label": 0,
+      "package": "MissionData-1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/otr_utils-0.0.1.jsonl",
+      "label": 1,
+      "package": "otr_utils-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/alat-1.2.0.jsonl",
+      "label": 0,
+      "package": "alat-1.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/py-c0dd-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-c0dd-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/sql2sql-1.0.1.jsonl",
+      "label": 0,
+      "package": "sql2sql-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/basicCals-0.0.6.jsonl",
+      "label": 0,
+      "package": "basicCals-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/PyLg-1.3.3.jsonl",
+      "label": 0,
+      "package": "PyLg-1.3.3"
+    },
+    {
+      "path": "data/traces/benign/traces/zqygis-1.8.jsonl",
+      "label": 0,
+      "package": "zqygis-1.8"
+    },
+    {
+      "path": "data/traces/malware/traces/custrmtkinter-1.0.0.jsonl",
+      "label": 1,
+      "package": "custrmtkinter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/statesxt-0.5.11.jsonl",
+      "label": 0,
+      "package": "statesxt-0.5.11"
+    },
+    {
+      "path": "data/traces/benign/traces/maze-3.0.0.jsonl",
+      "label": 0,
+      "package": "maze-3.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kudanil-2.2.jsonl",
+      "label": 0,
+      "package": "kudanil-2.2"
+    },
+    {
+      "path": "data/traces/malware/traces/seleenimu-1.0.0.jsonl",
+      "label": 1,
+      "package": "seleenimu-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/drclient-0.0.7.jsonl",
+      "label": 0,
+      "package": "drclient-0.0.7"
+    },
+    {
+      "path": "data/traces/malware/traces/requirmeents-1.0.0.jsonl",
+      "label": 1,
+      "package": "requirmeents-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/reqiremnts-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqiremnts-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dotmgr-0.5.3.jsonl",
+      "label": 0,
+      "package": "dotmgr-0.5.3"
+    },
+    {
+      "path": "data/traces/benign/traces/icortex-0.1.4.jsonl",
+      "label": 0,
+      "package": "icortex-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/lobot-0.0.7.jsonl",
+      "label": 0,
+      "package": "lobot-0.0.7"
+    },
+    {
+      "path": "data/traces/malware/traces/asyncioi-1.0.0.jsonl",
+      "label": 1,
+      "package": "asyncioi-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/jmdrs-1.0.6.jsonl",
+      "label": 1,
+      "package": "jmdrs-1.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/gla11y-0.4.jsonl",
+      "label": 0,
+      "package": "gla11y-0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/plugin2cube-2.2.12.jsonl",
+      "label": 0,
+      "package": "plugin2cube-2.2.12"
+    },
+    {
+      "path": "data/traces/benign/traces/hypapantez-1.1.jsonl",
+      "label": 0,
+      "package": "hypapantez-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pystructure-1.1.0.jsonl",
+      "label": 0,
+      "package": "pystructure-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pybancointer-0.0.1.jsonl",
+      "label": 0,
+      "package": "pybancointer-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/kasten-3.0.0.jsonl",
+      "label": 0,
+      "package": "kasten-3.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/distributionsYAKS-0.1.jsonl",
+      "label": 0,
+      "package": "distributionsYAKS-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/bottleneck-1.4.0.jsonl",
+      "label": 0,
+      "package": "bottleneck-1.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/PyProfane-1.0.7.jsonl",
+      "label": 0,
+      "package": "PyProfane-1.0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/antaresfabricframeworkbase-1.1.38.jsonl",
+      "label": 0,
+      "package": "antaresfabricframeworkbase-1.1.38"
+    },
+    {
+      "path": "data/traces/benign/traces/apitopy-0.4.1.jsonl",
+      "label": 0,
+      "package": "apitopy-0.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/digLshClustering-0.1.18.jsonl",
+      "label": 0,
+      "package": "digLshClustering-0.1.18"
+    },
+    {
+      "path": "data/traces/benign/traces/pylgorithm-0.0.1.jsonl",
+      "label": 0,
+      "package": "pylgorithm-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mriutils-1.2.18.jsonl",
+      "label": 0,
+      "package": "mriutils-1.2.18"
+    },
+    {
+      "path": "data/traces/benign/traces/blacker-0.1.0.jsonl",
+      "label": 0,
+      "package": "blacker-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/BinaryTreeSearcher-1.0.5.jsonl",
+      "label": 0,
+      "package": "BinaryTreeSearcher-1.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/apigwsgi-0.1.5.jsonl",
+      "label": 0,
+      "package": "apigwsgi-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/indent-0.1.jsonl",
+      "label": 0,
+      "package": "indent-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/yinstaller-4.5.2.jsonl",
+      "label": 1,
+      "package": "yinstaller-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/electromagnetopy-0.0.1.jsonl",
+      "label": 0,
+      "package": "electromagnetopy-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/requstsssq-2.28.2.jsonl",
+      "label": 1,
+      "package": "requstsssq-2.28.2"
+    },
+    {
+      "path": "data/traces/benign/traces/beeline-0.0.9-alpha.jsonl",
+      "label": 0,
+      "package": "beeline-0.0.9-alpha"
+    },
+    {
+      "path": "data/traces/benign/traces/pyttm-0.1.0.jsonl",
+      "label": 0,
+      "package": "pyttm-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tessfpe-6.1.12.dev9.jsonl",
+      "label": 0,
+      "package": "tessfpe-6.1.12.dev9"
+    },
+    {
+      "path": "data/traces/benign/traces/mathsss-1.01.jsonl",
+      "label": 0,
+      "package": "mathsss-1.01"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramxa-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramxa-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dracoon-1.13.0.jsonl",
+      "label": 0,
+      "package": "dracoon-1.13.0"
+    },
+    {
+      "path": "data/traces/benign/traces/MultiRelay-0.0.1.jsonl",
+      "label": 0,
+      "package": "MultiRelay-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/moreloops-0.0.1.jsonl",
+      "label": 0,
+      "package": "moreloops-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyarkbench-1.0.1.jsonl",
+      "label": 0,
+      "package": "pyarkbench-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/reqiurementstxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqiurementstxt-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/asyncioo-1.0.0.jsonl",
+      "label": 1,
+      "package": "asyncioo-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/microslac-0.0.20.jsonl",
+      "label": 0,
+      "package": "microslac-0.0.20"
+    },
+    {
+      "path": "data/traces/malware/traces/promptcolor-0.1.0.jsonl",
+      "label": 1,
+      "package": "promptcolor-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ephios-0.16.5.jsonl",
+      "label": 0,
+      "package": "ephios-0.16.5"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_dog-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_dog-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/odapdbxbundle-0.1.0.jsonl",
+      "label": 0,
+      "package": "odapdbxbundle-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/redist-4.4.7.jsonl",
+      "label": 1,
+      "package": "redist-4.4.7"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkintrr-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkintrr-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/bip-util-1.0.0.jsonl",
+      "label": 1,
+      "package": "bip-util-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/myfuncs-1.6.0.jsonl",
+      "label": 0,
+      "package": "myfuncs-1.6.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cist-0.1.0.jsonl",
+      "label": 0,
+      "package": "cist-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/holamundoplayerGabriel-0.0.1.jsonl",
+      "label": 0,
+      "package": "holamundoplayerGabriel-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/colopym2-0.0.1.jsonl",
+      "label": 1,
+      "package": "colopym2-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/wicc-1.0.0.jsonl",
+      "label": 0,
+      "package": "wicc-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tantipy-0.14.0.dev0.jsonl",
+      "label": 0,
+      "package": "tantipy-0.14.0.dev0"
+    },
+    {
+      "path": "data/traces/benign/traces/prominence-0.20.2.jsonl",
+      "label": 0,
+      "package": "prominence-0.20.2"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_cas-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_cas-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ignore-0.1.4.jsonl",
+      "label": 0,
+      "package": "ignore-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/tradingtools-0.0.1.jsonl",
+      "label": 0,
+      "package": "tradingtools-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/dsin100days603v37-6.0.3.jsonl",
+      "label": 0,
+      "package": "dsin100days603v37-6.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/crickit-0.0.126.jsonl",
+      "label": 0,
+      "package": "crickit-0.0.126"
+    },
+    {
+      "path": "data/traces/malware/traces/requstsss-2.28.2.jsonl",
+      "label": 1,
+      "package": "requstsss-2.28.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyresponse-0.0.1.jsonl",
+      "label": 0,
+      "package": "pyresponse-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/teamlab-0.2.jsonl",
+      "label": 0,
+      "package": "teamlab-0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/matplotpib-1.0.0.jsonl",
+      "label": 1,
+      "package": "matplotpib-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/customtknter-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtknter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pypiler-0.0.1.jsonl",
+      "label": 0,
+      "package": "pypiler-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/riotmanifest-1.0.2.jsonl",
+      "label": 0,
+      "package": "riotmanifest-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/yqxx-0.8.2.jsonl",
+      "label": 0,
+      "package": "yqxx-0.8.2"
+    },
+    {
+      "path": "data/traces/malware/traces/loglib-modules-1.0.8.jsonl",
+      "label": 1,
+      "package": "loglib-modules-1.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/strconstruct-0.0.1.jsonl",
+      "label": 0,
+      "package": "strconstruct-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/jsTUX-0.1.jsonl",
+      "label": 0,
+      "package": "jsTUX-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/restcodetest-0.1.jsonl",
+      "label": 0,
+      "package": "restcodetest-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/bcmaccount-1.0.1.jsonl",
+      "label": 0,
+      "package": "bcmaccount-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/stuweparser-0.1.1.jsonl",
+      "label": 0,
+      "package": "stuweparser-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyreposync-0.0.12.jsonl",
+      "label": 0,
+      "package": "pyreposync-0.0.12"
+    },
+    {
+      "path": "data/traces/benign/traces/testepypi-0.0.1.jsonl",
+      "label": 0,
+      "package": "testepypi-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/FixTrade-0.5.jsonl",
+      "label": 0,
+      "package": "FixTrade-0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/cowtool-0.0.2.jsonl",
+      "label": 0,
+      "package": "cowtool-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/cerebrate-0.0.11.jsonl",
+      "label": 0,
+      "package": "cerebrate-0.0.11"
+    },
+    {
+      "path": "data/traces/benign/traces/fabvenv-0.2.1.jsonl",
+      "label": 0,
+      "package": "fabvenv-0.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ssmtoenv-0.1.4.1.jsonl",
+      "label": 0,
+      "package": "ssmtoenv-0.1.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/VatoTsitskishvili-0.0.1.jsonl",
+      "label": 0,
+      "package": "VatoTsitskishvili-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/discord.pt-4.4.2.jsonl",
+      "label": 1,
+      "package": "discord.pt-4.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ecquote-1.6.1.jsonl",
+      "label": 0,
+      "package": "ecquote-1.6.1"
+    },
+    {
+      "path": "data/traces/malware/traces/tensoflqw-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensoflqw-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pathing-0.1.3.jsonl",
+      "label": 0,
+      "package": "pathing-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/beautifullogger-4.8.2.jsonl",
+      "label": 0,
+      "package": "beautifullogger-4.8.2"
+    },
+    {
+      "path": "data/traces/malware/traces/new-request-2022-4.5.1.jsonl",
+      "label": 1,
+      "package": "new-request-2022-4.5.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ufh-1.0.1.jsonl",
+      "label": 0,
+      "package": "ufh-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/validatorpkg-0.0.1.jsonl",
+      "label": 0,
+      "package": "validatorpkg-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/statcomp-0.1.jsonl",
+      "label": 0,
+      "package": "statcomp-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Fudget-0.1dev.jsonl",
+      "label": 0,
+      "package": "Fudget-0.1dev"
+    },
+    {
+      "path": "data/traces/benign/traces/taggercli-1.0.0.jsonl",
+      "label": 0,
+      "package": "taggercli-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pypipackageexample-0.0.3.jsonl",
+      "label": 0,
+      "package": "pypipackageexample-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/assyncio-1.0.0.jsonl",
+      "label": 1,
+      "package": "assyncio-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/MarloAPI-0.0.1.jsonl",
+      "label": 0,
+      "package": "MarloAPI-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/cryptorama-0.1.5.jsonl",
+      "label": 0,
+      "package": "cryptorama-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/aiochat-0.0.3.jsonl",
+      "label": 0,
+      "package": "aiochat-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/cfdilib-0.7.5.jsonl",
+      "label": 0,
+      "package": "cfdilib-0.7.5"
+    },
+    {
+      "path": "data/traces/benign/traces/snmpreceiver-0.0.0.jsonl",
+      "label": 0,
+      "package": "snmpreceiver-0.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/py-c0red-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-c0red-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/sudo2-2.7.0.jsonl",
+      "label": 1,
+      "package": "sudo2-2.7.0"
+    },
+    {
+      "path": "data/traces/benign/traces/codecov-2.1.13.jsonl",
+      "label": 0,
+      "package": "codecov-2.1.13"
+    },
+    {
+      "path": "data/traces/benign/traces/yerbamate-0.9.239.jsonl",
+      "label": 0,
+      "package": "yerbamate-0.9.239"
+    },
+    {
+      "path": "data/traces/benign/traces/solgate-3.5.5.jsonl",
+      "label": 0,
+      "package": "solgate-3.5.5"
+    },
+    {
+      "path": "data/traces/malware/traces/pyfilget-1.0.5.jsonl",
+      "label": 1,
+      "package": "pyfilget-1.0.5"
+    },
+    {
+      "path": "data/traces/malware/traces/cryptographyy-4.5.2.jsonl",
+      "label": 1,
+      "package": "cryptographyy-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/galliardsz-1.1.jsonl",
+      "label": 0,
+      "package": "galliardsz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/scratch2py-0.7.1.jsonl",
+      "label": 0,
+      "package": "scratch2py-0.7.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mysqltsv-0.0.7.jsonl",
+      "label": 0,
+      "package": "mysqltsv-0.0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/ffenmass-0.2.9.jsonl",
+      "label": 0,
+      "package": "ffenmass-0.2.9"
+    },
+    {
+      "path": "data/traces/benign/traces/ffselect-0.0.1.jsonl",
+      "label": 0,
+      "package": "ffselect-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/colorm-1.0.0.jsonl",
+      "label": 1,
+      "package": "colorm-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyekonlib-0.3.jsonl",
+      "label": 0,
+      "package": "pyekonlib-0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/socli-7.3.jsonl",
+      "label": 0,
+      "package": "socli-7.3"
+    },
+    {
+      "path": "data/traces/benign/traces/notrix-1.3.2.jsonl",
+      "label": 0,
+      "package": "notrix-1.3.2"
+    },
+    {
+      "path": "data/traces/benign/traces/idlespork-0.1.4.jsonl",
+      "label": 0,
+      "package": "idlespork-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/duplication-1.0.2.jsonl",
+      "label": 0,
+      "package": "duplication-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/envisionriskraas-1.1.8.jsonl",
+      "label": 0,
+      "package": "envisionriskraas-1.1.8"
+    },
+    {
+      "path": "data/traces/malware/traces/customtinter-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtinter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/wjnester-1.0.4.jsonl",
+      "label": 0,
+      "package": "wjnester-1.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/TFInterpy-1.1.1.jsonl",
+      "label": 0,
+      "package": "TFInterpy-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/dailylog-0.0.4.jsonl",
+      "label": 0,
+      "package": "dailylog-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/tyype-0.0.3.0.jsonl",
+      "label": 0,
+      "package": "tyype-0.0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/aiworkflow-0.0.4.jsonl",
+      "label": 0,
+      "package": "aiworkflow-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/sbc-1.3.jsonl",
+      "label": 0,
+      "package": "sbc-1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/json2csvrede-1.2.jsonl",
+      "label": 0,
+      "package": "json2csvrede-1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/huanzinester-1.4.0.jsonl",
+      "label": 0,
+      "package": "huanzinester-1.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/euclidean-1.0.0b5.jsonl",
+      "label": 0,
+      "package": "euclidean-1.0.0b5"
+    },
+    {
+      "path": "data/traces/benign/traces/stirrups-0.1.3.jsonl",
+      "label": 0,
+      "package": "stirrups-0.1.3"
+    },
+    {
+      "path": "data/traces/malware/traces/fakessh-0.7.8.jsonl",
+      "label": 1,
+      "package": "fakessh-0.7.8"
+    },
+    {
+      "path": "data/traces/benign/traces/subsetsumdfs-0.0.2.jsonl",
+      "label": 0,
+      "package": "subsetsumdfs-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/cstmotkinter-1.0.0.jsonl",
+      "label": 1,
+      "package": "cstmotkinter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/zio-2.1.3.jsonl",
+      "label": 0,
+      "package": "zio-2.1.3"
+    },
+    {
+      "path": "data/traces/malware/traces/playwirght-1.0.0.jsonl",
+      "label": 1,
+      "package": "playwirght-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremnets-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremnets-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramzs-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramzs-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/IORedprint-1.0.0.jsonl",
+      "label": 0,
+      "package": "IORedprint-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requirementtsxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requirementtsxt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/misbehave-0.1.4.jsonl",
+      "label": 0,
+      "package": "misbehave-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/abatools-1.0.0.jsonl",
+      "label": 0,
+      "package": "abatools-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/orangelib-0.4.0.jsonl",
+      "label": 0,
+      "package": "orangelib-0.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/var2pharm-0.0.4.jsonl",
+      "label": 0,
+      "package": "var2pharm-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/mkglib-0.1.jsonl",
+      "label": 0,
+      "package": "mkglib-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/dnsmock-21.2b2.jsonl",
+      "label": 0,
+      "package": "dnsmock-21.2b2"
+    },
+    {
+      "path": "data/traces/malware/traces/nexusproto-0.8.0.jsonl",
+      "label": 1,
+      "package": "nexusproto-0.8.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyxml2dict-1.0.3.jsonl",
+      "label": 0,
+      "package": "pyxml2dict-1.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/gcli-0.0.1.jsonl",
+      "label": 0,
+      "package": "gcli-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/glutton-0.0.1.jsonl",
+      "label": 0,
+      "package": "glutton-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ulstools-0.10.4.jsonl",
+      "label": 0,
+      "package": "ulstools-0.10.4"
+    },
+    {
+      "path": "data/traces/benign/traces/pyemoncms-0.0.7.jsonl",
+      "label": 0,
+      "package": "pyemoncms-0.0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/screenlogicpy-0.10.1.jsonl",
+      "label": 0,
+      "package": "screenlogicpy-0.10.1"
+    },
+    {
+      "path": "data/traces/malware/traces/ReverseShell-0.1.0.jsonl",
+      "label": 1,
+      "package": "ReverseShell-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/subdichotomouslyz-2.1.jsonl",
+      "label": 0,
+      "package": "subdichotomouslyz-2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/PrimeAPIClient-0.0.1.jsonl",
+      "label": 0,
+      "package": "PrimeAPIClient-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/fantastic-ascii-1.0.0.jsonl",
+      "label": 1,
+      "package": "fantastic-ascii-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/brickbreaker-0.0.8.jsonl",
+      "label": 0,
+      "package": "brickbreaker-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/bauhattan-0.1.2.jsonl",
+      "label": 0,
+      "package": "bauhattan-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/mine-4.2.3.jsonl",
+      "label": 0,
+      "package": "mine-4.2.3"
+    },
+    {
+      "path": "data/traces/malware/traces/beautifuklsoup-1.0.0.jsonl",
+      "label": 1,
+      "package": "beautifuklsoup-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mhddq-0.3.0.jsonl",
+      "label": 0,
+      "package": "mhddq-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tokentamer-0.0.0.jsonl",
+      "label": 0,
+      "package": "tokentamer-0.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/BeautifulSoop-1.0.0.jsonl",
+      "label": 1,
+      "package": "BeautifulSoop-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/sta2stac-2.0.1.jsonl",
+      "label": 0,
+      "package": "sta2stac-2.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/HiveNetGRPC-0.1.0.jsonl",
+      "label": 0,
+      "package": "HiveNetGRPC-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/superdate-0.2.1.jsonl",
+      "label": 0,
+      "package": "superdate-0.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ainlp-0.1.6.jsonl",
+      "label": 0,
+      "package": "ainlp-0.1.6"
+    },
+    {
+      "path": "data/traces/benign/traces/webscaff-1.0.0.jsonl",
+      "label": 0,
+      "package": "webscaff-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/faketrumpgen-0.11.jsonl",
+      "label": 0,
+      "package": "faketrumpgen-0.11"
+    },
+    {
+      "path": "data/traces/benign/traces/vagalume-0.0.5.jsonl",
+      "label": 0,
+      "package": "vagalume-0.0.5"
+    },
+    {
+      "path": "data/traces/malware/traces/etheriem-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheriem-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kafkaloghandler-0.9.0.jsonl",
+      "label": 0,
+      "package": "kafkaloghandler-0.9.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bookkeeping-0.0.8.jsonl",
+      "label": 0,
+      "package": "bookkeeping-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/fpstool-0.1.4.jsonl",
+      "label": 0,
+      "package": "fpstool-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/pydoda-1.0.3.jsonl",
+      "label": 0,
+      "package": "pydoda-1.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/beautiflulsoup-1.0.0.jsonl",
+      "label": 1,
+      "package": "beautiflulsoup-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/emojisearcher-0.6.0.jsonl",
+      "label": 0,
+      "package": "emojisearcher-0.6.0"
+    },
+    {
+      "path": "data/traces/benign/traces/predikto-1.2.0.jsonl",
+      "label": 0,
+      "package": "predikto-1.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/j1nuclei-1.0.3.jsonl",
+      "label": 0,
+      "package": "j1nuclei-1.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/deisa-0.2.5.jsonl",
+      "label": 0,
+      "package": "deisa-0.2.5"
+    },
+    {
+      "path": "data/traces/benign/traces/matshapes-0.0.4.jsonl",
+      "label": 0,
+      "package": "matshapes-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkinger-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkinger-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/squimple-0.0.1.jsonl",
+      "label": 0,
+      "package": "squimple-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/py-vord-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-vord-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/loot-0.2.0.jsonl",
+      "label": 0,
+      "package": "loot-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/wagtailapi-1.0c3.jsonl",
+      "label": 0,
+      "package": "wagtailapi-1.0c3"
+    },
+    {
+      "path": "data/traces/malware/traces/threeding-4.5.2.jsonl",
+      "label": 1,
+      "package": "threeding-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/search4file-0.1.15.jsonl",
+      "label": 0,
+      "package": "search4file-0.1.15"
+    },
+    {
+      "path": "data/traces/benign/traces/pyhaproxy-0.3.7.jsonl",
+      "label": 0,
+      "package": "pyhaproxy-0.3.7"
+    },
+    {
+      "path": "data/traces/malware/traces/tensoflpw-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensoflpw-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/myshellcode3-0.1.0.jsonl",
+      "label": 1,
+      "package": "myshellcode3-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requirementt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requirementt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/muniverse-0.1.1.jsonl",
+      "label": 0,
+      "package": "muniverse-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/benderlib-0.0.0.jsonl",
+      "label": 0,
+      "package": "benderlib-0.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/robloxapiaccess-0.0.2.jsonl",
+      "label": 1,
+      "package": "robloxapiaccess-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkintet-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkintet-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/crefi-2.0.9.jsonl",
+      "label": 0,
+      "package": "crefi-2.0.9"
+    },
+    {
+      "path": "data/traces/malware/traces/numberpy-0.1.0.jsonl",
+      "label": 1,
+      "package": "numberpy-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/seleinuim-1.0.0.jsonl",
+      "label": 1,
+      "package": "seleinuim-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/py3make-1.0.4.jsonl",
+      "label": 0,
+      "package": "py3make-1.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/himpy-0.0.1.jsonl",
+      "label": 0,
+      "package": "himpy-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/excaliburx-1.0.0.jsonl",
+      "label": 1,
+      "package": "excaliburx-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/aljson-0.3.0.jsonl",
+      "label": 0,
+      "package": "aljson-0.3.0"
+    },
+    {
+      "path": "data/traces/malware/traces/playwrigh-1.0.0.jsonl",
+      "label": 1,
+      "package": "playwrigh-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/PyTordh-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyTordh-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mybasicCalculator-0.0.1.jsonl",
+      "label": 0,
+      "package": "mybasicCalculator-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/py2gc-1.0.6.jsonl",
+      "label": 0,
+      "package": "py2gc-1.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/ltsa-0.2.1.dev1.jsonl",
+      "label": 0,
+      "package": "ltsa-0.2.1.dev1"
+    },
+    {
+      "path": "data/traces/benign/traces/drivtime-0.0.3.jsonl",
+      "label": 0,
+      "package": "drivtime-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/aguirre-0.1.1.jsonl",
+      "label": 0,
+      "package": "aguirre-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/tripcode-0.1.jsonl",
+      "label": 0,
+      "package": "tripcode-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/MLme-0.0.102.jsonl",
+      "label": 0,
+      "package": "MLme-0.0.102"
+    },
+    {
+      "path": "data/traces/benign/traces/awspublicranges-1.0.2.jsonl",
+      "label": 0,
+      "package": "awspublicranges-1.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/BeautifullSooup-1.0.0.jsonl",
+      "label": 1,
+      "package": "BeautifullSooup-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/mxnet-cuXXX-1.12.0.jsonl",
+      "label": 1,
+      "package": "mxnet-cuXXX-1.12.0"
+    },
+    {
+      "path": "data/traces/benign/traces/latexfixer-0.2.1.jsonl",
+      "label": 0,
+      "package": "latexfixer-0.2.1"
+    },
+    {
+      "path": "data/traces/malware/traces/colprama-1.0.0.jsonl",
+      "label": 1,
+      "package": "colprama-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dogclient-0.0.2.jsonl",
+      "label": 0,
+      "package": "dogclient-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ikuchnia-0.0.1.jsonl",
+      "label": 0,
+      "package": "ikuchnia-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/autoscrum-0.3.0.jsonl",
+      "label": 0,
+      "package": "autoscrum-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/gsw-3.6.18.jsonl",
+      "label": 0,
+      "package": "gsw-3.6.18"
+    },
+    {
+      "path": "data/traces/malware/traces/reqquest-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqquest-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kmediaofficer-0.1.0.jsonl",
+      "label": 0,
+      "package": "kmediaofficer-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cfapi-1.0.0.jsonl",
+      "label": 0,
+      "package": "cfapi-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pdbio-0.4.2.jsonl",
+      "label": 0,
+      "package": "pdbio-0.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/nodeman-0.5.4.jsonl",
+      "label": 0,
+      "package": "nodeman-0.5.4"
+    },
+    {
+      "path": "data/traces/benign/traces/entrytest-0.31.jsonl",
+      "label": 0,
+      "package": "entrytest-0.31"
+    },
+    {
+      "path": "data/traces/benign/traces/hexbytes-1.2.1.jsonl",
+      "label": 0,
+      "package": "hexbytes-1.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/alantests-0.0.1.jsonl",
+      "label": 0,
+      "package": "alantests-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/webclip-0.0.2.jsonl",
+      "label": 0,
+      "package": "webclip-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/lingkar33423309-0.0.1.jsonl",
+      "label": 0,
+      "package": "lingkar33423309-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/fakeredis-2.23.2.jsonl",
+      "label": 0,
+      "package": "fakeredis-2.23.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pytttsx3-4.4.2.jsonl",
+      "label": 1,
+      "package": "pytttsx3-4.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ocdsmerge-0.7.0.jsonl",
+      "label": 0,
+      "package": "ocdsmerge-0.7.0"
+    },
+    {
+      "path": "data/traces/benign/traces/PyChef-0.3.0.jsonl",
+      "label": 0,
+      "package": "PyChef-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fiercenessz-1.1.jsonl",
+      "label": 0,
+      "package": "fiercenessz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/thatway-0.6.0.jsonl",
+      "label": 0,
+      "package": "thatway-0.6.0"
+    },
+    {
+      "path": "data/traces/benign/traces/overdazedz-1.1.jsonl",
+      "label": 0,
+      "package": "overdazedz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/zenbu-1.0.6.jsonl",
+      "label": 0,
+      "package": "zenbu-1.0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/oepensea-1.0.0.jsonl",
+      "label": 1,
+      "package": "oepensea-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/jeilyfish-0.7.1.jsonl",
+      "label": 1,
+      "package": "jeilyfish-0.7.1"
+    },
+    {
+      "path": "data/traces/benign/traces/yambs-3.0.3.jsonl",
+      "label": 0,
+      "package": "yambs-3.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/threatkb-1.0.0a2.jsonl",
+      "label": 0,
+      "package": "threatkb-1.0.0a2"
+    },
+    {
+      "path": "data/traces/benign/traces/botdetection-20240226.0.jsonl",
+      "label": 0,
+      "package": "botdetection-20240226.0"
+    },
+    {
+      "path": "data/traces/malware/traces/mle-py-connector-5.9.1.jsonl",
+      "label": 1,
+      "package": "mle-py-connector-5.9.1"
+    },
+    {
+      "path": "data/traces/benign/traces/injected-0.1.1.jsonl",
+      "label": 0,
+      "package": "injected-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/acgv1signer-1.1.jsonl",
+      "label": 0,
+      "package": "acgv1signer-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/poc-nvk-0.1.2.jsonl",
+      "label": 1,
+      "package": "poc-nvk-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyreactive-0.3.2.jsonl",
+      "label": 0,
+      "package": "pyreactive-0.3.2"
+    },
+    {
+      "path": "data/traces/benign/traces/cronpar-1.0.0.jsonl",
+      "label": 0,
+      "package": "cronpar-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ionmf-1.1.jsonl",
+      "label": 0,
+      "package": "ionmf-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyconify-0.1.6.jsonl",
+      "label": 0,
+      "package": "pyconify-0.1.6"
+    },
+    {
+      "path": "data/traces/benign/traces/geoca-0.0.5.jsonl",
+      "label": 0,
+      "package": "geoca-0.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/gettup-0.3.0.jsonl",
+      "label": 0,
+      "package": "gettup-0.3.0"
+    },
+    {
+      "path": "data/traces/malware/traces/value2-2.1.4.jsonl",
+      "label": 1,
+      "package": "value2-2.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/dfrnt-0.2.jsonl",
+      "label": 0,
+      "package": "dfrnt-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/exabgp-4.2.22.jsonl",
+      "label": 0,
+      "package": "exabgp-4.2.22"
+    },
+    {
+      "path": "data/traces/malware/traces/asynciooo-1.0.0.jsonl",
+      "label": 1,
+      "package": "asynciooo-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/osrs-hiscore-4.4.2.jsonl",
+      "label": 1,
+      "package": "osrs-hiscore-4.4.2"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_ent-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_ent-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/espressocup-0.0.3.jsonl",
+      "label": 0,
+      "package": "espressocup-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/dependency-conf-1.0.0.jsonl",
+      "label": 1,
+      "package": "dependency-conf-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/daeman-0.0.1.jsonl",
+      "label": 0,
+      "package": "daeman-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/VantiveCommerceSDK-12.33.0.jsonl",
+      "label": 0,
+      "package": "VantiveCommerceSDK-12.33.0"
+    },
+    {
+      "path": "data/traces/benign/traces/geometrydashapi-0.0.3.jsonl",
+      "label": 0,
+      "package": "geometrydashapi-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/bcpyaz-0.2.0.jsonl",
+      "label": 0,
+      "package": "bcpyaz-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/shalchemy-1.0.1.jsonl",
+      "label": 0,
+      "package": "shalchemy-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lingkar33423308-1.1.jsonl",
+      "label": 0,
+      "package": "lingkar33423308-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/linkvertise-1.1.5.jsonl",
+      "label": 0,
+      "package": "linkvertise-1.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/alegriadb-0.0.4.jsonl",
+      "label": 0,
+      "package": "alegriadb-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/pandasrequest-0.1.0.jsonl",
+      "label": 1,
+      "package": "pandasrequest-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/gequests-2.28.1.jsonl",
+      "label": 1,
+      "package": "gequests-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/telegen-1.0.8.jsonl",
+      "label": 0,
+      "package": "telegen-1.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/topdown-0.2.1.jsonl",
+      "label": 0,
+      "package": "topdown-0.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pythonbidon123456789-0.0.1.jsonl",
+      "label": 0,
+      "package": "pythonbidon123456789-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/khalinox-1.1.3.jsonl",
+      "label": 0,
+      "package": "khalinox-1.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/svggen-0.1.2.jsonl",
+      "label": 0,
+      "package": "svggen-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ASRepCatcher-0.4.0.jsonl",
+      "label": 0,
+      "package": "ASRepCatcher-0.4.0"
+    },
+    {
+      "path": "data/traces/malware/traces/PyTarch-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyTarch-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/djongo-1.3.6.jsonl",
+      "label": 0,
+      "package": "djongo-1.3.6"
+    },
+    {
+      "path": "data/traces/benign/traces/pything-0.0.0.jsonl",
+      "label": 0,
+      "package": "pything-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/heysamipkg-0.0.1.jsonl",
+      "label": 0,
+      "package": "heysamipkg-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/clientlib-0.2.0.jsonl",
+      "label": 0,
+      "package": "clientlib-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/HeapDict-1.0.1.jsonl",
+      "label": 0,
+      "package": "HeapDict-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonstercloudcliet-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonstercloudcliet-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/eepl-4.5.2.jsonl",
+      "label": 1,
+      "package": "eepl-4.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/fatnoob-0.0.1.jsonl",
+      "label": 1,
+      "package": "fatnoob-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/uncovr-0.1.0.jsonl",
+      "label": 0,
+      "package": "uncovr-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/opendeclaro-0.1.0.jsonl",
+      "label": 0,
+      "package": "opendeclaro-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/brod-0.4.3.jsonl",
+      "label": 0,
+      "package": "brod-0.4.3"
+    },
+    {
+      "path": "data/traces/malware/traces/oenwsea-1.0.0.jsonl",
+      "label": 1,
+      "package": "oenwsea-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/woo-0.1.0.jsonl",
+      "label": 0,
+      "package": "woo-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fullstack-0.0.2.jsonl",
+      "label": 0,
+      "package": "fullstack-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/IMALogger-0.0.5.jsonl",
+      "label": 0,
+      "package": "IMALogger-0.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/sceptic-0.0.3.jsonl",
+      "label": 0,
+      "package": "sceptic-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/botoo3-1.26.67.jsonl",
+      "label": 1,
+      "package": "botoo3-1.26.67"
+    },
+    {
+      "path": "data/traces/malware/traces/new-requests-module-2.28.1.jsonl",
+      "label": 1,
+      "package": "new-requests-module-2.28.1"
+    },
+    {
+      "path": "data/traces/malware/traces/py-corx-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-corx-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fletch-0.0.3.jsonl",
+      "label": 0,
+      "package": "fletch-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/flexistack-0.1.15.jsonl",
+      "label": 0,
+      "package": "flexistack-0.1.15"
+    },
+    {
+      "path": "data/traces/benign/traces/easyCodes-0.0.2.jsonl",
+      "label": 0,
+      "package": "easyCodes-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/seqconverter-3.1.0.jsonl",
+      "label": 0,
+      "package": "seqconverter-3.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/web3q-1.0.0.jsonl",
+      "label": 1,
+      "package": "web3q-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/model2api-0.0.3.jsonl",
+      "label": 0,
+      "package": "model2api-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/catmouse-0.0.6.jsonl",
+      "label": 0,
+      "package": "catmouse-0.0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/ethherium-1.0.0.jsonl",
+      "label": 1,
+      "package": "ethherium-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/polysdk-0.0.8.jsonl",
+      "label": 0,
+      "package": "polysdk-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/NNetwork-0.2.0.jsonl",
+      "label": 0,
+      "package": "NNetwork-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pythondemomessaging1-1.1.jsonl",
+      "label": 0,
+      "package": "pythondemomessaging1-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/quixstreaming-1.5.0.jsonl",
+      "label": 1,
+      "package": "quixstreaming-1.5.0"
+    },
+    {
+      "path": "data/traces/benign/traces/SomaticSiMu-3.0.0.jsonl",
+      "label": 0,
+      "package": "SomaticSiMu-3.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/Matpltotlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matpltotlib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/SShapes-1.0.0.jsonl",
+      "label": 0,
+      "package": "SShapes-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requierments-1.0.0.jsonl",
+      "label": 1,
+      "package": "requierments-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pip_security-0.0.14.jsonl",
+      "label": 1,
+      "package": "pip_security-0.0.14"
+    },
+    {
+      "path": "data/traces/benign/traces/spiking-0.0.2.jsonl",
+      "label": 0,
+      "package": "spiking-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/coloroama-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloroama-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/keyhold-0.0.8.jsonl",
+      "label": 0,
+      "package": "keyhold-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/magicparams-0.1.0.jsonl",
+      "label": 0,
+      "package": "magicparams-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/emen2-2.2b7.jsonl",
+      "label": 0,
+      "package": "emen2-2.2b7"
+    },
+    {
+      "path": "data/traces/malware/traces/insanepackage2179824234242342433-1.0.0.jsonl",
+      "label": 1,
+      "package": "insanepackage2179824234242342433-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/etherum-1.0.0.jsonl",
+      "label": 1,
+      "package": "etherum-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyserializer-0.9.2.jsonl",
+      "label": 0,
+      "package": "pyserializer-0.9.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pytasler-1.0.1.jsonl",
+      "label": 1,
+      "package": "pytasler-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/l0n0lnat-2.3.4.jsonl",
+      "label": 0,
+      "package": "l0n0lnat-2.3.4"
+    },
+    {
+      "path": "data/traces/benign/traces/terminalcolor-1.0.3.jsonl",
+      "label": 0,
+      "package": "terminalcolor-1.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/compages-0.3.0.jsonl",
+      "label": 0,
+      "package": "compages-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/instantpy-0.0.3.jsonl",
+      "label": 0,
+      "package": "instantpy-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/ManejadorMySQL-0.0.1.jsonl",
+      "label": 0,
+      "package": "ManejadorMySQL-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lowvision-0.3.0.jsonl",
+      "label": 0,
+      "package": "lowvision-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ezcolor-0.7.jsonl",
+      "label": 0,
+      "package": "ezcolor-0.7"
+    },
+    {
+      "path": "data/traces/malware/traces/fuzzywuzy-4.5.2.jsonl",
+      "label": 1,
+      "package": "fuzzywuzy-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/exofop-0.0.2.jsonl",
+      "label": 0,
+      "package": "exofop-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/Exode-1.0.6.jsonl",
+      "label": 0,
+      "package": "Exode-1.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/koronascript-0.2.jsonl",
+      "label": 0,
+      "package": "koronascript-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ItsuBot-4.5.8.jsonl",
+      "label": 0,
+      "package": "ItsuBot-4.5.8"
+    },
+    {
+      "path": "data/traces/benign/traces/TemplatingBWC-0.4.0.jsonl",
+      "label": 0,
+      "package": "TemplatingBWC-0.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/spaint-1.2.jsonl",
+      "label": 0,
+      "package": "spaint-1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/gptc-4.0.1.jsonl",
+      "label": 0,
+      "package": "gptc-4.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/sin-0.0.1.jsonl",
+      "label": 0,
+      "package": "sin-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/testwithnewimplemenation-1.1.1.jsonl",
+      "label": 0,
+      "package": "testwithnewimplemenation-1.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/historic-crypt-4.5.2.jsonl",
+      "label": 1,
+      "package": "historic-crypt-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/begentle-0.1.1.jsonl",
+      "label": 0,
+      "package": "begentle-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/sorm-0.0.1.jsonl",
+      "label": 0,
+      "package": "sorm-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/tifftools-1.5.2.jsonl",
+      "label": 0,
+      "package": "tifftools-1.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/reqiuremnets-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqiuremnets-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/redisweb-1.0.8.jsonl",
+      "label": 0,
+      "package": "redisweb-1.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/qrcodecreator-1.0.0.jsonl",
+      "label": 0,
+      "package": "qrcodecreator-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramqs-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramqs-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bulrush-0.6.3.jsonl",
+      "label": 0,
+      "package": "bulrush-0.6.3"
+    },
+    {
+      "path": "data/traces/benign/traces/tmesh-0.0.14.jsonl",
+      "label": 0,
+      "package": "tmesh-0.0.14"
+    },
+    {
+      "path": "data/traces/benign/traces/bigQueryExporter-1.0.0.jsonl",
+      "label": 0,
+      "package": "bigQueryExporter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/clise-0.2.4.jsonl",
+      "label": 0,
+      "package": "clise-0.2.4"
+    },
+    {
+      "path": "data/traces/benign/traces/QuinnStruct-0.3.jsonl",
+      "label": 0,
+      "package": "QuinnStruct-0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/persianSyllableCounter-0.0.1.jsonl",
+      "label": 0,
+      "package": "persianSyllableCounter-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/jobaggregator-1.0.0.jsonl",
+      "label": 0,
+      "package": "jobaggregator-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyrencode-0.2.0.jsonl",
+      "label": 0,
+      "package": "pyrencode-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/promptlogs-0.0.1.jsonl",
+      "label": 0,
+      "package": "promptlogs-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/py4etrics-0.1.9.jsonl",
+      "label": 0,
+      "package": "py4etrics-0.1.9"
+    },
+    {
+      "path": "data/traces/malware/traces/django-web2-auth-4.5.2.jsonl",
+      "label": 1,
+      "package": "django-web2-auth-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/coco2customvision-0.0.1.jsonl",
+      "label": 0,
+      "package": "coco2customvision-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/urt30arcon-1.2.1.jsonl",
+      "label": 0,
+      "package": "urt30arcon-1.2.1"
+    },
+    {
+      "path": "data/traces/malware/traces/psycogp2-4.4.2.jsonl",
+      "label": 1,
+      "package": "psycogp2-4.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/fastenum-1.1.1.jsonl",
+      "label": 0,
+      "package": "fastenum-1.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/google-requests-99.3.9.jsonl",
+      "label": 1,
+      "package": "google-requests-99.3.9"
+    },
+    {
+      "path": "data/traces/benign/traces/sitri-2.2.12.jsonl",
+      "label": 0,
+      "package": "sitri-2.2.12"
+    },
+    {
+      "path": "data/traces/malware/traces/boogipoper-0.1.0.jsonl",
+      "label": 1,
+      "package": "boogipoper-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/proxyrape-4.5.2.jsonl",
+      "label": 1,
+      "package": "proxyrape-4.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pydobc-4.4.7.jsonl",
+      "label": 1,
+      "package": "pydobc-4.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/softmock-0.2.6.jsonl",
+      "label": 0,
+      "package": "softmock-0.2.6"
+    },
+    {
+      "path": "data/traces/benign/traces/worldcatidentities-0.5.8.jsonl",
+      "label": 0,
+      "package": "worldcatidentities-0.5.8"
+    },
+    {
+      "path": "data/traces/benign/traces/hazedumper-1.0.1.jsonl",
+      "label": 0,
+      "package": "hazedumper-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/SpiffIntegrator-0.2.0.jsonl",
+      "label": 0,
+      "package": "SpiffIntegrator-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/setl-0.10.0.jsonl",
+      "label": 0,
+      "package": "setl-0.10.0"
+    },
+    {
+      "path": "data/traces/benign/traces/lithon-1.0.1.jsonl",
+      "label": 0,
+      "package": "lithon-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lipsum-0.1.2.jsonl",
+      "label": 0,
+      "package": "lipsum-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/importchecker-3.0.jsonl",
+      "label": 0,
+      "package": "importchecker-3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tsconcat-0.1.0.jsonl",
+      "label": 0,
+      "package": "tsconcat-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/MathLab-1.0.0.jsonl",
+      "label": 0,
+      "package": "MathLab-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nommy-0.3.3.jsonl",
+      "label": 0,
+      "package": "nommy-0.3.3"
+    },
+    {
+      "path": "data/traces/malware/traces/etheerim-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheerim-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/orthauth-0.0.18.jsonl",
+      "label": 0,
+      "package": "orthauth-0.0.18"
+    },
+    {
+      "path": "data/traces/malware/traces/nnabla-ext-cuda101_nccl2_ubuntu16-0.0.2.jsonl",
+      "label": 1,
+      "package": "nnabla-ext-cuda101_nccl2_ubuntu16-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/PyFriday-1.1.jsonl",
+      "label": 0,
+      "package": "PyFriday-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/openseax-1.0.0.jsonl",
+      "label": 1,
+      "package": "openseax-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/akitchensyncio-0.1.1.jsonl",
+      "label": 0,
+      "package": "akitchensyncio-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/ld_impl_linux-64-2.35.1.jsonl",
+      "label": 1,
+      "package": "ld_impl_linux-64-2.35.1"
+    },
+    {
+      "path": "data/traces/malware/traces/calculator_2c397c49ab20c445-1000.0.6.jsonl",
+      "label": 1,
+      "package": "calculator_2c397c49ab20c445-1000.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/descformats-0.0.7.jsonl",
+      "label": 0,
+      "package": "descformats-0.0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/propulsion-0.1.0.post2.jsonl",
+      "label": 0,
+      "package": "propulsion-0.1.0.post2"
+    },
+    {
+      "path": "data/traces/benign/traces/djantic2-1.0.3.jsonl",
+      "label": 0,
+      "package": "djantic2-1.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/requeests-2.27.1.jsonl",
+      "label": 1,
+      "package": "requeests-2.27.1"
+    },
+    {
+      "path": "data/traces/benign/traces/fprettify-0.3.7.jsonl",
+      "label": 0,
+      "package": "fprettify-0.3.7"
+    },
+    {
+      "path": "data/traces/benign/traces/adsml-0.1.jsonl",
+      "label": 0,
+      "package": "adsml-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/popyquests-0.0.1.jsonl",
+      "label": 1,
+      "package": "popyquests-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/biup-utils-1.0.0.jsonl",
+      "label": 1,
+      "package": "biup-utils-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/hreading-4.5.2.jsonl",
+      "label": 1,
+      "package": "hreading-4.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/colorram-1.0.0.jsonl",
+      "label": 1,
+      "package": "colorram-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/statmodel-4.5.2.jsonl",
+      "label": 1,
+      "package": "statmodel-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/redditreport-0.4.0.jsonl",
+      "label": 0,
+      "package": "redditreport-0.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bolos-0.2.jsonl",
+      "label": 0,
+      "package": "bolos-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/gitleak-0.9.2.3.jsonl",
+      "label": 0,
+      "package": "gitleak-0.9.2.3"
+    },
+    {
+      "path": "data/traces/malware/traces/selenuimm-1.0.0.jsonl",
+      "label": 1,
+      "package": "selenuimm-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Youtube2Images-1.1.0.jsonl",
+      "label": 0,
+      "package": "Youtube2Images-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/trapcards-0.0.3.jsonl",
+      "label": 0,
+      "package": "trapcards-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/dbmpy-1.0.4.jsonl",
+      "label": 0,
+      "package": "dbmpy-1.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/NewBusinessProjectsLib-0.0.4.jsonl",
+      "label": 0,
+      "package": "NewBusinessProjectsLib-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/lmao-1.18.jsonl",
+      "label": 0,
+      "package": "lmao-1.18"
+    },
+    {
+      "path": "data/traces/malware/traces/dependency_confusion123456-9.9.9.jsonl",
+      "label": 1,
+      "package": "dependency_confusion123456-9.9.9"
+    },
+    {
+      "path": "data/traces/benign/traces/PyNewDisk-0.0.1.jsonl",
+      "label": 0,
+      "package": "PyNewDisk-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremntstxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremntstxt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/hexicapi-1.0.733.jsonl",
+      "label": 0,
+      "package": "hexicapi-1.0.733"
+    },
+    {
+      "path": "data/traces/benign/traces/cntrlai-0.0.34.jsonl",
+      "label": 0,
+      "package": "cntrlai-0.0.34"
+    },
+    {
+      "path": "data/traces/benign/traces/Discohook-1.0.0.jsonl",
+      "label": 0,
+      "package": "Discohook-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tgadmin-0.20.0.jsonl",
+      "label": 0,
+      "package": "tgadmin-0.20.0"
+    },
+    {
+      "path": "data/traces/malware/traces/zwhrce-0.0.1.jsonl",
+      "label": 1,
+      "package": "zwhrce-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ChenUtils-0.1.1.jsonl",
+      "label": 0,
+      "package": "ChenUtils-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ImageContour-0.2.7.jsonl",
+      "label": 0,
+      "package": "ImageContour-0.2.7"
+    },
+    {
+      "path": "data/traces/malware/traces/tiny433-1.0.0.jsonl",
+      "label": 1,
+      "package": "tiny433-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyzeo-0.1.5.jsonl",
+      "label": 0,
+      "package": "pyzeo-0.1.5"
+    },
+    {
+      "path": "data/traces/malware/traces/capmostercloudclinet-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmostercloudclinet-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/common_as-1.3.2.jsonl",
+      "label": 0,
+      "package": "common_as-1.3.2"
+    },
+    {
+      "path": "data/traces/benign/traces/acronym-2.0.0.jsonl",
+      "label": 0,
+      "package": "acronym-2.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/libvcs-0.30.1.jsonl",
+      "label": 0,
+      "package": "libvcs-0.30.1"
+    },
+    {
+      "path": "data/traces/benign/traces/deduce-3.0.2.jsonl",
+      "label": 0,
+      "package": "deduce-3.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/bpdiag-0.5.jsonl",
+      "label": 0,
+      "package": "bpdiag-0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/gemeinsprache-0.1.0.jsonl",
+      "label": 0,
+      "package": "gemeinsprache-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/djsourceview-0.1.4.jsonl",
+      "label": 0,
+      "package": "djsourceview-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/keyoscacquire-4.0.0.jsonl",
+      "label": 0,
+      "package": "keyoscacquire-4.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/tensoflaow-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensoflaow-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/wbe3-1.0.0.jsonl",
+      "label": 1,
+      "package": "wbe3-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requessts-2.27.1.jsonl",
+      "label": 1,
+      "package": "requessts-2.27.1"
+    },
+    {
+      "path": "data/traces/benign/traces/protarrow-0.5.2.jsonl",
+      "label": 0,
+      "package": "protarrow-0.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pandarequests-0.1.0.jsonl",
+      "label": 1,
+      "package": "pandarequests-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/alipay-0.7.4.jsonl",
+      "label": 0,
+      "package": "alipay-0.7.4"
+    },
+    {
+      "path": "data/traces/benign/traces/Certis-0.0.2.jsonl",
+      "label": 0,
+      "package": "Certis-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/xyzclean-0.0.1.jsonl",
+      "label": 0,
+      "package": "xyzclean-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/tensoflsw-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensoflsw-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pytypier-1.0.2.jsonl",
+      "label": 1,
+      "package": "pytypier-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/cellartracker-1.1.1.jsonl",
+      "label": 0,
+      "package": "cellartracker-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/deleter-0.1.1.jsonl",
+      "label": 0,
+      "package": "deleter-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/outcome-1.3.0.post0.jsonl",
+      "label": 0,
+      "package": "outcome-1.3.0.post0"
+    },
+    {
+      "path": "data/traces/benign/traces/cherrytree-2.0.1.jsonl",
+      "label": 0,
+      "package": "cherrytree-2.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyexchange-0.6.jsonl",
+      "label": 0,
+      "package": "pyexchange-0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/pansy-2.0.31.jsonl",
+      "label": 0,
+      "package": "pansy-2.0.31"
+    },
+    {
+      "path": "data/traces/benign/traces/thematik-0.0.1.jsonl",
+      "label": 0,
+      "package": "thematik-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/scalelite-0.1.4.jsonl",
+      "label": 0,
+      "package": "scalelite-0.1.4"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkniterr-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkniterr-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyswarm-0.6.jsonl",
+      "label": 0,
+      "package": "pyswarm-0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/selemnim-1.0.0.jsonl",
+      "label": 1,
+      "package": "selemnim-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/BeaotifulSoup-1.0.0.jsonl",
+      "label": 1,
+      "package": "BeaotifulSoup-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fleximod-0.1.8.jsonl",
+      "label": 0,
+      "package": "fleximod-0.1.8"
+    },
+    {
+      "path": "data/traces/benign/traces/stallmanGPT-1.0.0.jsonl",
+      "label": 0,
+      "package": "stallmanGPT-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/xpip-20.2.4.jsonl",
+      "label": 1,
+      "package": "xpip-20.2.4"
+    },
+    {
+      "path": "data/traces/benign/traces/algorthm-0.6.jsonl",
+      "label": 0,
+      "package": "algorthm-0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/aeskeyschedule-0.0.3.jsonl",
+      "label": 0,
+      "package": "aeskeyschedule-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/matplutlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "matplutlib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/daffi-2.2.1.jsonl",
+      "label": 0,
+      "package": "daffi-2.2.1"
+    },
+    {
+      "path": "data/traces/malware/traces/keybaord-4.4.7.jsonl",
+      "label": 1,
+      "package": "keybaord-4.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/k2plr-0.2.9.jsonl",
+      "label": 0,
+      "package": "k2plr-0.2.9"
+    },
+    {
+      "path": "data/traces/benign/traces/xml2js-0.1.jsonl",
+      "label": 0,
+      "package": "xml2js-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/Simpkejson-1.0.0.jsonl",
+      "label": 1,
+      "package": "Simpkejson-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/roughviz-4.7.0.jsonl",
+      "label": 0,
+      "package": "roughviz-4.7.0"
+    },
+    {
+      "path": "data/traces/malware/traces/yandex-map-4.4.2.jsonl",
+      "label": 1,
+      "package": "yandex-map-4.4.2"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonstercloudcliendt-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonstercloudcliendt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/machinable-4.10.2.jsonl",
+      "label": 0,
+      "package": "machinable-4.10.2"
+    },
+    {
+      "path": "data/traces/benign/traces/mergeconf-0.5.2.jsonl",
+      "label": 0,
+      "package": "mergeconf-0.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/yew-0.1.1.jsonl",
+      "label": 0,
+      "package": "yew-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/semvergen-0.1.8.jsonl",
+      "label": 0,
+      "package": "semvergen-0.1.8"
+    },
+    {
+      "path": "data/traces/malware/traces/pypttt-4.4.2.jsonl",
+      "label": 1,
+      "package": "pypttt-4.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/gsignals-0.2.1.jsonl",
+      "label": 0,
+      "package": "gsignals-0.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyabf-2.3.8.jsonl",
+      "label": 0,
+      "package": "pyabf-2.3.8"
+    },
+    {
+      "path": "data/traces/malware/traces/bips-utils-1.0.0.jsonl",
+      "label": 1,
+      "package": "bips-utils-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/trinitrotoluolz-1.1.jsonl",
+      "label": 0,
+      "package": "trinitrotoluolz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lcmd-0.0.1.jsonl",
+      "label": 0,
+      "package": "lcmd-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/xmars-1.0.0.jsonl",
+      "label": 0,
+      "package": "xmars-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/compactify-2.jsonl",
+      "label": 0,
+      "package": "compactify-2"
+    },
+    {
+      "path": "data/traces/malware/traces/pycjrd-1.0.0.jsonl",
+      "label": 1,
+      "package": "pycjrd-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/manduka-0.0.1.jsonl",
+      "label": 0,
+      "package": "manduka-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ndic-1.9.jsonl",
+      "label": 0,
+      "package": "ndic-1.9"
+    },
+    {
+      "path": "data/traces/benign/traces/z2pack-2.2.0.jsonl",
+      "label": 0,
+      "package": "z2pack-2.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/etheeruim-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheeruim-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/antiword-0.1.0.jsonl",
+      "label": 0,
+      "package": "antiword-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/oaijaya-0.1.0.jsonl",
+      "label": 0,
+      "package": "oaijaya-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/web2-1.0.0.jsonl",
+      "label": 1,
+      "package": "web2-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyuow-0.1.4.jsonl",
+      "label": 0,
+      "package": "pyuow-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/dasty-0.1.jsonl",
+      "label": 0,
+      "package": "dasty-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/quartodoc-0.7.5.jsonl",
+      "label": 0,
+      "package": "quartodoc-0.7.5"
+    },
+    {
+      "path": "data/traces/malware/traces/Simepljson-1.0.0.jsonl",
+      "label": 1,
+      "package": "Simepljson-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/jango-web3-auth-4.5.2.jsonl",
+      "label": 1,
+      "package": "jango-web3-auth-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/cassy-0.0.13.jsonl",
+      "label": 0,
+      "package": "cassy-0.0.13"
+    },
+    {
+      "path": "data/traces/malware/traces/libressl-1.5.0.jsonl",
+      "label": 1,
+      "package": "libressl-1.5.0"
+    },
+    {
+      "path": "data/traces/benign/traces/seavatar-0.1.1.jsonl",
+      "label": 0,
+      "package": "seavatar-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/Simolejson-1.0.0.jsonl",
+      "label": 1,
+      "package": "Simolejson-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/caluma-10.2.0.jsonl",
+      "label": 0,
+      "package": "caluma-10.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/py-cordv-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-cordv-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/kraconvert-0.2.jsonl",
+      "label": 0,
+      "package": "kraconvert-0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/py-cwrd-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-cwrd-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/steembase-1.5.0.jsonl",
+      "label": 1,
+      "package": "steembase-1.5.0"
+    },
+    {
+      "path": "data/traces/malware/traces/w3eb-1.0.0.jsonl",
+      "label": 1,
+      "package": "w3eb-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/teampulls-0.2.6.jsonl",
+      "label": 0,
+      "package": "teampulls-0.2.6"
+    },
+    {
+      "path": "data/traces/benign/traces/moonstream-0.1.1.jsonl",
+      "label": 0,
+      "package": "moonstream-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/jiale-0.1.0.jsonl",
+      "label": 0,
+      "package": "jiale-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/py8-0.0.0.jsonl",
+      "label": 0,
+      "package": "py8-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pwnchain-0.2.0.jsonl",
+      "label": 0,
+      "package": "pwnchain-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ti83chainsaw-0.0.1.jsonl",
+      "label": 0,
+      "package": "ti83chainsaw-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/reqwestss-0.1.0.jsonl",
+      "label": 1,
+      "package": "reqwestss-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Warcat-2.2.5.jsonl",
+      "label": 0,
+      "package": "Warcat-2.2.5"
+    },
+    {
+      "path": "data/traces/benign/traces/dservercore-0.20.0.jsonl",
+      "label": 0,
+      "package": "dservercore-0.20.0"
+    },
+    {
+      "path": "data/traces/malware/traces/selemni-1.0.0.jsonl",
+      "label": 1,
+      "package": "selemni-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/scrambled-0.2.2.jsonl",
+      "label": 0,
+      "package": "scrambled-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/plantmeter-1.7.11.jsonl",
+      "label": 0,
+      "package": "plantmeter-1.7.11"
+    },
+    {
+      "path": "data/traces/benign/traces/mytftpy-0.8.1.jsonl",
+      "label": 0,
+      "package": "mytftpy-0.8.1"
+    },
+    {
+      "path": "data/traces/benign/traces/secondPackage-0.1.jsonl",
+      "label": 0,
+      "package": "secondPackage-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/QGraphViz-0.0.55.jsonl",
+      "label": 0,
+      "package": "QGraphViz-0.0.55"
+    },
+    {
+      "path": "data/traces/malware/traces/insanepackageongong11192-1.0.0.jsonl",
+      "label": 1,
+      "package": "insanepackageongong11192-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/openfalcon-0.0.1.jsonl",
+      "label": 0,
+      "package": "openfalcon-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pyhints-2.28.1.jsonl",
+      "label": 1,
+      "package": "pyhints-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/PytopiaAPI-1.0.4.jsonl",
+      "label": 0,
+      "package": "PytopiaAPI-1.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/pymsl-1.3.jsonl",
+      "label": 0,
+      "package": "pymsl-1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/flatjsondict-1.2.2.jsonl",
+      "label": 0,
+      "package": "flatjsondict-1.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/DDBridgeAccesslibDummy-0.1.1.jsonl",
+      "label": 0,
+      "package": "DDBridgeAccesslibDummy-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/notsogood-0.0.2.jsonl",
+      "label": 1,
+      "package": "notsogood-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/PyGaome-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyGaome-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bashparse-0.0.0.jsonl",
+      "label": 0,
+      "package": "bashparse-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/gpstime-0.8.1.jsonl",
+      "label": 0,
+      "package": "gpstime-0.8.1"
+    },
+    {
+      "path": "data/traces/malware/traces/siamrahman-1.1.1.jsonl",
+      "label": 1,
+      "package": "siamrahman-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/preconizedz-2.1.jsonl",
+      "label": 0,
+      "package": "preconizedz-2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/cdifflib-1.2.6.jsonl",
+      "label": 0,
+      "package": "cdifflib-1.2.6"
+    },
+    {
+      "path": "data/traces/benign/traces/mebuex-1.3.0.jsonl",
+      "label": 0,
+      "package": "mebuex-1.3.0"
+    },
+    {
+      "path": "data/traces/malware/traces/eautifulsoup4-4.4.7.jsonl",
+      "label": 1,
+      "package": "eautifulsoup4-4.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/prufer-0.1.jsonl",
+      "label": 0,
+      "package": "prufer-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ironeagle-0.4.jsonl",
+      "label": 0,
+      "package": "ironeagle-0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/EnergyID-0.0.17.jsonl",
+      "label": 0,
+      "package": "EnergyID-0.0.17"
+    },
+    {
+      "path": "data/traces/benign/traces/harpies-1.0.0.jsonl",
+      "label": 0,
+      "package": "harpies-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/thumbfair-0.1.5.jsonl",
+      "label": 0,
+      "package": "thumbfair-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/marigold-0.1.0.jsonl",
+      "label": 0,
+      "package": "marigold-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/johnhammondontop183-1.0.0.jsonl",
+      "label": 1,
+      "package": "johnhammondontop183-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pythkn-1.0.0.jsonl",
+      "label": 1,
+      "package": "pythkn-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fastws-0.1.7.jsonl",
+      "label": 0,
+      "package": "fastws-0.1.7"
+    },
+    {
+      "path": "data/traces/benign/traces/glandaceousz-1.1.jsonl",
+      "label": 0,
+      "package": "glandaceousz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/koskas-0.2.4.jsonl",
+      "label": 0,
+      "package": "koskas-0.2.4"
+    },
+    {
+      "path": "data/traces/benign/traces/docserve-0.9.7.jsonl",
+      "label": 0,
+      "package": "docserve-0.9.7"
+    },
+    {
+      "path": "data/traces/benign/traces/mixshift-0.0.1.jsonl",
+      "label": 0,
+      "package": "mixshift-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/poslocalbll-0.6.jsonl",
+      "label": 0,
+      "package": "poslocalbll-0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/numcertainties-0.0.1.jsonl",
+      "label": 0,
+      "package": "numcertainties-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/seffaflik2-0.0.3.jsonl",
+      "label": 0,
+      "package": "seffaflik2-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/photofind-1.1.1.jsonl",
+      "label": 0,
+      "package": "photofind-1.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/Matploltlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matploltlib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/floatedu-0.0.3.jsonl",
+      "label": 0,
+      "package": "floatedu-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/neotest-0.0.1.dev2.jsonl",
+      "label": 0,
+      "package": "neotest-0.0.1.dev2"
+    },
+    {
+      "path": "data/traces/benign/traces/QueryVin-0.0.2.jsonl",
+      "label": 0,
+      "package": "QueryVin-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/simpejso-1.0.0.jsonl",
+      "label": 1,
+      "package": "simpejso-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pihdf-0.1.3.jsonl",
+      "label": 0,
+      "package": "pihdf-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/Tienc-0.0.2.jsonl",
+      "label": 0,
+      "package": "Tienc-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/paybybot2-0.0.2.jsonl",
+      "label": 0,
+      "package": "paybybot2-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pill9w-1.0.0.jsonl",
+      "label": 1,
+      "package": "pill9w-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/salvage-0.1.3.jsonl",
+      "label": 0,
+      "package": "salvage-0.1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/neighpy-0.1.5.jsonl",
+      "label": 0,
+      "package": "neighpy-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/cherrygpt-2.1.4.jsonl",
+      "label": 0,
+      "package": "cherrygpt-2.1.4"
+    },
+    {
+      "path": "data/traces/malware/traces/plyawright-1.0.0.jsonl",
+      "label": 1,
+      "package": "plyawright-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mycommons-1.0.jsonl",
+      "label": 0,
+      "package": "mycommons-1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/openytapi-2.4.1.jsonl",
+      "label": 0,
+      "package": "openytapi-2.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Tensorplex-0.9.post1.jsonl",
+      "label": 0,
+      "package": "Tensorplex-0.9.post1"
+    },
+    {
+      "path": "data/traces/benign/traces/distributiongaussian-1.0.jsonl",
+      "label": 0,
+      "package": "distributiongaussian-1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/edenred-1.0.0.jsonl",
+      "label": 1,
+      "package": "edenred-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/sutiltype-0.0.1.jsonl",
+      "label": 1,
+      "package": "sutiltype-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/McCalc-0.0.10.jsonl",
+      "label": 0,
+      "package": "McCalc-0.0.10"
+    },
+    {
+      "path": "data/traces/benign/traces/impm-0.1.0.jsonl",
+      "label": 0,
+      "package": "impm-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pylsd2-0.0.3.jsonl",
+      "label": 0,
+      "package": "pylsd2-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/htmap-0.6.1.jsonl",
+      "label": 0,
+      "package": "htmap-0.6.1"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramxs-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramxs-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/MariamHelloTest-1.0.0.jsonl",
+      "label": 0,
+      "package": "MariamHelloTest-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mlpc-0.0.27.jsonl",
+      "label": 0,
+      "package": "mlpc-0.0.27"
+    },
+    {
+      "path": "data/traces/benign/traces/framesss-0.0.3.jsonl",
+      "label": 0,
+      "package": "framesss-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/reqiremnets-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqiremnets-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/optimiser-0.1.0.jsonl",
+      "label": 0,
+      "package": "optimiser-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/walkerlayout-1.0.2.jsonl",
+      "label": 0,
+      "package": "walkerlayout-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/vlermv-2.0.0.jsonl",
+      "label": 0,
+      "package": "vlermv-2.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/geospots-0.1.5.jsonl",
+      "label": 0,
+      "package": "geospots-0.1.5"
+    },
+    {
+      "path": "data/traces/malware/traces/request-1.0.117.jsonl",
+      "label": 1,
+      "package": "request-1.0.117"
+    },
+    {
+      "path": "data/traces/benign/traces/awaits-0.0.11.jsonl",
+      "label": 0,
+      "package": "awaits-0.0.11"
+    },
+    {
+      "path": "data/traces/benign/traces/hovercraft-2.7.jsonl",
+      "label": 0,
+      "package": "hovercraft-2.7"
+    },
+    {
+      "path": "data/traces/benign/traces/aioring-0.1.2.jsonl",
+      "label": 0,
+      "package": "aioring-0.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkintrer-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkintrer-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/taxfinder-0.0.1.jsonl",
+      "label": 0,
+      "package": "taxfinder-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/WkquBsXEkbXn-0.3.2.jsonl",
+      "label": 1,
+      "package": "WkquBsXEkbXn-0.3.2"
+    },
+    {
+      "path": "data/traces/benign/traces/eHyena-0.0.2.jsonl",
+      "label": 0,
+      "package": "eHyena-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/dirio-0.1.4.jsonl",
+      "label": 0,
+      "package": "dirio-0.1.4"
+    },
+    {
+      "path": "data/traces/malware/traces/PyTorcb-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyTorcb-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/ycryptodome-4.5.2.jsonl",
+      "label": 1,
+      "package": "ycryptodome-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/litecache-1.1.1.jsonl",
+      "label": 0,
+      "package": "litecache-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mapdict-0.0.0.jsonl",
+      "label": 0,
+      "package": "mapdict-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/xini-0.2.2.jsonl",
+      "label": 0,
+      "package": "xini-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/webrequests-1.0.8.jsonl",
+      "label": 0,
+      "package": "webrequests-1.0.8"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramah-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramah-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/ycrypto-4.5.2.jsonl",
+      "label": 1,
+      "package": "ycrypto-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyprofibus-1.13.jsonl",
+      "label": 0,
+      "package": "pyprofibus-1.13"
+    },
+    {
+      "path": "data/traces/benign/traces/website-1.1.jsonl",
+      "label": 0,
+      "package": "website-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/UniqueBotsKR-1.3.jsonl",
+      "label": 0,
+      "package": "UniqueBotsKR-1.3"
+    },
+    {
+      "path": "data/traces/malware/traces/sckit-learn-0.24.2.jsonl",
+      "label": 1,
+      "package": "sckit-learn-0.24.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pysciiart-0.1.0.jsonl",
+      "label": 0,
+      "package": "pysciiart-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/swanson-0.1.2.jsonl",
+      "label": 0,
+      "package": "swanson-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/torchbrain-0.1.jsonl",
+      "label": 0,
+      "package": "torchbrain-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/sellinium-1.0.0.jsonl",
+      "label": 1,
+      "package": "sellinium-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/unp-0.3.jsonl",
+      "label": 0,
+      "package": "unp-0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/pyminizip-0.2.6.jsonl",
+      "label": 0,
+      "package": "pyminizip-0.2.6"
+    },
+    {
+      "path": "data/traces/benign/traces/ttconv-1.1.0.jsonl",
+      "label": 0,
+      "package": "ttconv-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/klaus-3.0.1.jsonl",
+      "label": 0,
+      "package": "klaus-3.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/denizenz-1.1.jsonl",
+      "label": 0,
+      "package": "denizenz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pggui-0.0.2.jsonl",
+      "label": 0,
+      "package": "pggui-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/mfpkage-0.0.1.jsonl",
+      "label": 0,
+      "package": "mfpkage-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/fsdicts-0.6.0.jsonl",
+      "label": 0,
+      "package": "fsdicts-0.6.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cristipdf-1.0.jsonl",
+      "label": 0,
+      "package": "cristipdf-1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/openwsaa-1.0.0.jsonl",
+      "label": 1,
+      "package": "openwsaa-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/capmosterclouclient-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmosterclouclient-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pypyp-1.2.0.jsonl",
+      "label": 0,
+      "package": "pypyp-1.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ternausnet-0.0.1.jsonl",
+      "label": 0,
+      "package": "ternausnet-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/gridingz-1.1.jsonl",
+      "label": 0,
+      "package": "gridingz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/joka-0.0.1.jsonl",
+      "label": 0,
+      "package": "joka-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/lubar-0.0.4.jsonl",
+      "label": 0,
+      "package": "lubar-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/pySEP-1.0.11.jsonl",
+      "label": 0,
+      "package": "pySEP-1.0.11"
+    },
+    {
+      "path": "data/traces/benign/traces/generatorepiva-1.0.2.jsonl",
+      "label": 0,
+      "package": "generatorepiva-1.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremetns-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremetns-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/rdfchangesets-1.0.7.jsonl",
+      "label": 0,
+      "package": "rdfchangesets-1.0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/vecflowApi-0.3.7.jsonl",
+      "label": 0,
+      "package": "vecflowApi-0.3.7"
+    },
+    {
+      "path": "data/traces/malware/traces/pytorcm-1.0.0.jsonl",
+      "label": 1,
+      "package": "pytorcm-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/downrun-1.1.1.jsonl",
+      "label": 1,
+      "package": "downrun-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/adia-4.1.0.jsonl",
+      "label": 0,
+      "package": "adia-4.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pytoileur-1.0.2.jsonl",
+      "label": 1,
+      "package": "pytoileur-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/wy-0.0.3.jsonl",
+      "label": 0,
+      "package": "wy-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/watchng-1.4.1.jsonl",
+      "label": 0,
+      "package": "watchng-1.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ks98distributions-0.1.jsonl",
+      "label": 0,
+      "package": "ks98distributions-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/khassz-1.1.jsonl",
+      "label": 0,
+      "package": "khassz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/vcspack300-0.1.jsonl",
+      "label": 0,
+      "package": "vcspack300-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_acs_iot-2.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_acs_iot-2.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/amzsear-2.0.1.jsonl",
+      "label": 0,
+      "package": "amzsear-2.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ekm-4.jsonl",
+      "label": 0,
+      "package": "ekm-4"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonstercloudclinent-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonstercloudclinent-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/keywrapper-0.1.0.jsonl",
+      "label": 0,
+      "package": "keywrapper-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/clickforward-0.0.1.jsonl",
+      "label": 0,
+      "package": "clickforward-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/easygae-0.1.jsonl",
+      "label": 0,
+      "package": "easygae-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/cosmostroposphere-3.0.1.jsonl",
+      "label": 1,
+      "package": "cosmostroposphere-3.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/postdoc-1.0.0.jsonl",
+      "label": 0,
+      "package": "postdoc-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/automock-1.2.1.jsonl",
+      "label": 0,
+      "package": "automock-1.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/brainfk-1.0.0.jsonl",
+      "label": 0,
+      "package": "brainfk-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/Matplotkib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matplotkib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/blindspin-2.0.1.jsonl",
+      "label": 0,
+      "package": "blindspin-2.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/yaudio-4.5.2.jsonl",
+      "label": 1,
+      "package": "yaudio-4.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/bip-utilos-1.0.0.jsonl",
+      "label": 1,
+      "package": "bip-utilos-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/PyCondor-0.6.0.jsonl",
+      "label": 0,
+      "package": "PyCondor-0.6.0"
+    }
+  ],
+  "val": [
+    {
+      "path": "data/traces/benign/traces/endereco-0.0.6.jsonl",
+      "label": 0,
+      "package": "endereco-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/wusa-0.0.4.jsonl",
+      "label": 0,
+      "package": "wusa-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/seleeniumm-1.0.0.jsonl",
+      "label": 1,
+      "package": "seleeniumm-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/lute3-3.5.0.jsonl",
+      "label": 0,
+      "package": "lute3-3.5.0"
+    },
+    {
+      "path": "data/traces/malware/traces/hkg-sol-utils-1.4.0.jsonl",
+      "label": 1,
+      "package": "hkg-sol-utils-1.4.0"
+    },
+    {
+      "path": "data/traces/malware/traces/Matplootib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matplootib-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/MohamedSataryThirdTest-0.0.1.jsonl",
+      "label": 0,
+      "package": "MohamedSataryThirdTest-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/las-0.0.5.jsonl",
+      "label": 0,
+      "package": "las-0.0.5"
+    },
+    {
+      "path": "data/traces/malware/traces/django-metamask-aut-4.5.2.jsonl",
+      "label": 1,
+      "package": "django-metamask-aut-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/liuzhenyuisagoodsman-0.1.jsonl",
+      "label": 0,
+      "package": "liuzhenyuisagoodsman-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/grandslam-0.1.0.jsonl",
+      "label": 1,
+      "package": "grandslam-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/EZLogs-1.03.jsonl",
+      "label": 0,
+      "package": "EZLogs-1.03"
+    },
+    {
+      "path": "data/traces/benign/traces/WiktionaryPy-0.1.jsonl",
+      "label": 0,
+      "package": "WiktionaryPy-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/openseae-1.0.0.jsonl",
+      "label": 1,
+      "package": "openseae-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/statsmodel-4.5.2.jsonl",
+      "label": 1,
+      "package": "statsmodel-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/Transsa3-1.6.4.jsonl",
+      "label": 0,
+      "package": "Transsa3-1.6.4"
+    },
+    {
+      "path": "data/traces/benign/traces/gradual-0.1.1.jsonl",
+      "label": 0,
+      "package": "gradual-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/bip-utisl-1.0.0.jsonl",
+      "label": 1,
+      "package": "bip-utisl-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/additionpkg-0.1.0.jsonl",
+      "label": 0,
+      "package": "additionpkg-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/percy-2.0.2.jsonl",
+      "label": 0,
+      "package": "percy-2.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/crypto-data-fetch-4.5.2.jsonl",
+      "label": 1,
+      "package": "crypto-data-fetch-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/hkdm-1.9.0.jsonl",
+      "label": 0,
+      "package": "hkdm-1.9.0"
+    },
+    {
+      "path": "data/traces/benign/traces/holteandtalley-0.0.3.jsonl",
+      "label": 0,
+      "package": "holteandtalley-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/pyjapt-0.4.1.jsonl",
+      "label": 0,
+      "package": "pyjapt-0.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/aimhardest-0.0.1.jsonl",
+      "label": 0,
+      "package": "aimhardest-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/climodule-1.1.1.jsonl",
+      "label": 0,
+      "package": "climodule-1.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/sih-0.1.jsonl",
+      "label": 0,
+      "package": "sih-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/k2eg-0.2.7.jsonl",
+      "label": 0,
+      "package": "k2eg-0.2.7"
+    },
+    {
+      "path": "data/traces/benign/traces/microcosm-4.0.0.jsonl",
+      "label": 0,
+      "package": "microcosm-4.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/zny-0.0.1.jsonl",
+      "label": 0,
+      "package": "zny-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/urlstore-0.0.1.jsonl",
+      "label": 0,
+      "package": "urlstore-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pysetupalgorithms-0.0.1.jsonl",
+      "label": 0,
+      "package": "pysetupalgorithms-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyworksnaps-0.1.jsonl",
+      "label": 0,
+      "package": "pyworksnaps-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/goldratio33423324-0.0.1.jsonl",
+      "label": 0,
+      "package": "goldratio33423324-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/packagetestrr-0.0.2.jsonl",
+      "label": 0,
+      "package": "packagetestrr-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyperf-2.7.0.jsonl",
+      "label": 0,
+      "package": "pyperf-2.7.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pymilka-0.1.0.jsonl",
+      "label": 0,
+      "package": "pymilka-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mypy-1.10.1.jsonl",
+      "label": 0,
+      "package": "mypy-1.10.1"
+    },
+    {
+      "path": "data/traces/malware/traces/yocolor-0.4.6.jsonl",
+      "label": 1,
+      "package": "yocolor-0.4.6"
+    },
+    {
+      "path": "data/traces/benign/traces/p123api-1.4.3.jsonl",
+      "label": 0,
+      "package": "p123api-1.4.3"
+    },
+    {
+      "path": "data/traces/benign/traces/carbonferret-0.0.1.jsonl",
+      "label": 0,
+      "package": "carbonferret-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/wb3.py-1.0.0.jsonl",
+      "label": 1,
+      "package": "wb3.py-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/edwardsserial-0.3.3.jsonl",
+      "label": 0,
+      "package": "edwardsserial-0.3.3"
+    },
+    {
+      "path": "data/traces/benign/traces/vectorflow-0.1.0.jsonl",
+      "label": 0,
+      "package": "vectorflow-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/hermod-0.1.0.jsonl",
+      "label": 0,
+      "package": "hermod-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/raphidez-1.1.jsonl",
+      "label": 0,
+      "package": "raphidez-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/rdchiral-1.1.0.jsonl",
+      "label": 0,
+      "package": "rdchiral-1.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/opensae-1.0.0.jsonl",
+      "label": 1,
+      "package": "opensae-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ubitlogger-0.5.2.jsonl",
+      "label": 0,
+      "package": "ubitlogger-0.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ProbPy-1.2.jsonl",
+      "label": 0,
+      "package": "ProbPy-1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/requiirementstxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiirementstxt-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramqa-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramqa-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dolipy-0.1.2.jsonl",
+      "label": 0,
+      "package": "dolipy-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/hpICsp-1.0.2.jsonl",
+      "label": 0,
+      "package": "hpICsp-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pypbf-0.0.0.jsonl",
+      "label": 0,
+      "package": "pypbf-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tgs-0.6.0.jsonl",
+      "label": 0,
+      "package": "tgs-0.6.0"
+    },
+    {
+      "path": "data/traces/benign/traces/x01replace-1.0.1.jsonl",
+      "label": 0,
+      "package": "x01replace-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/torroute-0.0.1.jsonl",
+      "label": 0,
+      "package": "torroute-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pydprotect-3.5.6.jsonl",
+      "label": 1,
+      "package": "pydprotect-3.5.6"
+    },
+    {
+      "path": "data/traces/benign/traces/lutar-0.1.jsonl",
+      "label": 0,
+      "package": "lutar-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyqlat-0.1.0.jsonl",
+      "label": 0,
+      "package": "pyqlat-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/sellenim-1.0.0.jsonl",
+      "label": 1,
+      "package": "sellenim-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pypiele-1.0.2.jsonl",
+      "label": 1,
+      "package": "pypiele-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/nestbackup-0.0.4.jsonl",
+      "label": 0,
+      "package": "nestbackup-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/mfhm-0.1.1.jsonl",
+      "label": 0,
+      "package": "mfhm-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pySystem-1.0.3.jsonl",
+      "label": 0,
+      "package": "pySystem-1.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/thesis_uniud_package-1.0.0.jsonl",
+      "label": 1,
+      "package": "thesis_uniud_package-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Mako-1.3.5.jsonl",
+      "label": 0,
+      "package": "Mako-1.3.5"
+    },
+    {
+      "path": "data/traces/benign/traces/sctokenizer-0.0.8.jsonl",
+      "label": 0,
+      "package": "sctokenizer-0.0.8"
+    },
+    {
+      "path": "data/traces/malware/traces/ciscosparksdk-99.24.2.jsonl",
+      "label": 1,
+      "package": "ciscosparksdk-99.24.2"
+    },
+    {
+      "path": "data/traces/benign/traces/nester123456-1.0.0.jsonl",
+      "label": 0,
+      "package": "nester123456-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/wcltestlib-1.0.1.jsonl",
+      "label": 0,
+      "package": "wcltestlib-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/sln1550hello-0.0.2.jsonl",
+      "label": 1,
+      "package": "sln1550hello-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/web3.pu-1.0.0.jsonl",
+      "label": 1,
+      "package": "web3.pu-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/serviceinstaller-0.2.0.jsonl",
+      "label": 0,
+      "package": "serviceinstaller-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/hwin-10.10.10.jsonl",
+      "label": 0,
+      "package": "hwin-10.10.10"
+    },
+    {
+      "path": "data/traces/benign/traces/kidronekit-1.0.0.jsonl",
+      "label": 0,
+      "package": "kidronekit-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/invade-0.0.6.jsonl",
+      "label": 0,
+      "package": "invade-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/Proba-1.1.jsonl",
+      "label": 0,
+      "package": "Proba-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ftoimage-1.1.9.jsonl",
+      "label": 0,
+      "package": "ftoimage-1.1.9"
+    },
+    {
+      "path": "data/traces/benign/traces/pymoon-0.1.0.jsonl",
+      "label": 0,
+      "package": "pymoon-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/tiny43-1.0.0.jsonl",
+      "label": 1,
+      "package": "tiny43-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/py-c0ard-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-c0ard-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/pygaime-1.0.0.jsonl",
+      "label": 1,
+      "package": "pygaime-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/compassheadinglib-2021.1.7.jsonl",
+      "label": 0,
+      "package": "compassheadinglib-2021.1.7"
+    },
+    {
+      "path": "data/traces/benign/traces/webpilot-0.3.0.jsonl",
+      "label": 0,
+      "package": "webpilot-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/gitdep-0.0.2.jsonl",
+      "label": 0,
+      "package": "gitdep-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/Web-requests-autmoation-3.0.0.jsonl",
+      "label": 1,
+      "package": "Web-requests-autmoation-3.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/1337z-4.4.7.jsonl",
+      "label": 1,
+      "package": "1337z-4.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/agentlib-0.8.2.jsonl",
+      "label": 0,
+      "package": "agentlib-0.8.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyunio-0.1.5.jsonl",
+      "label": 0,
+      "package": "pyunio-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/slurmtoppy-0.1.5.jsonl",
+      "label": 0,
+      "package": "slurmtoppy-0.1.5"
+    },
+    {
+      "path": "data/traces/benign/traces/biondi-0.1.6.1.jsonl",
+      "label": 0,
+      "package": "biondi-0.1.6.1"
+    },
+    {
+      "path": "data/traces/malware/traces/requssts-1.0.0.jsonl",
+      "label": 1,
+      "package": "requssts-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/stackUI-0.0.1.jsonl",
+      "label": 0,
+      "package": "stackUI-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pytexttool-0.3.1.jsonl",
+      "label": 0,
+      "package": "pytexttool-0.3.1"
+    },
+    {
+      "path": "data/traces/benign/traces/postikodi-0.0.1.jsonl",
+      "label": 0,
+      "package": "postikodi-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/asyyncio-1.0.0.jsonl",
+      "label": 1,
+      "package": "asyyncio-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/svllib-0.1.dev0.jsonl",
+      "label": 0,
+      "package": "svllib-0.1.dev0"
+    },
+    {
+      "path": "data/traces/benign/traces/saphira-0.0.9.jsonl",
+      "label": 0,
+      "package": "saphira-0.0.9"
+    },
+    {
+      "path": "data/traces/benign/traces/boum-1.4.0.jsonl",
+      "label": 0,
+      "package": "boum-1.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/davaleba-0.0.1.jsonl",
+      "label": 0,
+      "package": "davaleba-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pycmp-0.1.4.jsonl",
+      "label": 0,
+      "package": "pycmp-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/certsrv-2.1.1.jsonl",
+      "label": 0,
+      "package": "certsrv-2.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/stringmanipulate-0.0.3.jsonl",
+      "label": 0,
+      "package": "stringmanipulate-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/important_package-0.1.21.jsonl",
+      "label": 1,
+      "package": "important_package-0.1.21"
+    },
+    {
+      "path": "data/traces/malware/traces/Simplejsoj-1.0.0.jsonl",
+      "label": 1,
+      "package": "Simplejsoj-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/aiowiserheatapi-1.5.14.jsonl",
+      "label": 0,
+      "package": "aiowiserheatapi-1.5.14"
+    },
+    {
+      "path": "data/traces/benign/traces/formulatoolkit-0.0.2.jsonl",
+      "label": 0,
+      "package": "formulatoolkit-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/tensogflow-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensogflow-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/opensear-1.0.0.jsonl",
+      "label": 1,
+      "package": "opensear-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/BatchParse-0.0.7.jsonl",
+      "label": 0,
+      "package": "BatchParse-0.0.7"
+    },
+    {
+      "path": "data/traces/benign/traces/asgiproxify-0.0.1.jsonl",
+      "label": 0,
+      "package": "asgiproxify-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/AlertLogicAPI-0.0.6.jsonl",
+      "label": 0,
+      "package": "AlertLogicAPI-0.0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/pytjon-1.0.0.jsonl",
+      "label": 1,
+      "package": "pytjon-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pulpitum-0.2.2.jsonl",
+      "label": 0,
+      "package": "pulpitum-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/apitally-0.10.0.jsonl",
+      "label": 0,
+      "package": "apitally-0.10.0"
+    },
+    {
+      "path": "data/traces/benign/traces/basictest-0.0.1.jsonl",
+      "label": 0,
+      "package": "basictest-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/scuttlebutt-0.1.jsonl",
+      "label": 0,
+      "package": "scuttlebutt-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pjllow-1.0.0.jsonl",
+      "label": 1,
+      "package": "pjllow-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Distiller-0.1.2.jsonl",
+      "label": 0,
+      "package": "Distiller-0.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramal-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramal-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/lissues-0.1.0.jsonl",
+      "label": 0,
+      "package": "lissues-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/autom8it-1.2.2.jsonl",
+      "label": 0,
+      "package": "autom8it-1.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/clusterdock-2.3.0.jsonl",
+      "label": 0,
+      "package": "clusterdock-2.3.0"
+    },
+    {
+      "path": "data/traces/malware/traces/botoa-1.26.67.jsonl",
+      "label": 1,
+      "package": "botoa-1.26.67"
+    },
+    {
+      "path": "data/traces/malware/traces/syns-knox-xss-allwhere-1.0.0.jsonl",
+      "label": 1,
+      "package": "syns-knox-xss-allwhere-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ocmpy-0.1.4.jsonl",
+      "label": 0,
+      "package": "ocmpy-0.1.4"
+    },
+    {
+      "path": "data/traces/malware/traces/igtoolz-4.5.2.jsonl",
+      "label": 1,
+      "package": "igtoolz-4.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/opensar-1.0.0.jsonl",
+      "label": 1,
+      "package": "opensar-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ServiceCreator-1.12.jsonl",
+      "label": 0,
+      "package": "ServiceCreator-1.12"
+    },
+    {
+      "path": "data/traces/benign/traces/fizzbotz-0.2.0.jsonl",
+      "label": 0,
+      "package": "fizzbotz-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tinify-1.6.0.jsonl",
+      "label": 0,
+      "package": "tinify-1.6.0"
+    },
+    {
+      "path": "data/traces/benign/traces/parasect-1.2.0.jsonl",
+      "label": 0,
+      "package": "parasect-1.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/2029-0.0.1.jsonl",
+      "label": 0,
+      "package": "2029-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/zzhprob-0.3.jsonl",
+      "label": 0,
+      "package": "zzhprob-0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/posterum-0.1.1.jsonl",
+      "label": 0,
+      "package": "posterum-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/bpi-utils-1.0.0.jsonl",
+      "label": 1,
+      "package": "bpi-utils-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tahutils-0.1.8.jsonl",
+      "label": 0,
+      "package": "tahutils-0.1.8"
+    },
+    {
+      "path": "data/traces/benign/traces/jsdoc2json-1.0.1.jsonl",
+      "label": 0,
+      "package": "jsdoc2json-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/apgp-0.1.jsonl",
+      "label": 0,
+      "package": "apgp-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/PyGamse-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyGamse-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/readycharz-0.2.0.jsonl",
+      "label": 1,
+      "package": "readycharz-0.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requirmentss-1.0.0.jsonl",
+      "label": 1,
+      "package": "requirmentss-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cloak-0.0.1a4.jsonl",
+      "label": 0,
+      "package": "cloak-0.0.1a4"
+    },
+    {
+      "path": "data/traces/malware/traces/customtkimter-1.0.0.jsonl",
+      "label": 1,
+      "package": "customtkimter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/colorstylecycler-0.1.22.jsonl",
+      "label": 0,
+      "package": "colorstylecycler-0.1.22"
+    },
+    {
+      "path": "data/traces/benign/traces/kmodpy-0.1.13.jsonl",
+      "label": 0,
+      "package": "kmodpy-0.1.13"
+    },
+    {
+      "path": "data/traces/benign/traces/norsu-0.4.8.jsonl",
+      "label": 0,
+      "package": "norsu-0.4.8"
+    },
+    {
+      "path": "data/traces/malware/traces/selinum-1.0.0.jsonl",
+      "label": 1,
+      "package": "selinum-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/wdgameoflife-0.0.3.jsonl",
+      "label": 0,
+      "package": "wdgameoflife-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/evotrain-0.0.1.jsonl",
+      "label": 0,
+      "package": "evotrain-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/universion-0.1.2.jsonl",
+      "label": 0,
+      "package": "universion-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pySCOrchestrator-0.0.2.jsonl",
+      "label": 0,
+      "package": "pySCOrchestrator-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ByakuganVisualizer-0.2.2.jsonl",
+      "label": 0,
+      "package": "ByakuganVisualizer-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/magicembed-1.0.2.jsonl",
+      "label": 0,
+      "package": "magicembed-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/micropack-0.1.1.dev0.jsonl",
+      "label": 0,
+      "package": "micropack-0.1.1.dev0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyduckgo-0.2.0.jsonl",
+      "label": 0,
+      "package": "pyduckgo-0.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/reqirements-1.0.0.jsonl",
+      "label": 1,
+      "package": "reqirements-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cobrascraper-0.0.4.jsonl",
+      "label": 0,
+      "package": "cobrascraper-0.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/gabid-0.6.jsonl",
+      "label": 0,
+      "package": "gabid-0.6"
+    },
+    {
+      "path": "data/traces/malware/traces/PyTorbch-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyTorbch-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nonpenetrablez-1.1.jsonl",
+      "label": 0,
+      "package": "nonpenetrablez-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/web4.py-1.0.0.jsonl",
+      "label": 1,
+      "package": "web4.py-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ds9norm-0.1.jsonl",
+      "label": 0,
+      "package": "ds9norm-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/newrelic-9.11.0.jsonl",
+      "label": 0,
+      "package": "newrelic-9.11.0"
+    },
+    {
+      "path": "data/traces/malware/traces/opemsea-1.0.0.jsonl",
+      "label": 1,
+      "package": "opemsea-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/lilcache-0.0.1.jsonl",
+      "label": 0,
+      "package": "lilcache-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mapwjt-0.0.2.jsonl",
+      "label": 0,
+      "package": "mapwjt-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/djchart-0.1.2.jsonl",
+      "label": 0,
+      "package": "djchart-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/querypp-0.1.2.jsonl",
+      "label": 0,
+      "package": "querypp-0.1.2"
+    },
+    {
+      "path": "data/traces/benign/traces/sus-1.3.0.jsonl",
+      "label": 0,
+      "package": "sus-1.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/world2vec-0.3.0.jsonl",
+      "label": 0,
+      "package": "world2vec-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/Py3TextMagicSMS-0.2.jsonl",
+      "label": 0,
+      "package": "Py3TextMagicSMS-0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/beautiflulsoop-1.0.0.jsonl",
+      "label": 1,
+      "package": "beautiflulsoop-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/linkedin-scrape-4.4.2.jsonl",
+      "label": 1,
+      "package": "linkedin-scrape-4.4.2"
+    },
+    {
+      "path": "data/traces/malware/traces/go-requests-2.0.2.jsonl",
+      "label": 1,
+      "package": "go-requests-2.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/RIML-3.3.3.jsonl",
+      "label": 0,
+      "package": "RIML-3.3.3"
+    },
+    {
+      "path": "data/traces/benign/traces/SapGuiExtended-0.4.0.jsonl",
+      "label": 0,
+      "package": "SapGuiExtended-0.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pythonperlin-0.0.8.jsonl",
+      "label": 0,
+      "package": "pythonperlin-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/NinjaTools-0.74.jsonl",
+      "label": 0,
+      "package": "NinjaTools-0.74"
+    },
+    {
+      "path": "data/traces/benign/traces/libsovereign-1.0.0alpha1.jsonl",
+      "label": 0,
+      "package": "libsovereign-1.0.0alpha1"
+    },
+    {
+      "path": "data/traces/benign/traces/ptoken-0.1.jsonl",
+      "label": 0,
+      "package": "ptoken-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/johnhammondfanpackage124-1.0.0.jsonl",
+      "label": 1,
+      "package": "johnhammondfanpackage124-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/krautmarkt-0.0.3.jsonl",
+      "label": 0,
+      "package": "krautmarkt-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/testbenchexecutor-0.1.12.jsonl",
+      "label": 0,
+      "package": "testbenchexecutor-0.1.12"
+    },
+    {
+      "path": "data/traces/benign/traces/spclustering-0.8.0.jsonl",
+      "label": 0,
+      "package": "spclustering-0.8.0"
+    },
+    {
+      "path": "data/traces/benign/traces/alfencharger-5.42.jsonl",
+      "label": 0,
+      "package": "alfencharger-5.42"
+    },
+    {
+      "path": "data/traces/benign/traces/tstscript-1.0.0.jsonl",
+      "label": 0,
+      "package": "tstscript-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/munidata-2.3.1.jsonl",
+      "label": 0,
+      "package": "munidata-2.3.1"
+    },
+    {
+      "path": "data/traces/benign/traces/sqlconstructor-1.5.2.jsonl",
+      "label": 0,
+      "package": "sqlconstructor-1.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/junitmgr-1.0.3.jsonl",
+      "label": 0,
+      "package": "junitmgr-1.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/pyghoster-1.0.0.jsonl",
+      "label": 1,
+      "package": "pyghoster-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyobf2-1.3.1.jsonl",
+      "label": 0,
+      "package": "pyobf2-1.3.1"
+    },
+    {
+      "path": "data/traces/benign/traces/rubygemsrecipe-0.4.4.jsonl",
+      "label": 0,
+      "package": "rubygemsrecipe-0.4.4"
+    },
+    {
+      "path": "data/traces/malware/traces/emoki-4.4.7.jsonl",
+      "label": 1,
+      "package": "emoki-4.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/mailbox-0.4.jsonl",
+      "label": 0,
+      "package": "mailbox-0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/chenyabaibaoxiang-3.6.2.jsonl",
+      "label": 0,
+      "package": "chenyabaibaoxiang-3.6.2"
+    },
+    {
+      "path": "data/traces/benign/traces/zulu-2.0.1.jsonl",
+      "label": 0,
+      "package": "zulu-2.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/MongoFrames-1.3.6.jsonl",
+      "label": 0,
+      "package": "MongoFrames-1.3.6"
+    },
+    {
+      "path": "data/traces/benign/traces/feedforbot-3.3.3.jsonl",
+      "label": 0,
+      "package": "feedforbot-3.3.3"
+    },
+    {
+      "path": "data/traces/benign/traces/VaspCZ-1.0.2.jsonl",
+      "label": 0,
+      "package": "VaspCZ-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/stringhandling-0.3.jsonl",
+      "label": 0,
+      "package": "stringhandling-0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/sinever-1.0.0.jsonl",
+      "label": 0,
+      "package": "sinever-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/seliniumm-1.0.0.jsonl",
+      "label": 1,
+      "package": "seliniumm-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonstercloudclienet-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonstercloudclienet-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/botoa3-1.26.67.jsonl",
+      "label": 1,
+      "package": "botoa3-1.26.67"
+    },
+    {
+      "path": "data/traces/benign/traces/simplog-0.1.0.jsonl",
+      "label": 0,
+      "package": "simplog-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/uitestcore-10.5.0.jsonl",
+      "label": 0,
+      "package": "uitestcore-10.5.0"
+    }
+  ],
+  "test": [
+    {
+      "path": "data/traces/benign/traces/AutoPostTelegram-1.0.3.jsonl",
+      "label": 0,
+      "package": "AutoPostTelegram-1.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/pyTMCL-1.0.10.jsonl",
+      "label": 0,
+      "package": "pyTMCL-1.0.10"
+    },
+    {
+      "path": "data/traces/malware/traces/etheraem-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheraem-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/PyTorchy-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyTorchy-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/minrest-0.1.1.jsonl",
+      "label": 0,
+      "package": "minrest-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/py-coqrd-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-coqrd-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/yapyseq-1.1.0.jsonl",
+      "label": 0,
+      "package": "yapyseq-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ctypesprocstuff-0.10.jsonl",
+      "label": 0,
+      "package": "ctypesprocstuff-0.10"
+    },
+    {
+      "path": "data/traces/benign/traces/makemake-0.2.jsonl",
+      "label": 0,
+      "package": "makemake-0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/colorsama-0.4.5.jsonl",
+      "label": 1,
+      "package": "colorsama-0.4.5"
+    },
+    {
+      "path": "data/traces/benign/traces/bushelsz-1.1.jsonl",
+      "label": 0,
+      "package": "bushelsz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/apimoex-1.4.0.jsonl",
+      "label": 0,
+      "package": "apimoex-1.4.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremnetstxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremnetstxt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/curve2mesh-0.1.4.jsonl",
+      "label": 0,
+      "package": "curve2mesh-0.1.4"
+    },
+    {
+      "path": "data/traces/malware/traces/requesta-2.28.1.jsonl",
+      "label": 1,
+      "package": "requesta-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ScoreModel-1.0.0.jsonl",
+      "label": 0,
+      "package": "ScoreModel-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/WICPy-1.0.1.jsonl",
+      "label": 0,
+      "package": "WICPy-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/statv-0.3.2.jsonl",
+      "label": 0,
+      "package": "statv-0.3.2"
+    },
+    {
+      "path": "data/traces/benign/traces/gitignore-0.0.8.jsonl",
+      "label": 0,
+      "package": "gitignore-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/bottender-0.0.2.jsonl",
+      "label": 0,
+      "package": "bottender-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pyflexebs-0.0.88.jsonl",
+      "label": 0,
+      "package": "pyflexebs-0.0.88"
+    },
+    {
+      "path": "data/traces/malware/traces/playwrght-1.0.0.jsonl",
+      "label": 1,
+      "package": "playwrght-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/sftplib-0.0.2.jsonl",
+      "label": 0,
+      "package": "sftplib-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/datetimerangepicker-0.0.1.jsonl",
+      "label": 0,
+      "package": "datetimerangepicker-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/etheriuum-1.0.0.jsonl",
+      "label": 1,
+      "package": "etheriuum-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/shakhs-0.1.6.jsonl",
+      "label": 0,
+      "package": "shakhs-0.1.6"
+    },
+    {
+      "path": "data/traces/benign/traces/badx12-0.2.2.jsonl",
+      "label": 0,
+      "package": "badx12-0.2.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ptrepl-0.9.8.jsonl",
+      "label": 0,
+      "package": "ptrepl-0.9.8"
+    },
+    {
+      "path": "data/traces/malware/traces/rdquests-2.28.1.jsonl",
+      "label": 1,
+      "package": "rdquests-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pomoglorbo-2024.6.23.1.jsonl",
+      "label": 0,
+      "package": "pomoglorbo-2024.6.23.1"
+    },
+    {
+      "path": "data/traces/benign/traces/mkvimdb-0.2.3.jsonl",
+      "label": 0,
+      "package": "mkvimdb-0.2.3"
+    },
+    {
+      "path": "data/traces/benign/traces/pyeditdistance-1.0.1.jsonl",
+      "label": 0,
+      "package": "pyeditdistance-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/flake7-4.5.2.jsonl",
+      "label": 1,
+      "package": "flake7-4.5.2"
+    },
+    {
+      "path": "data/traces/malware/traces/Matplrtlib-1.0.0.jsonl",
+      "label": 1,
+      "package": "Matplrtlib-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/rrquests-2.28.1.jsonl",
+      "label": 1,
+      "package": "rrquests-2.28.1"
+    },
+    {
+      "path": "data/traces/benign/traces/LinearFold-1.1.jsonl",
+      "label": 0,
+      "package": "LinearFold-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/zebepy-1.0.1.jsonl",
+      "label": 0,
+      "package": "zebepy-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/jme-1.0.0.jsonl",
+      "label": 0,
+      "package": "jme-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nightHua-1.1.2.jsonl",
+      "label": 0,
+      "package": "nightHua-1.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/openresa-1.0.0.jsonl",
+      "label": 1,
+      "package": "openresa-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/tensobflow-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensobflow-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/yaml2ics-0.2.jsonl",
+      "label": 0,
+      "package": "yaml2ics-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/GmailChecker-1.0.0.jsonl",
+      "label": 0,
+      "package": "GmailChecker-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/astromech-0.5.0.jsonl",
+      "label": 0,
+      "package": "astromech-0.5.0"
+    },
+    {
+      "path": "data/traces/benign/traces/qrun-0.5.1.jsonl",
+      "label": 0,
+      "package": "qrun-0.5.1"
+    },
+    {
+      "path": "data/traces/benign/traces/janos-0.0.9.jsonl",
+      "label": 0,
+      "package": "janos-0.0.9"
+    },
+    {
+      "path": "data/traces/malware/traces/testpipxyz4-1.0.0.jsonl",
+      "label": 1,
+      "package": "testpipxyz4-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/speechToTextPy-0.0.3.jsonl",
+      "label": 0,
+      "package": "speechToTextPy-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/PHJF-0.0.6.1.jsonl",
+      "label": 0,
+      "package": "PHJF-0.0.6.1"
+    },
+    {
+      "path": "data/traces/benign/traces/ThreadDownloader1604-1.1.0.jsonl",
+      "label": 0,
+      "package": "ThreadDownloader1604-1.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremenstx-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremenstx-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fonttools-4.53.0.jsonl",
+      "label": 0,
+      "package": "fonttools-4.53.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requiremetstx-1.0.0.jsonl",
+      "label": 1,
+      "package": "requiremetstx-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/brokescolors-0.0.0.jsonl",
+      "label": 1,
+      "package": "brokescolors-0.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/jcevents-1.0.1.jsonl",
+      "label": 0,
+      "package": "jcevents-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/emoji-country-flags-4.4.7.jsonl",
+      "label": 1,
+      "package": "emoji-country-flags-4.4.7"
+    },
+    {
+      "path": "data/traces/malware/traces/etherem-1.0.0.jsonl",
+      "label": 1,
+      "package": "etherem-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requesxts-1.0.0.jsonl",
+      "label": 1,
+      "package": "requesxts-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/hnUHfYZUmKMO-0.3.2.jsonl",
+      "label": 1,
+      "package": "hnUHfYZUmKMO-0.3.2"
+    },
+    {
+      "path": "data/traces/benign/traces/codexpy-0.0.2.jsonl",
+      "label": 0,
+      "package": "codexpy-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/fslock-2.1.jsonl",
+      "label": 0,
+      "package": "fslock-2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/calorimeter-0.2.1.jsonl",
+      "label": 0,
+      "package": "calorimeter-0.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/md2tex-0.0.17.jsonl",
+      "label": 0,
+      "package": "md2tex-0.0.17"
+    },
+    {
+      "path": "data/traces/benign/traces/csmpy-0.2.jsonl",
+      "label": 0,
+      "package": "csmpy-0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ccreload-1.1.jsonl",
+      "label": 0,
+      "package": "ccreload-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/curco-0.1.jsonl",
+      "label": 0,
+      "package": "curco-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/algopy-0.6.1.jsonl",
+      "label": 0,
+      "package": "algopy-0.6.1"
+    },
+    {
+      "path": "data/traces/benign/traces/atherpy-0.0.1.jsonl",
+      "label": 0,
+      "package": "atherpy-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/irissqlcli-0.5.4.jsonl",
+      "label": 0,
+      "package": "irissqlcli-0.5.4"
+    },
+    {
+      "path": "data/traces/benign/traces/cavalier-1.0.0.jsonl",
+      "label": 0,
+      "package": "cavalier-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/palavreado-0.2.0.jsonl",
+      "label": 0,
+      "package": "palavreado-0.2.0"
+    },
+    {
+      "path": "data/traces/benign/traces/cdhelm-0.1.4.jsonl",
+      "label": 0,
+      "package": "cdhelm-0.1.4"
+    },
+    {
+      "path": "data/traces/benign/traces/yeqingprint-1.1.0.jsonl",
+      "label": 0,
+      "package": "yeqingprint-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/moyu123-0.0.2.jsonl",
+      "label": 0,
+      "package": "moyu123-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/plauwright-1.0.0.jsonl",
+      "label": 1,
+      "package": "plauwright-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nwisepy-1.0.1.jsonl",
+      "label": 0,
+      "package": "nwisepy-1.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/antchain_sdk_rms-1.0.0.jsonl",
+      "label": 1,
+      "package": "antchain_sdk_rms-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/tiny423-1.0.0.jsonl",
+      "label": 1,
+      "package": "tiny423-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/langcorn-0.0.22.jsonl",
+      "label": 0,
+      "package": "langcorn-0.0.22"
+    },
+    {
+      "path": "data/traces/benign/traces/Test153RV-1.5.jsonl",
+      "label": 0,
+      "package": "Test153RV-1.5"
+    },
+    {
+      "path": "data/traces/malware/traces/readycher-0.1.0.jsonl",
+      "label": 1,
+      "package": "readycher-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/ModbusSharedMemory-0.1.1.jsonl",
+      "label": 0,
+      "package": "ModbusSharedMemory-0.1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/py-cird-1.0.0.jsonl",
+      "label": 1,
+      "package": "py-cird-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/nub-1.0.jsonl",
+      "label": 0,
+      "package": "nub-1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyrqp-0.0.2.jsonl",
+      "label": 0,
+      "package": "pyrqp-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pyptext-0.0.2.jsonl",
+      "label": 1,
+      "package": "pyptext-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/dtsp-0.3.1.jsonl",
+      "label": 0,
+      "package": "dtsp-0.3.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pymplschapters-1.0.4.jsonl",
+      "label": 0,
+      "package": "pymplschapters-1.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/tdxapi-0.10.0.jsonl",
+      "label": 0,
+      "package": "tdxapi-0.10.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pygrambank-2.1.jsonl",
+      "label": 0,
+      "package": "pygrambank-2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/cframe-0.1.11.jsonl",
+      "label": 0,
+      "package": "cframe-0.1.11"
+    },
+    {
+      "path": "data/traces/benign/traces/xnxbot-0.2.0.jsonl",
+      "label": 0,
+      "package": "xnxbot-0.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/fuzzzywuzzy-4.5.2.jsonl",
+      "label": 1,
+      "package": "fuzzzywuzzy-4.5.2"
+    },
+    {
+      "path": "data/traces/benign/traces/allneo-17.0.0.jsonl",
+      "label": 0,
+      "package": "allneo-17.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dsplib-0.9.0.jsonl",
+      "label": 0,
+      "package": "dsplib-0.9.0"
+    },
+    {
+      "path": "data/traces/malware/traces/private-library-dont-install-3.3.1.jsonl",
+      "label": 1,
+      "package": "private-library-dont-install-3.3.1"
+    },
+    {
+      "path": "data/traces/malware/traces/dbcounter-1.0.4.jsonl",
+      "label": 1,
+      "package": "dbcounter-1.0.4"
+    },
+    {
+      "path": "data/traces/benign/traces/PyChatVerse-0.0.6.jsonl",
+      "label": 0,
+      "package": "PyChatVerse-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/LabJackPython-2.1.0.jsonl",
+      "label": 0,
+      "package": "LabJackPython-2.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/siamttviews-5.1.1.jsonl",
+      "label": 1,
+      "package": "siamttviews-5.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/sqlsy-1.1.0.jsonl",
+      "label": 0,
+      "package": "sqlsy-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dialypetalousz-1.1.jsonl",
+      "label": 0,
+      "package": "dialypetalousz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/getting-1.2.7.jsonl",
+      "label": 0,
+      "package": "getting-1.2.7"
+    },
+    {
+      "path": "data/traces/benign/traces/yubundle-0.0.2.jsonl",
+      "label": 0,
+      "package": "yubundle-0.0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/certefi-2022.9.24.jsonl",
+      "label": 1,
+      "package": "certefi-2022.9.24"
+    },
+    {
+      "path": "data/traces/benign/traces/pyssg-0.9.0.jsonl",
+      "label": 0,
+      "package": "pyssg-0.9.0"
+    },
+    {
+      "path": "data/traces/benign/traces/manicrypt-0.0.3.jsonl",
+      "label": 0,
+      "package": "manicrypt-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/pyairtable-3.0.0a2.jsonl",
+      "label": 0,
+      "package": "pyairtable-3.0.0a2"
+    },
+    {
+      "path": "data/traces/benign/traces/StarClusterPlot-0.2.0.jsonl",
+      "label": 0,
+      "package": "StarClusterPlot-0.2.0"
+    },
+    {
+      "path": "data/traces/malware/traces/boogishell3-0.1.0.jsonl",
+      "label": 1,
+      "package": "boogishell3-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/windsong-0.1.2.jsonl",
+      "label": 0,
+      "package": "windsong-0.1.2"
+    },
+    {
+      "path": "data/traces/malware/traces/advpruebitaa-1.0.0.jsonl",
+      "label": 1,
+      "package": "advpruebitaa-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/requetsts-1.0.0.jsonl",
+      "label": 1,
+      "package": "requetsts-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/datasize-1.0.0.jsonl",
+      "label": 0,
+      "package": "datasize-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/fideparser-1.0.2.jsonl",
+      "label": 0,
+      "package": "fideparser-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/py416-0.62.jsonl",
+      "label": 0,
+      "package": "py416-0.62"
+    },
+    {
+      "path": "data/traces/benign/traces/pranavarya-0.5.jsonl",
+      "label": 0,
+      "package": "pranavarya-0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/pypxl-0.2.3.jsonl",
+      "label": 0,
+      "package": "pypxl-0.2.3"
+    },
+    {
+      "path": "data/traces/benign/traces/feza-0.0.1.jsonl",
+      "label": 0,
+      "package": "feza-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pygfame-1.0.0.jsonl",
+      "label": 1,
+      "package": "pygfame-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/centroid-1.2.1.jsonl",
+      "label": 0,
+      "package": "centroid-1.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/strictdict-0.4.3.jsonl",
+      "label": 0,
+      "package": "strictdict-0.4.3"
+    },
+    {
+      "path": "data/traces/benign/traces/pathsummary-0.1.0a6.jsonl",
+      "label": 0,
+      "package": "pathsummary-0.1.0a6"
+    },
+    {
+      "path": "data/traces/benign/traces/curl2pyreqs-0.4.1.jsonl",
+      "label": 0,
+      "package": "curl2pyreqs-0.4.1"
+    },
+    {
+      "path": "data/traces/benign/traces/vinca-2.4.7.jsonl",
+      "label": 0,
+      "package": "vinca-2.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/cable-0.1.jsonl",
+      "label": 0,
+      "package": "cable-0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/capmonsterclouddclient-1.0.0.jsonl",
+      "label": 1,
+      "package": "capmonsterclouddclient-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/GoogleBard-2.1.0.jsonl",
+      "label": 0,
+      "package": "GoogleBard-2.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/flawlessz-1.1.jsonl",
+      "label": 0,
+      "package": "flawlessz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/exutil-0.3.2.jsonl",
+      "label": 0,
+      "package": "exutil-0.3.2"
+    },
+    {
+      "path": "data/traces/malware/traces/pillox-1.0.0.jsonl",
+      "label": 1,
+      "package": "pillox-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tketris-1.0.1.jsonl",
+      "label": 0,
+      "package": "tketris-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/orchestra-1.0.56.jsonl",
+      "label": 0,
+      "package": "orchestra-1.0.56"
+    },
+    {
+      "path": "data/traces/benign/traces/ledmx-0.2a0.jsonl",
+      "label": 0,
+      "package": "ledmx-0.2a0"
+    },
+    {
+      "path": "data/traces/malware/traces/requirementxstxt-1.0.0.jsonl",
+      "label": 1,
+      "package": "requirementxstxt-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/zhue-0.9.5.jsonl",
+      "label": 0,
+      "package": "zhue-0.9.5"
+    },
+    {
+      "path": "data/traces/benign/traces/threadcascade-0.0.0.jsonl",
+      "label": 0,
+      "package": "threadcascade-0.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/tensoflonw-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensoflonw-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/eisenradio-2.4.2.jsonl",
+      "label": 0,
+      "package": "eisenradio-2.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/pymza-0.7.20.jsonl",
+      "label": 0,
+      "package": "pymza-0.7.20"
+    },
+    {
+      "path": "data/traces/benign/traces/FeishuBitableAPI-3.3.3.jsonl",
+      "label": 0,
+      "package": "FeishuBitableAPI-3.3.3"
+    },
+    {
+      "path": "data/traces/benign/traces/ctkentrymsg-0.0.5.jsonl",
+      "label": 0,
+      "package": "ctkentrymsg-0.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/pdbme-0.0.1.jsonl",
+      "label": 0,
+      "package": "pdbme-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/selenyum-1.0.0.jsonl",
+      "label": 1,
+      "package": "selenyum-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/tabang-0.0.0.jsonl",
+      "label": 0,
+      "package": "tabang-0.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/ethereuum-1.0.0.jsonl",
+      "label": 1,
+      "package": "ethereuum-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/redgettext-3.4.2.jsonl",
+      "label": 0,
+      "package": "redgettext-3.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/shanbay-0.3.6.jsonl",
+      "label": 0,
+      "package": "shanbay-0.3.6"
+    },
+    {
+      "path": "data/traces/benign/traces/wboxkit-0.4.3.jsonl",
+      "label": 0,
+      "package": "wboxkit-0.4.3"
+    },
+    {
+      "path": "data/traces/benign/traces/ftlengine-0.1.11.jsonl",
+      "label": 0,
+      "package": "ftlengine-0.1.11"
+    },
+    {
+      "path": "data/traces/benign/traces/PyWldap-0.3.0.jsonl",
+      "label": 0,
+      "package": "PyWldap-0.3.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mapsyncer-1.0.1.jsonl",
+      "label": 0,
+      "package": "mapsyncer-1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/tarts-0.12.0.jsonl",
+      "label": 0,
+      "package": "tarts-0.12.0"
+    },
+    {
+      "path": "data/traces/benign/traces/dihub-0.1.10.jsonl",
+      "label": 0,
+      "package": "dihub-0.1.10"
+    },
+    {
+      "path": "data/traces/benign/traces/pkgfileutils-0.0.1.jsonl",
+      "label": 0,
+      "package": "pkgfileutils-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pennystonez-2.1.jsonl",
+      "label": 0,
+      "package": "pennystonez-2.1"
+    },
+    {
+      "path": "data/traces/malware/traces/asteroid_filterbank-0.4.0.jsonl",
+      "label": 1,
+      "package": "asteroid_filterbank-0.4.0"
+    },
+    {
+      "path": "data/traces/benign/traces/sockers-0.4.69.jsonl",
+      "label": 0,
+      "package": "sockers-0.4.69"
+    },
+    {
+      "path": "data/traces/benign/traces/quotespy-1.3.jsonl",
+      "label": 0,
+      "package": "quotespy-1.3"
+    },
+    {
+      "path": "data/traces/benign/traces/sevseg-0.1.0.jsonl",
+      "label": 0,
+      "package": "sevseg-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/miRMag-1.0.5.jsonl",
+      "label": 0,
+      "package": "miRMag-1.0.5"
+    },
+    {
+      "path": "data/traces/benign/traces/ScrapyDot-0.1.jsonl",
+      "label": 0,
+      "package": "ScrapyDot-0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/archaeostomaz-1.1.jsonl",
+      "label": 0,
+      "package": "archaeostomaz-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/cards-2.0.0.jsonl",
+      "label": 0,
+      "package": "cards-2.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/deepmountains_lrce-0.0.1.jsonl",
+      "label": 1,
+      "package": "deepmountains_lrce-0.0.1"
+    },
+    {
+      "path": "data/traces/malware/traces/colormma-1.0.0.jsonl",
+      "label": 1,
+      "package": "colormma-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/dependency_confusion123-1.0.4.jsonl",
+      "label": 1,
+      "package": "dependency_confusion123-1.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/tensxoflow-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensxoflow-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/ethereium-1.0.0.jsonl",
+      "label": 1,
+      "package": "ethereium-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/mysecondvenv-0.0.2.jsonl",
+      "label": 0,
+      "package": "mysecondvenv-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/affilipy-0.1.1.jsonl",
+      "label": 0,
+      "package": "affilipy-0.1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pysweep-0.1.0.jsonl",
+      "label": 0,
+      "package": "pysweep-0.1.0"
+    },
+    {
+      "path": "data/traces/malware/traces/p8llow-1.0.0.jsonl",
+      "label": 1,
+      "package": "p8llow-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/superpaste-1.0.0rc2.jsonl",
+      "label": 0,
+      "package": "superpaste-1.0.0rc2"
+    },
+    {
+      "path": "data/traces/malware/traces/PyGacme-1.0.0.jsonl",
+      "label": 1,
+      "package": "PyGacme-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/indict-0.0.1.jsonl",
+      "label": 0,
+      "package": "indict-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/pyprogressbars-0.0.3.jsonl",
+      "label": 0,
+      "package": "pyprogressbars-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/PySelenium-1.0.2.jsonl",
+      "label": 0,
+      "package": "PySelenium-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/randssl-0.0.2.jsonl",
+      "label": 0,
+      "package": "randssl-0.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/wtfpython-0.2.1.jsonl",
+      "label": 0,
+      "package": "wtfpython-0.2.1"
+    },
+    {
+      "path": "data/traces/benign/traces/cfitall-2.0.1.jsonl",
+      "label": 0,
+      "package": "cfitall-2.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/haidarlibs-0.0.15.jsonl",
+      "label": 0,
+      "package": "haidarlibs-0.0.15"
+    },
+    {
+      "path": "data/traces/benign/traces/chika-0.1.0.jsonl",
+      "label": 0,
+      "package": "chika-0.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pyckstart-0.0.3.jsonl",
+      "label": 0,
+      "package": "pyckstart-0.0.3"
+    },
+    {
+      "path": "data/traces/malware/traces/custmtokinter-1.0.0.jsonl",
+      "label": 1,
+      "package": "custmtokinter-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/hdfqs-1.1.0.jsonl",
+      "label": 0,
+      "package": "hdfqs-1.1.0"
+    },
+    {
+      "path": "data/traces/benign/traces/pysmartweatherudp-0.1.7.jsonl",
+      "label": 0,
+      "package": "pysmartweatherudp-0.1.7"
+    },
+    {
+      "path": "data/traces/malware/traces/bcrypto-4.4.2.jsonl",
+      "label": 1,
+      "package": "bcrypto-4.4.2"
+    },
+    {
+      "path": "data/traces/benign/traces/ngpep-0.0.1.jsonl",
+      "label": 0,
+      "package": "ngpep-0.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/PubRec-v1.0.1.jsonl",
+      "label": 0,
+      "package": "PubRec-v1.0.1"
+    },
+    {
+      "path": "data/traces/benign/traces/fservice-0.0.6.jsonl",
+      "label": 0,
+      "package": "fservice-0.0.6"
+    },
+    {
+      "path": "data/traces/benign/traces/reflective-0.2.1.jsonl",
+      "label": 0,
+      "package": "reflective-0.2.1"
+    },
+    {
+      "path": "data/traces/malware/traces/pytorchj-1.0.0.jsonl",
+      "label": 1,
+      "package": "pytorchj-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/codeblocks-0.2.3.jsonl",
+      "label": 0,
+      "package": "codeblocks-0.2.3"
+    },
+    {
+      "path": "data/traces/benign/traces/fistminio-1.0.2.jsonl",
+      "label": 0,
+      "package": "fistminio-1.0.2"
+    },
+    {
+      "path": "data/traces/benign/traces/xarm-0.0.4.jsonl",
+      "label": 0,
+      "package": "xarm-0.0.4"
+    },
+    {
+      "path": "data/traces/malware/traces/requirementstx-1.0.0.jsonl",
+      "label": 1,
+      "package": "requirementstx-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/bitcodin-1.6.9.jsonl",
+      "label": 0,
+      "package": "bitcodin-1.6.9"
+    },
+    {
+      "path": "data/traces/malware/traces/ymongo-4.4.7.jsonl",
+      "label": 1,
+      "package": "ymongo-4.4.7"
+    },
+    {
+      "path": "data/traces/benign/traces/phue-1.1.jsonl",
+      "label": 0,
+      "package": "phue-1.1"
+    },
+    {
+      "path": "data/traces/benign/traces/Folders-0.0.8.jsonl",
+      "label": 0,
+      "package": "Folders-0.0.8"
+    },
+    {
+      "path": "data/traces/benign/traces/eupionz-1.1.jsonl",
+      "label": 0,
+      "package": "eupionz-1.1"
+    },
+    {
+      "path": "data/traces/malware/traces/tensofliw-1.0.0.jsonl",
+      "label": 1,
+      "package": "tensofliw-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/onestep-0.3.81.jsonl",
+      "label": 0,
+      "package": "onestep-0.3.81"
+    },
+    {
+      "path": "data/traces/benign/traces/example12121-0.0.3.jsonl",
+      "label": 0,
+      "package": "example12121-0.0.3"
+    },
+    {
+      "path": "data/traces/benign/traces/timecop-0.5.0dev.jsonl",
+      "label": 0,
+      "package": "timecop-0.5.0dev"
+    },
+    {
+      "path": "data/traces/benign/traces/peyote-0.2.jsonl",
+      "label": 0,
+      "package": "peyote-0.2"
+    },
+    {
+      "path": "data/traces/malware/traces/ethreeum-1.0.0.jsonl",
+      "label": 1,
+      "package": "ethreeum-1.0.0"
+    },
+    {
+      "path": "data/traces/malware/traces/coloramws-1.0.0.jsonl",
+      "label": 1,
+      "package": "coloramws-1.0.0"
+    },
+    {
+      "path": "data/traces/benign/traces/RigolWFM-1.0.0.jsonl",
+      "label": 0,
+      "package": "RigolWFM-1.0.0"
+    }
+  ],
+  "seed": 42
+}
