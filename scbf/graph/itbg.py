@@ -57,16 +57,58 @@ EDGE_TYPES = {"exec": 0.0, "open": 1.0, "write": 2.0, "connect": 3.0,
               "credential_read": 4.0, "env_read": 5.0}
 
 
-class NodeIDMap:
-    """Per-trace node ids, assigned in order of first appearance."""
+# Coarse path buckets. A node's identity is its ROLE, not its literal path and
+# not its position in the event stream.
+PATH_BUCKETS = (
+    ("credential", CREDENTIAL_HINTS),
+    ("persistence", PERSISTENCE_HINTS),
+    ("site_packages", ("site-packages", "dist-packages")),
+    ("tmp", ("/tmp/", "/var/tmp/")),
+    ("home", ("/home/", "/root/")),
+    ("etc", ("/etc/",)),
+    ("usr", ("/usr/", "/lib/", "/bin/", "/sbin/")),
+    ("proc", ("/proc/", "/sys/")),
+    ("dev", ("/dev/",)),
+)
 
-    def __init__(self):
+
+def path_bucket(path: str) -> str:
+    for name, hints in PATH_BUCKETS:
+        if any(h in path for h in hints):
+            return name
+    return "other"
+
+
+class NodeIDMap:
+    """Semantic node ids, stable across captures.
+
+    Identity used to be the order of first appearance. That made the whole
+    representation fragile: one extra or missing event early in a trace shifted
+    every subsequent id, so the TGN memory evolved over a different indexing and
+    two captures of the SAME package could score 0.98 and 0.006. Measured
+    directly on rdquests-2.28.1, whose two captures differ by a single event.
+
+    Identity is now derived from what a node IS -- a process by its executable
+    name, a file by its role bucket and depth, a destination by whether it is
+    external and its port class. Two captures of the same install therefore
+    produce the same node ids.
+
+    This still cannot memorise package names: buckets are coarse categories,
+    never literal paths, so nothing package-specific enters the identity.
+    """
+
+    def __init__(self, num_nodes=50000):
+        self.num_nodes = num_nodes
         self.map = {}
         self.kinds = {}
 
     def get(self, key, kind):
         if key not in self.map:
-            self.map[key] = len(self.map)
+            # Stable hash -> fixed id space. Python's hash() is randomised per
+            # process, so a deterministic digest is required.
+            import hashlib
+            h = int(hashlib.md5(f"{kind}:{key}".encode()).hexdigest()[:8], 16)
+            self.map[key] = h % self.num_nodes
             self.kinds[self.map[key]] = kind
         return self.map[key]
 
@@ -153,25 +195,48 @@ class ITBGConstructor:
         pid = event.get("pid", 0)
         ppid = event.get("ppid", 0)
 
+        # Processes are identified by executable name, not PID: PIDs differ
+        # between runs of the same install and carry no behavioural meaning.
+        comm = (event.get("comm") or "?").rsplit("/", 1)[-1]
+
         if etype == "exec":
-            src = self.node_ids.get(f"proc:{ppid}", "process")
+            src = self.node_ids.get(f"proc:{comm}", "process")
+            target = (path or comm).rsplit("/", 1)[-1]
             kind = "script" if path.endswith(SCRIPT_SUFFIXES) else "process"
-            dst = self.node_ids.get(f"proc:{pid}", kind)
+            dst = self.node_ids.get(f"proc:{target}", kind)
 
         elif etype == "connect":
-            src = self.node_ids.get(f"proc:{pid}", "process")
-            daddr = event.get("daddr") or "unknown"
+            src = self.node_ids.get(f"proc:{comm}", "process")
+            daddr = event.get("daddr") or ""
             dport = event.get("dport") or 0
-            dst = self.node_ids.get(f"net:{daddr}:{dport}", "network")
+            # Identity is "what kind of destination", not which IP -- addresses
+            # rotate between captures (CDN load balancing) and would otherwise
+            # make every run look different.
+            ext = bool(daddr) and not daddr.startswith(("127.", "10.", "192.168."))
+            pclass = "std" if dport in (80, 443, 53) else "nonstd"
+            dst = self.node_ids.get(f"net:{'ext' if ext else 'local'}:{pclass}", "network")
 
         elif etype == "open":
             if not path:
                 return None
-            src = self.node_ids.get(f"proc:{pid}", "process")
+            src = self.node_ids.get(f"proc:{comm}", "process")
             kind = classify_path(path)
-            # Bucket by role, not literal path, so sandbox strings cannot
-            # become node identities.
-            dst = self.node_ids.get(f"{kind}:{path}", kind)
+            # Role bucket plus depth: coarse enough to be identical across
+            # captures, fine enough to separate a site-packages write from a
+            # credential read.
+            # Identity must be stable across captures but still fine-grained:
+            # collapsing to the bucket alone left only ~47 nodes and cost 13
+            # points of recall. Directory structure and file type are stable
+            # properties of an install (they do not shift when one event is
+            # missing), so they are safe to include. The package's own name is
+            # still excluded -- only the last TWO path components are used, and
+            # the leaf is reduced to its extension.
+            parts = [c for c in path.split("/") if c]
+            parent = parts[-2] if len(parts) >= 2 else ""
+            ext = ("." + parts[-1].rsplit(".", 1)[-1]) if (parts and "." in parts[-1]) else "noext"
+            depth = min(path.count("/"), 10)
+            dst = self.node_ids.get(
+                f"{kind}:{path_bucket(path)}:{parent}:{ext}:{depth}", kind)
             if kind == "credential":
                 etype = "credential_read"
             elif kind == "env":

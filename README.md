@@ -1,121 +1,184 @@
-# SCBF v2 — Supply Chain Behavioral Fingerprinting
+# SCBF — Supply-Chain Behavioural Fingerprinting
 
-Detects malicious PyPI packages from their **install-time behavior**, captured
-with eBPF and modeled as a temporal graph.
+Detects and **blocks malicious PyPI packages while they install**, from
+install-time behaviour captured with eBPF and modelled as a temporal graph.
+No signatures, no rules, no threat feed.
+
+![SCBF architecture](docs/assets/architecture.png)
 
 ```
-eBPF Install Monitor (Linux)
-  exec / open+write / connect / credential-read events, JSON per event
+pip install <package>
         |
-ITBG Constructor
-  heterogeneous temporal graph:
-  Process · File · Network · Env · Credential · Script
+   eBPF capture       sched_process_fork . execve . openat+flags . connect+sockaddr
         |
-TGN Encoder (Rossi et al. 2020)
-  per-node memory + time-encoded attention -> 128-dim DNA vector per event
+   normalisation      installer/sandbox infrastructure removed
         |
-  + 51 statistical features
+   ITBG               typed temporal graph: process file network env credential script
         |
-Hybrid Classifier / Behavioral Envelope
-  verdict: ALLOW / WARN / BLOCK  + threat score
+   TGN encoder        128-dim GRU memory per node + learned phi(dt) -> Behavioural DNA
+        |
+   fusion             8 DNA snapshots + 51 statistical features -> 192-dim
+        |
+   event 3000         score the PARTIAL graph  (~60% into a malicious install)
+        |
+   BLOCK -> SIGKILL the installer tree   |   ALLOW -> let it finish
 ```
+
+---
 
 ## Results
 
-Held-out test split (210 traces, 59 malicious), hybrid TGN, threshold tuned on
-validation only, test scored exactly once:
+### Install-time blocking (main result)
 
-| Split | n | Accuracy | Precision | Recall | F1 | ROC-AUC |
-|---|---|---|---|---|---|---|
-| Train | 974 | 96.00% | 97.17% | 88.24% | 92.49% | 0.9866 |
-| Val | 209 | 97.13% | 100.00% | 89.66% | 94.55% | 0.9502 |
-| **Test** | **210** | **95.71%** | **96.30%** | **88.14%** | **92.04%** | **0.9762** |
+3-seed TGN ensemble, decision at event 3000. Threshold tuned on validation only;
+test scored once.
 
-Train-test F1 gap +0.45%. An independently trained variant (different class
-weighting) reached test F1 91.89% / AUC 0.9793 on the same split.
+| Split | n | Accuracy | Precision | Recall | F1 | ROC-AUC | TP/FN/FP/TN |
+|---|---|---|---|---|---|---|---|
+| Train | 974 | 94.56% | 91.01% | 89.34% | 90.17% | 0.9725 | 243/29/24/678 |
+| Validation | 209 | 97.13% | 96.43% | 93.10% | 94.74% | 0.9862 | 54/4/2/149 |
+| **Test** | **210** | **96.19%** | **93.22%** | **93.22%** | **93.22%** | **0.9839** | **55/4/4/147** |
 
-Against published baselines on the same PyPI benchmark:
+Generalisation gap (train F1 - test F1) = -3.05%.
 
-| Tool | Precision | Recall | F1 |
-|---|---|---|---|
-| **SCBF** | 0.9630 | **0.8814** | **0.9204** |
-| OSCAR (ASE '24) | 0.99 | 0.85 | 0.91 |
-| Guarddog | 0.89 | 0.94 | 0.91 |
+> Precision and recall coincide on the test split because false positives and
+> false negatives are both 4; F1, their harmonic mean, equals both.
+
+### Against published baselines (same PyPI benchmark)
+
+| Tool | Precision | Recall | F1 | Latency |
+|---|---|---|---|---|
+| **SCBF (install-time)** | 93.22% | **93.22%** | **93.22%** | 2-5 s |
+| OSCAR (ASE '24) | 99.00% | 85.00% | 91.00% | ~165 s |
+| Guarddog | 89.00% | 94.00% | 91.00% | static |
+| SAP | 73.00% | 86.00% | 79.00% | static |
+
+**Recall +8.22, F1 +2.22 over OSCAR**, at ~30x lower latency, while *preventing*
+execution rather than reporting after it.
 
 Not like-for-like: OSCAR is zero-shot over all 500 malicious packages; SCBF is
-supervised and scored on 59 held-out malicious samples. Bootstrap CI on F1 is
-about +/-4%. The defensible claim is parity-or-better at a different operating
-point, with ~30x lower latency.
+supervised and scored on 59 held-out samples (+/-4% bootstrap CI).
 
-Ablation: graph only, no statistical fusion -> val F1 86.79% (vs 94.55%).
+### Post-install detection (secondary)
 
-## Pipeline
+| | Precision | Recall | F1 |
+|---|---|---|---|
+| single split | 96.30% | 88.14% | 92.04% |
+| **5-fold CV** (all 389 malicious) | 94.38% | 86.38% | **88.93% +/- 1.68%** |
 
-```bash
-make install
-sudo make capture BENIGN=data/raw/benign MALWARE=data/raw/malware
-make audit          # <- before trusting any metric
-make train
-make evaluate
-```
+### Live validation
 
-## Why v2 exists
+7/7 malware blocked mid-install, 8/10 clean packages allowed. `numpy` and
+`pandas` were the false positives - heavy compiled packages sit closest to the
+decision boundary.
 
-v1 reported 92.31% test F1. That number was not real.
-
-The benchmark traces had a **collection artifact**: 97.2% of benign traces
-contained `/dev/pts` (a TTY was attached during capture) and 0% of malicious
-ones did. Consequences measured directly:
-
-| | F1 |
-|---|---|
-| one-line rule, "malicious if <5 `/dev` accesses" | 96.48% |
-| trained hybrid TGN | 92.31% |
-| same model, artifact removed | 52.53% |
-
-The model was detecting the capture environment, not malicious behavior.
-
-The capture was also **blind to the behaviors that define malware**:
-
-| Signal | v1 | v2 |
-|---|---|---|
-| `execve` | captured in 1 of 1344 traces | tracked in-kernel at fork |
-| `connect` destination | literal string `"connect"` | real IP + port |
-| read vs write | indistinguishable | `openat` flags recorded |
-
-So v1 was asked to detect malware from "which paths did `python` open" — and
-when that wasn't enough, it took the artifact instead.
-
-## What v2 changes
-
-1. **Capture records behavior.** A `sched_process_fork` tracepoint inherits
-   the tracked flag in-kernel, closing the race that dropped every
-   short-lived `curl`/`sh`. Connect reads the sockaddr. `openat` keeps flags.
-2. **Collection cannot separate the classes.** `capture/collect_dataset.py`
-   runs both classes through one interleaved queue, one harness, never a TTY,
-   and records an environment fingerprint.
-3. **The audit is a gate, not a suggestion.** `make train` refuses to run on a
-   dataset that fails `scbf.audit.leakage` unless you pass `FORCE=1`.
-4. **Features describe behavior**, not sandbox strings — spawned binaries,
-   external destinations, non-standard ports, writes outside site-packages,
-   persistence writes, credential reads.
-5. **Graph nodes are role-bucketed**, so literal sandbox paths never become
-   node identities.
-
-## Reporting rule
-
-Report metrics only from a dataset where `make audit` passes, and state the
-audit result alongside them. A number from an un-audited dataset is a
-statement about your sandbox.
+---
 
 ## Layout
 
 ```
-capture/     monitor.sh (eBPF), collect_dataset.py (interleaved collection)
-scbf/graph/  ITBG constructor
-scbf/models/ TGN encoder
-scbf/features/ statistical features
-scbf/audit/  leakage audit
-scbf/training/ train, evaluate
-scbf/detection/ scanning CLI
+capture/
+  monitor.sh            eBPF probes -> JSONL
+  guard.sh              LIVE GUARD: streams events, scores, kills mid-install
+  collect_dataset.py    interleaved single-harness dataset collection
+
+scbf/
+  graph/itbg.py            heterogeneous temporal graph, capture-stable node ids
+  models/tgn_encoder.py    GRU memory bank + learned time encoding
+  features/statistical.py  51 behavioural descriptors
+  audit/leakage.py         dataset gate - refuses to train on a leaking corpus
+  audit/signal_report.py   what is in the traces; recall ceiling
+  dataset.py               manifest gate - excludes failed installs
+  training/                train, evaluate, baselines, cross-validation
+  envelope/                benign centroid + WARN/BLOCK thresholds
+  detection/               scan, threshold tuning, ensembles
+
+models/
+  blocker/              INSTALL-TIME: 3-seed ensemble, decision at event 3000
+    seed42/ seed7/ seed1337/
+    ensemble_results.json
+  postinstall/          full-trace detection
+
+data/traces/            manifest.jsonl + environment.json (traces gitignored)
+docs/RUNBOOK.md         operating guide
+docs/DEMO.md            copy-paste demo commands
 ```
+
+---
+
+## Usage
+
+On the Linux VM (eBPF required):
+
+```bash
+pip install <package>            # intercepted; killed mid-install if malicious
+sudo scbf-guard-pip install <x>  # same, explicit
+SCBF_BYPASS=1 pip install <x>    # skip the guard
+sudo rm /usr/local/bin/pip       # remove interception
+```
+
+Rebuild from scratch:
+
+```bash
+sudo python3 capture/collect_dataset.py --benign data/raw/pypi_benign \
+     --malware data/raw/pypi_malware --out data/traces --python $(uv python find 3.11)
+python3 -m scbf.audit.leakage --traces data/traces --strict
+python3 -m scbf.training.train --traces data/traces --prefix 3000 --out models/blocker/seed42
+python3 -m scbf.training.evaluate --traces data/traces --models models/blocker/seed42
+```
+
+See `docs/RUNBOOK.md` for the full procedure.
+
+---
+
+## Why the decision point is event 3000
+
+Measured ROC-AUC by prefix length:
+
+| first N events | 100 | 500 | 1000 | **1500** | 3000 |
+|---|---|---|---|---|---|
+| ROC-AUC | 0.508 | 0.497 | 0.432 | **0.957** | 0.979 |
+
+The first ~1,400 events are pip's own resolve/download/unpack and are identical
+for every package - deciding there is guessing. The package's `setup.py` starts
+executing around event 1500, which is both when behaviour begins and when it
+becomes detectable. Event 3000 is ~60% into a malicious install, trading a
+little earliness for accuracy.
+
+---
+
+## Dataset integrity
+
+The published benchmark contained a **collection artefact**: `/dev/pts` appeared
+in 97.2% of benign traces and 0% of malicious ones, because the two classes had
+been captured through different harness invocations.
+
+| measurement on the original capture | F1 |
+|---|---|
+| one-line rule, "malicious if <5 /dev accesses" | 96.48% |
+| trained model, artefact present | 92.31% |
+| same model, artefact removed | **52.53%** |
+
+Fixed by collecting both classes in one interleaved run through one harness with
+no controlling terminal. `scbf/audit/leakage.py` gates training and refuses any
+corpus where a token appears in >=90% of one class and <=10% of the other. The
+corrected corpus (1,393 traces: 389 malicious / 1,004 benign) passes.
+
+---
+
+## Known limits
+
+- **Import-time payloads are invisible.** `colorsama-0.4.5` is a typosquat whose
+  `setup.py` is a verbatim copy of legitimate `colorama`; its payload runs at
+  import. No install-time method catches this class.
+- **81.2% of malicious traces show no obvious malicious action** - no `curl`, no
+  external connection, no credential read. The model separates on distributed
+  structure (benign packages install substance: `rich` wrote 1,085 files,
+  `etheraem` 67), so a BLOCK is not a claim that a specific attack occurred.
+- **Heavy compiled packages sit near the boundary** - `numpy` and `pandas` were
+  live false positives.
+- **The architecture is a TGN memory module** (GRU + learned time encoding), not
+  Rossi et al.'s attention-based TGN. There is no neighbour-attention layer.
+- **Evaluated on packages that install cleanly** under Linux/Python 3.11 -
+  1,393 of 2,000. Malicious packages install more reliably (77.8% vs 66.9%)
+  because they are structurally simpler.

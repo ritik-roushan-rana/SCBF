@@ -42,6 +42,29 @@ def set_seed(seed=42):
     torch.manual_seed(seed)
 
 
+# Set by --prefix. A module-level cap keeps feature extraction, the graph
+# replay and the envelope perfectly consistent: every stage sees exactly the
+# events a streaming monitor would have seen at that point in the install.
+EVENT_PREFIX = 0
+
+
+def set_prefix(n: int) -> None:
+    global EVENT_PREFIX
+    EVENT_PREFIX = int(n or 0)
+
+
+# When set, each load returns a random prefix instead of a fixed one. The
+# window is resampled per call, so a trace is seen at many different stages
+# across epochs and the model learns to judge partial installs generally.
+RANDOM_WINDOW = False
+WINDOW_CHOICES = (1200, 1500, 1800, 2100, 2400, 2700, 3000, 3500, 4000)
+
+
+def set_random_window(on: bool) -> None:
+    global RANDOM_WINDOW
+    RANDOM_WINDOW = bool(on)
+
+
 def load_events(path):
     with open(path) as f:
         out = []
@@ -50,6 +73,10 @@ def load_events(path):
                 out.append(json.loads(line))
             except Exception:
                 continue
+            if EVENT_PREFIX and not RANDOM_WINDOW and len(out) >= EVENT_PREFIX:
+                break
+    if RANDOM_WINDOW and out:
+        return out[: random.choice(WINDOW_CHOICES)]
     return out
 
 
@@ -216,13 +243,33 @@ def main():
     ap.add_argument("--patience", type=int, default=14)
     ap.add_argument("--lr", type=float, default=3e-4)
     ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--out", type=Path, default=Path("models"))
+    ap.add_argument("--out", type=Path, default=Path("models/postinstall"))
+    ap.add_argument("--random-window", action="store_true",
+                    help="Truncate each trace to a RANDOM prefix every epoch. "
+                         "A streaming blocker must judge from any amount of an "
+                         "install; training on one fixed window makes every "
+                         "other window out-of-distribution, which is why the "
+                         "fixed-prefix model only fired at exactly its training "
+                         "length and flipped on re-capture.")
+    ap.add_argument("--prefix", type=int, default=0,
+                    help="Train on the first N events only (0 = whole trace). "
+                         "For install-time blocking: no signal exists before "
+                         "~1000 events; AUC reaches 0.957 by 1500.")
     ap.add_argument("--pw-mult", type=float, default=1.0,
                     help="Multiply class pos_weight; >1 trades precision for recall.")
     args = ap.parse_args()
 
     set_seed(args.seed)
+    set_prefix(args.prefix)
+    if args.random_window:
+        set_random_window(True)
+        print('RANDOM WINDOW training: each trace truncated to a random\n'
+              'prefix each epoch, so the model is invariant to how much\n'
+              'of the install it has seen.')
     args.out.mkdir(parents=True, exist_ok=True)
+    if args.prefix:
+        print(f'PREFIX MODE: training on the first {args.prefix} events '
+              f'(install-time blocking)')
 
     items = discover(args.traces)
     if not items:
@@ -254,7 +301,9 @@ def main():
 
     for epoch in range(1, args.epochs + 1):
         tl, ty, loss = run_split(model, train, loss_fn, opt)
+        set_random_window(False)
         vl, vy, _ = run_split(model, val)
+        set_random_window(bool(args.random_window))
         sched.step()
         tm, vm = metrics(tl, ty), metrics(vl, vy)
         print(f"Epoch {epoch}/{args.epochs}  loss={loss:.4f}  "
@@ -274,7 +323,9 @@ def main():
 
     model.load_state_dict(torch.load(ckpt, weights_only=False)["model_state_dict"])
 
-    # Threshold tuned on VAL only.
+    # Selection and scoring use a FIXED window: a moving target would make
+    # the metric meaningless.
+    set_random_window(False)
     vl, vy, _ = run_split(model, val)
     thr = max(np.arange(0.20, 0.85, 0.05),
               key=lambda t: metrics(vl, vy, float(t))["f1"])
@@ -282,7 +333,8 @@ def main():
 
     torch.save(model.state_dict(), args.out / "scbf_hybrid.pt")
     with open(args.out / "threshold.json", "w") as f:
-        json.dump({"threshold": float(thr), "best_val_f1": best_f1}, f, indent=2)
+        json.dump({"threshold": float(thr), "best_val_f1": best_f1,
+                   "event_prefix": int(args.prefix)}, f, indent=2)
     print(f"Model saved: {args.out / 'scbf_hybrid.pt'}")
     print("Next: make evaluate")
 

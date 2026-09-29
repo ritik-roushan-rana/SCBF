@@ -22,7 +22,7 @@ from scbf.training.train import HybridClassifier, load_events, metrics, run_spli
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--traces", type=Path, default=Path("data/traces"))
-    ap.add_argument("--models", type=Path, default=Path("models"))
+    ap.add_argument("--models", type=Path, default=Path("models/postinstall"))
     args = ap.parse_args()
 
     model_path = args.models / "scbf_hybrid.pt"

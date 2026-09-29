@@ -164,8 +164,22 @@ def extract_features(events) -> np.ndarray:
           len(w_hidden), len(w_persist)]
 
     # ---- credential access --------------------------------------------
-    creds = [p for p in paths if any(h in p for h in CREDENTIAL_HINTS)]
-    ssh = [p for p in paths if "/.ssh" in p]
+    # Only the PACKAGE's credential access counts. sudo's PAM helper
+    # (unix_chkpwd) reads /etc/shadow during privilege drop, which is
+    # infrastructure, not behaviour -- and whether it fires depends on sudo's
+    # timestamp cache, so it varies between captures of the SAME package.
+    # Measured: rdquests-2.28.1 scored 0.96 in a capture where unix_chkpwd ran
+    # and 0.005 in one where it did not. Counting it made the model partly
+    # learn sudo's behaviour instead of the package's.
+    BOOTSTRAP_CRED = ("/etc/shadow", "/etc/passwd", "/etc/group", "/etc/gshadow")
+    BOOTSTRAP_COMM = {"sudo", "unix_chkpwd", "su", "pam_unix"}
+    pkg_events = [e for e in events
+                  if (e.get("comm") or "").rsplit("/", 1)[-1] not in BOOTSTRAP_COMM]
+    pkg_paths = [e.get("fname", "") for e in pkg_events if e.get("fname")]
+    creds = [p for p in pkg_paths
+             if any(h in p for h in CREDENTIAL_HINTS)
+             and not p.startswith(BOOTSTRAP_CRED)]
+    ssh = [p for p in pkg_paths if "/.ssh" in p]
     f += [len(creds), _safe_div(len(creds), n), float(len(creds) > 0), len(ssh)]
 
     # ---- filesystem shape ---------------------------------------------
