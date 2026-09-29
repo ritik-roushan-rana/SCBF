@@ -72,8 +72,26 @@ def envelope_from(sig: np.ndarray) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--traces", type=Path, default=Path("data/traces"))
-    ap.add_argument("--models", type=Path, default=Path("models"))
+    ap.add_argument("--models", type=Path, default=Path("models/postinstall"))
+    ap.add_argument("--prefix", type=int, default=0,
+                    help="Calibrate on the first N events only. Must match the "
+                         "prefix the model was trained with, or the envelope "
+                         "describes a different thing from the classifier.")
     args = ap.parse_args()
+
+    if args.prefix:
+        from scbf.training.train import set_prefix
+        set_prefix(args.prefix)
+        print(f"PREFIX MODE: calibrating on the first {args.prefix} events")
+    else:
+        thr = args.models / "threshold.json"
+        if thr.exists():
+            import json as _j
+            n = _j.loads(thr.read_text()).get("event_prefix", 0)
+            if n:
+                from scbf.training.train import set_prefix
+                set_prefix(n)
+                print(f"PREFIX MODE: model was trained on {n} events — matching")
 
     split = json.loads((args.models / "split_info.json").read_text())
     benign_train = [i for i in split["train"] if i["label"] == 0]

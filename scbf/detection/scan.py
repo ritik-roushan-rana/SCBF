@@ -166,7 +166,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--trace", type=Path)
     ap.add_argument("--batch", type=Path)
-    ap.add_argument("--models", type=Path, default=Path("models"))
+    ap.add_argument("--models", type=Path, default=Path("models/blocker/seed42"))
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
