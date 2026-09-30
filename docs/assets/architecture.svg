@@ -1,185 +1,302 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1820" height="800" viewBox="0 0 1820 800"
+<svg xmlns="http://www.w3.org/2000/svg" width="1960" height="880" viewBox="0 0 1960 880"
      font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
   <defs>
-    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="#5b6472"/>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2d3440"/>
     </marker>
     <style>
-      .t   { font-size:12.5px; fill:#2d3440; }
-      .s   { font-size:11px;   fill:#5b6472; }
-      .m   { font-size:10.5px; fill:#6b7480; font-family:"SF Mono",Menlo,Consolas,monospace; }
-      .h   { font-size:14px;   fill:#1a1f28; font-weight:600; }
-      .st  { font-size:12px;   fill:#8a929e; font-weight:600; letter-spacing:.09em; }
-      .ttl { font-size:22px;   fill:#12161d; font-weight:600; }
-      .box { fill:#fbfcfd; stroke:#d6dbe2; stroke-width:1.1; rx:7; }
-      .acc { fill:#f4f8fd; stroke:#b9cde4; stroke-width:1.1; rx:7; }
-      .wrn { fill:#fdf6f3; stroke:#e6c3b4; stroke-width:1.1; rx:7; }
-      .ok  { fill:#f4faf5; stroke:#bcd9c2; stroke-width:1.1; rx:7; }
-      .ln  { stroke:#5b6472; stroke-width:1.4; fill:none; marker-end:url(#a); }
-      .sep { stroke:#e8ebef; stroke-width:1; }
+      .ttl  { font-size:25px; fill:#12161d; font-weight:700; text-anchor:middle; }
+      .sub  { font-size:13px; fill:#4a5260; text-anchor:middle; }
+      .sec  { font-size:15px; font-weight:700; text-anchor:middle; }
+      .ch   { font-size:12.5px; fill:#1a1f28; font-weight:700; text-anchor:middle; }
+      .cl   { font-size:12.5px; fill:#1a1f28; font-weight:700; }
+      .t    { font-size:11px; fill:#3a414d; }
+      .s    { font-size:10.2px; fill:#5b6472; }
+      .m    { font-size:10.5px; fill:#3a414d; font-family:"SF Mono",Menlo,Consolas,monospace; }
+      .mc   { font-size:10.5px; fill:#3a414d; font-family:"SF Mono",Menlo,Consolas,monospace; text-anchor:middle; }
+      .card { fill:#ffffff; stroke-width:1.2; rx:6; }
+      .flag { fill:#fdf5f1; stroke:#e0a98c; stroke-width:1.3; rx:6; }
     </style>
   </defs>
+  <rect width="1960" height="880" fill="#ffffff"/>
 
-  <rect width="1820" height="800" fill="#ffffff"/>
-  <text x="40" y="44" class="ttl">SCBF — Supply-Chain Behavioural Fingerprinting</text>
-  <text x="40" y="66" class="s">Terminates a malicious package installation while it is still running. PyPI and npm.</text>
-  <line x1="40" y1="82" x2="1780" y2="82" class="sep"/>
+  <!-- title -->
+  <rect x="640" y="16" width="680" height="62" rx="8" fill="#eaf1fb" stroke="#9db8dd" stroke-width="1.4"/>
+  <text x="980" y="44" class="ttl">SCBF — Architecture</text>
+  <text x="980" y="66" class="sub">Supply-Chain Behavioural Fingerprinting · blocks malicious PyPI and npm packages during installation</text>
 
-  <text x="40" y="110" class="st">1 · CAPTURE</text>
-  <rect x="40" y="122" width="300" height="86" class="box"/>
-  <text x="56" y="144" class="h">Installer runs ONCE</text>
-  <text x="56" y="165" class="m">pip install X   ·   npm install X</text>
-  <text x="56" y="184" class="s">SCBF_ECOSYSTEM selects the manager.</text>
-  <text x="56" y="199" class="s">The probes are identical for both.</text>
+  <!-- ============ 1 INPUT ============ -->
+  <rect x="26" y="100" width="318" height="590" rx="9" fill="#f6fafe" stroke="#7aa8dc" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="185" y="128" class="sec" fill="#1f5fa8">1. Input &amp; Execution</text>
+  <text x="185" y="147" class="sec" fill="#1f5fa8">Environment</text>
 
-  <rect x="40" y="222" width="300" height="150" class="acc"/>
-  <text x="56" y="244" class="h">eBPF — four kernel tracepoints</text>
-  <text x="56" y="266" class="m">sched_process_fork</text>
-  <text x="56" y="282" class="s">propagates the tracked-PID set IN-KERNEL</text>
-  <text x="56" y="297" class="s">a userspace /proc poll caught 0.8% of execs</text>
-  <text x="56" y="318" class="m">execve · openat+flags · connect+sockaddr</text>
-  <text x="56" y="334" class="s">write distinguishable from read; destination</text>
-  <text x="56" y="349" class="s">IP known, so C2 differs from the registry</text>
-  <text x="56" y="366" class="m">→ {type,pid,ppid,comm,fname,daddr,dport,ts}</text>
+  <rect x="44" y="162" width="282" height="52" class="card" stroke="#9db8dd"/>
+  <text x="185" y="182" class="ch">PyPI and npm packages</text>
+  <text x="185" y="201" class="s" text-anchor="middle">Zenodo 13746167 — OSCAR RQ1 benchmark</text>
 
-  <path d="M350,295 L392,295" class="ln"/>
+  <rect x="44" y="224" width="282" height="56" class="card" stroke="#9db8dd"/>
+  <text x="185" y="244" class="ch">Isolated Linux VM</text>
+  <text x="185" y="261" class="s" text-anchor="middle">fresh environment per package, no controlling</text>
+  <text x="185" y="274" class="s" text-anchor="middle">TTY, DNS-sinkholed egress</text>
 
-  <text x="402" y="110" class="st">2 · INSTALL-TIME BEHAVIOUR GRAPH</text>
-  <rect x="402" y="122" width="320" height="250" class="box"/>
-  <text x="418" y="144" class="h">Built incrementally, as events arrive</text>
-  <text x="418" y="170" class="t">Semantic node identity</text>
-  <text x="418" y="188" class="m">proc:{comm}</text>
-  <text x="418" y="204" class="m">{kind}:{bucket}:{parent}:{ext}:{depth}</text>
-  <text x="418" y="222" class="s">A node is its ROLE, not its position in the</text>
-  <text x="418" y="237" class="s">stream. Order-based ids made one extra</text>
-  <text x="418" y="252" class="s">early event shift every later id — the same</text>
-  <text x="418" y="267" class="s">package scored 0.98 and 0.006.</text>
-  <line x1="418" y1="282" x2="706" y2="282" class="sep"/>
-  <text x="418" y="302" class="t">6 node kinds</text>
-  <text x="418" y="319" class="s">process · file · network · env · credential · script</text>
-  <text x="418" y="339" class="t">6 edge types</text>
-  <text x="418" y="356" class="s">exec · open · write · connect · credential_read · env_read</text>
+  <rect x="44" y="290" width="282" height="42" class="card" stroke="#9db8dd"/>
+  <text x="185" y="309" class="mc">pip install &lt;pkg&gt;</text>
+  <text x="185" y="325" class="mc">npm install &lt;pkg&gt;</text>
 
-  <path d="M732,295 L774,295" class="ln"/>
+  <rect x="44" y="342" width="282" height="116" class="card" stroke="#9db8dd"/>
+  <text x="185" y="362" class="ch">Install-time behaviour</text>
+  <text x="58" y="381" class="s">• pip: executes setup.py</text>
+  <text x="58" y="396" class="s">• npm: runs preinstall / postinstall hooks</text>
+  <text x="58" y="411" class="s">• resolves and installs dependencies</text>
+  <text x="58" y="426" class="s">• spawns processes, writes files</text>
+  <text x="58" y="441" class="s">• opens outbound connections</text>
+  <text x="58" y="455" class="s">• reads credential-shaped paths</text>
 
-  <text x="784" y="110" class="st">3 · TEMPORAL GRAPH NETWORK</text>
-  <rect x="784" y="122" width="320" height="250" class="acc"/>
-  <text x="800" y="144" class="h">Per-node GRU memory</text>
-  <text x="800" y="168" class="m">M[dst] ← GRU(</text>
-  <text x="812" y="184" class="m">[ M[src] ‖ e ‖ φ(Δt) ], M[dst] )</text>
-  <text x="800" y="204" class="s">128-dim memory, 50k slots. φ is a 32-dim</text>
-  <text x="800" y="219" class="s">learned encoding of the inter-event interval.</text>
-  <rect x="800" y="234" width="288" height="44" class="wrn"/>
-  <text x="812" y="252" class="t">Memory module only — no attention</text>
-  <text x="812" y="269" class="s">not Rossi et al.'s full TGN; do not claim it is</text>
-  <line x1="800" y1="292" x2="1088" y2="292" class="sep"/>
-  <text x="800" y="312" class="t">Behavioural DNA</text>
-  <text x="800" y="330" class="s">memory pooled at 8 checkpoints (12.5% … 100%)</text>
-  <text x="800" y="345" class="s">128-dim, L2-normalised, per checkpoint</text>
-  <text x="800" y="364" class="m">trained on RANDOM windows (1200–4000)</text>
+  <rect x="44" y="468" width="282" height="72" class="card" stroke="#9db8dd"/>
+  <text x="185" y="488" class="ch">Interleaved collection</text>
+  <text x="58" y="507" class="s">both classes, one seeded queue, one harness,</text>
+  <text x="58" y="521" class="s">one run — so the collection procedure itself</text>
+  <text x="58" y="535" class="s">cannot separate the classes</text>
 
-  <path d="M1114,295 L1156,295" class="ln"/>
+  <rect x="44" y="550" width="282" height="124" class="flag"/>
+  <text x="185" y="570" class="ch">Dataset actually usable</text>
+  <text x="58" y="590" class="t">PyPI  2,000 attempted → 1,393 usable</text>
+  <text x="58" y="606" class="s">607 failed installs EXCLUDED by manifest gate</text>
+  <text x="58" y="625" class="t">npm  2,000 attempted → 1,813 usable</text>
+  <text x="58" y="641" class="s">187 failed installs EXCLUDED</text>
+  <text x="58" y="661" class="s">A dynamic system cannot analyse what never runs.</text>
 
-  <text x="1166" y="110" class="st">4 · CLASSIFIER</text>
-  <rect x="1166" y="122" width="300" height="250" class="box"/>
-  <text x="1182" y="144" class="h">HybridClassifier · 464,257 params</text>
-  <text x="1182" y="170" class="m">DNA(8×128) → graph_proj ┐</text>
-  <text x="1182" y="188" class="m">                        ├→ head → p</text>
-  <text x="1182" y="206" class="m">51 features → stat_proj ┘</text>
-  <text x="1182" y="228" class="s">3 seeds (42 / 7 / 1337) averaged, all sharing</text>
-  <text x="1182" y="243" class="s">ONE train/val/test split.</text>
-  <rect x="1182" y="258" width="268" height="46" class="wrn"/>
-  <text x="1194" y="276" class="t">--split-seed fixed across members</text>
-  <text x="1194" y="293" class="s">per-member splits leaked 145/210 test packages</text>
-  <line x1="1182" y1="318" x2="1450" y2="318" class="sep"/>
-  <text x="1182" y="338" class="t">PyPI only: gradient-boosting stage</text>
-  <text x="1182" y="356" class="m">[ p_tgn ‖ 51 features ‖ window ] → GBM</text>
-  <text x="1182" y="371" class="s">npm ships without it — it changed nothing there</text>
+  <path d="M348,390 L386,390" stroke="#2d3440" stroke-width="2" marker-end="url(#ar)"/>
 
-  <text x="40" y="424" class="st">5 · DECISION — scored on the PARTIAL graph, while the installer is still running</text>
-  <rect x="40" y="436" width="1426" height="150" class="box"/>
-  <text x="60" y="460" class="t">A single 3000-event decision point is reached by only 59% of installs. The rest finish first and would be judged after the payload had already run —</text>
-  <text x="60" y="477" class="t">that is detection wearing a blocking label. Scoring at several points lets short installs be terminated mid-flight.</text>
+  <!-- ============ 2 eBPF ============ -->
+  <rect x="392" y="100" width="318" height="590" rx="9" fill="#f5fbf6" stroke="#6aab7a" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="551" y="128" class="sec" fill="#2f7d45">2. Behaviour Monitoring</text>
+  <text x="551" y="147" class="sec" fill="#2f7d45">(eBPF, kernel space)</text>
 
-  <rect x="60" y="492" width="300" height="76" class="acc"/>
-  <text x="76" y="513" class="h">event 1500</text>
-  <text x="76" y="533" class="m">PyPI p ≥ 0.7997 · npm p ≥ 0.6010</text>
-  <text x="76" y="551" class="s">PyPI 100.00% prec · 79.66% rec · 88.68% F1</text>
-  <text x="76" y="566" class="s">npm   90.48% prec · 66.67% rec · 76.77% F1</text>
+  <rect x="410" y="162" width="282" height="52" class="card" stroke="#a9d0b4"/>
+  <text x="551" y="182" class="ch">Four kernel tracepoints</text>
+  <text x="551" y="199" class="s" text-anchor="middle">cannot be disabled from user space;</text>
+  <text x="551" y="211" class="s" text-anchor="middle">perf-ring buffered, non-blocking</text>
 
-  <rect x="376" y="492" width="300" height="76" class="acc"/>
-  <text x="392" y="513" class="h">event 2200</text>
-  <text x="392" y="533" class="m">PyPI p ≥ 0.9425</text>
-  <text x="392" y="551" class="s">97.87% prec · 77.97% rec · 86.79% F1</text>
-  <text x="392" y="566" class="s">AUC 0.9712</text>
+  <rect x="410" y="224" width="282" height="74" class="flag"/>
+  <text x="424" y="243" class="m">sched_process_fork</text>
+  <text x="424" y="260" class="s">propagates the tracked-PID set IN-KERNEL</text>
+  <text x="424" y="274" class="s">A userspace /proc poll caught exec in only</text>
+  <text x="424" y="288" class="s">0.8% of npm traces. In-kernel: 100%.</text>
 
-  <rect x="692" y="492" width="300" height="76" class="ok"/>
-  <text x="708" y="513" class="h">event 3000</text>
-  <text x="708" y="533" class="m">PyPI p ≥ 0.9568</text>
-  <text x="708" y="551" class="s">100.00% prec · 86.44% rec · 92.73% F1</text>
-  <text x="708" y="566" class="s">AUC 0.9820 · 210 held-out installs</text>
+  <rect x="410" y="308" width="282" height="46" class="card" stroke="#a9d0b4"/>
+  <text x="424" y="327" class="m">execve</text>
+  <text x="424" y="345" class="s">every subprocess: shells, downloaders, node</text>
 
-  <rect x="1008" y="492" width="440" height="76" class="box"/>
-  <text x="1024" y="513" class="t">Each threshold is tuned on VALIDATION only; test is scored once.</text>
-  <text x="1024" y="532" class="s">Nothing useful exists before ~1200 events — that window is the installer's</text>
-  <text x="1024" y="547" class="s">own resolve / download / unpack, near-identical for every package (AUC 0.57).</text>
-  <text x="1024" y="565" class="s">The behavioural envelope contributes a corroborating distance, not the verdict.</text>
+  <rect x="410" y="364" width="282" height="46" class="card" stroke="#a9d0b4"/>
+  <text x="424" y="383" class="m">openat + flags</text>
+  <text x="424" y="401" class="s">flags recorded, so a WRITE differs from a read</text>
 
-  <text x="40" y="624" class="st">6 · ACTION</text>
-  <rect x="40" y="636" width="300" height="76" class="wrn"/>
-  <text x="56" y="658" class="h">BLOCK</text>
-  <text x="56" y="678" class="s">SIGKILL the installer process tree, children</text>
-  <text x="56" y="693" class="s">first; the caller discards the target environment.</text>
-  <text x="56" y="708" class="s">Verified: the package is absent afterwards.</text>
+  <rect x="410" y="420" width="282" height="58" class="card" stroke="#a9d0b4"/>
+  <text x="424" y="439" class="m">connect + sockaddr</text>
+  <text x="424" y="457" class="s">destination IP and port read, so C2 traffic is</text>
+  <text x="424" y="470" class="s">distinguishable from a registry download</text>
 
-  <rect x="356" y="636" width="240" height="76" class="box"/>
-  <text x="372" y="658" class="h">WARN</text>
-  <text x="372" y="678" class="s">logged; the install continues</text>
+  <rect x="410" y="488" width="282" height="76" class="card" stroke="#a9d0b4"/>
+  <text x="551" y="508" class="ch">Raw event log (JSONL)</text>
+  <text x="424" y="528" class="m">type, pid, ppid, comm, fname,</text>
+  <text x="424" y="545" class="m">ts, write, daddr, dport</text>
+  <text x="424" y="559" class="s">one line per syscall, in arrival order</text>
 
-  <rect x="612" y="636" width="240" height="76" class="ok"/>
-  <text x="628" y="658" class="h">ALLOW</text>
-  <text x="628" y="678" class="s">install completes under supervision</text>
+  <rect x="410" y="574" width="282" height="100" class="card" stroke="#a9d0b4"/>
+  <text x="551" y="594" class="ch">One install, once</text>
+  <text x="424" y="613" class="s">The installer is NOT run twice. It runs a single</text>
+  <text x="424" y="627" class="s">time under live capture, and is killed in place</text>
+  <text x="424" y="641" class="s">if the partial behaviour turns malicious.</text>
+  <text x="424" y="661" class="s">SCBF_ECOSYSTEM selects pip or npm; the</text>
+  <text x="424" y="673" class="s">probes are identical for both.</text>
 
-  <rect x="868" y="636" width="598" height="76" class="acc"/>
-  <text x="884" y="658" class="h">Live validation — real installs, not replayed traces</text>
-  <text x="884" y="678" class="s">PyPI  10/12 malware blocked · 10/10 clean allowed</text>
-  <text x="884" y="694" class="s">npm    6/10 malware blocked ·  8/10 clean allowed</text>
-  <text x="884" y="710" class="s">Local artifacts. Registry installs are a known defect — see README.</text>
+  <path d="M714,390 L752,390" stroke="#2d3440" stroke-width="2" marker-end="url(#ar)"/>
 
-  <text x="1500" y="110" class="st">DATASET GATES</text>
-  <rect x="1500" y="122" width="280" height="250" class="box"/>
-  <text x="1516" y="144" class="h">Results are worthless if it leaks</text>
-  <text x="1516" y="168" class="t">Leakage audit — a gate, not a report</text>
-  <text x="1516" y="185" class="s">fails the build on any token or single feature</text>
-  <text x="1516" y="200" class="s">that separates the classes, or on differing</text>
-  <text x="1516" y="215" class="s">capture environments. Caught /dev/pts in</text>
-  <text x="1516" y="230" class="s">97.2% benign / 0% malicious — a one-line</text>
-  <text x="1516" y="245" class="s">rule on it scored 96.48% F1.</text>
-  <text x="1516" y="270" class="t">Manifest gate</text>
-  <text x="1516" y="287" class="s">refuses to build a dataset by globbing.</text>
-  <text x="1516" y="302" class="s">607/2000 PyPI and 187/2000 npm installs</text>
-  <text x="1516" y="317" class="s">failed; training on them teaches</text>
-  <text x="1516" y="332" class="s">"install failed → benign".</text>
-  <text x="1516" y="356" class="t">Interleaved collection</text>
-  <text x="1516" y="371" class="s">both classes, one seeded queue, one run</text>
+  <!-- ============ 3 GRAPH ============ -->
+  <rect x="758" y="100" width="330" height="590" rx="9" fill="#fffaf4" stroke="#dda45f" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="923" y="128" class="sec" fill="#b1701a">3. Behaviour Graph</text>
+  <text x="923" y="147" class="sec" fill="#b1701a">Construction</text>
 
-  <rect x="1500" y="436" width="280" height="150" class="acc"/>
-  <text x="1516" y="458" class="h">vs OSCAR (ASE '24)</text>
-  <text x="1516" y="480" class="t">PyPI</text>
-  <text x="1516" y="497" class="s">SCBF 92.73% F1 · OSCAR 91.00%</text>
-  <text x="1516" y="512" class="s">+1.73 F1, +1.44 recall — and blocks</text>
-  <text x="1516" y="527" class="s">mid-install vs reporting at ~165 s</text>
-  <text x="1516" y="549" class="t">npm</text>
-  <text x="1516" y="566" class="s">SCBF 76.77% F1 · OSCAR 95.00%</text>
-  <text x="1516" y="581" class="s">SCBF loses — see the ceiling below</text>
+  <rect x="776" y="162" width="294" height="84" class="card" stroke="#e8c193"/>
+  <text x="923" y="182" class="ch">Normalisation</text>
+  <text x="790" y="201" class="s">Infrastructure removed BEFORE any feature:</text>
+  <text x="790" y="216" class="s">• TTY / pseudo-terminal devices</text>
+  <text x="790" y="230" class="s">• PAM and privilege-drop activity</text>
+  <text x="790" y="242" class="s">• interpreter stdlib, pip / npm scaffolding</text>
 
-  <rect x="1500" y="636" width="280" height="76" class="wrn"/>
-  <text x="1516" y="658" class="h">Structural ceiling — npm</text>
-  <text x="1516" y="678" class="s">98 of 379 malicious packages declare no</text>
-  <text x="1516" y="693" class="s">install hook. They execute nothing during</text>
-  <text x="1516" y="708" class="s">install, so no install-time monitor sees them.</text>
+  <rect x="776" y="256" width="294" height="118" class="flag"/>
+  <text x="923" y="276" class="ch">Install-Time Behaviour Graph</text>
+  <text x="790" y="295" class="s">typed, timestamped, built incrementally</text>
+  <text x="790" y="313" class="t">Node identity is SEMANTIC, not positional</text>
+  <text x="790" y="330" class="m">proc:{comm}</text>
+  <text x="790" y="345" class="m">{kind}:{bucket}:{parent}:{ext}:{depth}</text>
+  <text x="790" y="361" class="s">Order-based ids made one extra early event shift</text>
+  <text x="790" y="371" class="s">every later id — one package scored 0.98 and 0.006.</text>
 
-  <line x1="40" y1="740" x2="1780" y2="740" class="sep"/>
-  <text x="40" y="762" class="s">Thresholds tuned on validation only · test scored once · all ensemble members share one split · 59 malicious PyPI / 57 npm test samples → F1 carries ≈ ±4%</text>
-  <text x="40" y="780" class="s">Benchmark: OSCAR RQ1 archives (Zenodo 13746167). Every baseline in the comparison analyses the complete package; SCBF decides from a partial trace, in real time.</text>
+  <rect x="776" y="384" width="294" height="150" class="card" stroke="#e8c193"/>
+  <text x="923" y="404" class="ch">Node and edge types</text>
+  <circle cx="796" cy="424" r="5" fill="#4a90d9"/><text x="808" y="428" class="s">process</text>
+  <circle cx="936" cy="424" r="5" fill="#e8b93a"/><text x="948" y="428" class="s">env</text>
+  <circle cx="796" cy="446" r="5" fill="#5eb974"/><text x="808" y="450" class="s">file</text>
+  <circle cx="936" cy="446" r="5" fill="#9b6dd6"/><text x="948" y="450" class="s">credential</text>
+  <circle cx="796" cy="468" r="5" fill="#e0685f"/><text x="808" y="472" class="s">network (ip:port)</text>
+  <circle cx="936" cy="468" r="5" fill="#e08a3a"/><text x="948" y="472" class="s">script</text>
+  <line x1="790" y1="484" x2="1056" y2="484" stroke="#eee3d4"/>
+  <text x="790" y="502" class="s">edges: exec · open · write · connect</text>
+  <text x="790" y="516" class="s">reads_env · reads_credential</text>
+  <text x="790" y="530" class="s">Credential reads and script execs are first-class types.</text>
+
+  <rect x="776" y="544" width="294" height="130" class="card" stroke="#e8c193"/>
+  <text x="923" y="564" class="ch">Ecosystem-gated vocabulary</text>
+  <text x="790" y="584" class="s">Path buckets differ per manager:</text>
+  <text x="790" y="601" class="m">pypi → site_packages</text>
+  <text x="790" y="616" class="m">npm  → node_modules, .js/.cjs/.mjs</text>
+  <text x="790" y="634" class="s">Gated behind SCBF_ECOSYSTEM so PyPI node</text>
+  <text x="790" y="648" class="s">ids stay byte-identical. 11% of pip traces touch</text>
+  <text x="790" y="662" class="s">.js paths — folding npm terms in globally would</text>
+  <text x="790" y="673" class="s">have silently shifted them.</text>
+
+  <path d="M1092,390 L1130,390" stroke="#2d3440" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ============ 4 DETECTION ============ -->
+  <rect x="1136" y="100" width="500" height="590" rx="9" fill="#faf7fe" stroke="#9b7fd4" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="1386" y="128" class="sec" fill="#6a45b8">4. Detection Engine</text>
+
+  <rect x="1154" y="142" width="464" height="126" class="card" stroke="#c3b0e6"/>
+  <text x="1386" y="162" class="ch">Temporal Graph Network — memory based</text>
+  <text x="1168" y="181" class="s">128-dim memory vector per node, updated by a GRU cell</text>
+  <text x="1168" y="200" class="m">M[dst] ← GRU( cat( M[src], e, φ(t − τ[src]) ), M[dst] )</text>
+  <text x="1168" y="217" class="s">φ = 32-dim learned encoding of the inter-event interval</text>
+  <rect x="1168" y="226" width="436" height="34" rx="5" fill="#fdf5f1" stroke="#e0a98c" stroke-width="1.1"/>
+  <text x="1180" y="240" class="t">Memory module only — no attention over temporal neighbours.</text>
+  <text x="1180" y="254" class="s">This is not Rossi et al.'s full TGN and should not be described as one.</text>
+
+  <rect x="1154" y="278" width="464" height="66" class="card" stroke="#c3b0e6"/>
+  <text x="1386" y="297" class="ch">Behavioural DNA — 8 checkpoints (12.5% … 100%)</text>
+  <rect x="1186" y="306" width="74" height="26" rx="4" fill="#f3eefb" stroke="#c3b0e6"/>
+  <rect x="1276" y="306" width="74" height="26" rx="4" fill="#f3eefb" stroke="#c3b0e6"/>
+  <rect x="1366" y="306" width="74" height="26" rx="4" fill="#f3eefb" stroke="#c3b0e6"/>
+  <rect x="1456" y="306" width="74" height="26" rx="4" fill="#f3eefb" stroke="#c3b0e6"/>
+  <circle cx="1206" cy="319" r="4" fill="#4a90d9"/><circle cx="1240" cy="319" r="4" fill="#5eb974"/>
+  <circle cx="1296" cy="319" r="4" fill="#4a90d9"/><circle cx="1330" cy="319" r="4" fill="#e0685f"/>
+  <circle cx="1386" cy="319" r="4" fill="#9b6dd6"/><circle cx="1420" cy="319" r="4" fill="#5eb974"/>
+  <circle cx="1476" cy="319" r="4" fill="#4a90d9"/><circle cx="1510" cy="319" r="4" fill="#e08a3a"/>
+  <text x="1556" y="323" class="s">… ×8</text>
+
+  <rect x="1154" y="354" width="226" height="64" class="card" stroke="#c3b0e6"/>
+  <text x="1267" y="373" class="ch">Behavioural DNA</text>
+  <rect x="1168" y="380" width="198" height="9" rx="2" fill="#a9d6f5"/>
+  <text x="1267" y="403" class="s" text-anchor="middle">128-dim, L2-normalised</text>
+  <text x="1267" y="414" class="s" text-anchor="middle">graph path: 512→256→128</text>
+
+  <rect x="1392" y="354" width="226" height="64" class="card" stroke="#c3b0e6"/>
+  <text x="1505" y="373" class="ch">Statistical descriptors</text>
+  <rect x="1406" y="380" width="198" height="9" rx="2" fill="#a9e3b8"/>
+  <text x="1505" y="403" class="s" text-anchor="middle">51 features → 128 → 64</text>
+  <text x="1505" y="414" class="s" text-anchor="middle">exec / connect / write / credential</text>
+
+  <path d="M1267,420 L1267,434 L1505,434 L1505,420" stroke="#6b7480" stroke-width="1.2" fill="none"/>
+  <path d="M1386,434 L1386,446" stroke="#2d3440" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <rect x="1154" y="452" width="464" height="52" class="card" stroke="#c3b0e6"/>
+  <text x="1386" y="471" class="ch">Fusion — 192-dim representation</text>
+  <text x="1386" y="489" class="s" text-anchor="middle">head 192→64→1 · 464,257 trainable parameters · 3 seeds averaged, ONE shared split</text>
+
+  <rect x="1154" y="514" width="464" height="76" class="flag"/>
+  <text x="1386" y="533" class="ch">PyPI only: gradient-boosting stage</text>
+  <text x="1168" y="552" class="m">[ p_tgn ‖ 51 features ‖ window ] → GBM → p(malicious)</text>
+  <text x="1168" y="569" class="s">Fitted across all windows so it calibrates instead of assuming a trace length.</text>
+  <text x="1168" y="583" class="s">npm ships without it — the hybrid reproduced the TGN's predictions exactly.</text>
+
+  <rect x="1154" y="600" width="464" height="74" class="card" stroke="#c3b0e6"/>
+  <text x="1386" y="619" class="ch">Trained on RANDOM windows (1200–4000)</text>
+  <text x="1168" y="638" class="s">A fixed-prefix model is out-of-distribution at every other length: trained only</text>
+  <text x="1168" y="652" class="s">at 3000 events it scored known malware at p=0.0001 when the live install</text>
+  <text x="1168" y="666" class="s">produced 1,900. The behavioural envelope corroborates; it does not decide.</text>
+
+  <path d="M1640,390 L1678,390" stroke="#2d3440" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ============ 5 OUTPUT ============ -->
+  <rect x="1684" y="100" width="250" height="590" rx="9" fill="#fef7f6" stroke="#d98a80" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="1809" y="128" class="sec" fill="#b04a3e">5. Output</text>
+
+  <rect x="1700" y="142" width="218" height="82" class="card" stroke="#e8b3ab"/>
+  <text x="1809" y="161" class="ch">Decision points</text>
+  <text x="1712" y="180" class="s">scored on the PARTIAL graph, while</text>
+  <text x="1712" y="193" class="s">the installer is still running</text>
+  <text x="1712" y="211" class="m">event 1500 · 2200 · 3000</text>
+
+  <rect x="1700" y="234" width="218" height="66" rx="6" fill="#fdeeeb" stroke="#d98a80" stroke-width="1.3"/>
+  <circle cx="1722" cy="256" r="10" fill="#d0473a"/>
+  <text x="1722" y="260" font-size="12" fill="#fff" text-anchor="middle" font-weight="700">✕</text>
+  <text x="1740" y="261" class="cl">BLOCK</text>
+  <text x="1712" y="279" class="s">p ≥ the checkpoint's threshold</text>
+  <text x="1712" y="292" class="s">SIGKILL the installer process tree</text>
+
+  <rect x="1700" y="308" width="218" height="54" rx="6" fill="#fef8ec" stroke="#dfae55" stroke-width="1.3"/>
+  <circle cx="1722" cy="328" r="10" fill="#e0a52e"/>
+  <text x="1722" y="332" font-size="12" fill="#fff" text-anchor="middle" font-weight="700">!</text>
+  <text x="1740" y="333" class="cl">WARN</text>
+  <text x="1712" y="352" class="s">logged; the install continues</text>
+
+  <rect x="1700" y="370" width="218" height="54" rx="6" fill="#f2faf4" stroke="#7bbd8c" stroke-width="1.3"/>
+  <circle cx="1722" cy="390" r="10" fill="#4e9e63"/>
+  <text x="1722" y="394" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">✓</text>
+  <text x="1740" y="395" class="cl">ALLOW</text>
+  <text x="1712" y="414" class="s">completes under supervision</text>
+
+  <rect x="1700" y="434" width="218" height="112" class="card" stroke="#e8b3ab"/>
+  <text x="1809" y="453" class="ch">Thresholds per checkpoint</text>
+  <text x="1712" y="472" class="t">PyPI</text>
+  <text x="1712" y="488" class="m">1500 → 0.7997</text>
+  <text x="1712" y="503" class="m">2200 → 0.9425</text>
+  <text x="1712" y="518" class="m">3000 → 0.9568</text>
+  <text x="1712" y="536" class="t">npm</text>
+  <text x="1790" y="536" class="m">1500 → 0.6010</text>
+
+  <rect x="1700" y="556" width="218" height="118" class="card" stroke="#e8b3ab"/>
+  <text x="1809" y="575" class="ch">Explanation report</text>
+  <text x="1712" y="594" class="s">• spawned binaries (shells, curl)</text>
+  <text x="1712" y="608" class="s">• external destinations contacted</text>
+  <text x="1712" y="622" class="s">• credential-shaped reads</text>
+  <text x="1712" y="636" class="s">• writes outside the install target</text>
+  <text x="1712" y="650" class="s">• the checkpoint that fired</text>
+  <text x="1712" y="666" class="s">infrastructure excluded from the report</text>
+
+  <!-- ============ 6 SUPPORTING ============ -->
+  <rect x="26" y="704" width="1908" height="156" rx="9" fill="#fafbfc" stroke="#b6bdc7" stroke-width="1.4" stroke-dasharray="5 3"/>
+  <text x="980" y="728" class="sec" fill="#4a5260">6. Supporting Components · Results · Limits</text>
+
+  <rect x="44" y="740" width="452" height="104" class="card" stroke="#cfd5dd"/>
+  <text x="58" y="759" class="cl">Leakage audit — a gate, not a report</text>
+  <text x="58" y="777" class="s">rejects any token present in ≥90% of one class and ≤10% of the other</text>
+  <text x="58" y="791" class="s">rejects any single feature with disjoint class ranges</text>
+  <text x="58" y="805" class="s">rejects differing capture environments across the split</text>
+  <text x="58" y="822" class="s">Caught /dev/pts in 97.2% benign / 0% malicious — a one-line rule on it</text>
+  <text x="58" y="835" class="s">scored 96.48% F1. Training is REFUSED on a corpus that fails.</text>
+
+  <rect x="510" y="740" width="452" height="104" class="card" stroke="#cfd5dd"/>
+  <text x="524" y="759" class="cl">Model training and protocol</text>
+  <text x="524" y="777" class="s">feature normalisation fitted on train only; balanced batches</text>
+  <text x="524" y="791" class="s">every threshold selected on VALIDATION; test scored exactly once</text>
+  <text x="524" y="805" class="s">3 seeds (42 / 7 / 1337) averaged, all sharing ONE split via --split-seed</text>
+  <text x="524" y="822" class="s">Per-member splits once leaked 145 of 210 test packages into siblings'</text>
+  <text x="524" y="835" class="s">training data, inflating PyPI F1 to a withdrawn 93.22%.</text>
+
+  <rect x="976" y="740" width="452" height="104" class="card" stroke="#cfd5dd"/>
+  <text x="990" y="759" class="cl">Held-out results — test split, scored once</text>
+  <text x="990" y="777" class="s">PyPI @3000   100.00% precision · 86.44% recall · 92.73% F1 · AUC 0.9820</text>
+  <text x="990" y="791" class="s">PyPI @1500   100.00% precision · 79.66% recall · 88.68% F1 · AUC 0.9411</text>
+  <text x="990" y="805" class="s">npm  @1500    90.48% precision · 66.67% recall · 76.77% F1 · AUC 0.8700</text>
+  <text x="990" y="822" class="s">vs OSCAR (ASE '24): PyPI 91.00% F1 → SCBF +1.73 · npm 95.00% → SCBF −18.23</text>
+  <text x="990" y="835" class="s">Live: PyPI 10/12 malware blocked, 10/10 clean · npm 6/10, 8/10</text>
+
+  <rect x="1442" y="740" width="492" height="104" class="flag"/>
+  <text x="1456" y="759" class="cl">Known limits</text>
+  <text x="1456" y="777" class="s">• 98 of 379 malicious npm packages declare NO install hook — they execute</text>
+  <text x="1466" y="790" class="s">nothing during install, so no install-time monitor can see them (AUC 0.688)</text>
+  <text x="1456" y="806" class="s">• benign traces came from local archives, so registry installs are falsely</text>
+  <text x="1466" y="819" class="s">blocked — a known defect, not a limitation</text>
+  <text x="1456" y="835" class="s">• 59 malicious PyPI / 57 npm test samples → F1 carries ≈ ±4%</text>
 </svg>
