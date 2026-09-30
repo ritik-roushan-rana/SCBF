@@ -27,6 +27,8 @@ Two design decisions worth stating, both learned from the previous version:
      is "package install target" regardless of which sandbox produced it.
 """
 
+import os
+
 import torch
 
 # Semantic buckets for file paths. Order matters: first match wins.
@@ -48,7 +50,7 @@ NPM_SCRIPT_SUFFIXES = (".js", ".cjs", ".mjs", ".ts", ".node")
 # npm suffixes in unconditionally would reclassify those files from
 # "file" to "script", shift their node ids, and invalidate the pip
 # blocker that guard.sh loads at runtime.
-ECOSYSTEM = "pypi"
+ECOSYSTEM = os.environ.get("SCBF_ECOSYSTEM", "pypi")
 
 
 def set_ecosystem(name: str) -> None:

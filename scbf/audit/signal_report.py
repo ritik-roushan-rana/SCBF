@@ -17,7 +17,7 @@ Two questions this answers before any model is trained:
      can lift, and you need that number before interpreting a result.
 
 Usage:
-    python3 -m scbf.audit.signal_report --traces data/traces
+    python3 -m scbf.audit.signal_report --traces data/pip_traces
 """
 
 import argparse
@@ -79,7 +79,7 @@ def analyse(path: Path) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
     args = ap.parse_args()
 
     print("=" * 78)

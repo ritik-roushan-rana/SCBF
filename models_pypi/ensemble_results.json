@@ -1,0 +1,66 @@
+{
+  "model": "3-seed TGN ensemble (random-window trained) + multi-window gradient-boosting stage",
+  "ecosystem": "pypi",
+  "split_seed": 42,
+  "split_verified": "identical across all 3 TGN members; 0 test packages in any member train/val",
+  "decision_points": [
+    1500,
+    2200,
+    3000
+  ],
+  "thresholds": {
+    "1500": 0.7997,
+    "2200": 0.9425,
+    "3000": 0.9568
+  },
+  "threshold_tuned_on": "validation only, per decision point; test scored once",
+  "test_by_decision_point": {
+    "1500": {
+      "n": 210,
+      "precision": 1.0,
+      "recall": 0.7966,
+      "f1": 0.8868,
+      "roc_auc": 0.9411
+    },
+    "2200": {
+      "n": 210,
+      "precision": 0.9787,
+      "recall": 0.7797,
+      "f1": 0.8679,
+      "roc_auc": 0.9712
+    },
+    "3000": {
+      "n": 210,
+      "precision": 1.0,
+      "recall": 0.8644,
+      "f1": 0.9273,
+      "roc_auc": 0.982
+    }
+  },
+  "oscar_pypi_table5a": {
+    "precision": 0.99,
+    "recall": 0.85,
+    "f1": 0.91
+  },
+  "delta_vs_oscar_at_3000": {
+    "precision": 0.01,
+    "recall": 0.0144,
+    "f1": 0.0173
+  },
+  "why_multi_window": "a fixed 3000-event decision point is reached by only 59% of installs; the rest complete first and were judged after the payload had already run, which is detection, not blocking. Scoring at 1500/2200/3000 lets short installs be terminated while still running.",
+  "live_validation": {
+    "malware_local_artifacts": "5/6 blocked, terminated mid-install, venv discarded (package verified absent afterwards)",
+    "clean_local_artifacts": "4/4 allowed, 0 false positives (1 timed out, no verdict)",
+    "clean_from_pypi_registry": "4/6 allowed -- requests and certifi FALSELY BLOCKED"
+  },
+  "KNOWN_LIMITATION": "Training benign traces all came from installing LOCAL .tar.gz files. A real 'pip install <name>' downloads from files.pythonhosted.org, and those external connections resemble the exfiltration pattern learned from malware. Result: ~33% false positives on registry installs. Fix requires recollecting benign traces via registry installs.",
+  "caveats": [
+    "59 malicious samples in test -> roughly +/-4% on F1",
+    "part of the statistical contribution comes from volume features tracking package size; this corpus property benefits every tool in OSCAR Table 5a equally but would not transfer to a typosquat of a large real library",
+    "live sample sizes (6 malware, 6 clean) are enough to find bugs, not enough to quote a live recall figure"
+  ],
+  "superseded_INVALID": {
+    "f1_93_22": "ensemble members each had a DIFFERENT split; 145/210 test packages sat in sibling training data",
+    "f1_92_86": "fixed-prefix hybrid; its GBM was fitted on fixed-prefix TGN scores that no longer match the shipped random-window members"
+  }
+}

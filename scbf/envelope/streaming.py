@@ -17,7 +17,7 @@ slots, concatenated with the statistical descriptors of the partial event
 stream. This is exactly what a streaming monitor can compute at run time.
 
 Usage:
-    python3 -m scbf.envelope.streaming --traces data/traces --models models
+    python3 -m scbf.envelope.streaming --traces data/pip_traces --models models
 """
 
 import argparse
@@ -64,7 +64,7 @@ def partial_signature(model, events, upto):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
     ap.add_argument("--models", type=Path, default=Path("models"))
     ap.add_argument("--calib", type=int, default=120,
                     help="benign training traces used for calibration")

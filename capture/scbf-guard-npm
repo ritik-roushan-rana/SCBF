@@ -1,0 +1,60 @@
+#!/bin/bash
+# scbf-guard-npm — INSTALL-TIME blocking for npm.
+#
+#   sudo scbf-guard-npm install ./pkg.tgz
+#   sudo scbf-guard-npm install express
+#   SCBF_DRY_RUN=1 sudo scbf-guard-npm install ./pkg.tgz    # decide, never kill
+#
+# npm runs ONCE, into a throwaway prefix, under live eBPF capture. Every event
+# feeds the ITBG; the TGN scores the partial graph at the decision point and
+# the installer's process tree is killed if it crosses BLOCK.
+#
+# Decision point: event 1500. npm traces are far shorter than pip's (median
+# ~1400 events total), and signal only appears once npm's own bootstrap is
+# done and the package's lifecycle hook runs -- measured, malware's first
+# foreign exec lands at event ~1332 while benign's lands at ~14153.
+#
+# LIMITATION, measured on the corpus: 98 of 379 malicious packages (26%)
+# declare no preinstall/install/postinstall hook at all. They execute nothing
+# during installation, so no install-time monitor can see them. Held-out
+# performance is 90.48% precision / 66.67% recall / 76.77% F1.
+set -u
+
+HERE="${SCBF_HOME:-/home/ubuntu/scbf2}"
+MODELS="${SCBF_MODELS:-$HERE/models_npm}"
+DROP="${SUDO_USER:-ubuntu}"
+
+[ "${1:-}" = "install" ] || { echo "usage: sudo scbf-guard-npm install <pkg|./pkg.tgz>"; exit 2; }
+TARGET="${2:-}"
+[ -n "$TARGET" ] || { echo "usage: sudo scbf-guard-npm install <pkg|./pkg.tgz>"; exit 2; }
+
+NAME=$(basename "$TARGET" .tgz)
+PREFIX=/tmp/scbf_npm_install
+TRACE="/tmp/guard_npm_${NAME}.jsonl"
+
+# Throwaway install root. A minimal package.json stops npm walking up to a
+# parent manifest, which would make the trace depend on the working directory.
+rm -rf "$PREFIX"; mkdir -p "$PREFIX"
+printf '{"name":"scbf-guard","version":"1.0.0","private":true}\n' > "$PREFIX/package.json"
+chown -R "$DROP:$DROP" "$PREFIX"
+
+echo "[*] installing '$TARGET' under LIVE guard — it will be killed if it turns malicious"
+echo
+OUT=$(cd "$HERE" && SCBF_ECOSYSTEM=npm SCBF_MODELS="$MODELS" \
+      SCBF_ENSEMBLE="$MODELS/seed42,$MODELS/seed7,$MODELS/seed1337" \
+      SCBF_USER="$DROP" \
+      bash "$HERE/capture/guard.sh" "$NAME" "$PREFIX" "$TARGET" "$TRACE" </dev/null 2>&1)
+echo "$OUT" | grep -E "^\[guard\]|VERDICT|Events captured|INSTALLATION"
+
+if echo "$OUT" | grep -q "VERDICT        : BLOCKED"; then
+  echo
+  echo "[✗] BLOCKED — the installer was terminated before it finished."
+  rm -rf "$PREFIX"
+  echo "    partial install discarded"
+  echo "    trace: $TRACE"
+  exit 1
+fi
+echo
+echo "[✓] ALLOWED — install completed under supervision."
+echo "    environment: $PREFIX"
+echo "    trace: $TRACE"

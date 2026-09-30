@@ -25,8 +25,8 @@ Any of these means a metric computed on this dataset is measuring
 collection, not behavior.
 
 Usage:
-    python3 -m scbf.audit.leakage --traces data/traces
-    python3 -m scbf.audit.leakage --traces data/traces --strict   # exit 1 on fail
+    python3 -m scbf.audit.leakage --traces data/pip_traces
+    python3 -m scbf.audit.leakage --traces data/pip_traces --strict   # exit 1 on fail
 """
 
 import argparse

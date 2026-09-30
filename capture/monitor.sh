@@ -456,7 +456,34 @@ bpf["events"].open_perf_buffer(
 
 print("[+] Starting pip installation...")
 
-cmd = [
+# SCBF_ECOSYSTEM selects the package manager. The eBPF probes below are
+# ecosystem-agnostic -- fork/execve/openat/connect mean the same thing
+# whichever installer runs -- so only the command being traced changes.
+ECOSYSTEM = os.environ.get("SCBF_ECOSYSTEM", "pypi")
+
+if ECOSYSTEM == "npm":
+    # For npm the second positional argument carries the isolated install
+    # root instead of a python binary.
+    NPM_PREFIX = PYTHON_BIN
+    cmd = [
+        "npm", "install", ARTIFACT,
+        # Install into a per-package root so nothing carries between traces.
+        "--prefix", NPM_PREFIX,
+        # npm's content-addressable cache makes consecutive installs
+        # dependent: a warm _cacache changes the syscall trace of the NEXT
+        # package. Same hazard as pip's wheel cache, same fix -- give every
+        # install its own cache directory.
+        "--cache", os.path.join(NPM_PREFIX, ".npm-cache"),
+        # Lifecycle scripts (preinstall/install/postinstall) are where npm
+        # malware overwhelmingly lives, so they stay ON. This mirrors the
+        # decision to leave pip's build isolation at its default: disabling
+        # it would suppress the very behaviour we are trying to capture,
+        # and would do so asymmetrically across the two classes.
+        "--foreground-scripts",
+        "--no-audit", "--no-fund",
+    ]
+else:
+    cmd = [
     PYTHON_BIN,
     "-m",
     "pip",
@@ -467,9 +494,9 @@ cmd = [
     # never does -- so it depresses the BENIGN success rate specifically
     # and bakes a class-correlated bias into the dataset. Measured with
     # the flag on: 63.3% benign vs 77.6% malware success.
-    "--disable-pip-version-check",
-    ARTIFACT,
-]
+        "--disable-pip-version-check",
+        ARTIFACT,
+    ]
 
 try:
 

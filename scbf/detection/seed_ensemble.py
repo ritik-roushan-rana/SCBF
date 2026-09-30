@@ -15,6 +15,7 @@ Usage:
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -23,7 +24,16 @@ import torch
 from scbf.envelope.streaming import partial_signature
 from scbf.training.train import HybridClassifier, load_events, set_prefix
 
-OSCAR = {"precision": 0.99, "recall": 0.85, "f1": 0.91}
+# OSCAR (ASE '24, arXiv:2409.09356) reports SEPARATE per-ecosystem results.
+# Using the PyPI row for an npm comparison understates the gap by ~4 F1
+# points, so the baseline is keyed by ecosystem and selected explicitly.
+#   Table 5(a) PyPI : P 0.99  R 0.85  F1 0.91
+#   Table 5(b) npm  : P 0.99  R 0.92  F1 0.95
+OSCAR_BY_ECOSYSTEM = {
+    "pypi": {"precision": 0.99, "recall": 0.85, "f1": 0.91},
+    "npm":  {"precision": 0.99, "recall": 0.92, "f1": 0.95},
+}
+OSCAR = OSCAR_BY_ECOSYSTEM[os.environ.get("SCBF_ECOSYSTEM", "pypi")]
 
 
 def scores(model, items, at):
@@ -93,7 +103,9 @@ def main() -> None:
               f"TP{r['tp']} FN{r['fn']} FP{r['fp']} TN{r['tn']}")
 
     t = out["test"]
-    print(f"\n  vs OSCAR (precision 99.00%, recall 85.00%, F1 91.00%):")
+    eco = os.environ.get("SCBF_ECOSYSTEM", "pypi")
+    print(f"\n  vs OSCAR [{eco}] (precision {OSCAR['precision']:.2%}, "
+          f"recall {OSCAR['recall']:.2%}, F1 {OSCAR['f1']:.2%}):")
     for k, label in (("precision", "precision"), ("recall", "recall"), ("f1", "F1")):
         d = t[k] - OSCAR[k]
         print(f"    {label:<10}{t[k]:>8.2%}   {d:+.2%}  {'BEATS' if d > 0 else 'below'}")
