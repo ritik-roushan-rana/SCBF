@@ -174,5 +174,44 @@
     },
     "why": "the hybrid produces identical test predictions to the TGN alone, so the GBM stage adds an artifact and inference cost for no measured gain. TGN-only also has the higher test AUC.",
     "contrast_with_pypi": "on PyPI the statistical features dominate (GBM alone 94.92% vs TGN 89.91%); on npm the TGN dominates. pip malware is visible in aggregate volume patterns, npm malware is a process-spawn sequence -- which is what the temporal graph model captures."
-  }
+  },
+  "metrics": {
+    "train": {
+      "n": 1268,
+      "accuracy": 0.9298107255520505,
+      "precision": 0.9536082474226805,
+      "recall": 0.6981132075471698,
+      "f1": 0.8061002178649237,
+      "roc_auc": 0.9207810530672136,
+      "tp": 185,
+      "fn": 80,
+      "fp": 9,
+      "tn": 994
+    },
+    "val": {
+      "n": 272,
+      "accuracy": 0.9301470588235294,
+      "precision": 0.9523809523809523,
+      "recall": 0.7017543859649122,
+      "f1": 0.8080808080808081,
+      "roc_auc": 0.8979192166462668,
+      "tp": 40,
+      "fn": 17,
+      "fp": 2,
+      "tn": 213
+    },
+    "test": {
+      "n": 273,
+      "accuracy": 0.9157509157509157,
+      "precision": 0.9047619047619048,
+      "recall": 0.6666666666666666,
+      "f1": 0.7676767676767676,
+      "roc_auc": 0.8700454840805718,
+      "tp": 38,
+      "fn": 19,
+      "fp": 4,
+      "tn": 212
+    }
+  },
+  "train_metrics_note": "npm has no gradient-boosting stage, so these train figures reflect the neural ensemble and are interpretable (unlike PyPI, where the GBM memorises its training split). train->test F1 gap +3.84%; train recall 69.81% vs test 66.67% -- a data ceiling, not overfitting."
 }

@@ -61,12 +61,24 @@ and did not overfit it.
 
 ### npm — install-time blocking
 
-| Decision point | Precision | Recall | F1 | ROC-AUC |
-|---|---|---|---|---|
-| **event 1500** | **90.48%** | **66.67%** | **76.77%** | **0.8700** |
+3-seed TGN ensemble, decision at event 1500, threshold 0.6010. 1,813 usable
+traces: train 1268, validation 272, test 273 (57 malicious).
 
-273 held-out installs, 57 malicious. npm's ceiling is structural — see
-*Known limits*.
+| Split | n | Accuracy | Precision | Recall | F1 | ROC-AUC | TP/FN/FP/TN |
+|---|---|---|---|---|---|---|---|
+| train | 1268 | 92.98% | 95.36% | 69.81% | 80.61% | 0.9208 | 185/80/9/994 |
+| val | 272 | 93.01% | 95.24% | 70.18% | 80.81% | 0.8979 | 40/17/2/213 |
+| **test** | **273** | **91.58%** | **90.48%** | **66.67%** | **76.77%** | **0.8700** | **38/19/4/212** |
+
+**These train figures are meaningful, unlike PyPI's.** npm ships no
+gradient-boosting stage — the hybrid reproduced the TGN's predictions exactly,
+so it was dropped — leaving the pure neural ensemble, which does not memorise
+its training split. The train→test F1 gap is **+3.84%**, and train recall is
+69.81% against test's 66.67%: the model is not overfitting, it is hitting a
+ceiling that exists in the data itself.
+
+That ceiling is structural. 26% of the malicious packages execute nothing during
+installation — see *Known limits*.
 
 ### Against published baselines
 
