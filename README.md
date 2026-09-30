@@ -34,13 +34,30 @@ ensemble members sharing **one** train/val/test split.
 
 ### PyPI — install-time blocking
 
-| Decision point | Precision | Recall | F1 | ROC-AUC |
-|---|---|---|---|---|
-| event 1500 | 100.00% | 79.66% | 88.68% | 0.9411 |
-| event 2200 | 97.87% | 77.97% | 86.79% | 0.9712 |
-| **event 3000** | **100.00%** | **86.44%** | **92.73%** | **0.9820** |
+Full train / validation / test breakdown at each decision point. 1,393 usable
+traces: train 974, validation 209, test 210 (59 malicious).
 
-210 held-out installs, 59 malicious.
+| Decision point | Split | n | Accuracy | Precision | Recall | F1 | ROC-AUC | TP/FN/FP/TN |
+|---|---|---|---|---|---|---|---|---|
+| **1500** | train | 974 | 100.00% | 100.00% | 100.00% | 100.00% | 1.0000 | 272/0/0/702 |
+| | val | 209 | 94.74% | 100.00% | 81.03% | 89.52% | 0.9438 | 47/11/0/151 |
+| | **test** | 210 | 94.29% | **100.00%** | 79.66% | **88.68%** | 0.9411 | 47/12/0/151 |
+| **2200** | train | 974 | 100.00% | 100.00% | 100.00% | 100.00% | 1.0000 | 272/0/0/702 |
+| | val | 209 | 94.74% | 97.96% | 82.76% | 89.72% | 0.9418 | 48/10/1/150 |
+| | **test** | 210 | 93.33% | 97.87% | 77.97% | 86.79% | 0.9712 | 46/13/1/150 |
+| **3000** | train | 974 | 100.00% | 100.00% | 100.00% | 100.00% | 1.0000 | 272/0/0/702 |
+| | val | 209 | 96.65% | 100.00% | 87.93% | 93.58% | 0.9587 | 51/7/0/151 |
+| | **test** | **210** | **96.19%** | **100.00%** | **86.44%** | **92.73%** | **0.9820** | **51/8/0/151** |
+
+**Train metrics are 100% and should not be read as performance.** The
+gradient-boosting stage is fitted on the training split with 300 iterations, so
+it memorises it exactly. The meaningful figures are validation and test. The
+train→test F1 gap is +7.27% at event 3000, +11.32% at 1500 — the earlier
+checkpoint has less evidence and generalises less well.
+
+Validation and test track each other closely at every checkpoint (93.58% vs
+92.73% at 3000), which is what you want: the threshold was tuned on validation
+and did not overfit it.
 
 ### npm — install-time blocking
 
