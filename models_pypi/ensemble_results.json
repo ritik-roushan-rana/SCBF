@@ -14,29 +14,6 @@
     "3000": 0.9568
   },
   "threshold_tuned_on": "validation only, per decision point; test scored once",
-  "test_by_decision_point": {
-    "1500": {
-      "n": 210,
-      "precision": 1.0,
-      "recall": 0.7966,
-      "f1": 0.8868,
-      "roc_auc": 0.9411
-    },
-    "2200": {
-      "n": 210,
-      "precision": 0.9787,
-      "recall": 0.7797,
-      "f1": 0.8679,
-      "roc_auc": 0.9712
-    },
-    "3000": {
-      "n": 210,
-      "precision": 1.0,
-      "recall": 0.8644,
-      "f1": 0.9273,
-      "roc_auc": 0.982
-    }
-  },
   "oscar_pypi_table5a": {
     "precision": 0.99,
     "recall": 0.85,
@@ -62,5 +39,122 @@
   "superseded_INVALID": {
     "f1_93_22": "ensemble members each had a DIFFERENT split; 145/210 test packages sat in sibling training data",
     "f1_92_86": "fixed-prefix hybrid; its GBM was fitted on fixed-prefix TGN scores that no longer match the shipped random-window members"
-  }
+  },
+  "metrics_by_decision_point": {
+    "1500": {
+      "train": {
+        "n": 974,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "tp": 272,
+        "fn": 0,
+        "fp": 0,
+        "tn": 702
+      },
+      "val": {
+        "n": 209,
+        "accuracy": 0.9473684210526315,
+        "precision": 1.0,
+        "recall": 0.8103448275862069,
+        "f1": 0.8952380952380953,
+        "roc_auc": 0.9438227905914592,
+        "tp": 47,
+        "fn": 11,
+        "fp": 0,
+        "tn": 151
+      },
+      "test": {
+        "n": 210,
+        "accuracy": 0.9428571428571428,
+        "precision": 1.0,
+        "recall": 0.7966101694915254,
+        "f1": 0.8867924528301887,
+        "roc_auc": 0.9410708272533393,
+        "tp": 47,
+        "fn": 12,
+        "fp": 0,
+        "tn": 151
+      }
+    },
+    "2200": {
+      "train": {
+        "n": 974,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "tp": 272,
+        "fn": 0,
+        "fp": 0,
+        "tn": 702
+      },
+      "val": {
+        "n": 209,
+        "accuracy": 0.9473684210526315,
+        "precision": 0.9795918367346939,
+        "recall": 0.8275862068965517,
+        "f1": 0.897196261682243,
+        "roc_auc": 0.9417675268326102,
+        "tp": 48,
+        "fn": 10,
+        "fp": 1,
+        "tn": 150
+      },
+      "test": {
+        "n": 210,
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9787234042553191,
+        "recall": 0.7796610169491526,
+        "f1": 0.8679245283018868,
+        "roc_auc": 0.971152766864968,
+        "tp": 46,
+        "fn": 13,
+        "fp": 1,
+        "tn": 150
+      }
+    },
+    "3000": {
+      "train": {
+        "n": 974,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "tp": 272,
+        "fn": 0,
+        "fp": 0,
+        "tn": 702
+      },
+      "val": {
+        "n": 209,
+        "accuracy": 0.9665071770334929,
+        "precision": 1.0,
+        "recall": 0.8793103448275862,
+        "f1": 0.9357798165137615,
+        "roc_auc": 0.9586663621831468,
+        "tp": 51,
+        "fn": 7,
+        "fp": 0,
+        "tn": 151
+      },
+      "test": {
+        "n": 210,
+        "accuracy": 0.9619047619047619,
+        "precision": 1.0,
+        "recall": 0.864406779661017,
+        "f1": 0.9272727272727272,
+        "roc_auc": 0.9820406330676844,
+        "tp": 51,
+        "fn": 8,
+        "fp": 0,
+        "tn": 151
+      }
+    }
+  },
+  "train_metrics_note": "Train figures are 100% because the gradient-boosting stage is fitted on the training split and memorises it. Validation and test are the meaningful numbers. train->test F1 gap: +7.27% @3000, +13.21% @2200, +11.32% @1500."
 }
