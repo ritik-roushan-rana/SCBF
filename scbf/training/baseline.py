@@ -10,7 +10,7 @@ Uses the SAME split file the TGN uses, so the comparison is exact. The
 threshold is tuned on val only, and test is scored once.
 
 Usage:
-    python3 -m scbf.training.baseline --traces data/traces
+    python3 -m scbf.training.baseline --traces data/pip_traces
 """
 
 import argparse
@@ -66,7 +66,7 @@ def report(name, model, sets, thr):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
     ap.add_argument("--models", type=Path, default=Path("models"))
     args = ap.parse_args()
 

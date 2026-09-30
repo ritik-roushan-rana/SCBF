@@ -46,7 +46,7 @@ from scbf.training.train import HybridClassifier as _HC, SNAPSHOTS as _SNAP
 # download / unpack machinery and are identical for every package; the target's
 # setup.py starts executing around there, which is when behaviour begins and
 # when it becomes detectable.
-_MODELS = os.environ.get("SCBF_MODELS", "/home/ubuntu/scbf2/models_e3000")
+_MODELS = os.environ.get("SCBF_MODELS", "/home/ubuntu/scbf2/models_pypi")
 
 # The first decision point is the window the model was TRAINED on. Scoring a
 # prefix model at an earlier event would feed it a window it has never seen,
@@ -57,23 +57,42 @@ try:
         _P0 = int(json.load(_f).get("event_prefix") or 3000)
 except Exception:
     _P0 = 3000
-_DECISIONS = tuple(sorted({_P0, _P0 + 1000, _P0 + 2000}))
+_MW = os.path.join(_MODELS, "multiwindow_gbm.joblib")
+if os.path.exists(_MW):
+    try:
+        import joblib as _jl
+        _DECISIONS = tuple(sorted(_jl.load(_MW)["windows"]))
+    except Exception:
+        _DECISIONS = tuple(sorted({_P0, _P0 + 1000, _P0 + 2000}))
+else:
+    # Fixed-prefix fallback. It only reaches a verdict on the ~59% of installs
+    # that run past _P0; the rest finish first and are judged after the payload
+    # has already executed, which is detection, not blocking.
+    _DECISIONS = tuple(sorted({_P0, _P0 + 1000, _P0 + 2000}))
 _DRY = os.environ.get("SCBF_DRY_RUN", "0") == "1"
 
 
 class _Guard:
-    """3-seed ensemble. A 460k-parameter model trained on 974 samples carries
-    real seed variance -- individual runs came in at 93.58%, 93.69% and 96.43%
-    validation F1. Averaging three seeds recovered most of it: test F1 rose
-    from 90.91% (single model) to 93.22%, which is what clears OSCAR on recall
-    and F1."""
+    """3-seed TGN ensemble, optionally followed by a gradient-boosting stage.
+
+    All three members share ONE train/val/test split. They did not always:
+    --seed used to drive both model init and the split, so each member had a
+    different partition and scoring the ensemble on one member's test set
+    meant the others had trained on 145/210 of it. That inflated PyPI test F1
+    to 93.22%; the clean figure for the TGN alone is 89.91%.
+
+    On PyPI a gradient-boosting stage over [TGN score + the 51 statistical
+    features] lifts test F1 to 92.86% (precision 98.11%, recall 88.14%),
+    above OSCAR's 91.00/99.00/85.00. It is loaded from hybrid_gbm.joblib when
+    present. On npm it is not: there the hybrid reproduces the TGN's
+    predictions exactly, so the extra stage buys nothing and is skipped."""
 
     def __init__(self):
         dirs = os.environ.get(
             "SCBF_ENSEMBLE",
-            "/home/ubuntu/scbf2/models_v5,"
-            "/home/ubuntu/scbf2/models_v5b,"
-            "/home/ubuntu/scbf2/models_v5c").split(",")
+            "/home/ubuntu/scbf2/models_pypi/seed42,"
+            "/home/ubuntu/scbf2/models_pypi/seed7,"
+            "/home/ubuntu/scbf2/models_pypi/seed1337").split(",")
         self.models = []
         for d in dirs:
             d = d.strip()
@@ -89,8 +108,59 @@ class _Guard:
         print(f"[guard] ensemble of {len(self.models)} models", flush=True)
         self.model = self.models[0]          # its ITBG drives graph replay
         self.model.itbg.reset()
-        with open(os.path.join(_MODELS, "envelope.json")) as f:
-            self.env = json.load(f)["fused"]
+        # The envelope is a corroborating distance signal, not the decision.
+        # npm ships without one, so its absence must not be fatal.
+        try:
+            with open(os.path.join(_MODELS, "envelope.json")) as f:
+                self.env = json.load(f)["fused"]
+        except Exception:
+            self.env = {"centroid": None, "block_threshold": float("inf"),
+                        "warn_threshold": float("inf")}
+        # Optional hybrid stage. Absent (npm) -> plain TGN ensemble.
+        self.gbms, self.gbm_thr = None, None
+        self.mw_thr = None            # {window: threshold}
+        _mwp = os.path.join(_MODELS, "multiwindow_gbm.joblib")
+        if os.path.exists(_mwp):
+            try:
+                import joblib as _joblib
+                _b = _joblib.load(_mwp)
+                self.gbms = _b["gbms"]
+                self.mw_thr = {int(k): float(v) for k, v in _b["thresholds"].items()}
+                print(f"[guard] multi-window stage loaded: windows "
+                      f"{sorted(self.mw_thr)} thresholds "
+                      f"{ {k: round(v,4) for k,v in sorted(self.mw_thr.items())} }",
+                      flush=True)
+            except Exception as _e:
+                print(f"[guard] multi-window stage unavailable ({_e})", flush=True)
+        _hp = os.environ.get("SCBF_HYBRID",
+                             os.path.join(_MODELS, "hybrid_gbm.joblib"))
+        if self.gbms is None and os.path.exists(_hp):
+            try:
+                import joblib as _joblib
+                _b = _joblib.load(_hp)
+                self.gbms, self.gbm_thr = _b["gbms"], float(_b["threshold"])
+                print(f"[guard] hybrid GBM stage loaded "
+                      f"({len(self.gbms)} members, threshold {self.gbm_thr:.4f})",
+                      flush=True)
+            except Exception as _e:
+                print(f"[guard] hybrid stage unavailable ({_e}); "
+                      f"falling back to the TGN ensemble", flush=True)
+        # The block threshold must match the stage that produces the score.
+        # It was hard-coded to 0.1925, which belongs to the old TGN-only model
+        # AND was tuned on a leaked split. GBM probabilities are on a different
+        # scale entirely, so a stale constant here silently mis-fires.
+        if self.gbm_thr is not None:
+            self.p_threshold = self.gbm_thr
+        else:
+            try:
+                with open(os.path.join(_MODELS, "threshold.json")) as f:
+                    self.p_threshold = float(json.load(f)["threshold"])
+            except Exception:
+                self.p_threshold = 0.5
+        _ov = os.environ.get("SCBF_BLOCK_P")
+        if _ov:
+            self.p_threshold = float(_ov)
+        print(f"[guard] decision threshold {self.p_threshold:.4f}", flush=True)
         self.events = []; self.dna = None; self.fired = set(); self.verdict = None
 
     def add(self, ev):
@@ -143,12 +213,38 @@ class _Guard:
                 sp_ = mm.stat_proj(_torch.clamp(st, -10, 10))
                 fu = _torch.cat([g, sp_], dim=1)
                 probs.append(float(_torch.sigmoid(mm.head(fu).squeeze())))
-                if mi == 0:
+                if mi == 0 and self.env.get("centroid") is not None:
                     dist = float(_np.linalg.norm(
                         fu.squeeze(0).numpy() - _np.array(self.env["centroid"])))
         if not probs:
             return None, None
-        return dist, float(_np.mean(probs))
+        if dist is None:
+            dist = 0.0          # no envelope (npm): distance is unused
+        tgn = float(_np.mean(probs))
+        if self.gbms:
+            # Same input the stage was fitted on: the TGN ensemble score, the
+            # RAW (un-normalised) statistical features, and -- for the
+            # multi-window stage -- how much of the install has been seen, so
+            # it can calibrate instead of assuming a fixed trace length.
+            v = [[tgn], _feat(self.events)]
+            if self.mw_thr is not None:
+                v.append([float(self._window_for(n))])
+            x = _np.concatenate(v).reshape(1, -1)
+            tgn = float(_np.mean([g.predict_proba(x)[0, 1] for g in self.gbms]))
+        return dist, tgn
+
+    def _window_for(self, n):
+        """The calibrated window this many events belongs to."""
+        ws = sorted(self.mw_thr) if self.mw_thr else [3000]
+        for w in ws:
+            if n <= w:
+                return w
+        return ws[-1]
+
+    def threshold_for(self, n):
+        if self.mw_thr:
+            return self.mw_thr[self._window_for(n)]
+        return self.p_threshold
 
     def _unused(self):
         with _torch.no_grad():
@@ -630,14 +726,10 @@ def handle_event(cpu, data, size):
         if _d is not None:
             _blk = _guard.env["block_threshold"]
             _wrn = _guard.env["warn_threshold"]
-            # Decision is on the classifier probability. Swept over 210 held-out
-            # traces at event 1500: p>=0.685 blocks 76.3% of malware for a 0.7%
-            # false-kill rate; the envelope distance gives the same recall at
-            # 2.0%. The distance is kept as a corroborating signal.
-            # Swept over 210 held-out traces with the 3000-event model:
-            # p>=0.533 gives 91.5% of malware blocked, 96.4% precision,
-            # 1.3% false kills -- F1 93.9%.
-            _PTHR = float(os.environ.get("SCBF_BLOCK_P", "0.1925"))
+            # Decision is on the classifier probability, at the threshold that
+            # was tuned on VALIDATION for whichever stage is loaded. The
+            # envelope distance is kept only as a corroborating signal.
+            _PTHR = _guard.threshold_for(len(_guard.events))
             if _p >= _PTHR:
                 _v = "BLOCK"
             elif _p >= _PTHR * 0.6 or _d >= _wrn:
@@ -668,9 +760,30 @@ bpf["events"].open_perf_buffer(
 # START PIP
 # ============================================================
 
-print("[+] Starting pip installation...")
+print(f"[+] Starting {os.environ.get('SCBF_ECOSYSTEM','pypi')} installation...")
 
-cmd = [
+# SCBF_ECOSYSTEM selects the package manager. The eBPF probes are identical
+# for both -- fork/execve/openat/connect mean the same thing whichever
+# installer runs -- so only the traced command changes.
+ECOSYSTEM = os.environ.get("SCBF_ECOSYSTEM", "pypi")
+
+if ECOSYSTEM == "npm":
+    # For npm the second positional argument carries the install prefix
+    # instead of a python binary.
+    NPM_PREFIX = PYTHON_BIN
+    cmd = [
+        "npm", "install", ARTIFACT,
+        "--prefix", NPM_PREFIX,
+        # npm's content-addressable cache makes consecutive installs
+        # dependent: a warm _cacache changes the syscall trace of the next
+        # package. Give every install its own.
+        "--cache", os.path.join(NPM_PREFIX, ".npm-cache"),
+        # Lifecycle scripts are where npm malware lives, so they stay ON.
+        "--foreground-scripts",
+        "--no-audit", "--no-fund",
+    ]
+else:
+    cmd = [
     PYTHON_BIN,
     "-m",
     "pip",
@@ -681,9 +794,9 @@ cmd = [
     # never does -- so it depresses the BENIGN success rate specifically
     # and bakes a class-correlated bias into the dataset. Measured with
     # the flag on: 63.3% benign vs 77.6% malware success.
-    "--disable-pip-version-check",
-    ARTIFACT,
-]
+        "--disable-pip-version-check",
+        ARTIFACT,
+    ]
 
 try:
 
@@ -811,7 +924,7 @@ print("============================================================")
 if _guard.verdict is None and _guard.events:
     _d, _p = _guard.score()
     if _d is not None:
-        _PT = float(os.environ.get("SCBF_BLOCK_P", "0.1925"))
+        _PT = _guard.threshold_for(len(_guard.events))
         print(f"[guard] final ({len(_guard.events)} events, install already "
               f"complete): p(malicious)={_p:.4f} distance={_d:.3f}", flush=True)
         if _p >= _PT:
@@ -833,7 +946,13 @@ print(f"[+] Events lost     : {lost_events}")
 print(f"[+] PIDs with events: {len(pids)}")
 print(f"[+] Output          : {OUTPUT}")
 
-if returncode == 0:
+# pip's return code alone is misleading here: when the guard kills the process
+# tree, pip can still have exited 0 on a run that was terminated, so printing
+# "INSTALLATION SUCCESS" next to a BLOCK verdict reads as a contradiction.
+if _guard.verdict == "BLOCK":
+    print("[!] INSTALLATION BLOCKED — terminated by the guard; "
+          "any files already written are discarded by the caller")
+elif returncode == 0:
     print("[+] INSTALLATION SUCCESS")
 else:
     print("[!] INSTALLATION FAILED")

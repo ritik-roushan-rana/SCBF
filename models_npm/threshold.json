@@ -1,0 +1,5 @@
+{
+  "threshold": 0.601,
+  "event_prefix": 1500,
+  "note": "3-seed TGN ensemble, tuned on validation only. npm has no multi-window stage: the hybrid reproduced the TGN predictions exactly, so the extra stage was dropped."
+}

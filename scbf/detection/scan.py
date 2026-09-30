@@ -15,7 +15,7 @@ destinations, credential reads, writes outside the install target.
 
 Usage:
     python3 -m scbf.detection.scan --trace path/to/trace.jsonl
-    python3 -m scbf.detection.scan --batch data/traces/malware/traces --limit 20
+    python3 -m scbf.detection.scan --batch data/pip_traces/malware/traces --limit 20
 """
 
 import argparse
@@ -166,7 +166,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--trace", type=Path)
     ap.add_argument("--batch", type=Path)
-    ap.add_argument("--models", type=Path, default=Path("models/blocker/seed42"))
+    ap.add_argument("--models", type=Path, default=Path("models_pypi/seed42"))
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 

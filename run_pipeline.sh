@@ -12,7 +12,7 @@ exec > >(tee -a "$LOG") 2>&1
 banner () { echo; echo "################################################################"; echo "# $1"; echo "################################################################"; date; echo; }
 
 banner "STEP 1/6  LEAKAGE AUDIT (gate)"
-$PY -m scbf.audit.leakage --traces data/traces --strict
+$PY -m scbf.audit.leakage --traces data/pip_traces --strict
 AUDIT=$?
 if [ $AUDIT -ne 0 ]; then
   banner "PIPELINE STOPPED — DATASET FAILED THE AUDIT"
@@ -23,16 +23,16 @@ fi
 echo "AUDIT PASSED — dataset is clean, continuing."
 
 banner "STEP 2+3/6  SIGNAL INVENTORY & DETECTION CEILING"
-$PY -m scbf.audit.signal_report --traces data/traces
+$PY -m scbf.audit.signal_report --traces data/pip_traces
 
 banner "STEP 4/6  TABULAR BASELINES (the bar the TGN must clear)"
-$PY -m scbf.training.baseline --traces data/traces
+$PY -m scbf.training.baseline --traces data/pip_traces
 
 banner "STEP 5/6  TRAIN HYBRID TGN"
-$PY -m scbf.training.train --traces data/traces
+$PY -m scbf.training.train --traces data/pip_traces
 
 banner "STEP 6/6  FINAL EVALUATION"
-$PY -m scbf.training.evaluate --traces data/traces
+$PY -m scbf.training.evaluate --traces data/pip_traces
 
 banner "PIPELINE COMPLETE"
 echo "Artifacts:"

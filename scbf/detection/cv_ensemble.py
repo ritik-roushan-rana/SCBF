@@ -111,24 +111,28 @@ def score(P, Y, t):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--seeds", type=int, nargs="+", default=[42, 7, 1337])
     ap.add_argument("--at", type=int, default=3000)
     ap.add_argument("--epochs", type=int, default=45)
     ap.add_argument("--patience", type=int, default=12)
     ap.add_argument("--lr", type=float, default=2e-4)
+    ap.add_argument("--fold", type=int, default=-1,
+                    help="run only this fold index (0-based) and write a "
+                         "partial result; lets folds run as parallel processes")
     ap.add_argument("--out", type=Path, default=Path("models_v5/cv_ensemble.json"))
     args = ap.parse_args()
 
     set_prefix(args.at)
-    items = ok_traces(args.traces, require_manifest=False)
+    items = ok_traces(args.traces, require_manifest=True)
     print(f"{len(items)} traces, {sum(i['label'] for i in items)} malicious")
     print(f"{args.folds} folds x {len(args.seeds)} seeds, decision at event {args.at}\n")
     folds = stratified_folds(items, args.folds)
 
     allP, allY, per_fold = [], [], []
-    for k in range(args.folds):
+    fold_range = range(args.folds) if args.fold < 0 else [args.fold]
+    for k in fold_range:
         held = folds[k]
         rest = [it for j, f in enumerate(folds) if j != k for it in f]
         n_val = max(1, len(rest) // 8)
@@ -150,6 +154,15 @@ def main() -> None:
         allP.append(Pt); allY.append(Yt)
         print(f"  fold {k+1}: prec={r['precision']:.2%} rec={r['recall']:.2%} "
               f"F1={r['f1']:.2%} auc={r['roc_auc']:.4f} (thr {thr:.3f})", flush=True)
+
+    if args.fold >= 0:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        with open(args.out, "w") as f:
+            json.dump({"fold": args.fold, "result": per_fold[0],
+                       "scores": allP[0].tolist(), "labels": allY[0].tolist()},
+                      f, indent=2, default=float)
+        print(f"Saved fold {args.fold}: {args.out}")
+        return
 
     P = np.concatenate(allP); Y = np.concatenate(allY)
     f1s = [r["f1"] for r in per_fold]

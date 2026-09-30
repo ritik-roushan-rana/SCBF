@@ -19,7 +19,7 @@ help:
 	@echo "on a dataset that fails the audit unless you pass FORCE=1."
 
 PY := $(shell if [ -f .venv/bin/python ]; then echo .venv/bin/python; else echo python3; fi)
-TRACES ?= data/traces
+TRACES ?= data/pip_traces
 
 install:
 	python3 -m venv .venv

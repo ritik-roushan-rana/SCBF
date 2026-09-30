@@ -18,7 +18,7 @@ Two embodiments are stored, both usable:
     fused - the 192-dim signature + projected statistical descriptors
 
 Usage:
-    python3 -m scbf.envelope.build --traces data/traces --models models
+    python3 -m scbf.envelope.build --traces data/pip_traces --models models
 """
 
 import argparse
@@ -71,8 +71,8 @@ def envelope_from(sig: np.ndarray) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
-    ap.add_argument("--models", type=Path, default=Path("models/postinstall"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
+    ap.add_argument("--models", type=Path, default=Path("models_pypi"))
     ap.add_argument("--prefix", type=int, default=0,
                     help="Calibrate on the first N events only. Must match the "
                          "prefix the model was trained with, or the envelope "

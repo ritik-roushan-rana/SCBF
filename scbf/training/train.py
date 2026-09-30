@@ -238,12 +238,22 @@ def metrics(logits, labels, thr=0.5):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
     ap.add_argument("--epochs", type=int, default=60)
     ap.add_argument("--patience", type=int, default=14)
     ap.add_argument("--lr", type=float, default=3e-4)
-    ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--out", type=Path, default=Path("models/postinstall"))
+    ap.add_argument("--seed", type=int, default=42,
+                    help="model initialisation seed ONLY. It must not touch "
+                         "the split: when it did, every ensemble member got a "
+                         "different train/val/test partition, so scoring the "
+                         "ensemble on one member's test set meant the other "
+                         "members had trained on ~70%% of it. Measured: 145/210 "
+                         "pip and 190/273 npm test packages sat in a sibling's "
+                         "training data, which inflated every ensemble figure.")
+    ap.add_argument("--split-seed", type=int, default=42,
+                    help="data partition seed. Keep this FIXED across ensemble "
+                         "members so they share one split.")
+    ap.add_argument("--out", type=Path, default=Path("models_pypi"))
     ap.add_argument("--random-window", action="store_true",
                     help="Truncate each trace to a RANDOM prefix every epoch. "
                          "A streaming blocker must judge from any amount of an "
@@ -274,7 +284,7 @@ def main():
     items = discover(args.traces)
     if not items:
         raise SystemExit(f"No traces under {args.traces}")
-    train, val, test = split_data(items, seed=args.seed)
+    train, val, test = split_data(items, seed=args.split_seed)
     n_mal = sum(i["label"] for i in train)
     print(f"Traces: {len(items)}  (benign {sum(1 for i in items if not i['label'])}, "
           f"malicious {sum(i['label'] for i in items)})")
@@ -282,7 +292,8 @@ def main():
 
     with open(args.out / "split_info.json", "w") as f:
         json.dump({"train": train, "val": val, "test": test,
-                   "seed": args.seed}, f, indent=2)
+                   "seed": args.seed,
+                   "split_seed": args.split_seed}, f, indent=2)
 
     print("Fitting feature normalization on train only...")
     mean, std = feature_stats(train)

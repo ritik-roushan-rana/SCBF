@@ -25,7 +25,7 @@ Usage:
     sudo python3 capture/collect_dataset.py \
         --benign  data/raw/benign \
         --malware data/raw/malware \
-        --out     data/traces \
+        --out     data/pip_traces \
         --python  /usr/bin/python3
 """
 
@@ -126,15 +126,69 @@ def restore_template(venv_dir: Path, python_bin: str) -> None:
                        capture_output=True, timeout=120)
 
 
+# npm sandboxes go on real disk, never in tempfile.gettempdir(): /tmp is a
+# 4.3 GB tmpfs on the capture VM and a node_modules tree from a package with
+# real dependencies will happily fill it, which would both fail the install
+# and evict page cache mid-trace.
+NPM_SANDBOX_ROOT = Path(os.environ.get("SCBF_SANDBOX_ROOT", "/var/tmp/scbf_npm"))
+
+
+def prepare_npm_sandbox() -> Path:
+    """A pristine, empty install root. The npm analogue of the venv template.
+
+    Nothing is pre-seeded. pip needed a seeded venv because malware commonly
+    does `import requests` at setup.py module scope and would otherwise die
+    before the payload ran. npm has no equivalent problem: lifecycle scripts
+    run under the full node runtime, whose stdlib is already present.
+    """
+    sandbox = NPM_SANDBOX_ROOT / "capture_env"
+    shutil.rmtree(sandbox, ignore_errors=True)
+    sandbox.mkdir(parents=True, exist_ok=True)
+    # A minimal package.json stops npm walking up to a parent manifest, which
+    # would otherwise make the trace depend on where the collector was run.
+    (sandbox / "package.json").write_text(
+        '{"name":"scbf-sandbox","version":"1.0.0","private":true}\n')
+    drop_user = os.environ.get("SCBF_USER") or os.environ.get("SUDO_USER")
+    if drop_user:
+        subprocess.run(["chown", "-R", f"{drop_user}:{drop_user}", str(sandbox)],
+                       capture_output=True, timeout=120)
+    return sandbox
+
+
+def registry_spec(pkg: Path) -> str:
+    """`katna-0.9.2.tar.gz` -> `katna==0.9.2`, so the same package can be
+    installed from the registry instead of the local archive."""
+    name = pkg.name
+    for suf in ARCHIVE_SUFFIXES:
+        if name.endswith(suf):
+            name = name[: -len(suf)]
+            break
+    if "-" in name:
+        base, _, version = name.rpartition("-")
+        if base and version and version[0].isdigit():
+            return f"{base}=={version}"
+    return name
+
+
 def capture_one(pkg: Path, label: int, out_dir: Path, python_bin: str,
-                timeout: int) -> dict:
-    """Run one package through the monitor. Identical for both labels."""
+                timeout: int, ecosystem: str = "pypi",
+                from_registry: bool = False) -> dict:
+    """Run one package through the monitor. Identical for both labels.
+
+    from_registry installs by NAME from the package index instead of from the
+    local archive. This matters: with local archives the installer never
+    contacts the index, so benign traces contain no registry downloads, while
+    malicious ones contact attacker infrastructure. A model trained that way
+    learns "external connection -> malicious" and then kills ordinary
+    `pip install requests`. Measured on the shipped model: 10/10 clean local
+    artifacts allowed, but only 4/6 clean registry installs."""
     name = pkg.name
     for suf in ARCHIVE_SUFFIXES:
         if name.endswith(suf):
             name = name[: -len(suf)]
             break
 
+    artifact = registry_spec(pkg) if from_registry else str(pkg)
     trace_path = out_dir / ("malware" if label else "benign") / "traces" / f"{name}.jsonl"
     trace_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -144,22 +198,29 @@ def capture_one(pkg: Path, label: int, out_dir: Path, python_bin: str,
     # Python 3.12+ venvs ship only pip and --no-build-isolation then fails
     # every sdist with "Cannot import setuptools.build_meta". Seeding here,
     # BEFORE the monitor starts, keeps it out of the trace.
-    venv_dir = Path(tempfile.gettempdir()) / "scbf_capture_env"
-    restore_template(venv_dir, python_bin)
+    if ecosystem == "npm":
+        venv_dir = prepare_npm_sandbox()
+    else:
+        venv_dir = Path(tempfile.gettempdir()) / "scbf_capture_env"
+        restore_template(venv_dir, python_bin)
 
     started = time.time()
     status = "ok"
     try:
-        venv_python = venv_dir / "bin" / "python"
+        # arg2 is the python binary for pip, the install prefix for npm.
+        venv_python = (venv_dir if ecosystem == "npm"
+                       else venv_dir / "bin" / "python")
+        env = dict(os.environ, SCBF_ECOSYSTEM=ecosystem)
 
         # stdin from /dev/null and piped stdout/stderr for EVERY package:
         # no TTY is ever attached, to either class.
         proc = subprocess.run(
-            ["bash", str(MONITOR), name, str(venv_python), str(pkg), str(trace_path)],
+            ["bash", str(MONITOR), name, str(venv_python), artifact, str(trace_path)],
             stdin=subprocess.DEVNULL,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             timeout=timeout,
+            env=env,
         )
         if proc.returncode != 0:
             status = f"monitor_rc={proc.returncode}"
@@ -179,7 +240,8 @@ def capture_one(pkg: Path, label: int, out_dir: Path, python_bin: str,
 
     return {
         "package": name,
-        "artifact": str(pkg),
+        "artifact": artifact,
+        "from_registry": bool(from_registry),
         "label": label,
         "trace": str(trace_path),
         "status": status,
@@ -199,6 +261,12 @@ def main() -> None:
     ap.add_argument("--timeout", type=int, default=300)
     ap.add_argument("--limit", type=int, default=0,
                     help="Capture at most N packages per class (smoke tests).")
+    ap.add_argument("--ecosystem", choices=("pypi", "npm"), default="pypi",
+                    help="package manager to trace (default: pypi)")
+    ap.add_argument("--benign-from-registry", action="store_true",
+                    help="install BENIGN packages by name from the index rather "
+                         "than from the local archive, so their traces contain "
+                         "the registry downloads a real install performs")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--restart", action="store_true",
                     help="Ignore an existing manifest and capture everything again.")
@@ -253,13 +321,20 @@ def main() -> None:
     print(f"[+] environment: kernel={fingerprint['kernel']} "
           f"stdout_isatty={fingerprint['stdout_isatty']}")
     print("[+] building venv template (setuptools/wheel pre-seeded)...")
-    build_template(Path(tempfile.gettempdir()) / "scbf_capture_env", args.python)
+    if args.ecosystem == "pypi":
+        build_template(Path(tempfile.gettempdir()) / "scbf_capture_env", args.python)
+    else:
+        NPM_SANDBOX_ROOT.mkdir(parents=True, exist_ok=True)
+        print(f"[+] npm sandbox root: {NPM_SANDBOX_ROOT}")
     print(f"[+] capturing {len(queue)} packages (interleaved, seed={args.seed})\n")
 
     done = {"ok": 0, "failed": 0}
     with open(manifest_path, "a") as mf:
         for i, (pkg, label) in enumerate(queue, 1):
-            rec = capture_one(pkg, label, args.out, args.python, args.timeout)
+            rec = capture_one(pkg, label, args.out, args.python, args.timeout,
+                              args.ecosystem,
+                              from_registry=bool(args.benign_from_registry
+                                                 and label == 0))
             mf.write(json.dumps(rec) + "\n")
             mf.flush()
             ok = rec["status"] == "ok"

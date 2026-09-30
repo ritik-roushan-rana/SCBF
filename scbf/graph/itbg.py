@@ -27,6 +27,8 @@ Two design decisions worth stating, both learned from the previous version:
      is "package install target" regardless of which sandbox produced it.
 """
 
+import os
+
 import torch
 
 # Semantic buckets for file paths. Order matters: first match wins.
@@ -40,6 +42,28 @@ PERSISTENCE_HINTS = (
     "/.ssh/authorized_keys", "/etc/systemd", "/.config/autostart",
 )
 SCRIPT_SUFFIXES = (".py", ".sh", ".pyc", ".so", ".pl", ".rb")
+NPM_SCRIPT_SUFFIXES = (".js", ".cjs", ".mjs", ".ts", ".node")
+
+# Which ecosystem the current process is representing. This is a global
+# because the graph vocabulary has to stay fixed for the lifetime of a
+# model: 11% of the captured pip traces touch .js paths, so folding the
+# npm suffixes in unconditionally would reclassify those files from
+# "file" to "script", shift their node ids, and invalidate the pip
+# blocker that guard.sh loads at runtime.
+ECOSYSTEM = os.environ.get("SCBF_ECOSYSTEM", "pypi")
+
+
+def set_ecosystem(name: str) -> None:
+    global ECOSYSTEM
+    if name not in ("pypi", "npm"):
+        raise ValueError(f"unknown ecosystem: {name}")
+    ECOSYSTEM = name
+
+
+def script_suffixes() -> tuple:
+    if ECOSYSTEM == "npm":
+        return SCRIPT_SUFFIXES + NPM_SCRIPT_SUFFIXES
+    return SCRIPT_SUFFIXES
 
 # Sandbox plumbing: constant per trace, independent of the package, and the
 # source of the /dev/pts artifact that broke the previous model. Dropped
@@ -50,6 +74,9 @@ BOOTSTRAP_HINTS = (
     "/etc/security/", "/run/systemd/userdb/", "/etc/ld.so.cache",
     ".pyenv/", "/pip-install-", "/pip-ephem-wheel-cache-", "/pip-req-build-",
     "/pip-unpack-", "/pip-metadata-", "__pycache__", ".dist-info",
+    # npm plumbing
+    "/_cacache/", "/.npm/_logs/", "/npm-cache/", "/.npmrc",
+    "package-lock.json", "/node_modules/.package-lock.json",
 )
 
 NODE_KINDS = ("process", "file", "network", "env", "credential", "script")
@@ -72,7 +99,17 @@ PATH_BUCKETS = (
 )
 
 
+# node_modules is the npm analogue of site-packages. It is only consulted
+# under the npm ecosystem: 3 of the captured pip traces mention the path,
+# and rebucketing those would move node ids under the shipped pip model.
+NPM_BUCKETS = (("node_modules", ("node_modules",)),)
+
+
 def path_bucket(path: str) -> str:
+    if ECOSYSTEM == "npm":
+        for name, hints in NPM_BUCKETS:
+            if any(h in path for h in hints):
+                return name
     for name, hints in PATH_BUCKETS:
         if any(h in path for h in hints):
             return name
@@ -124,7 +161,7 @@ def classify_path(path: str) -> str:
     """Bucket a path into a node kind."""
     if any(h in path for h in CREDENTIAL_HINTS):
         return "credential"
-    if path.endswith(SCRIPT_SUFFIXES):
+    if path.endswith(script_suffixes()):
         return "script"
     if path.startswith("/etc/") or path.endswith((".cfg", ".ini", ".toml", ".json", ".yaml")):
         return "env"
@@ -161,7 +198,7 @@ class ITBGConstructor:
         is_sp = float("site-packages" in path)
         is_home = float("/home/" in path or path.startswith("/root/"))
         is_hidden = float("/." in path)
-        is_script = float(path.endswith(SCRIPT_SUFFIXES))
+        is_script = float(path.endswith(script_suffixes()))
 
         dport = event.get("dport") or 0
         daddr = event.get("daddr") or ""
@@ -202,7 +239,7 @@ class ITBGConstructor:
         if etype == "exec":
             src = self.node_ids.get(f"proc:{comm}", "process")
             target = (path or comm).rsplit("/", 1)[-1]
-            kind = "script" if path.endswith(SCRIPT_SUFFIXES) else "process"
+            kind = "script" if path.endswith(script_suffixes()) else "process"
             dst = self.node_ids.get(f"proc:{target}", kind)
 
         elif etype == "connect":

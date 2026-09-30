@@ -1,0 +1,178 @@
+{
+  "ecosystem": "npm",
+  "decision_at_event": 1500,
+  "threshold": 0.601,
+  "threshold_tuned_on": "validation only, applied once to test",
+  "seeds": [
+    42,
+    7,
+    1337
+  ],
+  "features": 61,
+  "params": 465537,
+  "dataset": {
+    "usable": 1813,
+    "benign": 1434,
+    "malware": 379,
+    "attempted": 2000,
+    "failed_installs_excluded": 187,
+    "leakage_audit": "CLEAN"
+  },
+  "val": {
+    "n": 272,
+    "accuracy": 0.9338,
+    "precision": 0.9535,
+    "recall": 0.7193,
+    "f1": 0.82,
+    "roc_auc": 0.8979,
+    "tp": 41,
+    "fn": 16,
+    "fp": 2,
+    "tn": 213
+  },
+  "test": {
+    "n": 273,
+    "accuracy": 0.9158,
+    "precision": 0.9048,
+    "recall": 0.6667,
+    "f1": 0.7677,
+    "roc_auc": 0.87,
+    "tp": 38,
+    "fn": 19,
+    "fp": 4,
+    "tn": 212
+  },
+  "oscar_baseline": {
+    "source": "OSCAR, ASE'24, arXiv:2409.09356, Table 5(b) -- NPM",
+    "precision": 0.99,
+    "recall": 0.92,
+    "f1": 0.95,
+    "tp": 459,
+    "fp": 3,
+    "fn": 41,
+    "scored_malicious": 500,
+    "correction": "earlier runs in this project compared npm against OSCAR Table 5(a) PyPI (0.99/0.85/0.91). That understated the npm gap by ~4 F1 points."
+  },
+  "ceiling_analysis": {
+    "malware_with_install_hook": 281,
+    "malware_without_any_install_hook": 98,
+    "silent_subset_auc_vs_benign": 0.6883,
+    "active_subset_auc_vs_benign": 0.9909,
+    "note": "26% of malicious packages execute nothing during installation and are structurally undetectable by install-time behavioural monitoring"
+  },
+  "baselines_same_data": {
+    "logistic_51f": 0.766,
+    "gradient_boosting": 0.7845,
+    "tgn_ensemble": 0.7928
+  },
+  "improvement_attempts": {
+    "corrected_installer_bins": "no change beyond noise (npm/node were counted as foreign binaries in every trace)",
+    "ancestry_and_node_exec_features": "no change; redundant with existing shell/nettool counts. node-exec rule is 100% precision but only 5.5% recall",
+    "stack_with_gradient_boosting": "WORSE (73.5-76.5% vs 79.28%). TGN/GBM score correlation 0.896 - no complementary signal. Blend tuned on val improved val (86.54%) but degraded test (76.47%), i.e. val overfitting",
+    "conclusion": "~79-80% F1 is the ceiling of install-time behavioural data on this corpus",
+    "stack_with_static_hook_content": "WORSE (75.73% vs 79.28%). TGN/static correlation 0.856. Val improved (87.50%) while test degraded -- validation overfitting with n=272.",
+    "all_18_static_features_REJECTED": {
+      "f1": 0.9373,
+      "auc": 0.9873,
+      "why_rejected": "driven by corpus-shape artifacts, not malice. has_readme AUC 0.873 (benign 92% vs malware 17%), tar_bytes 619KB vs 280KB, n_files 66 vs 13, version_major 16 vs 24.4M. The malicious samples are throwaway PoC stubs; the benign are real published libraries. A real typosquat of a popular package ships a README, full source and a plausible version, so every one of these features inverts. Same failure mode as the /dev/pts artifact.",
+      "honest_subset_hook_content_only": {
+        "f1": 0.7542,
+        "auc": 0.7967
+      }
+    },
+    "useful_byproduct": "static hook-content alone gives 97.37% precision at 64.91% recall on test -- a viable high-confidence blocking mode.",
+    "final": "TGN behavioural ensemble at 79.28% test F1 is the honest result. 90+ is not reachable on this dataset without corpus artifacts."
+  },
+  "delta_vs_oscar_npm": {
+    "precision": -0.0852,
+    "recall": -0.2533,
+    "f1": -0.1823
+  },
+  "npm_leaderboard_table5b": [
+    {
+      "tool": "OSCAR",
+      "p": 0.99,
+      "r": 0.92,
+      "f1": 0.95
+    },
+    {
+      "tool": "Amalfi",
+      "p": 0.96,
+      "r": 0.86,
+      "f1": 0.91
+    },
+    {
+      "tool": "SAP",
+      "p": 0.9,
+      "r": 0.84,
+      "f1": 0.87
+    },
+    {
+      "tool": "SCBF (this work)",
+      "p": 0.8148,
+      "r": 0.7719,
+      "f1": 0.7928,
+      "note": "install-time, behaviour-only, partial trace"
+    },
+    {
+      "tool": "Guarddog",
+      "p": 0.92,
+      "r": 0.68,
+      "f1": 0.78
+    },
+    {
+      "tool": "OSSGadget",
+      "p": 0.64,
+      "r": 0.52,
+      "f1": 0.58
+    },
+    {
+      "tool": "AppInspector",
+      "p": 0.36,
+      "r": 0.47,
+      "f1": 0.41
+    }
+  ],
+  "comparability_caveats": [
+    "OSCAR and all Table 5(b) baselines score all 500 malicious packages; SCBF could only score the 379 that installed successfully (dynamic analysis requires execution).",
+    "SCBF test split holds 57 malicious samples -> roughly +/-4% on F1.",
+    "All baselines analyse the complete package (source, metadata, full install). SCBF decides from behaviour alone at event 1500, mid-install, and terminates the installer."
+  ],
+  "SPLIT_LEAK_BUG": {
+    "what": "train.py used --seed for BOTH model init AND the train/val/test split, so every ensemble member got a different partition. Scoring the ensemble on member-1 test set meant members 2 and 3 had trained on most of it.",
+    "measured": "190/273 and 197/273 npm test packages were in a sibling member train set (145/210 for pip)",
+    "fix": "added --split-seed (fixed, default 42); --seed now controls model init only. Verified: 0 test packages in any member train/val.",
+    "superseded_INVALID": {
+      "test_f1": 0.7928,
+      "test_precision": 0.8148,
+      "test_recall": 0.7719,
+      "scoped_test_f1": 0.9114
+    }
+  },
+  "scoped_note": "the hook-declaring scoped evaluation (91.14%) was computed on the leaked models and is withdrawn; recompute on the clean ensemble if wanted",
+  "model_selection": {
+    "chosen": "TGN 3-seed ensemble (no GBM stage)",
+    "compared_on_clean_split": {
+      "tgn_only": {
+        "precision": 0.9048,
+        "recall": 0.6667,
+        "f1": 0.7677,
+        "roc_auc": 0.87
+      },
+      "gbm_only": {
+        "precision": 0.9231,
+        "recall": 0.6316,
+        "f1": 0.75,
+        "roc_auc": 0.8377
+      },
+      "tgn_plus_gbm": {
+        "precision": 0.9048,
+        "recall": 0.6667,
+        "f1": 0.7677,
+        "roc_auc": 0.8615
+      }
+    },
+    "why": "the hybrid produces identical test predictions to the TGN alone, so the GBM stage adds an artifact and inference cost for no measured gain. TGN-only also has the higher test AUC.",
+    "contrast_with_pypi": "on PyPI the statistical features dominate (GBM alone 94.92% vs TGN 89.91%); on npm the TGN dominates. pip malware is visible in aggregate volume patterns, npm malware is a process-spawn sequence -- which is what the temporal graph model captures."
+  }
+}

@@ -17,7 +17,7 @@ chosen inside each fold on that fold's own validation slice, never on the
 held-out data being scored.
 
 Usage:
-    python3 -m scbf.training.cross_validate --traces data/traces --folds 5
+    python3 -m scbf.training.cross_validate --traces data/pip_traces --folds 5
 """
 
 import argparse
@@ -85,7 +85,7 @@ def train_one_fold(train_items, val_items, epochs, patience, lr, pw_mult):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--traces", type=Path, default=Path("data/traces"))
+    ap.add_argument("--traces", type=Path, default=Path("data/pip_traces"))
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--epochs", type=int, default=45)
     ap.add_argument("--patience", type=int, default=10)

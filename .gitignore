@@ -1,19 +1,27 @@
-# Trace dataset — 2.4 GB, far past GitHub limits.
-# manifest.jsonl and environment.json are kept: they document the capture
-# and make the results reproducible without shipping the traces.
+# ---------------------------------------------------------------------------
+# Trace datasets. Several GB of captured installs, far past GitHub limits.
+# manifest.jsonl / environment.json / environment_changes.jsonl ARE kept: they
+# document how each trace was produced and which installs were excluded, so the
+# results stay reproducible without shipping the traces themselves.
+# ---------------------------------------------------------------------------
 data/traces/benign/
 data/traces/malware/
+data/npm_traces/benign/
+data/npm_traces/malware/
+data/pip_traces/benign/
+data/pip_traces/malware/
 data/raw/
 data/*.zip
 
-# Patent / disclosure material — never published. A public commit would be a
-# public disclosure of the invention and can bar patentability before filing.
+# Patent / disclosure material — never published. A public commit is a public
+# disclosure of the invention and can bar patentability before filing.
 patent/
 *.pdf
 
-# Training checkpoints (regenerable)
-models/hybrid_best.pt
-models_v3/hybrid_best.pt
+# Model checkpoints are regenerable, but the SHIPPED models are small and are
+# committed on purpose: models_pypi/ and models_npm/ together are ~15 MB and
+# the results cannot be reproduced without them.
+**/hybrid_best.pt
 
 # Python
 __pycache__/
@@ -21,9 +29,10 @@ __pycache__/
 .venv/
 *.egg-info/
 
-# Logs
+# Logs and scratch
 *.log
 nohup.out
+logs/
 
 # OS
 .DS_Store
