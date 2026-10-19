@@ -374,9 +374,22 @@ malicious samples are small stubs. That property holds for every tool measured
 on this benchmark, but would not transfer to a typosquat of a large real
 library. Without volume features the result is 89.72% F1.
 
-**Live verdicts are not fully deterministic.** Trace length varies between runs
-of the same package, so a package may block at event 1500 on one run, 2200 on
-another, and occasionally not at all.
+**Live verdicts vary with system load.** The TGN's memory update encodes the
+inter-event interval, `GRU([M[src] ‖ e ‖ φ(Δt)], M[dst])`, so CPU contention
+changes the timings and therefore the score. Measured on one package, same
+command, no events lost in either case:
+
+| condition | p at event 1500 | verdict |
+|---|---|---|
+| idle | 0.9999 | BLOCK at 1500 |
+| 4 busy cores | 0.0381 | WARN at 1500, BLOCK at 2200 |
+
+Across runs the 1500-checkpoint score for that package ranged from 0.0138 to
+1.0000. The multi-window design absorbs most of this -- a package that scores
+low at 1500 is usually caught at 2200 or 3000 -- but a short trace under load
+can finish before reaching a later checkpoint and be allowed. `Events lost` is
+reported on every run; a non-zero value means the ring buffer dropped events
+and the verdict should not be trusted.
 
 ---
 

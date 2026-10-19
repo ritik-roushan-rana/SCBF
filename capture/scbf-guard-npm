@@ -44,7 +44,7 @@ OUT=$(cd "$HERE" && SCBF_ECOSYSTEM=npm SCBF_MODELS="$MODELS" \
       SCBF_ENSEMBLE="$MODELS/seed42,$MODELS/seed7,$MODELS/seed1337" \
       SCBF_USER="$DROP" \
       bash "$HERE/capture/guard.sh" "$NAME" "$PREFIX" "$TARGET" "$TRACE" </dev/null 2>&1)
-echo "$OUT" | grep -E "^\[guard\]|VERDICT|Events captured|INSTALLATION"
+echo "$OUT" | grep -E "^\[guard\]|VERDICT|Events (captured|lost)|INSTALLATION"
 
 if echo "$OUT" | grep -q "VERDICT        : BLOCKED"; then
   echo

@@ -182,7 +182,8 @@ of malice. Observed:
 | `model ... does not exist` | Groq retires models; list yours with `.venv/bin/python -c "from groq import Groq; print([m.id for m in Groq().models.list().data])"` and set `SCBF_EXPLAIN_MODEL` |
 | `API key not valid` | key must start with `gsk_` — an `AQ.` string is an OAuth token, not an API key |
 | everything ALLOWED at p=0.0000 | sinkhole pointing at `127.0.0.1`, or PyPI blackholed. `getent hosts pypi.org` must return a real address |
-| malware allowed that blocked before | trace length varies between runs; re-run |
+| malware allowed that blocked before | system load changes inter-event timings, which the model encodes; re-run on an idle VM. Measured: p at event 1500 ranged 0.0138-1.0000 for one package |
+| `Events lost` non-zero | the ring buffer dropped events; the verdict is unreliable, re-run |
 
 ---
 
