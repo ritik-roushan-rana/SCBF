@@ -322,14 +322,18 @@ A blocked install prints a plain-language account of what it did:
   └─ groq/openai/gpt-oss-120b · explains the decision, does not make it
 ```
 
-Enabled by a root-owned config file — the shims re-exec through `sudo`, which
-drops exported variables, so `sudo -E` silently gives you a block with no
-explanation and no error:
+Configured by a file, not the environment: the shims re-exec through `sudo`,
+which drops exported variables, so `sudo -E` silently gives you a block with no
+explanation and no error.
 
 ```bash
-sudo mkdir -p /etc/scbf && printf 'SCBF_EXPLAIN_PROVIDER=groq\nGROQ_API_KEY=...\n' \
-  | sudo tee /etc/scbf/explain.env > /dev/null && sudo chmod 600 /etc/scbf/explain.env
+cp .env.example .env && chmod 600 .env   # then put your key in it
 ```
+
+`scbf-explain` reads `/etc/scbf/explain.env` first and falls back to the
+project's `.env`. On a shared or long-lived machine prefer the former — it is
+root-owned and outside the source tree, so it cannot be swept into a commit or
+copied with the repo.
 
 Providers: `groq`, `anthropic`, `gemini`, `ollama` (local, no key). Keys are
 read from that file or the environment, never from the repo.

@@ -20,8 +20,13 @@ set -u
 #   /etc/scbf/explain.env
 #     SCBF_EXPLAIN_PROVIDER=groq
 #     GROQ_API_KEY=gsk_...
-CONF="${SCBF_EXPLAIN_CONF:-/etc/scbf/explain.env}"
-[ -r "$CONF" ] && set -a && . "$CONF" && set +a
+# /etc/scbf/explain.env first (root-owned, mode 600, outside the source tree),
+# then the project's own .env. Explicit SCBF_EXPLAIN_CONF overrides both.
+for _c in "${SCBF_EXPLAIN_CONF:-}" /etc/scbf/explain.env "${SCBF_HOME:-/home/ubuntu/scbf2}/.env"; do
+  [ -n "$_c" ] && [ -r "$_c" ] || continue
+  set -a; . "$_c"; set +a
+  break
+done
 
 HERE="${SCBF_HOME:-/home/ubuntu/scbf2}"
 PY="${SCBF_PYTHON:-$HERE/.venv/bin/python}"

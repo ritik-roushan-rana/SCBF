@@ -93,11 +93,13 @@ must refuse it and report it as further evidence of malice.
 ```
 
 ```bash
-sudo mkdir -p /etc/scbf && printf 'SCBF_EXPLAIN_PROVIDER=groq\nGROQ_API_KEY=gsk_your_key_here\n' | sudo tee /etc/scbf/explain.env > /dev/null && sudo chmod 600 /etc/scbf/explain.env
+cp .env.example .env && chmod 600 .env
 ```
 
+Put your key in `.env`, then check it took:
+
 ```bash
-sudo test -r /etc/scbf/explain.env && echo "explanations on"
+grep -q "GROQ_API_KEY=gsk_" .env && echo "explanations on" || echo "key missing from .env"
 ```
 
 ---
