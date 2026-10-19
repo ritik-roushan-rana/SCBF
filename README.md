@@ -125,7 +125,8 @@ runs.
 
 ### Live validation
 
-Real installs through the shipped `scbf-guard-pip` / `scbf-guard-npm`:
+Real installs through the shipped `scbf-guard-pip` / `scbf-guard-npm`, not
+replayed traces:
 
 | | malware blocked | clean allowed |
 |---|---|---|
@@ -135,6 +136,23 @@ Real installs through the shipped `scbf-guard-pip` / `scbf-guard-npm`:
 Blocked installs are verified absent afterwards — the process tree is killed and
 the target environment discarded. Live rates track the held-out figures (PyPI
 83.3% vs 86.44% predicted; npm 60% vs 66.67%).
+
+**Per-package repeatability matters more than the aggregate.** Run three times
+each on an idle VM:
+
+| package | ecosystem | outcome |
+|---|---|---|
+| `pyghoster-1.0.0` | PyPI | blocked 3/3 |
+| `Matplrtlib-1.0.0` | PyPI | blocked 3/3 |
+| `207_eslint-plugin-cas-1.1.5` | npm | blocked 3/3 |
+| `293_libx-amount-1.0.2` | npm | blocked 3/3 |
+| `kasten-3.0.0`, `djantic2-1.0.3` | PyPI | allowed |
+| `pex-gl-3.0.0` | npm | allowed |
+
+`eepl-4.5.2`, `humanqueen-0.0.5`, `promptcolor-0.1.0` and `dodemailar-1.0.0`
+each allowed on at least one run — see *Live verdicts vary with system load*
+under Known limits. `docs/DEMO.md` lists only the packages that behaved
+consistently.
 
 ---
 
@@ -243,6 +261,7 @@ capture/
   guard.sh              live install-time blocker
   collect_dataset.py    interleaved dataset collection
   scbf-guard-npm        npm shim
+  scbf-explain          post-kill explanation hook
 
 scbf/
   graph/itbg.py         install-time behaviour graph
@@ -253,41 +272,67 @@ scbf/
   dataset.py            manifest gate
   training/             train · evaluate · build_multiwindow · baseline · cross_validate
   detection/            scan · seed_ensemble · cv_ensemble
+  explain/              trace -> structured evidence -> LLM explanation
 
 models_pypi/            shipped PyPI blocker (3 TGN seeds + multi-window GBM)
 models_npm/             shipped npm blocker (3 TGN seeds)
 data/
   pip_traces/           manifest.jsonl + environment.json (traces gitignored)
   npm_traces/
-docs/                   RUNBOOK.md · DEMO.md
+docs/
+  RUNBOOK.md            setup, capture, training, troubleshooting
+  DEMO.md               verified copy-paste commands, nothing else
 ```
 
 ---
 
 ## Usage
 
-```bash
-# block a live install (PyPI)
-sudo scbf-guard-pip install ./suspicious-1.0.0.tar.gz
+`pip` itself routes through the guard once the shim is installed:
 
-# block a live install (npm)
+```bash
+# PyPI — blocked mid-install if it turns malicious
+pip install ./suspicious-1.0.0.tar.gz
+
+# npm
 sudo scbf-guard-npm install ./suspicious-1.0.0.tgz
 
 # decide but never kill
 SCBF_DRY_RUN=1 sudo scbf-guard-pip install ./pkg.tar.gz
 ```
 
+`docs/DEMO.md` holds copy-paste commands against packages verified to behave
+consistently.
+
 ### Explaining a block
 
-`SCBF_EXPLAIN=1` adds a plain-language account of what the installer did:
+A blocked install prints a plain-language account of what it did:
 
-```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=ollama \
-     scbf-guard-pip install ./suspicious-1.0.0.tar.gz
+```
+  ┌─ WHY pyghoster-1.0.0 WAS BLOCKED ─────────────────────────────────────────
+  │
+  │  The installer invoked many system utilities and launched a shell.
+  │
+  │  • spawned lsb_release (4), uname (4), tr (3)
+  │  • no network, credential reads, or persistence writes
+  │
+  │  By gathering system info and opening a shell, an attacker can
+  │  fingerprint the host and set up further malicious actions.
+  │
+  └─ groq/openai/gpt-oss-120b · explains the decision, does not make it
 ```
 
-Providers: `ollama` (local, no key), `anthropic`, `gemini`, `groq` — keys read
-from the environment, never from the repo.
+Enabled by a root-owned config file — the shims re-exec through `sudo`, which
+drops exported variables, so `sudo -E` silently gives you a block with no
+explanation and no error:
+
+```bash
+sudo mkdir -p /etc/scbf && printf 'SCBF_EXPLAIN_PROVIDER=groq\nGROQ_API_KEY=...\n' \
+  | sudo tee /etc/scbf/explain.env > /dev/null && sudo chmod 600 /etc/scbf/explain.env
+```
+
+Providers: `groq`, `anthropic`, `gemini`, `ollama` (local, no key). Keys are
+read from that file or the environment, never from the repo.
 
 **It runs after the kill, never before.** The installer is already terminated
 and the verdict printed before any of this executes: a termination must not
@@ -310,11 +355,11 @@ instruction and flagged it.
 spawn, no external connection and no credential read — those were blocked on
 learned graph structure. The prompt requires saying so, and it does.
 
-**Prefer `ollama` on the capture VM.** The evidence contains live attacker
-infrastructure and the credential paths a package tried to read; a hosted
-provider puts that in a third party's logs. The VM's DNS sinkhole also
-blackholes hosted LLM endpoints, so they do not work there without weakening
-the containment that makes the capture safe in the first place.
+**The evidence leaves the VM with a hosted provider.** It contains live
+attacker infrastructure and the credential paths a package tried to read, and
+that goes into the provider's logs. A hosted endpoint also has to be
+allowlisted in the DNS sinkhole, which opens a hole in the containment that
+makes capture safe. `ollama` runs locally and needs neither.
 
 Rebuilding from scratch:
 

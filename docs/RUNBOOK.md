@@ -149,6 +149,30 @@ ls /tmp/scbf_install_env 2>/dev/null || echo "discarded — install did not pers
 | **distance** | envelope distance, corroborating only; `0.000` for npm |
 | **verdict** | BLOCK kills the process tree; WARN logs and continues |
 
+### Explanations
+
+A blocked install can print a plain-language account of what the installer did.
+Enabled by a root-owned config file, because the shims re-exec through `sudo`
+and `sudo -E` is ignored on this VM — exported variables never reach the
+explainer, giving a block with no explanation and no error:
+
+```bash
+.venv/bin/pip install groq
+sudo mkdir -p /etc/scbf
+printf 'SCBF_EXPLAIN_PROVIDER=groq\nGROQ_API_KEY=gsk_...\n' \
+  | sudo tee /etc/scbf/explain.env > /dev/null
+sudo chmod 600 /etc/scbf/explain.env
+```
+
+It runs **after** the kill: a termination never waits on a network round-trip,
+and every failure path prints "the verdict stands regardless" and exits 0. The
+LLM cannot change a verdict — the decision is an input to the explanation.
+
+A hosted provider also needs its endpoint allowlisted in the DNS sinkhole
+(`server=/groq.com/<upstream>` in `/etc/dnsmasq.d/scbf-sinkhole.conf`),
+otherwise the call fails with "Connection error". `SCBF_EXPLAIN_PROVIDER=ollama`
+runs locally and needs no allowlist and no key.
+
 ### Known operational issues
 
 **Registry installs are falsely blocked.** `pip install requests` and
@@ -157,9 +181,11 @@ ls /tmp/scbf_install_env 2>/dev/null || echo "discarded — install did not pers
 exfiltration. Measured 10/10 clean local artifacts allowed, 4/6 registry. Use
 local artifacts until benign traces are recollected from the registry.
 
-**Verdicts are not fully deterministic.** Trace length varies between runs, so a
-package may block at 1500 on one run and 2200 on another, occasionally not at
-all. Re-run to confirm.
+**Verdicts vary with system load.** The TGN encodes the inter-event interval,
+so CPU contention changes the score. Measured on one package, no events lost in
+either case: idle p=0.9999 (BLOCK at 1500), four busy cores p=0.0381 (WARN at
+1500, BLOCK at 2200). Across runs that package ranged 0.0138-1.0000 at the 1500
+checkpoint. Keep the VM idle for a demo, and check `Events lost` is zero.
 
 ---
 
