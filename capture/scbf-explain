@@ -13,6 +13,16 @@
 # `ant auth login` profile). Set SCBF_EXPLAIN=1 to enable.
 set -u
 
+# Config file, so the guard shims need no environment juggling: they re-exec
+# through sudo, which drops exported variables. Keep it mode 600 -- it holds an
+# API key.
+#
+#   /etc/scbf/explain.env
+#     SCBF_EXPLAIN_PROVIDER=groq
+#     GROQ_API_KEY=gsk_...
+CONF="${SCBF_EXPLAIN_CONF:-/etc/scbf/explain.env}"
+[ -r "$CONF" ] && set -a && . "$CONF" && set +a
+
 HERE="${SCBF_HOME:-/home/ubuntu/scbf2}"
 PY="${SCBF_PYTHON:-$HERE/.venv/bin/python}"
 

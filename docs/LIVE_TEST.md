@@ -13,34 +13,36 @@ cd ~/scbf2
 
 ## 0. One-time setup
 
+Already done on the reference VM. Repeat only on a fresh machine.
+
 ```bash
 .venv/bin/pip install groq
 ```
 
-```bash
-export SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY='gsk_your_key_here'
-```
-
-Check it took:
+Put the provider and key in a root-owned config file. The guard shims re-exec
+through `sudo`, which drops exported variables, so a config file is what makes
+`pip install <pkg>` work with no environment juggling at the prompt:
 
 ```bash
-echo "explain=$SCBF_EXPLAIN provider=$SCBF_EXPLAIN_PROVIDER key_len=${#GROQ_API_KEY}"
+sudo mkdir -p /etc/scbf && printf 'SCBF_EXPLAIN_PROVIDER=groq\nGROQ_API_KEY=gsk_your_key_here\n' | sudo tee /etc/scbf/explain.env > /dev/null && sudo chmod 600 /etc/scbf/explain.env
 ```
 
-A real Groq key is ~56 characters and starts with `gsk_`. If `key_len` looks
-like the length of the placeholder, the export didn't take.
+Check it:
 
-> **`sudo -E` does not work on this VM.** It prints
-> `sudo: preserving the entire environment is not supported` and silently drops
-> your variables, so you get a block with no explanation. Pass them through
-> `sudo` directly, as every command below does.
+```bash
+sudo test -r /etc/scbf/explain.env && echo "config present — explanations are on"
+```
+
+Explanations are enabled whenever that file exists. To turn them off for one
+run, `SCBF_EXPLAIN_CONF=/dev/null pip install ...`; to turn them off entirely,
+delete the file.
 
 ---
 
 ## 1. PyPI malware — blocked, then explained
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-pip install data/raw/pypi_malware/eepl-4.5.2.tar.gz
+pip install data/raw/pypi_malware/eepl-4.5.2.tar.gz
 ```
 
 Expected:
@@ -65,15 +67,15 @@ Expected:
 More malicious samples, all verified to install successfully and be blocked:
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-pip install data/raw/pypi_malware/pyghoster-1.0.0.tar.gz
+pip install data/raw/pypi_malware/pyghoster-1.0.0.tar.gz
 ```
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-pip install data/raw/pypi_malware/Matplrtlib-1.0.0.tar.gz
+pip install data/raw/pypi_malware/Matplrtlib-1.0.0.tar.gz
 ```
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-pip install data/raw/pypi_malware/hreading-4.5.2.tar.gz
+pip install data/raw/pypi_malware/hreading-4.5.2.tar.gz
 ```
 
 **Verify the block was real** — the environment must be gone:
@@ -87,11 +89,11 @@ ls /tmp/scbf_install_env 2>/dev/null || echo "environment discarded — the inst
 ## 2. Clean packages — allowed, no explanation
 
 ```bash
-sudo scbf-guard-pip install data/raw/pypi_benign/kasten-3.0.0.tar.gz
+pip install data/raw/pypi_benign/kasten-3.0.0.tar.gz
 ```
 
 ```bash
-sudo scbf-guard-pip install data/raw/pypi_benign/djantic2-1.0.3.tar.gz
+pip install data/raw/pypi_benign/djantic2-1.0.3.tar.gz
 ```
 
 > **Do not demo `pip install requests` or `certifi`.** They are falsely blocked.
@@ -105,7 +107,7 @@ sudo scbf-guard-pip install data/raw/pypi_benign/djantic2-1.0.3.tar.gz
 ## 3. npm malware — blocked, then explained
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-npm install data/raw/npm_malware/207_eslint-plugin-cas-1.1.5.tgz
+sudo scbf-guard-npm install data/raw/npm_malware/207_eslint-plugin-cas-1.1.5.tgz
 ```
 
 That package's `preinstall` hook is a live exfiltration payload:
@@ -118,11 +120,11 @@ That package's `preinstall` hook is a live exfiltration payload:
 Two more:
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-npm install data/raw/npm_malware/dodemailar-1.0.0.tgz
+sudo scbf-guard-npm install data/raw/npm_malware/dodemailar-1.0.0.tgz
 ```
 
 ```bash
-sudo SCBF_EXPLAIN=1 SCBF_EXPLAIN_PROVIDER=groq GROQ_API_KEY="$GROQ_API_KEY" scbf-guard-npm install data/raw/npm_malware/293_libx-amount-1.0.2.tgz
+sudo scbf-guard-npm install data/raw/npm_malware/293_libx-amount-1.0.2.tgz
 ```
 
 ---
@@ -175,7 +177,7 @@ of malice. Observed:
 
 | symptom | cause |
 |---|---|
-| blocked, but no explanation | `sudo -E` was used, or `SCBF_EXPLAIN=1` not passed through `sudo` |
+| blocked, but no explanation | `/etc/scbf/explain.env` missing or unreadable — `sudo test -r /etc/scbf/explain.env` |
 | `Groq call failed: Connection error` | `groq.com` not in the DNS sinkhole allowlist — `getent hosts api.groq.com` must not return `203.0.113.1` |
 | `model ... does not exist` | Groq retires models; list yours with `.venv/bin/python -c "from groq import Groq; print([m.id for m in Groq().models.list().data])"` and set `SCBF_EXPLAIN_MODEL` |
 | `API key not valid` | key must start with `gsk_` — an `AQ.` string is an OAuth token, not an API key |
