@@ -55,7 +55,8 @@ if echo "$OUT" | grep -q "VERDICT        : BLOCKED"; then
   # the verdict is printed: a termination must not wait on a network call, and
   # the guard must work with no API key and no SDK installed. Non-fatal.
   # Enabled by SCBF_EXPLAIN=1, or simply by the config file existing.
-  if [ "${SCBF_EXPLAIN:-0}" = "1" ] || [ -r "${SCBF_EXPLAIN_CONF:-/etc/scbf/explain.env}" ]; then
+  if [ "${SCBF_EXPLAIN:-0}" = "1" ] || [ -r "${SCBF_EXPLAIN_CONF:-/etc/scbf/explain.env}" ] \
+     || [ -r "$HERE/.env" ]; then
     printf '%s' "$OUT" > /tmp/scbf_guard_out.$$
     "$HERE/capture/scbf-explain" "$TRACE" "$NAME" npm /tmp/scbf_guard_out.$$
     rm -f /tmp/scbf_guard_out.$$
