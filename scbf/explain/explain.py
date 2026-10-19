@@ -42,6 +42,13 @@ import sys
 #   SCBF_EXPLAIN_PROVIDER=anthropic   ANTHROPIC_API_KEY=...
 #   SCBF_EXPLAIN_PROVIDER=gemini      GEMINI_API_KEY=...
 #   SCBF_EXPLAIN_PROVIDER=groq        GROQ_API_KEY=...
+#   SCBF_EXPLAIN_PROVIDER=ollama      (no key -- runs locally)
+#
+# Prefer ollama where the evidence matters: it contains live attacker
+# infrastructure (C2 hostnames, exfiltration endpoints) and the credential
+# paths a package tried to read. Sending that to a hosted provider puts your
+# malware analysis in a third party's logs, which sits oddly beside a capture
+# pipeline that sinkholes the network precisely so nothing escapes.
 PROVIDER = os.environ.get("SCBF_EXPLAIN_PROVIDER", "anthropic").lower()
 
 DEFAULT_MODEL = {
@@ -50,6 +57,8 @@ DEFAULT_MODEL = {
     # Groq retires models often -- override with SCBF_EXPLAIN_MODEL if this
     # name 404s; the console's model list is authoritative.
     "groq": "openai/gpt-oss-120b",
+    # Small enough for the 8 GB capture VM alongside the guard.
+    "ollama": "qwen2.5:3b",
 }
 MODEL = os.environ.get("SCBF_EXPLAIN_MODEL", DEFAULT_MODEL.get(PROVIDER, "claude-opus-5-5"))
 
@@ -201,6 +210,47 @@ def _explain_groq(system: str, user: str, model: str, max_tokens: int) -> str:
             "(no explanation generated - the verdict is unaffected)").strip()
 
 
+def _explain_ollama(system: str, user: str, model: str, max_tokens: int) -> str:
+    """Local model over Ollama's HTTP API. No key, no egress.
+
+    Uses the chat endpoint directly rather than a client library: it is one
+    POST, and the guard host should not need another dependency to explain its
+    own decisions.
+    """
+    import urllib.error
+    import urllib.request
+
+    host = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434").rstrip("/")
+    body = json.dumps({
+        "model": model,
+        "stream": False,
+        "messages": [{"role": "system", "content": system},
+                     {"role": "user", "content": user}],
+        "options": {"num_predict": max_tokens},
+    }).encode()
+
+    req = urllib.request.Request(f"{host}/api/chat", data=body,
+                                 headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            payload = json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode(errors="replace").strip()[:300]
+        hint = ""
+        if "not found" in detail.lower():
+            hint = f"  hint: pull it first -- ollama pull {model}"
+        raise SystemExit(f"Ollama call failed: {e.code} {detail}\n{hint}\n"
+                         "The verdict stands regardless.".rstrip())
+    except urllib.error.URLError as e:
+        raise SystemExit(
+            f"could not reach Ollama at {host} ({e.reason}).\n"
+            "  hint: is `ollama serve` running? OLLAMA_HOST overrides the address.\n"
+            "The verdict stands regardless.")
+
+    return ((payload.get("message") or {}).get("content") or
+            "(no explanation generated - the verdict is unaffected)").strip()
+
+
 def explain(evidence: dict, *, model: str = MODEL, max_tokens: int = 1024,
             provider: str = PROVIDER) -> str:
     """Describe the behaviour behind an already-made decision.
@@ -213,6 +263,8 @@ def explain(evidence: dict, *, model: str = MODEL, max_tokens: int = 1024,
         verdict=verdict, verdict_lower=verdict.lower(),
         evidence=json.dumps(evidence, indent=2),
     )
+    if provider == "ollama":
+        return _explain_ollama(SYSTEM, user, model, max_tokens)
     if provider == "groq":
         return _explain_groq(SYSTEM, user, model, max_tokens)
     if provider == "gemini":
@@ -220,7 +272,7 @@ def explain(evidence: dict, *, model: str = MODEL, max_tokens: int = 1024,
     if provider == "anthropic":
         return _explain_anthropic(SYSTEM, user, model, max_tokens)
     raise SystemExit(f"unknown SCBF_EXPLAIN_PROVIDER: {provider!r} "
-                     "(expected 'anthropic', 'gemini' or 'groq')")
+                     "(expected 'anthropic', 'gemini', 'groq' or 'ollama')")
 
 
 def main() -> None:
@@ -232,7 +284,7 @@ def main() -> None:
     # model name to a different provider.
     ap.add_argument("--model", default=None)
     ap.add_argument("--provider", default=PROVIDER,
-                    choices=("anthropic", "gemini", "groq"))
+                    choices=("anthropic", "gemini", "groq", "ollama"))
     ap.add_argument("--max-tokens", type=int, default=1024)
     args = ap.parse_args()
 
