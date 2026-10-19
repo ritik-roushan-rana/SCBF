@@ -1,0 +1,19 @@
+#!/bin/bash
+# Refuse to commit anything that looks like a live API key.
+#
+# .gitignore is not enough on its own: a key pasted into a source file, a
+# README or a test fixture is not covered by any filename pattern, and once it
+# is in history, deleting the file does not remove it.
+set -u
+
+PATTERNS='gsk_[A-Za-z0-9]{40,}|AIza[A-Za-z0-9_-]{30,}|sk-ant-[A-Za-z0-9_-]{20,}|AQ\.Ab8[A-Za-z0-9_-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----'
+
+HITS=$(git diff --cached --no-color -U0 | grep -nE "^\+" | grep -E "$PATTERNS")
+if [ -n "$HITS" ]; then
+  echo "pre-commit: refusing — this looks like a live credential:" >&2
+  echo "$HITS" | head -5 | sed 's/^/  /' >&2
+  echo >&2
+  echo "Move it to /etc/scbf/explain.env or an environment variable." >&2
+  echo "If it is genuinely a placeholder: git commit --no-verify" >&2
+  exit 1
+fi

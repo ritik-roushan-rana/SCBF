@@ -38,6 +38,18 @@ logs/
 .DS_Store
 ._*
 
-# Never commit API keys
+# Credentials — never commit. A key in git history survives deletion of the
+# file, so the defence has to be "it was never added", not "we removed it".
 .env
+.env.*
+*.env
 *.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*credentials*
+*secrets*
+.netrc
+*.netrc
