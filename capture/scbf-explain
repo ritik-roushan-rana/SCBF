@@ -1,0 +1,35 @@
+#!/bin/bash
+# scbf-explain — plain-language account of why an install was blocked.
+#
+#   scbf-explain <trace.jsonl> <package-name> [pypi|npm] [guard-output-file]
+#
+# Called by the guard shims AFTER the installer has been killed and the verdict
+# printed. That ordering is the point: a termination must never wait on a
+# network round-trip, and the guard must keep working with no API key, no SDK,
+# and no connectivity. Every failure path here is non-fatal — the verdict has
+# already been issued and is unaffected by anything this script does.
+#
+# Requires: pip install anthropic, and credentials (ANTHROPIC_API_KEY, or an
+# `ant auth login` profile). Set SCBF_EXPLAIN=1 to enable.
+set -u
+
+HERE="${SCBF_HOME:-/home/ubuntu/scbf2}"
+PY="${SCBF_PYTHON:-$HERE/.venv/bin/python}"
+
+TRACE="${1:-}"; NAME="${2:-}"; ECO="${3:-pypi}"; GUARD_OUT="${4:-}"
+[ -n "$TRACE" ] && [ -f "$TRACE" ] || { echo "    (no trace to explain)"; exit 0; }
+
+# Pull the checkpoint and probability out of the guard's own output, so the
+# explanation describes the window the model actually scored rather than the
+# whole trace.
+CP=""; PR=""
+if [ -n "$GUARD_OUT" ] && [ -f "$GUARD_OUT" ]; then
+  CP=$(grep -oE "event [0-9]+: p\(malicious\)" "$GUARD_OUT" | tail -1 | grep -oE "[0-9]+")
+  PR=$(grep -oE "p\(malicious\)=[0-9.]+" "$GUARD_OUT" | tail -1 | cut -d= -f2)
+fi
+
+"$PY" -m scbf.explain.evidence "$TRACE" \
+      --package "$NAME" --ecosystem "$ECO" --verdict BLOCK \
+      ${CP:+--checkpoint "$CP"} ${CP:+--limit "$CP"} ${PR:+--probability "$PR"} \
+  | "$PY" -m scbf.explain.explain - \
+  || echo "    (explanation unavailable — the verdict stands)"

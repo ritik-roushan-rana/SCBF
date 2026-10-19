@@ -49,9 +49,19 @@ echo "$OUT" | grep -E "^\[guard\]|VERDICT|Events captured|INSTALLATION"
 if echo "$OUT" | grep -q "VERDICT        : BLOCKED"; then
   echo
   echo "[✗] BLOCKED — the installer was terminated before it finished."
+  echo "    trace: $TRACE"
+
+  # Optional plain-language explanation. Deliberately AFTER the kill and after
+  # the verdict is printed: a termination must not wait on a network call, and
+  # the guard must work with no API key and no SDK installed. Non-fatal.
+  if [ "${SCBF_EXPLAIN:-0}" = "1" ]; then
+    printf '%s' "$OUT" > /tmp/scbf_guard_out.$$
+    "$HERE/capture/scbf-explain" "$TRACE" "$NAME" npm /tmp/scbf_guard_out.$$
+    rm -f /tmp/scbf_guard_out.$$
+  fi
+
   rm -rf "$PREFIX"
   echo "    partial install discarded"
-  echo "    trace: $TRACE"
   exit 1
 fi
 echo

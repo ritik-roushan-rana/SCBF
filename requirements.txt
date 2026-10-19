@@ -21,3 +21,15 @@ matplotlib>=3.7.0
 
 # Development (optional)
 pytest>=7.4.0
+
+# Optional: plain-language explanations of blocked installs (scbf/explain/).
+# The guard does NOT need these -- explanations run after the kill and every
+# failure path is non-fatal. Install whichever provider you use:
+#
+#   SCBF_EXPLAIN_PROVIDER=anthropic  ANTHROPIC_API_KEY=...   pip install anthropic
+#   SCBF_EXPLAIN_PROVIDER=gemini     GEMINI_API_KEY=...      pip install google-genai
+#
+# Keys are read from the environment. Never commit one; rotate any key that has
+# been pasted into a chat, a ticket or a commit message.
+# anthropic>=0.40.0
+# google-genai>=1.0.0

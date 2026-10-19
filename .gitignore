@@ -37,3 +37,7 @@ logs/
 # OS
 .DS_Store
 ._*
+
+# Never commit API keys
+.env
+*.key
