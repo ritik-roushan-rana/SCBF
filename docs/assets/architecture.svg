@@ -280,12 +280,12 @@
   <path d="M352,790 L390,790" stroke="#2d3440" stroke-width="2" marker-end="url(#ar)"/>
 
   <rect x="398" y="740" width="300" height="100" class="card" stroke="#e8c193"/>
-  <text x="548" y="759" class="ch">LLM, any provider</text>
-  <text x="412" y="778" class="m">groq · anthropic · gemini · ollama</text>
-  <text x="412" y="796" class="s">Key from .env, never the repo. ollama</text>
-  <text x="412" y="809" class="s">runs locally, so attacker infrastructure</text>
-  <text x="412" y="822" class="s">and credential paths stay on the host.</text>
-  <text x="412" y="836" class="s">Every failure path is non-fatal.</text>
+  <text x="548" y="759" class="ch">LLM — Groq</text>
+  <text x="412" y="778" class="m">openai/gpt-oss-120b</text>
+  <text x="412" y="796" class="s">Key read from .env, never the repo.</text>
+  <text x="412" y="811" class="s">Every failure path is non-fatal: the</text>
+  <text x="412" y="824" class="s">verdict has already been issued.</text>
+  <text x="412" y="838" class="s">Provider is pluggable, not load-bearing.</text>
 
   <path d="M706,790 L744,790" stroke="#2d3440" stroke-width="2" marker-end="url(#ar)"/>
 
